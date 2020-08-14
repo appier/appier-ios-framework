@@ -8,8 +8,8 @@ Pod::Spec.new do |s|
   s.summary      = "AppierFramework is the library for Appier Enterprise Solutions."
   s.homepage     = "https://www.appier.com/en/index.html"
   s.documentation_url = "https://docs.aiqua.appier.com/docs"
-  s.license    = { :type => "MIT", :file => "Classes/LICENSE" }
-  s.author       = { "appier" => "rex.chen@appier.com" }
+  s.license    = { :type => "MIT", :file => "LICENSE" }
+  s.author       = { "Appier" => "shiv.raj@appier.com" }
   s.platform     = :ios, '8.0'
   s.source       = { :git => "https://github.com/appier/appier-ios-framework.git", :tag => "v#{s.version}"}
   s.ios.vendored_frameworks = 'Appier.framework'
