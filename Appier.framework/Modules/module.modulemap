@@ -4,8 +4,3 @@ framework module Appier {
   export *
   module * { export * }
 }
-
-module Appier.Swift {
-    header "Appier-Swift.h"
-    requires objc
-}
