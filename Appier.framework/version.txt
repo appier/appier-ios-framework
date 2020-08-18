@@ -1,0 +1,4 @@
+AppierFramework:v0.1.0-rc
+aiqua-ios-sdk:v5.3.0
+aiqua-ios-notification-sdk:Rex/Internal/ChangeForAppierFramework
+aideal-ios-sdk:master
