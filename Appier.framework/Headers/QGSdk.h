@@ -4,7 +4,7 @@
 //
 //  Created by Shiv
 //  Copyright (c) 2019 APPIER INC. All rights reserved.
-//  SDK VERSION ---> 5.3.0
+//  SDK VERSION ---> 7.0.0
 //
 
 #import <Foundation/Foundation.h>
