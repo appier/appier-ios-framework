@@ -1,0 +1,4 @@
+AppierFramework:v7.0.0
+aiqua-ios-sdk:v7.0.0
+aiqua-ios-notification-sdk:v7.0.0
+aideal-ios-sdk:v7.0.0
