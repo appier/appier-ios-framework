@@ -4,13 +4,15 @@
 //
 //  Created by Shiv
 //  Copyright (c) 2019 APPIER INC. All rights reserved.
-//  SDK VERSION ---> 7.0.0
+//  SDK VERSION ---> 7.1.0
 //
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <UserNotifications/UserNotifications.h>
 #import "QGInbox.h"
+
+#define DEPRECATED_MSG_ATTRIBUTE(msg) __attribute((deprecated((msg))))
 
 NS_ASSUME_NONNULL_BEGIN
 @interface QGSdk : NSObject
@@ -473,7 +475,7 @@ NS_ASSUME_NONNULL_BEGIN
  based on User To Product AI Model without filtering any category from the product data feed.
  Parse the response object and use it as required
  */
-- (void)getRecommendationForModelUserToProductWithCompletion:(void (^)(NSArray *response))completion;
+- (void)getRecommendationForModelUserToProductWithCompletion:(void (^)(NSArray *response))completion DEPRECATED_MSG_ATTRIBUTE("Use getRecommendationWithScenarioId:withQueryParameters:withCompletion:  instead");
 
 /*!
  @abstract
@@ -487,17 +489,40 @@ NS_ASSUME_NONNULL_BEGIN
  Cateory - Clothing
  Sub-Category - Men
  Sub-Sub-Category - Shirts
- 
+
  @code
  [[QGSdk getSharedInstance] getRecommendationForModelUserToProductWithCategory:@"Clothing" withSubCategory:@"Men" withSubSubCategory:@"Shirts" withCompletion:^(NSArray * _Nonnull response) {
-    NSLog(@"Recommendation Response:%@", response);
+    QGLog(@"Recommendation Response:%@", response);
  }];
  @endcode
  
  Parse the response object and use it as required
 */
-- (void)getRecommendationForModelUserToProductWithCategory:(NSString * _Nullable)category withSubCategory:(NSString * _Nullable)subCategory withSubSubCategory:(NSString * _Nullable)subSubCategory withCompletion:(void (^)(NSArray *response))completion;
+- (void)getRecommendationForModelUserToProductWithCategory:(NSString * _Nullable)category withSubCategory:(NSString * _Nullable)subCategory
+                                        withSubSubCategory:(NSString * _Nullable)subSubCategory
+                                            withCompletion:(void (^)(NSArray *response))completion DEPRECATED_MSG_ATTRIBUTE("Use getRecommendationWithScenarioId:withQueryParameters:withCompletion:  instead");
 
+/*!
+ @abstract
+ Returns recommendation data with 2.0 url for the user with scenario Id and query string
+
+ @discussion
+ This is a asynchronous function which returns array of recommended objects with a scenario Id and an optional dictionary for query string that may contain filter.
+ 
+ scenarioId - ScenarioId
+ QueryParameters - Dictionary to make a query string
+ @code //NSArray, NSError)
+ [[QGSdk getSharedInstance] getRecommendationWithScenarioId:@"sid" withQueryParameters:@"{@"product_id":@"XXX-SKU"}" withCompletion:^(NSArray * response) {
+        if (response) {
+            NSLog(@"totoal elements:%lu", (unsigned long)response.count);
+        }
+ }];
+ @endcode
+ 
+ Parse the response object and use it as required
+*/
+- (void)getRecommendationWithScenarioId:(NSString *)scenarioId withQueryParameters:(NSDictionary * _Nullable)queryStringDict
+                         withCompletion:(void (^)(NSArray * response))completion;
 /*!
  @abstract
  Fetch the latest remote inboxMessages
