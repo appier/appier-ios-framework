@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.documentation_url = "https://docs.aiqua.appier.com/docs"
   s.license    = { :type => "MIT", :file => "LICENSE" }
   s.author       = { "Appier" => "shiv.raj@appier.com" }
-  s.platform     = :ios, '8.0'
+  s.platform     = :ios, '9.0'
   s.source       = { :git => "https://github.com/appier/appier-ios-framework.git", :tag => package['version']}
   s.ios.vendored_frameworks = 'Appier.framework'
   s.frameworks = 'AdSupport', 'CoreTelephony', 'SystemConfiguration', 'CoreLocation', 'ImageIO', 'MobileCoreServices'
