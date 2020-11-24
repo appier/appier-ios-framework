@@ -4,7 +4,7 @@
 //
 //  Created by Shiv
 //  Copyright (c) 2019 APPIER INC. All rights reserved.
-//  SDK VERSION ---> 7.3.0
+//  SDK VERSION ---> 7.4.0
 //
 
 #import <Foundation/Foundation.h>
@@ -506,10 +506,12 @@ NS_ASSUME_NONNULL_BEGIN
  Returns recommendation data with 2.0 url for the user with scenario Id and query string
 
  @discussion
- This is a asynchronous function which returns array of recommended objects with a scenario Id and an optional dictionary for query string that may contain filter.
+ This is a asynchronous function which returns an array of recommended objects with a scenario Id and an optional dictionary for query string that may contain filter.
  
- scenarioId - ScenarioId
- QueryParameters - Dictionary to make a query string
+ @param scenarioId ScenarioId
+ 
+ @param QueryParameters Dictionary to make a query string
+ 
  @code //NSArray, NSError)
  [[QGSdk getSharedInstance] getRecommendationWithScenarioId:@"sid" withQueryParameters:@"{@"product_id":@"XXX-SKU"}" withCompletion:^(NSArray * response) {
         if (response) {
@@ -521,7 +523,31 @@ NS_ASSUME_NONNULL_BEGIN
  Parse the response object and use it as required
 */
 - (void)getRecommendationWithScenarioId:(NSString *)scenarioId withQueryParameters:(NSDictionary * _Nullable)queryStringDict
-                         withCompletion:(void (^)(NSArray * response))completion;
+                         withCompletion:(void (^)(NSArray * response))completion DEPRECATED_MSG_ATTRIBUTE("Use getRecommendationWithScenarioId:withQueryParameters:withCompletionResponse:  instead");
+
+/*!
+ @abstract
+ Returns recommendation data with 2.0 url for the user with scenario Id and query string
+
+ @discussion
+ This is a asynchronous function which returns a dictonary of recommended objects with a scenario Id and an optional dictionary for query string that may contain filter.
+ 
+ @param scenarioId ScenarioId
+ 
+ @param QueryParameters  Dictionary to make a query string
+ 
+ @code //NSArray, NSError)
+ [[QGSdk getSharedInstance] getRecommendationWithScenarioId:@"sid" withQueryParameters:@"{@"product_id":@"XXX-SKU"}" withCompletionHandler:^(id _Nullable response) {
+        if (response) {
+            QGLog(@"You can parse response");
+        }
+ }];
+ @endcode
+ 
+ Parse the response object and use it as required
+*/
+- (void)getRecommendationWithScenarioId:(NSString *)scenarioId withQueryParameters:(NSDictionary * _Nullable)queryStringDict
+                         withCompletionHandler:(void (^)(id _Nullable response))completion;
 
 /*!
  @abstract
@@ -530,17 +556,24 @@ NS_ASSUME_NONNULL_BEGIN
  @discussion
  This is a regular log event with parameters. All three parameters are necessary
  
- scenarioId - ScenarioId
- modelId - ModelId
- productId - ProductId
+ @param scenarioId ScenarioId
+ 
+ @param modelId ModelId
+ 
+ @param productId ProductId
+ 
+ @param recommendationId recId
+ 
  @code
- [[QGSdk getSharedInstance] logRecommendationClickedWithScenarioId:@"sid" withModelId:19023 withProductId:@"pid"];
+ [[QGSdk getSharedInstance] logRecommendationClickedWithScenarioId:@"sid" withModelId:19023 withProductId:@"pid" withRecommendationId:@"recId"];
  @endcode
  
  Parse the response object and use it as required
 */
 - (void)logRecommendationClickedWithScenarioId:(NSString *)scenarioId
-                                          withModelId:(long)modelId withProductId:(NSString *)productId;
+                                   withModelId:(long)modelId
+                                 withProductId:(NSString *)productId
+                          withRecommendationId:(NSString *)recommendationId;
 
 /*!
  @abstract
