@@ -2,8 +2,7 @@
 //  Appier.h
 //  Appier
 //
-//  Created by chunta on 2020/6/23.
-//  Copyright © 2020 chunta. All rights reserved.
+//  Copyright © 2020 Appier. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

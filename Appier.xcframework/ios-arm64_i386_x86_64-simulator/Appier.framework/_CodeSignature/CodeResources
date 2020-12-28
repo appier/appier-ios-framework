@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/Appier.h</key>
 		<data>
-		boszwueIvrIxGrFpKg/ABe6Tzvg=
+		STYgkFYHjdZGo6G6wzue/cugXfk=
 		</data>
 		<key>Headers/QGInbox.h</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Headers/QGNotificationSdk.h</key>
 		<data>
-		GtvsOdzdew8eq/zRqkFyHz8gaKA=
+		poLrlUgsCDUyNDkH+TJPrmu+gzU=
 		</data>
 		<key>Headers/QGNotificationService.h</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Headers/QGSdk.h</key>
 		<data>
-		Y6D+371SsWkqmgDzRWRbwTDs0F4=
+		s5PgxC2sMWmlDGqKxT01xioLUWQ=
 		</data>
 		<key>Headers/QGWKWebView.h</key>
 		<data>
@@ -62,7 +62,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		bzI9J7DO1z14k9OnCC3GVfrbfeo=
+		FF+cD9KpKLSdUH9UCUOrfTkU4Hs=
 		</data>
 		<key>Modules/Appier.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -142,7 +142,7 @@
 		</data>
 		<key>version.txt</key>
 		<data>
-		0BUax9MWv0haPisGdudnZwwgvkA=
+		8FTPU7fDJbtc/APVqNbX+7gFVwk=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -217,11 +217,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			boszwueIvrIxGrFpKg/ABe6Tzvg=
+			STYgkFYHjdZGo6G6wzue/cugXfk=
 			</data>
 			<key>hash2</key>
 			<data>
-			nv4n2oqx0nNW5Qi2BoJxhzEH9NwdmudFQJrbs975ph8=
+			4HN2g9Y8wHTCLauuK4f5a8vzSB2jtwUZSmem2ND90Ak=
 			</data>
 		</dict>
 		<key>Headers/QGInbox.h</key>
@@ -250,11 +250,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			GtvsOdzdew8eq/zRqkFyHz8gaKA=
+			poLrlUgsCDUyNDkH+TJPrmu+gzU=
 			</data>
 			<key>hash2</key>
 			<data>
-			WLPX576D/gO0kTKMwxfK9Ko/hawoPkTr7s1568LLNrM=
+			4yZnNwNgoTlQygLxm4CUueWOOL7YHo0moLqwZMjcWzs=
 			</data>
 		</dict>
 		<key>Headers/QGNotificationService.h</key>
@@ -272,11 +272,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Y6D+371SsWkqmgDzRWRbwTDs0F4=
+			s5PgxC2sMWmlDGqKxT01xioLUWQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			HroATdlRgjpLPHID2Jkf/awI9Pxe1LZTGUcgkKDwC4Y=
+			+WZEFW7jacXDJfMLJRUEnWD9r9XD0f0HlVOgv8VWMJM=
 			</data>
 		</dict>
 		<key>Headers/QGWKWebView.h</key>
@@ -514,11 +514,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			0BUax9MWv0haPisGdudnZwwgvkA=
+			8FTPU7fDJbtc/APVqNbX+7gFVwk=
 			</data>
 			<key>hash2</key>
 			<data>
-			DEWsMloX2e/fElJn0jD3Xp0q1XiqWYOXXGH6F8+tyBA=
+			XstLLvHesm1xzXoEpwIZmtRd51Xk8Z8On2/ipSaxZrg=
 			</data>
 		</dict>
 	</dict>
