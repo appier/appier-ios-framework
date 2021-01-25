@@ -4,7 +4,7 @@
 //
 //  Created by Shiv
 //  Copyright (c) 2019 APPIER INC. All rights reserved.
-//  SDK VERSION ---> 7.5.0
+//  SDK VERSION ---> 7.6.0
 //
 
 #import <Foundation/Foundation.h>
@@ -362,9 +362,9 @@ NS_ASSUME_NONNULL_BEGIN
  
  eg: for click attribution window to be 12 hrs, pass the value: 43200
  
- @note Pass seconds as '0' to disable click attribution
+ @note Setting Click Attribution Window as '0' is not supported. In case, you set '0', SDK will fallback to default window (86400 secs).
  
- @param seconds         attribution window time in seconds
+ @param seconds         click attribution window time in seconds
  */
 - (void)setClickAttributionWindow:(NSInteger)seconds;
 
@@ -379,7 +379,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  eg: for view through attribution window to be 2 hrs, pass the value: 7200
  
- @note Pass seconds as '0' to disable view through attribution
+ @note Setting Attribution Window as '0' is not supported. In case, you set '0', SDK will fallback to default window (3600 secs).
  
  @param seconds         attribution window time in seconds
  */
