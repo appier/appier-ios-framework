@@ -11,7 +11,7 @@
 //
 //  Do not add QGSdk to these Targets. For logging any event, use the api in QGNotificationSdk.
 //  QGSdk should not used any extension. Should be used in Main Project Target only.
-//  SDK_VERSION --- 7.6.0
+//  SDK_VERSION --- 7.7.0
 
 #import <Foundation/Foundation.h>
 #import <UserNotifications/UserNotifications.h>
