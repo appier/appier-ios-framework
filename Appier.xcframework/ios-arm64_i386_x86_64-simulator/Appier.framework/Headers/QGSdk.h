@@ -4,7 +4,7 @@
 //
 //  Created by Shiv
 //  Copyright (c) 2019 APPIER INC. All rights reserved.
-//  SDK VERSION ---> 7.7.0
+//  SDK VERSION ---> 7.8.0
 //
 
 #import <Foundation/Foundation.h>
@@ -215,6 +215,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /*! @abstract Set the email id of the user */
 - (void)setEmail:(NSString *)email;
+
+/*! @abstract Set the phone number of the user */
+- (void)setPhoneNumber:(NSString *)phoneNo;
 
 /*! @abstract Set the day of DOB of the user */
 - (void)setDayOfBirth:(NSNumber *)day;
