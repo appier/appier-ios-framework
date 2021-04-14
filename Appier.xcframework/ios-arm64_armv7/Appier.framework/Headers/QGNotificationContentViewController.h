@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+
+DEPRECATED_MSG_ATTRIBUTE("Notification extension support will be removed from AppierFramework in a future version. Please link to AppierExtensionFramework in your notification extensions.")
 @interface QGNotificationContentViewController : UIViewController
 
 @end
