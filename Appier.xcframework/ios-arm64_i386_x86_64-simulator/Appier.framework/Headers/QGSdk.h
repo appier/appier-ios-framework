@@ -4,7 +4,7 @@
 //
 //  Created by Shiv
 //  Copyright (c) 2019 APPIER INC. All rights reserved.
-//  SDK VERSION ---> 7.9.0
+//  SDK VERSION ---> 7.10.0
 //
 
 #import <Foundation/Foundation.h>
@@ -534,7 +534,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param scenarioId ScenarioId
 
- @param QueryParameters Dictionary to make a query string
+ @param queryStringDict Dictionary to make a query string
 
  @code
  [[QGSdk getSharedInstance] getRecommendationWithScenarioId:@"sid" withQueryParameters:@{@"pid":@"XXX-SKU"} withCompletion:^(NSArray * response) {
@@ -559,7 +559,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param scenarioId ScenarioId
 
- @param QueryParameters Dictionary to make a query string
+ @param queryStringDict Dictionary to make a query string
 
  @code
  [[QGSdk getSharedInstance] getRecommendationWithScenarioId:@"sid" withQueryParameters:@{@"pid":@"XXX-SKU"} withCompletionHandler:^(id _Nullable response) {
@@ -584,7 +584,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param productId ProductId
 
- @param QueryParameters Dictionary to make a query string
+ @param queryStringDict Dictionary to make a query string
 
  @code
  [[QGSdk getSharedInstance] getRecommendationWithScenarioId:@"sid" withProductId:@"XXX-SKU" withQueryParameters:@{@"param01":@"value"} withCompletionHandler:^(id _Nullable response) {
