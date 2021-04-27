@@ -1,2 +1,9 @@
-# OS X
+# Bundler
+.bundle
+vendor
+
+# Fastlane
+fastlane/report*
+
+# Misc
 .DS_Store
