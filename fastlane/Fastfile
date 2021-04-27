@@ -1,0 +1,87 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+default_platform(:ios)
+
+platform :ios do
+
+  before_all do
+    setup_circle_ci
+  end
+
+  desc "Open GitHub pull request"
+  lane :pr do |options|
+    branch_name = options.fetch(:branch_name, "release")
+
+    # Read framework version
+    plist_file = "../Appier.xcframework/ios-arm64_armv7/Appier.framework/Info.plist"
+    framework_version = sh("/usr/libexec/PlistBuddy #{plist_file} -c 'Print :CFBundleShortVersionString'").strip
+
+    # Set Podspec version
+    version_file = {
+      "version" => framework_version
+    }
+
+    File.write("../version.json", version_file.to_json)
+
+    # Commit and push changes
+    sh "git checkout -b #{branch_name}"
+
+    git_commit(
+      path: [
+        "./*.xcframework/*",
+        "./version.json"
+      ],
+      message: "Release #{framework_version}"
+    )
+
+    push_to_git_remote(
+      force: true,
+      local_branch: branch_name,
+      remote_branch: branch_name
+    )
+
+    # Open pull request
+    github_api(
+      server_url: "https://api.github.com",
+      api_token: ENV["GITHUB_TOKEN"],
+      http_method: "POST",
+      path: "/repos/appier/appier-ios-framework/pulls",
+      body: {
+        "head": branch_name,
+        "base": "master",
+        "title": "Release v#{framework_version}"
+      }
+    )
+  end
+
+  desc "Deploy Podspecs to CocoaPods Trunk"
+  lane :deploy do
+    version_file = File.read("../version.json")
+    version_data = JSON.parse(version_file)
+    tag = version_data["version"]
+
+    add_git_tag(
+      tag: tag
+    )
+
+    # Push tag
+    push_to_git_remote()
+
+    # Deploy Podspecs
+    Dir.chdir("..") do
+      sh "pod trunk push AppierFramework.podspec --allow-warnings"
+      sh "pod trunk push AppierExtensionFramework.podspec --allow-warnings"
+    end
+  end
+
+end
