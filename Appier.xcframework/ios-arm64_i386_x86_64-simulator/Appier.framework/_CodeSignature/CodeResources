@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		TWYzbUY07peVF7ZX9t+V9PIAD0E=
+		0ddcap38Dg+VxVk7y05Ah+SKdcs=
 		</data>
 		<key>Headers/AIDPage.h</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Headers/QGSdk.h</key>
 		<data>
-		DFNLkNwwoxg5jJYU/XJpdiBeBs8=
+		QXSOyhYl1GzswREd9i7nug1fqGE=
 		</data>
 		<key>Headers/QGWKWebView.h</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		UzIUqu3y/xjzaqUE9qTfSuUmOPg=
+		nu3qRNqQ6S3ozJKYO6IswCR79p8=
 		</data>
 		<key>Modules/Appier.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -186,11 +186,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			TWYzbUY07peVF7ZX9t+V9PIAD0E=
+			0ddcap38Dg+VxVk7y05Ah+SKdcs=
 			</data>
 			<key>hash2</key>
 			<data>
-			bogFhrkG7pBGcT1aYKPp44r31n/5qxaVmUNK7HyC+9I=
+			DfnUIX8HYWMGffbH79dh+a7zQ2la2FkTKkjKcg500I8=
 			</data>
 		</dict>
 		<key>Headers/AIDPage.h</key>
@@ -296,11 +296,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			DFNLkNwwoxg5jJYU/XJpdiBeBs8=
+			QXSOyhYl1GzswREd9i7nug1fqGE=
 			</data>
 			<key>hash2</key>
 			<data>
-			ivm2Wnc8KBM6T8kWtyYEKce4M5t1bLPVu9XDObfNsNk=
+			QrJNlAyUCNDoDpz0BdgPS862D4a7bdExFIL+lJJgAyo=
 			</data>
 		</dict>
 		<key>Headers/QGWKWebView.h</key>
