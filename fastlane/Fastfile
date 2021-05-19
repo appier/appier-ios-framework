@@ -68,7 +68,7 @@ platform :ios do
   lane :deploy do
     version_file = File.read("../version.json")
     version_data = JSON.parse(version_file)
-    tag = "v#{version_data["version"]}"
+    tag = version_data["version"]
 
     add_git_tag(
       tag: tag
