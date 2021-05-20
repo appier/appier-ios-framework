@@ -21,10 +21,7 @@ platform :ios do
   desc "Open GitHub pull request"
   lane :pr do |options|
     branch_name = options.fetch(:branch_name, "release")
-
-    # Read framework version
-    plist_file = "../Appier.xcframework/ios-arm64_armv7/Appier.framework/Info.plist"
-    framework_version = sh("/usr/libexec/PlistBuddy #{plist_file} -c 'Print :CFBundleShortVersionString'").strip
+    framework_version = get_framework_version
 
     # Set Podspec version
     version_file = {
@@ -65,23 +62,39 @@ platform :ios do
   end
 
   desc "Deploy Podspecs to CocoaPods Trunk"
-  lane :deploy do
-    version_file = File.read("../version.json")
-    version_data = JSON.parse(version_file)
-    tag = version_data["version"]
-
-    add_git_tag(
-      tag: tag
-    )
-
-    # Push tag
-    push_to_git_remote()
-
-    # Deploy Podspecs
+  lane :pods do
     Dir.chdir("..") do
       sh "pod trunk push AppierFramework.podspec --allow-warnings"
       sh "pod trunk push AppierExtensionFramework.podspec --allow-warnings"
     end
+  end
+
+  desc "Create release on GitHub"
+  lane :release do
+    framework_version = get_framework_version
+    tag = "v#{framework_version}"
+    archive_name = "AppierFramework.zip"
+
+    Dir.chdir("..") do
+      sh "zip -r #{archive_name} Appier.xcframework AppierExtension.xcframework"
+    end
+
+    github_release = set_github_release(
+      repository_name: "appier/appier-ios-framework",
+      api_token: ENV["GITHUB_TOKEN"],
+      name: "Appier iOS SDK #{framework_version}",
+      tag_name: tag,
+      description: "For details about this release, see the <a href=\"https://docs.aiqua.appier.com/docs/release-notes-for-ios\">release notes</a>.",
+      commitish: "master",
+      upload_assets: [
+        archive_name
+      ]
+    )
+  end
+
+  private_lane :get_framework_version do
+    plist_file = "../Appier.xcframework/ios-arm64_armv7/Appier.framework/Info.plist"
+    sh("/usr/libexec/PlistBuddy #{plist_file} -c 'Print :CFBundleShortVersionString'").strip
   end
 
 end
