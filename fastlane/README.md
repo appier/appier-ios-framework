@@ -21,11 +21,16 @@ or alternatively using `brew install fastlane`
 fastlane ios pr
 ```
 Open GitHub pull request
-### ios deploy
+### ios pods
 ```
-fastlane ios deploy
+fastlane ios pods
 ```
 Deploy Podspecs to CocoaPods Trunk
+### ios release
+```
+fastlane ios release
+```
+Create release on GitHub
 
 ----
 
