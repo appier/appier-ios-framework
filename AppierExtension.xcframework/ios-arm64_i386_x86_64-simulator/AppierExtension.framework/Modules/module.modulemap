@@ -4,3 +4,8 @@ framework module AppierExtension {
   export *
   module * { export * }
 }
+
+module AppierExtension.Swift {
+    header "AppierExtension-Swift.h"
+    requires objc
+}

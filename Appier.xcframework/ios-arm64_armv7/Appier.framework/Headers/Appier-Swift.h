@@ -278,6 +278,18 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIDAiDeal * 
 @end
 
 
+@class QGSdk;
+
+SWIFT_CLASS_NAMED("AppierApp")
+@interface APRApp : NSObject
+@property (nonatomic, readonly, strong) AIDAiDeal * _Nonnull aiDeal;
+@property (nonatomic, readonly, strong) QGSdk * _Nonnull aiqua;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)setDataCollection:(BOOL)enabled;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRApp * _Nonnull sharedApp;)
++ (APRApp * _Nonnull)sharedApp SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class NSBundle;
 
 SWIFT_CLASS("_TtC6Appier15AppierResources")
@@ -355,6 +367,32 @@ SWIFT_CLASS_NAMED("ConversionItem")
 - (nonnull instancetype)initWithIdentifier:(NSString * _Nonnull)identifier OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+typedef SWIFT_ENUM_NAMED(NSInteger, APRLogType, "LogType", open) {
+  APRLogTypeDebug = 0,
+  APRLogTypeInfo = 1,
+  APRLogTypeWarning = 2,
+  APRLogTypeError = 3,
+};
+
+
+/// An object that prints interpolated strings to the console, and a drop-in replacement for the
+/// <code>os.Logger</code> type introduced in iOS 14.
+SWIFT_CLASS_NAMED("Logger")
+@interface APRLogger : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull category;
+@property (nonatomic, readonly) BOOL enabled;
++ (NSString * _Nonnull)descriptionForLevel:(enum APRLogType)level SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+@interface APRLogger (SWIFT_EXTENSION(Appier))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
++ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -655,6 +693,18 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIDAiDeal * 
 @end
 
 
+@class QGSdk;
+
+SWIFT_CLASS_NAMED("AppierApp")
+@interface APRApp : NSObject
+@property (nonatomic, readonly, strong) AIDAiDeal * _Nonnull aiDeal;
+@property (nonatomic, readonly, strong) QGSdk * _Nonnull aiqua;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)setDataCollection:(BOOL)enabled;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRApp * _Nonnull sharedApp;)
++ (APRApp * _Nonnull)sharedApp SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class NSBundle;
 
 SWIFT_CLASS("_TtC6Appier15AppierResources")
@@ -732,6 +782,32 @@ SWIFT_CLASS_NAMED("ConversionItem")
 - (nonnull instancetype)initWithIdentifier:(NSString * _Nonnull)identifier OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+typedef SWIFT_ENUM_NAMED(NSInteger, APRLogType, "LogType", open) {
+  APRLogTypeDebug = 0,
+  APRLogTypeInfo = 1,
+  APRLogTypeWarning = 2,
+  APRLogTypeError = 3,
+};
+
+
+/// An object that prints interpolated strings to the console, and a drop-in replacement for the
+/// <code>os.Logger</code> type introduced in iOS 14.
+SWIFT_CLASS_NAMED("Logger")
+@interface APRLogger : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull category;
+@property (nonatomic, readonly) BOOL enabled;
++ (NSString * _Nonnull)descriptionForLevel:(enum APRLogType)level SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+@interface APRLogger (SWIFT_EXTENSION(Appier))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
++ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
