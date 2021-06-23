@@ -12,7 +12,31 @@ import UIKit
 import WebKit
 import os
 import zlib
-extension PageType : Swift.Codable {
+extension Logger {
+  @objc(aiquaLogger) public static let aiqua: Appier.Logger
+}
+public enum PageType {
+  case top
+  case category
+  case search
+  case item
+  case cart
+  case cartForm
+  case conversion
+  case myPage
+  case login
+  case registrationForm
+  case registration
+  case custom(Swift.String)
+}
+extension PageType : Swift.RawRepresentable {
+  public var rawValue: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+}
+extension PageType : Swift.Codable, Swift.Hashable {
 }
 extension PageType : Swift.CaseIterable {
   public static var allCases: [Appier.PageType]
@@ -155,3 +179,40 @@ extension Data {
   @objc deinit
   @objc override dynamic public init()
 }
+@_inheritsConvenienceInitializers @objc(APRApp) @objcMembers public class AppierApp : ObjectiveC.NSObject {
+  @objc public var aiDeal: Appier.AiDeal {
+    @objc get
+  }
+  @objc public var aiqua: Appier.QGSdk {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc(setDataCollection:) public func setDataCollection(_ enabled: Swift.Bool)
+  @objc(sharedApp) public static let shared: Appier.AppierApp
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(APRLogger) public class Logger : ObjectiveC.NSObject {
+  @objc final public let category: Swift.String
+  @objc public var enabled: Swift.Bool {
+    @objc get
+  }
+  @objc(descriptionForLevel:) public static func description(for level: Appier.LogType) -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(APRLogType) public enum LogType : Swift.Int {
+  case debug, info, warning, error
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension LogType : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension Appier.LogType : Swift.Equatable {}
+extension Appier.LogType : Swift.Hashable {}
+extension Appier.LogType : Swift.RawRepresentable {}

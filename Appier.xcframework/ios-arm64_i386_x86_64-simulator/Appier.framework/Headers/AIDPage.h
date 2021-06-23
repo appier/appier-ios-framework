@@ -16,7 +16,7 @@ extern AIDPageAttributeName const AIDPageCartPriceAttributeName NS_SWIFT_NAME(ca
 
 // MARK: - Page Types
 
-typedef NSString * AIDPageType NS_TYPED_ENUM NS_SWIFT_NAME(PageType);
+typedef NSString * AIDPageType NS_TYPED_ENUM;
 
 extern AIDPageType const AIDPageTypeUninterested;
 extern AIDPageType const AIDPageTypeTop;
