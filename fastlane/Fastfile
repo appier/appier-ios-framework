@@ -33,11 +33,17 @@ platform :ios do
     # Commit and push changes
     sh "git checkout -b #{branch_name}"
 
+    path = [
+      "./*.xcframework/*",
+      "./version.json"
+    ]
+
+    git_add(
+      path: path
+    )
+
     git_commit(
-      path: [
-        "./*.xcframework/*",
-        "./version.json"
-      ],
+      path: path,
       message: "Release #{framework_version}"
     )
 
