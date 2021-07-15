@@ -208,6 +208,16 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+
+SWIFT_CLASS_NAMED("FrameworkInfo")
+@interface APRFrameworkInfo : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull buildString;)
++ (NSString * _Nonnull)buildString SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull versionString;)
++ (NSString * _Nonnull)versionString SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 typedef SWIFT_ENUM_NAMED(NSInteger, APRLogType, "LogType", open) {
   APRLogTypeDebug = 0,
   APRLogTypeInfo = 1,
@@ -225,6 +235,12 @@ SWIFT_CLASS_NAMED("Logger")
 + (NSString * _Nonnull)descriptionForLevel:(enum APRLogType)level SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+@interface APRLogger (SWIFT_EXTENSION(AppierExtension))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
++ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 #if __has_attribute(external_source_symbol)
@@ -442,6 +458,16 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+
+SWIFT_CLASS_NAMED("FrameworkInfo")
+@interface APRFrameworkInfo : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull buildString;)
++ (NSString * _Nonnull)buildString SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull versionString;)
++ (NSString * _Nonnull)versionString SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 typedef SWIFT_ENUM_NAMED(NSInteger, APRLogType, "LogType", open) {
   APRLogTypeDebug = 0,
   APRLogTypeInfo = 1,
@@ -459,6 +485,12 @@ SWIFT_CLASS_NAMED("Logger")
 + (NSString * _Nonnull)descriptionForLevel:(enum APRLogType)level SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+@interface APRLogger (SWIFT_EXTENSION(AppierExtension))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
++ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 #if __has_attribute(external_source_symbol)
@@ -676,6 +708,16 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+
+SWIFT_CLASS_NAMED("FrameworkInfo")
+@interface APRFrameworkInfo : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull buildString;)
++ (NSString * _Nonnull)buildString SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull versionString;)
++ (NSString * _Nonnull)versionString SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 typedef SWIFT_ENUM_NAMED(NSInteger, APRLogType, "LogType", open) {
   APRLogTypeDebug = 0,
   APRLogTypeInfo = 1,
@@ -693,6 +735,12 @@ SWIFT_CLASS_NAMED("Logger")
 + (NSString * _Nonnull)descriptionForLevel:(enum APRLogType)level SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+@interface APRLogger (SWIFT_EXTENSION(AppierExtension))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
++ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 #if __has_attribute(external_source_symbol)

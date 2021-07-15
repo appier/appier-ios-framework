@@ -5,14 +5,27 @@
 import Foundation
 import Swift
 import os
+extension Logger {
+  @objc(aiquaNotificationLogger) public static let aiquaNotification: AppierExtension.Logger
+}
+@_inheritsConvenienceInitializers @objc(APRFrameworkInfo) @objcMembers final public class FrameworkInfo : ObjectiveC.NSObject {
+  @objc public static var buildString: Swift.String {
+    @objc get
+  }
+  @objc public static var versionString: Swift.String {
+    @objc get
+  }
+  @objc deinit
+  @objc override dynamic public init()
+}
 @_hasMissingDesignatedInitializers @objc(APRLogger) public class Logger : ObjectiveC.NSObject {
   @objc final public let category: Swift.String
   @objc public var enabled: Swift.Bool {
     @objc get
   }
   @objc(descriptionForLevel:) public static func description(for level: AppierExtension.LogType) -> Swift.String
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 @objc(APRLogType) public enum LogType : Swift.Int {
   case debug, info, warning, error
