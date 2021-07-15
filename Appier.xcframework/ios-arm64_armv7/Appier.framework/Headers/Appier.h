@@ -4,7 +4,9 @@ FOUNDATION_EXPORT double AppierVersionNumber;
 FOUNDATION_EXPORT const unsigned char AppierVersionString[];
 
 // AiDeal public headers
+#import <Appier/AIDNotification.h>
 #import <Appier/AIDPage.h>
+#import <Appier/AIDUserInfoKey.h>
 
 // AIQUA public headers
 #import <Appier/QGSdk.h>

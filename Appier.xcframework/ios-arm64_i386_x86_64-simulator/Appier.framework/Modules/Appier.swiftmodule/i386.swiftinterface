@@ -13,6 +13,9 @@ import WebKit
 import os
 import zlib
 extension Logger {
+  @objc(aiquaNotificationLogger) public static let aiquaNotification: Appier.Logger
+}
+extension Logger {
   @objc(aiquaLogger) public static let aiqua: Appier.Logger
 }
 public enum PageType {
@@ -64,32 +67,18 @@ public enum BadgePositionOverride {
   case bottomLeftCorner
   case bottomRightCorner
 }
-@objc @_hasMissingDesignatedInitializers public class CampaignPresenterView : ObjectiveC.NSObject {
-  weak public var presenterViewController: UIKit.UIViewController?
-  @objc deinit
+@objc(AIDAction) @objcMembers public class Action : ObjectiveC.NSObject {
+  @objc final public let rawValue: Swift.String
+  @objc required public init(rawValue: Swift.String)
   @objc override dynamic public init()
+  @objc deinit
 }
-extension CampaignPresenterView {
-  public func presentOffer(contentHTML: Swift.String, css: Swift.String)
-  public func dismissOffer()
-  public func presentCoupon(contentHTML: Swift.String, css: Swift.String, couponCode: Swift.String, requestCopyBlock: (() -> Swift.Void)? = nil)
-  public func showBadge(text: Swift.String?, backgroundColor: UIKit.UIColor, imageURL: Foundation.URL, frame: CoreGraphics.CGRect)
-  public func setBadgeText(_ text: Swift.String?)
-  public func setBadgeFrame(_ frame: CoreGraphics.CGRect, animated: Swift.Bool)
-  public func setBadgeHidden(_ hidden: Swift.Bool)
-  public func removeBadge()
-  public func showToast(message: Swift.String)
-}
-extension CampaignPresenterView : UIKit.UIViewControllerTransitioningDelegate {
-  @objc dynamic public func presentationController(forPresented presented: UIKit.UIViewController, presenting: UIKit.UIViewController?, source: UIKit.UIViewController) -> UIKit.UIPresentationController?
-  @objc dynamic public func animationController(forPresented presented: UIKit.UIViewController, presenting: UIKit.UIViewController, source: UIKit.UIViewController) -> UIKit.UIViewControllerAnimatedTransitioning?
-  @objc dynamic public func animationController(forDismissed dismissed: UIKit.UIViewController) -> UIKit.UIViewControllerAnimatedTransitioning?
+extension Action : Swift.RawRepresentable {
+  @objc public static let didRedeemCoupon: Appier.Action
+  public typealias RawValue = Swift.String
 }
 @_hasMissingDesignatedInitializers @objc(AIDAiDeal) @objcMembers final public class AiDeal : ObjectiveC.NSObject {
   @objc final public var configuration: Appier.Configuration
-  @objc final public var presenterView: Appier.CampaignPresenterView? {
-    @objc get
-  }
   @objc final public func configure(apiKey: Swift.String)
   @objc(startLoggingWithViewController:) final public func startLogging(_ viewController: UIKit.UIViewController)
   @objc(startLoggingWithViewController:scrollView:attributes:) final public func startLogging(_ viewController: UIKit.UIViewController, scrollView: UIKit.UIScrollView?, attributes: [Appier.Page.AttributeName : Any])
@@ -97,10 +86,13 @@ extension CampaignPresenterView : UIKit.UIViewControllerTransitioningDelegate {
   @objc(startLoggingWithViewController:scrollView:) final public func startLogging(_ viewController: UIKit.UIViewController, scrollView: UIKit.UIScrollView?)
   @objc final public func stopLogging()
   @objc(logConversion:) final public func log(_ conversion: Appier.Conversion)
+  @objc(logAction:) final public func log(_ action: Appier.Action)
   @objc(setDataCollection:) final public func setDataCollection(_ enabled: Swift.Bool)
   @objc(openURL:) final public func open(_ url: Foundation.URL)
   @objc(viewWillTransitionWithTransitionCoordinator:) final public func viewWillTransition(with coordinator: UIKit.UIViewControllerTransitionCoordinator)
   @objc public static let shared: Appier.AiDeal
+  @objc public static let offerButtonTappedNotification: Foundation.Notification.Name
+  @objc public static let configurationDidChangeNotification: Foundation.Notification.Name
   @objc deinit
   @objc override dynamic public init()
 }
@@ -190,6 +182,16 @@ extension Data {
   @objc(setDataCollection:) public func setDataCollection(_ enabled: Swift.Bool)
   @objc(sharedApp) public static let shared: Appier.AppierApp
   @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(APRFrameworkInfo) @objcMembers final public class FrameworkInfo : ObjectiveC.NSObject {
+  @objc public static var buildString: Swift.String {
+    @objc get
+  }
+  @objc public static var versionString: Swift.String {
+    @objc get
+  }
+  @objc deinit
+  @objc override dynamic public init()
 }
 @_hasMissingDesignatedInitializers @objc(APRLogger) public class Logger : ObjectiveC.NSObject {
   @objc final public let category: Swift.String

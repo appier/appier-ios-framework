@@ -213,8 +213,23 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+
+/// An object that represents an action to report to the framework.
+SWIFT_CLASS_NAMED("Action")
+@interface AIDAction : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull rawValue;
+- (nonnull instancetype)initWithRawValue:(NSString * _Nonnull)rawValue OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+@interface AIDAction (SWIFT_EXTENSION(Appier))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIDAction * _Nonnull didRedeemCoupon;)
++ (AIDAction * _Nonnull)didRedeemCoupon SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class AIDConfiguration;
-@class CampaignPresenterView;
 @class UIViewController;
 @class UIScrollView;
 @class AIDConversion;
@@ -223,7 +238,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 SWIFT_CLASS_NAMED("AiDeal")
 @interface AIDAiDeal : NSObject
 @property (nonatomic, strong) AIDConfiguration * _Nonnull configuration;
-@property (nonatomic, readonly, strong) CampaignPresenterView * _Nullable presenterView;
 /// Configures the API key used to connect to AiDeal servers.
 /// This method must be called BEFORE logging view controllers and conversions.
 - (void)configureWithApiKey:(NSString * _Nonnull)apiKey;
@@ -246,6 +260,7 @@ SWIFT_CLASS_NAMED("AiDeal")
 - (void)stopLogging;
 /// Logs conversion data, and send it to AiDeal servers.
 - (void)logConversion:(AIDConversion * _Nonnull)conversion;
+- (void)logAction:(AIDAction * _Nonnull)action;
 - (void)setDataCollection:(BOOL)enabled;
 /// Opens a campaign preview URL.
 /// The URL can be either a universal link or a custom URL scheme, and accepts the following query string parameters:
@@ -273,6 +288,10 @@ SWIFT_CLASS_NAMED("AiDeal")
 - (void)viewWillTransitionWithTransitionCoordinator:(id <UIViewControllerTransitionCoordinator> _Nonnull)coordinator;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIDAiDeal * _Nonnull shared;)
 + (AIDAiDeal * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull offerButtonTappedNotification;)
++ (NSNotificationName _Nonnull)offerButtonTappedNotification SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull configurationDidChangeNotification;)
++ (NSNotificationName _Nonnull)configurationDidChangeNotification SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -299,26 +318,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NSBundle * _
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-
-
-
-/// A stateless object that translates view update requests into actual UIKit calls, and notifies a presenter
-/// object when user inputs occurred.
-SWIFT_CLASS("_TtC6Appier21CampaignPresenterView")
-@interface CampaignPresenterView : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-@class UIPresentationController;
-@protocol UIViewControllerAnimatedTransitioning;
-
-@interface CampaignPresenterView (SWIFT_EXTENSION(Appier)) <UIViewControllerTransitioningDelegate>
-- (UIPresentationController * _Nullable)presentationControllerForPresentedViewController:(UIViewController * _Nonnull)presented presentingViewController:(UIViewController * _Nullable)presenting sourceViewController:(UIViewController * _Nonnull)source SWIFT_WARN_UNUSED_RESULT;
-- (id <UIViewControllerAnimatedTransitioning> _Nullable)animationControllerForPresentedController:(UIViewController * _Nonnull)presented presentingController:(UIViewController * _Nonnull)presenting sourceController:(UIViewController * _Nonnull)source SWIFT_WARN_UNUSED_RESULT;
-- (id <UIViewControllerAnimatedTransitioning> _Nullable)animationControllerForDismissedController:(UIViewController * _Nonnull)dismissed SWIFT_WARN_UNUSED_RESULT;
-@end
 
 
 
@@ -370,6 +369,16 @@ SWIFT_CLASS_NAMED("ConversionItem")
 @end
 
 
+
+SWIFT_CLASS_NAMED("FrameworkInfo")
+@interface APRFrameworkInfo : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull buildString;)
++ (NSString * _Nonnull)buildString SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull versionString;)
++ (NSString * _Nonnull)versionString SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 typedef SWIFT_ENUM_NAMED(NSInteger, APRLogType, "LogType", open) {
   APRLogTypeDebug = 0,
   APRLogTypeInfo = 1,
@@ -393,6 +402,12 @@ SWIFT_CLASS_NAMED("Logger")
 @interface APRLogger (SWIFT_EXTENSION(Appier))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
 + (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+@interface APRLogger (SWIFT_EXTENSION(Appier))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
++ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -628,8 +643,23 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+
+/// An object that represents an action to report to the framework.
+SWIFT_CLASS_NAMED("Action")
+@interface AIDAction : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull rawValue;
+- (nonnull instancetype)initWithRawValue:(NSString * _Nonnull)rawValue OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+@interface AIDAction (SWIFT_EXTENSION(Appier))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIDAction * _Nonnull didRedeemCoupon;)
++ (AIDAction * _Nonnull)didRedeemCoupon SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class AIDConfiguration;
-@class CampaignPresenterView;
 @class UIViewController;
 @class UIScrollView;
 @class AIDConversion;
@@ -638,7 +668,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 SWIFT_CLASS_NAMED("AiDeal")
 @interface AIDAiDeal : NSObject
 @property (nonatomic, strong) AIDConfiguration * _Nonnull configuration;
-@property (nonatomic, readonly, strong) CampaignPresenterView * _Nullable presenterView;
 /// Configures the API key used to connect to AiDeal servers.
 /// This method must be called BEFORE logging view controllers and conversions.
 - (void)configureWithApiKey:(NSString * _Nonnull)apiKey;
@@ -661,6 +690,7 @@ SWIFT_CLASS_NAMED("AiDeal")
 - (void)stopLogging;
 /// Logs conversion data, and send it to AiDeal servers.
 - (void)logConversion:(AIDConversion * _Nonnull)conversion;
+- (void)logAction:(AIDAction * _Nonnull)action;
 - (void)setDataCollection:(BOOL)enabled;
 /// Opens a campaign preview URL.
 /// The URL can be either a universal link or a custom URL scheme, and accepts the following query string parameters:
@@ -688,6 +718,10 @@ SWIFT_CLASS_NAMED("AiDeal")
 - (void)viewWillTransitionWithTransitionCoordinator:(id <UIViewControllerTransitionCoordinator> _Nonnull)coordinator;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIDAiDeal * _Nonnull shared;)
 + (AIDAiDeal * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull offerButtonTappedNotification;)
++ (NSNotificationName _Nonnull)offerButtonTappedNotification SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull configurationDidChangeNotification;)
++ (NSNotificationName _Nonnull)configurationDidChangeNotification SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -714,26 +748,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NSBundle * _
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-
-
-
-/// A stateless object that translates view update requests into actual UIKit calls, and notifies a presenter
-/// object when user inputs occurred.
-SWIFT_CLASS("_TtC6Appier21CampaignPresenterView")
-@interface CampaignPresenterView : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-@class UIPresentationController;
-@protocol UIViewControllerAnimatedTransitioning;
-
-@interface CampaignPresenterView (SWIFT_EXTENSION(Appier)) <UIViewControllerTransitioningDelegate>
-- (UIPresentationController * _Nullable)presentationControllerForPresentedViewController:(UIViewController * _Nonnull)presented presentingViewController:(UIViewController * _Nullable)presenting sourceViewController:(UIViewController * _Nonnull)source SWIFT_WARN_UNUSED_RESULT;
-- (id <UIViewControllerAnimatedTransitioning> _Nullable)animationControllerForPresentedController:(UIViewController * _Nonnull)presented presentingController:(UIViewController * _Nonnull)presenting sourceController:(UIViewController * _Nonnull)source SWIFT_WARN_UNUSED_RESULT;
-- (id <UIViewControllerAnimatedTransitioning> _Nullable)animationControllerForDismissedController:(UIViewController * _Nonnull)dismissed SWIFT_WARN_UNUSED_RESULT;
-@end
 
 
 
@@ -785,6 +799,16 @@ SWIFT_CLASS_NAMED("ConversionItem")
 @end
 
 
+
+SWIFT_CLASS_NAMED("FrameworkInfo")
+@interface APRFrameworkInfo : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull buildString;)
++ (NSString * _Nonnull)buildString SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull versionString;)
++ (NSString * _Nonnull)versionString SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 typedef SWIFT_ENUM_NAMED(NSInteger, APRLogType, "LogType", open) {
   APRLogTypeDebug = 0,
   APRLogTypeInfo = 1,
@@ -808,6 +832,12 @@ SWIFT_CLASS_NAMED("Logger")
 @interface APRLogger (SWIFT_EXTENSION(Appier))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
 + (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+@interface APRLogger (SWIFT_EXTENSION(Appier))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
++ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1043,8 +1073,23 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+
+/// An object that represents an action to report to the framework.
+SWIFT_CLASS_NAMED("Action")
+@interface AIDAction : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull rawValue;
+- (nonnull instancetype)initWithRawValue:(NSString * _Nonnull)rawValue OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+@interface AIDAction (SWIFT_EXTENSION(Appier))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIDAction * _Nonnull didRedeemCoupon;)
++ (AIDAction * _Nonnull)didRedeemCoupon SWIFT_WARN_UNUSED_RESULT;
+@end
+
 @class AIDConfiguration;
-@class CampaignPresenterView;
 @class UIViewController;
 @class UIScrollView;
 @class AIDConversion;
@@ -1053,7 +1098,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 SWIFT_CLASS_NAMED("AiDeal")
 @interface AIDAiDeal : NSObject
 @property (nonatomic, strong) AIDConfiguration * _Nonnull configuration;
-@property (nonatomic, readonly, strong) CampaignPresenterView * _Nullable presenterView;
 /// Configures the API key used to connect to AiDeal servers.
 /// This method must be called BEFORE logging view controllers and conversions.
 - (void)configureWithApiKey:(NSString * _Nonnull)apiKey;
@@ -1076,6 +1120,7 @@ SWIFT_CLASS_NAMED("AiDeal")
 - (void)stopLogging;
 /// Logs conversion data, and send it to AiDeal servers.
 - (void)logConversion:(AIDConversion * _Nonnull)conversion;
+- (void)logAction:(AIDAction * _Nonnull)action;
 - (void)setDataCollection:(BOOL)enabled;
 /// Opens a campaign preview URL.
 /// The URL can be either a universal link or a custom URL scheme, and accepts the following query string parameters:
@@ -1103,6 +1148,10 @@ SWIFT_CLASS_NAMED("AiDeal")
 - (void)viewWillTransitionWithTransitionCoordinator:(id <UIViewControllerTransitionCoordinator> _Nonnull)coordinator;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIDAiDeal * _Nonnull shared;)
 + (AIDAiDeal * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull offerButtonTappedNotification;)
++ (NSNotificationName _Nonnull)offerButtonTappedNotification SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _Nonnull configurationDidChangeNotification;)
++ (NSNotificationName _Nonnull)configurationDidChangeNotification SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1129,26 +1178,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NSBundle * _
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-
-
-
-/// A stateless object that translates view update requests into actual UIKit calls, and notifies a presenter
-/// object when user inputs occurred.
-SWIFT_CLASS("_TtC6Appier21CampaignPresenterView")
-@interface CampaignPresenterView : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-@class UIPresentationController;
-@protocol UIViewControllerAnimatedTransitioning;
-
-@interface CampaignPresenterView (SWIFT_EXTENSION(Appier)) <UIViewControllerTransitioningDelegate>
-- (UIPresentationController * _Nullable)presentationControllerForPresentedViewController:(UIViewController * _Nonnull)presented presentingViewController:(UIViewController * _Nullable)presenting sourceViewController:(UIViewController * _Nonnull)source SWIFT_WARN_UNUSED_RESULT;
-- (id <UIViewControllerAnimatedTransitioning> _Nullable)animationControllerForPresentedController:(UIViewController * _Nonnull)presented presentingController:(UIViewController * _Nonnull)presenting sourceController:(UIViewController * _Nonnull)source SWIFT_WARN_UNUSED_RESULT;
-- (id <UIViewControllerAnimatedTransitioning> _Nullable)animationControllerForDismissedController:(UIViewController * _Nonnull)dismissed SWIFT_WARN_UNUSED_RESULT;
-@end
 
 
 
@@ -1200,6 +1229,16 @@ SWIFT_CLASS_NAMED("ConversionItem")
 @end
 
 
+
+SWIFT_CLASS_NAMED("FrameworkInfo")
+@interface APRFrameworkInfo : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull buildString;)
++ (NSString * _Nonnull)buildString SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull versionString;)
++ (NSString * _Nonnull)versionString SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 typedef SWIFT_ENUM_NAMED(NSInteger, APRLogType, "LogType", open) {
   APRLogTypeDebug = 0,
   APRLogTypeInfo = 1,
@@ -1223,6 +1262,12 @@ SWIFT_CLASS_NAMED("Logger")
 @interface APRLogger (SWIFT_EXTENSION(Appier))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
 + (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+@interface APRLogger (SWIFT_EXTENSION(Appier))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
++ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
