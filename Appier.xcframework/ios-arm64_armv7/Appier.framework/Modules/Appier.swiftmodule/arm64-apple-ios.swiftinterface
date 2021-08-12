@@ -13,10 +13,10 @@ import WebKit
 import os
 import zlib
 extension Logger {
-  @objc(aiquaNotificationLogger) public static let aiquaNotification: Appier.Logger
+  @objc(aiquaLogger) public static let aiqua: Appier.Logger
 }
 extension Logger {
-  @objc(aiquaLogger) public static let aiqua: Appier.Logger
+  @objc(aiquaNotificationLogger) public static let aiquaNotification: Appier.Logger
 }
 public enum PageType {
   case top
