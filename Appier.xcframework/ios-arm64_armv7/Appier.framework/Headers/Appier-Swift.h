@@ -400,14 +400,14 @@ SWIFT_CLASS_NAMED("Logger")
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
-+ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
++ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
-+ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
++ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -830,14 +830,14 @@ SWIFT_CLASS_NAMED("Logger")
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
-+ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
++ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
-+ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
++ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
