@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
 // swift-module-flags: -target arm64-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Appier
 @_exported import Appier
 import CommonCrypto
@@ -12,9 +12,6 @@ import UIKit
 import WebKit
 import os
 import zlib
-extension Logger {
-  @objc(aiquaLogger) public static let aiqua: Appier.Logger
-}
 extension Logger {
   @objc(aiquaNotificationLogger) public static let aiquaNotification: Appier.Logger
 }
@@ -75,6 +72,7 @@ public enum BadgePositionOverride {
 }
 extension Action : Swift.RawRepresentable {
   @objc public static let didRedeemCoupon: Appier.Action
+  @objc public static let addToCart: Appier.Action
   public typealias RawValue = Swift.String
 }
 @_hasMissingDesignatedInitializers @objc(AIDAiDeal) @objcMembers final public class AiDeal : ObjectiveC.NSObject {
@@ -84,6 +82,7 @@ extension Action : Swift.RawRepresentable {
   @objc(startLoggingWithViewController:scrollView:attributes:) final public func startLogging(_ viewController: UIKit.UIViewController, scrollView: UIKit.UIScrollView?, attributes: [Appier.Page.AttributeName : Any])
   @objc(startLoggingWithViewController:attributes:) final public func startLogging(_ viewController: UIKit.UIViewController, attributes: [Appier.Page.AttributeName : Any])
   @objc(startLoggingWithViewController:scrollView:) final public func startLogging(_ viewController: UIKit.UIViewController, scrollView: UIKit.UIScrollView?)
+  @objc(startLoggingWithViewController:webView:) final public func startLogging(_ viewController: UIKit.UIViewController, webView: WebKit.WKWebView)
   @objc final public func stopLogging()
   @objc(logConversion:) final public func log(_ conversion: Appier.Conversion)
   @objc(logAction:) final public func log(_ action: Appier.Action)
@@ -93,8 +92,8 @@ extension Action : Swift.RawRepresentable {
   @objc public static let shared: Appier.AiDeal
   @objc public static let offerButtonTappedNotification: Foundation.Notification.Name
   @objc public static let configurationDidChangeNotification: Foundation.Notification.Name
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(AIDConfiguration) @objcMembers public class Configuration : ObjectiveC.NSObject {
   public var badge: Appier.BadgeConfiguration {
@@ -114,62 +113,63 @@ extension Action : Swift.RawRepresentable {
   @objc override dynamic public init()
   @objc deinit
 }
-@objc(AIDConversion) @objcMembers public class Conversion : ObjectiveC.NSObject {
+@objc(AIDConversion) @objcMembers final public class Conversion : ObjectiveC.NSObject, Swift.Codable {
   @objc final public let identifier: Swift.String
-  @objc public var name: Swift.String?
-  @objc public var totalQuantity: Swift.Int
-  @objc public var totalPrice: Swift.Double
-  @objc public var couponCodes: [Swift.String]
-  @objc public var items: [Appier.ConversionItem]
+  @objc final public var name: Swift.String?
+  @objc final public var totalQuantity: Swift.Int
+  @objc final public var totalPrice: Swift.Double
+  @objc final public var couponCodes: [Swift.String]
+  @objc final public var items: [Appier.ConversionItem]
   @objc @available(*, deprecated, renamed: "identifier")
-  public var conversionId: Swift.String {
+  final public var conversionId: Swift.String {
     @objc get
   }
   @objc @available(*, deprecated, renamed: "name")
-  public var conversionName: Swift.String? {
+  final public var conversionName: Swift.String? {
     @objc get
     @objc set
   }
   @objc @available(*, deprecated, renamed: "numberOfItems")
-  public var totalItems: Swift.Int {
+  final public var totalItems: Swift.Int {
     @objc get
     @objc set
   }
   @objc public init(identifier: Swift.String)
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
+  final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
-extension Conversion : Swift.Encodable {
-  public func encode(to encoder: Swift.Encoder) throws
-}
-@objc(AIDConversionItem) @objcMembers public class ConversionItem : ObjectiveC.NSObject {
+@objc(AIDConversionItem) @objcMembers final public class ConversionItem : ObjectiveC.NSObject, Swift.Codable {
   @objc final public let identifier: Swift.String
-  @objc public var name: Swift.String?
-  @objc public var url: Foundation.URL?
-  @objc public var price: Swift.Double
-  @objc public var quantity: Swift.Int
+  @objc final public var name: Swift.String?
+  @objc final public var url: Foundation.URL?
+  @objc final public var price: Swift.Double
+  @objc final public var quantity: Swift.Int
   @objc @available(*, deprecated, renamed: "quantity")
-  public var count: Swift.Int {
+  final public var count: Swift.Int {
     @objc get
     @objc set
   }
   @objc public init(identifier: Swift.String)
-  @objc deinit
   @objc override dynamic public init()
-}
-extension ConversionItem : Swift.Encodable {
-  public func encode(to encoder: Swift.Encoder) throws
+  @objc deinit
+  final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 @available(*, deprecated, renamed: "ConversionItem")
 public typealias AIDConversionItem = Appier.ConversionItem
 extension Data {
 }
+extension Logger {
+  @objc(aiquaLogger) public static let aiqua: Appier.Logger
+}
 @_inheritsConvenienceInitializers @objc public class AppierResources : ObjectiveC.NSObject {
   @objc public class var bundle: Foundation.Bundle {
     @objc get
   }
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(APRApp) @objcMembers public class AppierApp : ObjectiveC.NSObject {
   @objc public var aiDeal: Appier.AiDeal {
@@ -180,6 +180,7 @@ extension Data {
   }
   @objc override dynamic public init()
   @objc(setDataCollection:) public func setDataCollection(_ enabled: Swift.Bool)
+  @objc public func showConsole()
   @objc(sharedApp) public static let shared: Appier.AppierApp
   @objc deinit
 }
@@ -190,8 +191,8 @@ extension Data {
   @objc public static var versionString: Swift.String {
     @objc get
   }
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(APRLogger) public class Logger : ObjectiveC.NSObject {
   @objc final public let category: Swift.String
@@ -204,8 +205,8 @@ extension Data {
 }
 @objc(APRLogType) public enum LogType : Swift.Int {
   case debug, info, warning, error
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -214,6 +215,13 @@ extension LogType : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }
+}
+public protocol URLSessionProtocol {
+  func dataTask(with url: Foundation.URL, completionHandler: @escaping (Foundation.Data?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionDataTask
+  func dataTask(with request: Foundation.URLRequest, completionHandler: @escaping (Foundation.Data?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionDataTask
+  func downloadTask(with url: Foundation.URL, completionHandler: @escaping (Foundation.URL?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionDownloadTask
+}
+extension URLSession : Appier.URLSessionProtocol {
 }
 extension Appier.LogType : Swift.Equatable {}
 extension Appier.LogType : Swift.Hashable {}

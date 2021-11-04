@@ -8,6 +8,7 @@ NS_SWIFT_NAME(Page)
 
 typedef NSString * AIDPageAttributeName NS_TYPED_ENUM NS_SWIFT_NAME(Page.AttributeName);
 
+extern AIDPageAttributeName const AIDPageUrlAttributeName NS_SWIFT_NAME(url);
 extern AIDPageAttributeName const AIDPageTypeAttributeName NS_SWIFT_NAME(pageType);
 extern AIDPageAttributeName const AIDPageTypesAttributeName NS_SWIFT_NAME(pageTypes);
 extern AIDPageAttributeName const AIDPageLoggedInAttributeName NS_SWIFT_NAME(loggedIn);
