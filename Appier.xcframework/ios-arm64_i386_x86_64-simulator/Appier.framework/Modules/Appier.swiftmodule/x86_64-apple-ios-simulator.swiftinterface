@@ -3,6 +3,7 @@
 // swift-module-flags: -target x86_64-apple-ios9.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Appier
 @_exported import Appier
 import CommonCrypto
+import CoreData
 import CoreGraphics
 import Dispatch
 import Foundation
@@ -14,6 +15,148 @@ import os
 import zlib
 extension Logger {
   @objc(aiquaNotificationLogger) public static let aiquaNotification: Appier.Logger
+}
+@objc(AIQConfiguration) public protocol AIQUAConfiguration {
+  @objc var userServerEndpoint: Swift.String? { get }
+  @objc var appIdentifier: Swift.String? { get }
+  @objc var userIdentifier: Swift.Int { get }
+  @objc var isNewUser: Swift.Bool { get }
+}
+@_inheritsConvenienceInitializers @objc(AIQCoreDataComponent) @objcMembers public class CoreDataComponent : ObjectiveC.NSObject {
+  @objc public var managedObjectContext: CoreData.NSManagedObjectContext {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(AIQLoggedEvent) @objcMembers public class LoggedEvent : ObjectiveC.NSObject {
+  @objc convenience public init(name: Swift.String, parameters: Swift.String? = nil)
+  @objc convenience public init(name: Swift.String, timestamp: Swift.Int, parameters: Swift.String? = nil)
+  @objc convenience public init(name: Swift.String, dictionaryParameters parameters: [Swift.String : Any]?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+public let maxRowCount: Swift.Int
+@objc(AIQLoggedEventDAO) @objcMembers public class LoggedEventDAO : ObjectiveC.NSObject {
+  @objc(initWithManagedObjectContext:) public init(context: CoreData.NSManagedObjectContext)
+  @objc public func getAll(withLimit: Swift.Int = maxRowCount) -> Swift.Array<Appier.LoggedEvent>
+  @objc(getLoggedEventEarlierBeforeWithTime:) public func getLoggedEventEarlierBeforeWithTime(beforeFromNow: Swift.Int) -> Swift.Array<Appier.LoggedEvent>
+  @objc @discardableResult
+  public func deleteOverflowed() -> Swift.Int
+  @objc @discardableResult
+  public func deleteOutdated() -> Swift.Int
+  @objc @discardableResult
+  public func deleteAll() -> Swift.Int
+  @objc @discardableResult
+  public func create(loggedEvent: Appier.LoggedEvent) -> Swift.Bool
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension Logger {
+  @objc(aiquaLogger) public static let aiqua: Appier.Logger
+}
+@objc(AIQInAppAdditionalCondition) @objcMembers public class InAppAdditionalCondition : ObjectiveC.NSObject, Swift.Codable {
+  @objc(decodeWithData:error:) public class func decode(from data: Foundation.Data) throws -> Appier.InAppAdditionalCondition
+  @objc public func data() throws -> Foundation.Data
+  @objc public var timeRange: Appier.InAppAdditionalTimeRange
+  @objc(matchWithLoggedEvents:) public func match(loggedEvents: [Appier.LoggedEvent]) -> Swift.Bool
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+@objc(AIQInAppAdditionalimeRange) @objcMembers public class InAppAdditionalTimeRange : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var duration: Swift.Int {
+    @objc get
+  }
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+public enum InAppAdditionalTimeUnit : Swift.String, Swift.Codable {
+  case Hour
+  case Minute
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct InAppAdditionalCriteria : Swift.Codable {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum InAppAdditionalCriteriaOperator : Swift.String, Swift.Codable {
+  case And
+  case Or
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct InAppAdditionalEventCriteria : Swift.Codable {
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public enum InAppAdditionalEventOperator : Swift.String, Swift.Codable {
+  case Equal
+  case NotEqual
+  case GreaterThan
+  case LessThan
+  case GreaterThanOrEqual
+  case LessThanOrEqual
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers @objc(AIQInAppMatchCondition) @objcMembers public class InAppMatchCondition : ObjectiveC.NSObject, Swift.Codable {
+  @objc(decodeWithData:error:) public class func decode(from data: Foundation.Data) throws -> Appier.InAppMatchCondition
+  @objc public func data() throws -> Foundation.Data
+  @objc public func match(parameters: [Swift.String : Any]) -> Swift.Bool
+  @objc override dynamic public init()
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+public enum InAppMatchOperator : Swift.String, Swift.Codable {
+  case Equals
+  case Equal
+  case NotEqual
+  case Contained
+  case GreaterThan
+  case GreaterThanOrEqual
+  case LessThan
+  case LessThanOrEqual
+  case HasValue
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum InAppStringOrDouble : Swift.Codable {
+  case string(Swift.String)
+  case double(Swift.Double)
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@_hasMissingDesignatedInitializers @objc(AIQInAppRemoteService) @objcMembers final public class InAppRemoteService : ObjectiveC.NSObject {
+  @objc(initWithConfiguration:) convenience public init(configuration: Appier.AIQUAConfiguration)
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension InAppRemoteService : Appier.InAppService {
+  @objc final public func fetchInAppCampaigns(_ completionHandler: @escaping (Appier.InAppRemoteService.PopupCampaigns?, Appier.InAppRemoteService.InboxCampaigns?, Swift.Error?) -> Swift.Void)
+  @objc final public func fetchInAppCampaigns(timeoutInterval: Swift.Double, _ completionHandler: @escaping (Appier.InAppRemoteService.PopupCampaigns?, Appier.InAppRemoteService.InboxCampaigns?, Swift.Error?) -> Swift.Void)
+}
+@objc(AIQInAppService) public protocol InAppService {
+  typealias PopupCampaigns = [[Swift.String : Any]]
+  typealias InboxCampaigns = [[Swift.String : Any]]
+  @objc(fetchInAppCampaignsWithCompletionHandler:) func fetchInAppCampaigns(_ completionHandler: @escaping (Self.PopupCampaigns?, Self.InboxCampaigns?, Swift.Error?) -> Swift.Void)
+  @objc(fetchInAppCampaignsWithTimeoutInterval::) func fetchInAppCampaigns(timeoutInterval: Swift.Double, _ completionHandler: @escaping (Self.PopupCampaigns?, Self.InboxCampaigns?, Swift.Error?) -> Swift.Void)
 }
 public enum PageType {
   case top
@@ -72,7 +215,7 @@ public enum BadgePositionOverride {
 }
 extension Action : Swift.RawRepresentable {
   @objc public static let didRedeemCoupon: Appier.Action
-  @objc public static let addToCart: Appier.Action
+  @objc public static let didAddToCart: Appier.Action
   public typealias RawValue = Swift.String
 }
 @_hasMissingDesignatedInitializers @objc(AIDAiDeal) @objcMembers final public class AiDeal : ObjectiveC.NSObject {
@@ -161,9 +304,6 @@ extension Action : Swift.RawRepresentable {
 public typealias AIDConversionItem = Appier.ConversionItem
 extension Data {
 }
-extension Logger {
-  @objc(aiquaLogger) public static let aiqua: Appier.Logger
-}
 @_inheritsConvenienceInitializers @objc public class AppierResources : ObjectiveC.NSObject {
   @objc public class var bundle: Foundation.Bundle {
     @objc get
@@ -223,6 +363,37 @@ public protocol URLSessionProtocol {
 }
 extension URLSession : Appier.URLSessionProtocol {
 }
+@_inheritsConvenienceInitializers @objc(LoggedEventEntity) public class LoggedEventEntity : CoreData.NSManagedObject {
+  @objc override dynamic public init(entity: CoreData.NSEntityDescription, insertInto context: CoreData.NSManagedObjectContext?)
+  @objc deinit
+}
+extension LoggedEventEntity {
+  @nonobjc public class func fetchRequest() -> CoreData.NSFetchRequest<Appier.LoggedEventEntity>
+  @objc @NSManaged dynamic public var name: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged dynamic public var parameters: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc @NSManaged dynamic public var timestamp: Swift.Int64 {
+    @objc get
+    @objc set
+  }
+}
+extension Appier.InAppAdditionalTimeUnit : Swift.Equatable {}
+extension Appier.InAppAdditionalTimeUnit : Swift.Hashable {}
+extension Appier.InAppAdditionalTimeUnit : Swift.RawRepresentable {}
+extension Appier.InAppAdditionalCriteriaOperator : Swift.Equatable {}
+extension Appier.InAppAdditionalCriteriaOperator : Swift.Hashable {}
+extension Appier.InAppAdditionalCriteriaOperator : Swift.RawRepresentable {}
+extension Appier.InAppAdditionalEventOperator : Swift.Equatable {}
+extension Appier.InAppAdditionalEventOperator : Swift.Hashable {}
+extension Appier.InAppAdditionalEventOperator : Swift.RawRepresentable {}
+extension Appier.InAppMatchOperator : Swift.Equatable {}
+extension Appier.InAppMatchOperator : Swift.Hashable {}
+extension Appier.InAppMatchOperator : Swift.RawRepresentable {}
 extension Appier.LogType : Swift.Equatable {}
 extension Appier.LogType : Swift.Hashable {}
 extension Appier.LogType : Swift.RawRepresentable {}
