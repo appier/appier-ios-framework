@@ -28,12 +28,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /*!
  @discussion
- Restrict external init calls and allow to use singleton.
- */
--(instancetype) init __attribute__((unavailable("Please use `+ (QGSdk *)getSharedInstance;` instead")));
-
-/*!
- @discussion
  Initialises QGSdk and returns the shared instance of the sdk,
  to access all the methods of the sdk
 
@@ -145,19 +139,7 @@ NS_ASSUME_NONNULL_BEGIN
 /*! This method is not used currently */
 - (void)onStop;
 
-/*!
- @abstract
- Returns boolean to show push prompt
-
- @discussion
- You can use this value to determine when to show push prompt.
- Since iOS 12, you can send silent push without push permission until user turn off the notification.
- After sending some silent push, you can decide if you want to show push prompt based on user activity on your app.
-
- @note If not set, default value is true
-
- */
-- (BOOL)getShowPushPrompt;
+- (BOOL)getShowPushPrompt DEPRECATED_MSG_ATTRIBUTE();
 
 /*!
  @abstract

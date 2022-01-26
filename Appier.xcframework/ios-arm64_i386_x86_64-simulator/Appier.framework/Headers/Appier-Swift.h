@@ -190,6 +190,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import CoreData;
 @import CoreGraphics;
 @import Foundation;
 @import ObjectiveC;
@@ -214,6 +215,16 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 @class NSString;
+@class NSNumber;
+
+SWIFT_PROTOCOL_NAMED("AIQUAConfiguration")
+@protocol AIQConfiguration
+@property (nonatomic, readonly, copy) NSString * _Nullable userServerEndpoint;
+@property (nonatomic, readonly, copy) NSString * _Nullable appIdentifier;
+@property (nonatomic, readonly) NSInteger userIdentifier;
+@property (nonatomic, readonly) BOOL isNewUser;
+@end
+
 
 /// An object that represents an action to report to the framework.
 SWIFT_CLASS_NAMED("Action")
@@ -228,8 +239,8 @@ SWIFT_CLASS_NAMED("Action")
 @interface AIDAction (SWIFT_EXTENSION(Appier))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIDAction * _Nonnull didRedeemCoupon;)
 + (AIDAction * _Nonnull)didRedeemCoupon SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIDAction * _Nonnull addToCart;)
-+ (AIDAction * _Nonnull)addToCart SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIDAction * _Nonnull didAddToCart;)
++ (AIDAction * _Nonnull)didAddToCart SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class AIDConfiguration;
@@ -237,7 +248,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIDAction * 
 @class UIScrollView;
 @class WKWebView;
 @class AIDConversion;
-@class NSNumber;
 @class NSURL;
 @protocol UIViewControllerTransitionCoordinator;
 
@@ -376,6 +386,14 @@ SWIFT_CLASS_NAMED("ConversionItem")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class NSManagedObjectContext;
+
+SWIFT_CLASS_NAMED("CoreDataComponent")
+@interface AIQCoreDataComponent : NSObject
+@property (nonatomic, strong) NSManagedObjectContext * _Nonnull managedObjectContext;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 SWIFT_CLASS_NAMED("FrameworkInfo")
 @interface APRFrameworkInfo : NSObject
@@ -386,12 +404,100 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NSData;
+@class AIQInAppAdditionalimeRange;
+@class AIQLoggedEvent;
+
+SWIFT_CLASS_NAMED("InAppAdditionalCondition")
+@interface AIQInAppAdditionalCondition : NSObject
++ (AIQInAppAdditionalCondition * _Nullable)decodeWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, strong) AIQInAppAdditionalimeRange * _Nonnull timeRange;
+- (BOOL)matchWithLoggedEvents:(NSArray<AIQLoggedEvent *> * _Nonnull)loggedEvents SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS_NAMED("InAppAdditionalTimeRange")
+@interface AIQInAppAdditionalimeRange : NSObject
+@property (nonatomic, readonly) NSInteger duration;
+@end
+
+
+SWIFT_CLASS_NAMED("InAppMatchCondition")
+@interface AIQInAppMatchCondition : NSObject
++ (AIQInAppMatchCondition * _Nullable)decodeWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)matchWithParameters:(NSDictionary<NSString *, id> * _Nonnull)parameters SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS_NAMED("InAppRemoteService")
+@interface AIQInAppRemoteService : NSObject
+- (nonnull instancetype)initWithConfiguration:(id <AIQConfiguration> _Nonnull)configuration;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_PROTOCOL_NAMED("InAppService")
+@protocol AIQInAppService
+- (void)fetchInAppCampaignsWithCompletionHandler:(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSError * _Nullable))completionHandler;
+- (void)fetchInAppCampaignsWithTimeoutInterval:(double)timeoutInterval :(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSError * _Nullable))completionHandler;
+@end
+
+
+@interface AIQInAppRemoteService (SWIFT_EXTENSION(Appier)) <AIQInAppService>
+- (void)fetchInAppCampaignsWithCompletionHandler:(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSError * _Nullable))completionHandler;
+- (void)fetchInAppCampaignsWithTimeoutInterval:(double)timeoutInterval :(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSError * _Nullable))completionHandler;
+@end
+
+
 typedef SWIFT_ENUM_NAMED(NSInteger, APRLogType, "LogType", open) {
   APRLogTypeDebug = 0,
   APRLogTypeInfo = 1,
   APRLogTypeWarning = 2,
   APRLogTypeError = 3,
 };
+
+
+SWIFT_CLASS_NAMED("LoggedEvent")
+@interface AIQLoggedEvent : NSObject
+- (nonnull instancetype)initWithName:(NSString * _Nonnull)name parameters:(NSString * _Nullable)parameters;
+- (nonnull instancetype)initWithName:(NSString * _Nonnull)name timestamp:(NSInteger)timestamp parameters:(NSString * _Nullable)parameters;
+- (nonnull instancetype)initWithName:(NSString * _Nonnull)name dictionaryParameters:(NSDictionary<NSString *, id> * _Nullable)parameters;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS_NAMED("LoggedEventDAO")
+@interface AIQLoggedEventDAO : NSObject
+- (nonnull instancetype)initWithManagedObjectContext:(NSManagedObjectContext * _Nonnull)context OBJC_DESIGNATED_INITIALIZER;
+- (NSArray<AIQLoggedEvent *> * _Nonnull)getAllWithLimit:(NSInteger)withLimit SWIFT_WARN_UNUSED_RESULT;
+- (NSArray<AIQLoggedEvent *> * _Nonnull)getLoggedEventEarlierBeforeWithTime:(NSInteger)beforeFromNow SWIFT_WARN_UNUSED_RESULT;
+- (NSInteger)deleteOverflowed;
+- (NSInteger)deleteOutdated;
+- (NSInteger)deleteAll;
+- (BOOL)createWithLoggedEvent:(AIQLoggedEvent * _Nonnull)loggedEvent;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class NSEntityDescription;
+
+SWIFT_CLASS_NAMED("LoggedEventEntity")
+@interface LoggedEventEntity : NSManagedObject
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface LoggedEventEntity (SWIFT_EXTENSION(Appier))
+@property (nonatomic, copy) NSString * _Nullable name;
+@property (nonatomic, copy) NSString * _Nullable parameters;
+@property (nonatomic) int64_t timestamp;
+@end
 
 
 /// An object that prints interpolated strings to the console, and a drop-in replacement for the
@@ -407,14 +513,14 @@ SWIFT_CLASS_NAMED("Logger")
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
-+ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
++ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
-+ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
++ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -627,6 +733,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import CoreData;
 @import CoreGraphics;
 @import Foundation;
 @import ObjectiveC;
@@ -651,6 +758,16 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 @class NSString;
+@class NSNumber;
+
+SWIFT_PROTOCOL_NAMED("AIQUAConfiguration")
+@protocol AIQConfiguration
+@property (nonatomic, readonly, copy) NSString * _Nullable userServerEndpoint;
+@property (nonatomic, readonly, copy) NSString * _Nullable appIdentifier;
+@property (nonatomic, readonly) NSInteger userIdentifier;
+@property (nonatomic, readonly) BOOL isNewUser;
+@end
+
 
 /// An object that represents an action to report to the framework.
 SWIFT_CLASS_NAMED("Action")
@@ -665,8 +782,8 @@ SWIFT_CLASS_NAMED("Action")
 @interface AIDAction (SWIFT_EXTENSION(Appier))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIDAction * _Nonnull didRedeemCoupon;)
 + (AIDAction * _Nonnull)didRedeemCoupon SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIDAction * _Nonnull addToCart;)
-+ (AIDAction * _Nonnull)addToCart SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIDAction * _Nonnull didAddToCart;)
++ (AIDAction * _Nonnull)didAddToCart SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class AIDConfiguration;
@@ -674,7 +791,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIDAction * 
 @class UIScrollView;
 @class WKWebView;
 @class AIDConversion;
-@class NSNumber;
 @class NSURL;
 @protocol UIViewControllerTransitionCoordinator;
 
@@ -813,6 +929,14 @@ SWIFT_CLASS_NAMED("ConversionItem")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class NSManagedObjectContext;
+
+SWIFT_CLASS_NAMED("CoreDataComponent")
+@interface AIQCoreDataComponent : NSObject
+@property (nonatomic, strong) NSManagedObjectContext * _Nonnull managedObjectContext;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 SWIFT_CLASS_NAMED("FrameworkInfo")
 @interface APRFrameworkInfo : NSObject
@@ -823,12 +947,100 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NSData;
+@class AIQInAppAdditionalimeRange;
+@class AIQLoggedEvent;
+
+SWIFT_CLASS_NAMED("InAppAdditionalCondition")
+@interface AIQInAppAdditionalCondition : NSObject
++ (AIQInAppAdditionalCondition * _Nullable)decodeWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, strong) AIQInAppAdditionalimeRange * _Nonnull timeRange;
+- (BOOL)matchWithLoggedEvents:(NSArray<AIQLoggedEvent *> * _Nonnull)loggedEvents SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS_NAMED("InAppAdditionalTimeRange")
+@interface AIQInAppAdditionalimeRange : NSObject
+@property (nonatomic, readonly) NSInteger duration;
+@end
+
+
+SWIFT_CLASS_NAMED("InAppMatchCondition")
+@interface AIQInAppMatchCondition : NSObject
++ (AIQInAppMatchCondition * _Nullable)decodeWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)matchWithParameters:(NSDictionary<NSString *, id> * _Nonnull)parameters SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS_NAMED("InAppRemoteService")
+@interface AIQInAppRemoteService : NSObject
+- (nonnull instancetype)initWithConfiguration:(id <AIQConfiguration> _Nonnull)configuration;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_PROTOCOL_NAMED("InAppService")
+@protocol AIQInAppService
+- (void)fetchInAppCampaignsWithCompletionHandler:(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSError * _Nullable))completionHandler;
+- (void)fetchInAppCampaignsWithTimeoutInterval:(double)timeoutInterval :(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSError * _Nullable))completionHandler;
+@end
+
+
+@interface AIQInAppRemoteService (SWIFT_EXTENSION(Appier)) <AIQInAppService>
+- (void)fetchInAppCampaignsWithCompletionHandler:(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSError * _Nullable))completionHandler;
+- (void)fetchInAppCampaignsWithTimeoutInterval:(double)timeoutInterval :(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSError * _Nullable))completionHandler;
+@end
+
+
 typedef SWIFT_ENUM_NAMED(NSInteger, APRLogType, "LogType", open) {
   APRLogTypeDebug = 0,
   APRLogTypeInfo = 1,
   APRLogTypeWarning = 2,
   APRLogTypeError = 3,
 };
+
+
+SWIFT_CLASS_NAMED("LoggedEvent")
+@interface AIQLoggedEvent : NSObject
+- (nonnull instancetype)initWithName:(NSString * _Nonnull)name parameters:(NSString * _Nullable)parameters;
+- (nonnull instancetype)initWithName:(NSString * _Nonnull)name timestamp:(NSInteger)timestamp parameters:(NSString * _Nullable)parameters;
+- (nonnull instancetype)initWithName:(NSString * _Nonnull)name dictionaryParameters:(NSDictionary<NSString *, id> * _Nullable)parameters;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS_NAMED("LoggedEventDAO")
+@interface AIQLoggedEventDAO : NSObject
+- (nonnull instancetype)initWithManagedObjectContext:(NSManagedObjectContext * _Nonnull)context OBJC_DESIGNATED_INITIALIZER;
+- (NSArray<AIQLoggedEvent *> * _Nonnull)getAllWithLimit:(NSInteger)withLimit SWIFT_WARN_UNUSED_RESULT;
+- (NSArray<AIQLoggedEvent *> * _Nonnull)getLoggedEventEarlierBeforeWithTime:(NSInteger)beforeFromNow SWIFT_WARN_UNUSED_RESULT;
+- (NSInteger)deleteOverflowed;
+- (NSInteger)deleteOutdated;
+- (NSInteger)deleteAll;
+- (BOOL)createWithLoggedEvent:(AIQLoggedEvent * _Nonnull)loggedEvent;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class NSEntityDescription;
+
+SWIFT_CLASS_NAMED("LoggedEventEntity")
+@interface LoggedEventEntity : NSManagedObject
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface LoggedEventEntity (SWIFT_EXTENSION(Appier))
+@property (nonatomic, copy) NSString * _Nullable name;
+@property (nonatomic, copy) NSString * _Nullable parameters;
+@property (nonatomic) int64_t timestamp;
+@end
 
 
 /// An object that prints interpolated strings to the console, and a drop-in replacement for the
@@ -844,14 +1056,14 @@ SWIFT_CLASS_NAMED("Logger")
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
-+ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
++ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
-+ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
++ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1064,6 +1276,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import CoreData;
 @import CoreGraphics;
 @import Foundation;
 @import ObjectiveC;
@@ -1088,6 +1301,16 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 @class NSString;
+@class NSNumber;
+
+SWIFT_PROTOCOL_NAMED("AIQUAConfiguration")
+@protocol AIQConfiguration
+@property (nonatomic, readonly, copy) NSString * _Nullable userServerEndpoint;
+@property (nonatomic, readonly, copy) NSString * _Nullable appIdentifier;
+@property (nonatomic, readonly) NSInteger userIdentifier;
+@property (nonatomic, readonly) BOOL isNewUser;
+@end
+
 
 /// An object that represents an action to report to the framework.
 SWIFT_CLASS_NAMED("Action")
@@ -1102,8 +1325,8 @@ SWIFT_CLASS_NAMED("Action")
 @interface AIDAction (SWIFT_EXTENSION(Appier))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIDAction * _Nonnull didRedeemCoupon;)
 + (AIDAction * _Nonnull)didRedeemCoupon SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIDAction * _Nonnull addToCart;)
-+ (AIDAction * _Nonnull)addToCart SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIDAction * _Nonnull didAddToCart;)
++ (AIDAction * _Nonnull)didAddToCart SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class AIDConfiguration;
@@ -1111,7 +1334,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIDAction * 
 @class UIScrollView;
 @class WKWebView;
 @class AIDConversion;
-@class NSNumber;
 @class NSURL;
 @protocol UIViewControllerTransitionCoordinator;
 
@@ -1250,6 +1472,14 @@ SWIFT_CLASS_NAMED("ConversionItem")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class NSManagedObjectContext;
+
+SWIFT_CLASS_NAMED("CoreDataComponent")
+@interface AIQCoreDataComponent : NSObject
+@property (nonatomic, strong) NSManagedObjectContext * _Nonnull managedObjectContext;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 SWIFT_CLASS_NAMED("FrameworkInfo")
 @interface APRFrameworkInfo : NSObject
@@ -1260,12 +1490,100 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NSData;
+@class AIQInAppAdditionalimeRange;
+@class AIQLoggedEvent;
+
+SWIFT_CLASS_NAMED("InAppAdditionalCondition")
+@interface AIQInAppAdditionalCondition : NSObject
++ (AIQInAppAdditionalCondition * _Nullable)decodeWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, strong) AIQInAppAdditionalimeRange * _Nonnull timeRange;
+- (BOOL)matchWithLoggedEvents:(NSArray<AIQLoggedEvent *> * _Nonnull)loggedEvents SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS_NAMED("InAppAdditionalTimeRange")
+@interface AIQInAppAdditionalimeRange : NSObject
+@property (nonatomic, readonly) NSInteger duration;
+@end
+
+
+SWIFT_CLASS_NAMED("InAppMatchCondition")
+@interface AIQInAppMatchCondition : NSObject
++ (AIQInAppMatchCondition * _Nullable)decodeWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)matchWithParameters:(NSDictionary<NSString *, id> * _Nonnull)parameters SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS_NAMED("InAppRemoteService")
+@interface AIQInAppRemoteService : NSObject
+- (nonnull instancetype)initWithConfiguration:(id <AIQConfiguration> _Nonnull)configuration;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_PROTOCOL_NAMED("InAppService")
+@protocol AIQInAppService
+- (void)fetchInAppCampaignsWithCompletionHandler:(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSError * _Nullable))completionHandler;
+- (void)fetchInAppCampaignsWithTimeoutInterval:(double)timeoutInterval :(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSError * _Nullable))completionHandler;
+@end
+
+
+@interface AIQInAppRemoteService (SWIFT_EXTENSION(Appier)) <AIQInAppService>
+- (void)fetchInAppCampaignsWithCompletionHandler:(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSError * _Nullable))completionHandler;
+- (void)fetchInAppCampaignsWithTimeoutInterval:(double)timeoutInterval :(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSError * _Nullable))completionHandler;
+@end
+
+
 typedef SWIFT_ENUM_NAMED(NSInteger, APRLogType, "LogType", open) {
   APRLogTypeDebug = 0,
   APRLogTypeInfo = 1,
   APRLogTypeWarning = 2,
   APRLogTypeError = 3,
 };
+
+
+SWIFT_CLASS_NAMED("LoggedEvent")
+@interface AIQLoggedEvent : NSObject
+- (nonnull instancetype)initWithName:(NSString * _Nonnull)name parameters:(NSString * _Nullable)parameters;
+- (nonnull instancetype)initWithName:(NSString * _Nonnull)name timestamp:(NSInteger)timestamp parameters:(NSString * _Nullable)parameters;
+- (nonnull instancetype)initWithName:(NSString * _Nonnull)name dictionaryParameters:(NSDictionary<NSString *, id> * _Nullable)parameters;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS_NAMED("LoggedEventDAO")
+@interface AIQLoggedEventDAO : NSObject
+- (nonnull instancetype)initWithManagedObjectContext:(NSManagedObjectContext * _Nonnull)context OBJC_DESIGNATED_INITIALIZER;
+- (NSArray<AIQLoggedEvent *> * _Nonnull)getAllWithLimit:(NSInteger)withLimit SWIFT_WARN_UNUSED_RESULT;
+- (NSArray<AIQLoggedEvent *> * _Nonnull)getLoggedEventEarlierBeforeWithTime:(NSInteger)beforeFromNow SWIFT_WARN_UNUSED_RESULT;
+- (NSInteger)deleteOverflowed;
+- (NSInteger)deleteOutdated;
+- (NSInteger)deleteAll;
+- (BOOL)createWithLoggedEvent:(AIQLoggedEvent * _Nonnull)loggedEvent;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class NSEntityDescription;
+
+SWIFT_CLASS_NAMED("LoggedEventEntity")
+@interface LoggedEventEntity : NSManagedObject
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface LoggedEventEntity (SWIFT_EXTENSION(Appier))
+@property (nonatomic, copy) NSString * _Nullable name;
+@property (nonatomic, copy) NSString * _Nullable parameters;
+@property (nonatomic) int64_t timestamp;
+@end
 
 
 /// An object that prints interpolated strings to the console, and a drop-in replacement for the
@@ -1281,14 +1599,14 @@ SWIFT_CLASS_NAMED("Logger")
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
-+ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
++ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
-+ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
++ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
