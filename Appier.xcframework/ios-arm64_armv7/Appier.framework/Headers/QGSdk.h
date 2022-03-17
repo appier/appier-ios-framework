@@ -392,6 +392,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)disableInAppCampaigns:(BOOL)disabled;
 
+- (void)hideInAppCampaigns;
+
 /*!
  @abstract
  Tracks application launch finish

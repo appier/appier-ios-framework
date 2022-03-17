@@ -422,6 +422,21 @@ SWIFT_CLASS_NAMED("InAppAdditionalTimeRange")
 @property (nonatomic, readonly) NSInteger duration;
 @end
 
+typedef SWIFT_ENUM_NAMED(NSInteger, AIQInAppBadgeAlignment, "InAppBadgeAlignment", open) {
+  AIQInAppBadgeAlignmentTopLeft = 0,
+  AIQInAppBadgeAlignmentTopRight = 1,
+};
+
+
+SWIFT_CLASS_NAMED("InAppBadgeSetting")
+@interface AIQInAppBadgeSetting : NSObject
++ (AIQInAppBadgeSetting * _Nullable)decodeWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic) enum AIQInAppBadgeAlignment align;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 
 SWIFT_CLASS_NAMED("InAppMatchCondition")
 @interface AIQInAppMatchCondition : NSObject
@@ -963,6 +978,21 @@ SWIFT_CLASS_NAMED("InAppAdditionalCondition")
 SWIFT_CLASS_NAMED("InAppAdditionalTimeRange")
 @interface AIQInAppAdditionalimeRange : NSObject
 @property (nonatomic, readonly) NSInteger duration;
+@end
+
+typedef SWIFT_ENUM_NAMED(NSInteger, AIQInAppBadgeAlignment, "InAppBadgeAlignment", open) {
+  AIQInAppBadgeAlignmentTopLeft = 0,
+  AIQInAppBadgeAlignmentTopRight = 1,
+};
+
+
+SWIFT_CLASS_NAMED("InAppBadgeSetting")
+@interface AIQInAppBadgeSetting : NSObject
++ (AIQInAppBadgeSetting * _Nullable)decodeWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic) enum AIQInAppBadgeAlignment align;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
