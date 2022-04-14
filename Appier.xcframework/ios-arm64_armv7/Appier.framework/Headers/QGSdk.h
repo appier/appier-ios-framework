@@ -229,7 +229,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @code setCustomKey:@"rating" withValue:3.5 @endcode
  */
-- (void)setCustomKey:(NSString *)key withValue:(id)value;
+- (void)setCustomKey:(NSString *)key withValue:(nullable id)value;
 
 /*!
  @abstract
