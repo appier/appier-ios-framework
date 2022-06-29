@@ -13,155 +13,6 @@ import UIKit
 import WebKit
 import os
 import zlib
-extension Logger {
-  @objc(aiquaNotificationLogger) public static let aiquaNotification: Appier.Logger
-}
-public enum PageType {
-  case top
-  case category
-  case search
-  case item
-  case cart
-  case cartForm
-  case conversion
-  case myPage
-  case login
-  case registrationForm
-  case registration
-  case custom(Swift.String)
-}
-extension PageType : Swift.RawRepresentable {
-  public var rawValue: Swift.String {
-    get
-  }
-  public init?(rawValue: Swift.String)
-  public typealias RawValue = Swift.String
-}
-extension PageType : Swift.Codable, Swift.Hashable {
-}
-extension PageType : Swift.CaseIterable {
-  public static var allCases: [Appier.PageType]
-  public typealias AllCases = [Appier.PageType]
-}
-public struct BadgeConfiguration {
-  public var allowsDisplay: Swift.Bool
-  public var area: Appier.BadgeDisplayArea
-  public var insetsFromArea: UIKit.UIEdgeInsets
-  public var positionOverride: Appier.BadgePositionOverride
-  public init()
-}
-public enum BadgeDisplayArea {
-  @available(iOS, deprecated: 11)
-  case insideLayoutGuides
-  @available(iOS 11, *)
-  case safeArea
-  case screen
-  case custom(CoreGraphics.CGRect)
-}
-public enum BadgePositionOverride {
-  case none
-  case offset(dx: CoreGraphics.CGFloat, dy: CoreGraphics.CGFloat)
-  case custom(CoreGraphics.CGPoint)
-  case bottomLeftCorner
-  case bottomRightCorner
-}
-@objc(AIDAction) @objcMembers public class Action : ObjectiveC.NSObject {
-  @objc final public let rawValue: Swift.String
-  @objc required public init(rawValue: Swift.String)
-  @objc override dynamic public init()
-  @objc deinit
-}
-extension Action : Swift.RawRepresentable {
-  @objc public static let didRedeemCoupon: Appier.Action
-  @objc public static let didAddToCart: Appier.Action
-  public typealias RawValue = Swift.String
-}
-@_hasMissingDesignatedInitializers @objc(AIDAiDeal) @objcMembers final public class AiDeal : ObjectiveC.NSObject {
-  @objc final public var configuration: Appier.Configuration
-  @objc final public func configure(apiKey: Swift.String)
-  @objc(startLoggingWithViewController:) final public func startLogging(_ viewController: UIKit.UIViewController)
-  @objc(startLoggingWithViewController:scrollView:attributes:) final public func startLogging(_ viewController: UIKit.UIViewController, scrollView: UIKit.UIScrollView?, attributes: [Appier.Page.AttributeName : Any])
-  @objc(startLoggingWithViewController:attributes:) final public func startLogging(_ viewController: UIKit.UIViewController, attributes: [Appier.Page.AttributeName : Any])
-  @objc(startLoggingWithViewController:scrollView:) final public func startLogging(_ viewController: UIKit.UIViewController, scrollView: UIKit.UIScrollView?)
-  @objc(startLoggingWithViewController:webView:) final public func startLogging(_ viewController: UIKit.UIViewController, webView: WebKit.WKWebView)
-  @objc final public func stopLogging()
-  @objc(logConversion:) final public func log(_ conversion: Appier.Conversion)
-  @objc(logAction:) final public func log(_ action: Appier.Action)
-  @objc(setDataCollection:) final public func setDataCollection(_ enabled: Swift.Bool)
-  @objc(openURL:) final public func open(_ url: Foundation.URL)
-  @objc(viewWillTransitionWithTransitionCoordinator:) final public func viewWillTransition(with coordinator: UIKit.UIViewControllerTransitionCoordinator)
-  @objc public static let shared: Appier.AiDeal
-  @objc public static let offerButtonTappedNotification: Foundation.Notification.Name
-  @objc public static let configurationDidChangeNotification: Foundation.Notification.Name
-  @objc override dynamic public init()
-  @objc deinit
-}
-@_inheritsConvenienceInitializers @objc(AIDConfiguration) @objcMembers public class Configuration : ObjectiveC.NSObject {
-  public var badge: Appier.BadgeConfiguration {
-    get
-    set
-  }
-  @objc public func setAllowsBadgeDisplay(_ flag: Swift.Bool)
-  @objc public func setInsetsFromArea(_ insets: UIKit.UIEdgeInsets)
-  @objc public func setBadgeDisplayAreaToInsideLayoutGuides()
-  @objc @available(iOS 11, *)
-  public func setBadgeDisplayAreaToSafeArea()
-  @objc public func setBadgeDisplayAreaToScreen()
-  @objc public func setBadgeDisplayArea(_ rect: CoreGraphics.CGRect)
-  @objc(offsetBadgePositionByX:Y:) public func offsetBadgePositionBy(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat)
-  @objc public func setBadgePosition(_ point: CoreGraphics.CGPoint)
-  @objc public func resetBadgePosition()
-  @objc override dynamic public init()
-  @objc deinit
-}
-@objc(AIDConversion) @objcMembers final public class Conversion : ObjectiveC.NSObject, Swift.Codable {
-  @objc final public let identifier: Swift.String
-  @objc final public var name: Swift.String?
-  @objc final public var totalQuantity: Swift.Int
-  @objc final public var totalPrice: Swift.Double
-  @objc final public var couponCodes: [Swift.String]
-  @objc final public var items: [Appier.ConversionItem]
-  @objc @available(*, deprecated, renamed: "identifier")
-  final public var conversionId: Swift.String {
-    @objc get
-  }
-  @objc @available(*, deprecated, renamed: "name")
-  final public var conversionName: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc @available(*, deprecated, renamed: "numberOfItems")
-  final public var totalItems: Swift.Int {
-    @objc get
-    @objc set
-  }
-  @objc public init(identifier: Swift.String)
-  @objc override dynamic public init()
-  @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-@objc(AIDConversionItem) @objcMembers final public class ConversionItem : ObjectiveC.NSObject, Swift.Codable {
-  @objc final public let identifier: Swift.String
-  @objc final public var name: Swift.String?
-  @objc final public var url: Foundation.URL?
-  @objc final public var price: Swift.Double
-  @objc final public var quantity: Swift.Int
-  @objc @available(*, deprecated, renamed: "quantity")
-  final public var count: Swift.Int {
-    @objc get
-    @objc set
-  }
-  @objc public init(identifier: Swift.String)
-  @objc override dynamic public init()
-  @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-@available(*, deprecated, renamed: "ConversionItem")
-public typealias AIDConversionItem = Appier.ConversionItem
-extension Data {
-}
 @objc(AIQConfiguration) public protocol AIQUAConfiguration {
   @objc var userServerEndpoint: Swift.String? { get }
   @objc var appIdentifier: Swift.String? { get }
@@ -322,6 +173,155 @@ extension InAppRemoteService : Appier.InAppService {
   typealias InboxCampaigns = [[Swift.String : Any]]
   @objc(fetchInAppCampaignsWithCompletionHandler:) func fetchInAppCampaigns(_ completionHandler: @escaping (Self.PopupCampaigns?, Self.InboxCampaigns?, Swift.Error?) -> Swift.Void)
   @objc(fetchInAppCampaignsWithTimeoutInterval::) func fetchInAppCampaigns(timeoutInterval: Swift.Double, _ completionHandler: @escaping (Self.PopupCampaigns?, Self.InboxCampaigns?, Swift.Error?) -> Swift.Void)
+}
+public enum PageType {
+  case top
+  case category
+  case search
+  case item
+  case cart
+  case cartForm
+  case conversion
+  case myPage
+  case login
+  case registrationForm
+  case registration
+  case custom(Swift.String)
+}
+extension PageType : Swift.RawRepresentable {
+  public var rawValue: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+}
+extension PageType : Swift.Codable, Swift.Hashable {
+}
+extension PageType : Swift.CaseIterable {
+  public static var allCases: [Appier.PageType]
+  public typealias AllCases = [Appier.PageType]
+}
+public struct BadgeConfiguration {
+  public var allowsDisplay: Swift.Bool
+  public var area: Appier.BadgeDisplayArea
+  public var insetsFromArea: UIKit.UIEdgeInsets
+  public var positionOverride: Appier.BadgePositionOverride
+  public init()
+}
+public enum BadgeDisplayArea {
+  @available(iOS, deprecated: 11)
+  case insideLayoutGuides
+  @available(iOS 11, *)
+  case safeArea
+  case screen
+  case custom(CoreGraphics.CGRect)
+}
+public enum BadgePositionOverride {
+  case none
+  case offset(dx: CoreGraphics.CGFloat, dy: CoreGraphics.CGFloat)
+  case custom(CoreGraphics.CGPoint)
+  case bottomLeftCorner
+  case bottomRightCorner
+}
+@objc(AIDAction) @objcMembers public class Action : ObjectiveC.NSObject {
+  @objc final public let rawValue: Swift.String
+  @objc required public init(rawValue: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension Action : Swift.RawRepresentable {
+  @objc public static let didRedeemCoupon: Appier.Action
+  @objc public static let didAddToCart: Appier.Action
+  public typealias RawValue = Swift.String
+}
+@_hasMissingDesignatedInitializers @objc(AIDAiDeal) @objcMembers final public class AiDeal : ObjectiveC.NSObject {
+  @objc final public var configuration: Appier.AiDealConfiguration
+  @objc final public func configure(apiKey: Swift.String)
+  @objc(startLoggingWithViewController:) final public func startLogging(_ viewController: UIKit.UIViewController)
+  @objc(startLoggingWithViewController:scrollView:attributes:) final public func startLogging(_ viewController: UIKit.UIViewController, scrollView: UIKit.UIScrollView?, attributes: [Appier.Page.AttributeName : Any])
+  @objc(startLoggingWithViewController:attributes:) final public func startLogging(_ viewController: UIKit.UIViewController, attributes: [Appier.Page.AttributeName : Any])
+  @objc(startLoggingWithViewController:scrollView:) final public func startLogging(_ viewController: UIKit.UIViewController, scrollView: UIKit.UIScrollView?)
+  @objc(startLoggingWithViewController:webView:) final public func startLogging(_ viewController: UIKit.UIViewController, webView: WebKit.WKWebView)
+  @objc final public func stopLogging()
+  @objc(logConversion:) final public func log(_ conversion: Appier.Conversion)
+  @objc(logAction:) final public func log(_ action: Appier.Action)
+  @objc(setDataCollection:) final public func setDataCollection(_ enabled: Swift.Bool)
+  @objc(openURL:) final public func open(_ url: Foundation.URL)
+  @objc(viewWillTransitionWithTransitionCoordinator:) final public func viewWillTransition(with coordinator: UIKit.UIViewControllerTransitionCoordinator)
+  @objc public static let shared: Appier.AiDeal
+  @objc public static let offerButtonTappedNotification: Foundation.Notification.Name
+  @objc public static let configurationDidChangeNotification: Foundation.Notification.Name
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(AIDConfiguration) @objcMembers public class AiDealConfiguration : ObjectiveC.NSObject {
+  public var badge: Appier.BadgeConfiguration {
+    get
+    set
+  }
+  @objc public func setAllowsBadgeDisplay(_ flag: Swift.Bool)
+  @objc public func setInsetsFromArea(_ insets: UIKit.UIEdgeInsets)
+  @objc public func setBadgeDisplayAreaToInsideLayoutGuides()
+  @objc @available(iOS 11, *)
+  public func setBadgeDisplayAreaToSafeArea()
+  @objc public func setBadgeDisplayAreaToScreen()
+  @objc public func setBadgeDisplayArea(_ rect: CoreGraphics.CGRect)
+  @objc(offsetBadgePositionByX:Y:) public func offsetBadgePositionBy(x: CoreGraphics.CGFloat, y: CoreGraphics.CGFloat)
+  @objc public func setBadgePosition(_ point: CoreGraphics.CGPoint)
+  @objc public func resetBadgePosition()
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(AIDConversion) @objcMembers final public class Conversion : ObjectiveC.NSObject, Swift.Codable {
+  @objc final public let identifier: Swift.String
+  @objc final public var name: Swift.String?
+  @objc final public var totalQuantity: Swift.Int
+  @objc final public var totalPrice: Swift.Double
+  @objc final public var couponCodes: [Swift.String]
+  @objc final public var items: [Appier.ConversionItem]
+  @objc @available(*, deprecated, renamed: "identifier")
+  final public var conversionId: Swift.String {
+    @objc get
+  }
+  @objc @available(*, deprecated, renamed: "name")
+  final public var conversionName: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc @available(*, deprecated, renamed: "numberOfItems")
+  final public var totalItems: Swift.Int {
+    @objc get
+    @objc set
+  }
+  @objc public init(identifier: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+  final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+@objc(AIDConversionItem) @objcMembers final public class ConversionItem : ObjectiveC.NSObject, Swift.Codable {
+  @objc final public let identifier: Swift.String
+  @objc final public var name: Swift.String?
+  @objc final public var url: Foundation.URL?
+  @objc final public var price: Swift.Double
+  @objc final public var quantity: Swift.Int
+  @objc @available(*, deprecated, renamed: "quantity")
+  final public var count: Swift.Int {
+    @objc get
+    @objc set
+  }
+  @objc public init(identifier: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+  final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+@available(*, deprecated, renamed: "ConversionItem")
+public typealias AIDConversionItem = Appier.ConversionItem
+extension Data {
+}
+extension Logger {
+  @objc(aiquaNotificationLogger) public static let aiquaNotification: Appier.Logger
 }
 @_inheritsConvenienceInitializers @objc public class AppierResources : ObjectiveC.NSObject {
   @objc public class var bundle: Foundation.Bundle {
