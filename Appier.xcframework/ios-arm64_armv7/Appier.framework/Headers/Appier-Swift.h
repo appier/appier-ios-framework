@@ -314,6 +314,21 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _
 @end
 
 
+
+SWIFT_CLASS_NAMED("AiDealConfiguration")
+@interface AIDConfiguration : NSObject
+- (void)setAllowsBadgeDisplay:(BOOL)flag;
+- (void)setInsetsFromArea:(UIEdgeInsets)insets;
+- (void)setBadgeDisplayAreaToInsideLayoutGuides;
+- (void)setBadgeDisplayAreaToSafeArea SWIFT_AVAILABILITY(ios,introduced=11);
+- (void)setBadgeDisplayAreaToScreen;
+- (void)setBadgeDisplayArea:(CGRect)rect;
+- (void)offsetBadgePositionByX:(CGFloat)x Y:(CGFloat)y;
+- (void)setBadgePosition:(CGPoint)point;
+- (void)resetBadgePosition;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class QGSdk;
 
 SWIFT_CLASS_NAMED("AppierApp")
@@ -337,21 +352,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NSBundle * _
 @end
 
 
-
-
-SWIFT_CLASS_NAMED("Configuration")
-@interface AIDConfiguration : NSObject
-- (void)setAllowsBadgeDisplay:(BOOL)flag;
-- (void)setInsetsFromArea:(UIEdgeInsets)insets;
-- (void)setBadgeDisplayAreaToInsideLayoutGuides;
-- (void)setBadgeDisplayAreaToSafeArea SWIFT_AVAILABILITY(ios,introduced=11);
-- (void)setBadgeDisplayAreaToScreen;
-- (void)setBadgeDisplayArea:(CGRect)rect;
-- (void)offsetBadgePositionByX:(CGFloat)x Y:(CGFloat)y;
-- (void)setBadgePosition:(CGPoint)point;
-- (void)resetBadgePosition;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
 
 @class AIDConversionItem;
 
@@ -872,6 +872,21 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _
 @end
 
 
+
+SWIFT_CLASS_NAMED("AiDealConfiguration")
+@interface AIDConfiguration : NSObject
+- (void)setAllowsBadgeDisplay:(BOOL)flag;
+- (void)setInsetsFromArea:(UIEdgeInsets)insets;
+- (void)setBadgeDisplayAreaToInsideLayoutGuides;
+- (void)setBadgeDisplayAreaToSafeArea SWIFT_AVAILABILITY(ios,introduced=11);
+- (void)setBadgeDisplayAreaToScreen;
+- (void)setBadgeDisplayArea:(CGRect)rect;
+- (void)offsetBadgePositionByX:(CGFloat)x Y:(CGFloat)y;
+- (void)setBadgePosition:(CGPoint)point;
+- (void)resetBadgePosition;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class QGSdk;
 
 SWIFT_CLASS_NAMED("AppierApp")
@@ -895,21 +910,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NSBundle * _
 @end
 
 
-
-
-SWIFT_CLASS_NAMED("Configuration")
-@interface AIDConfiguration : NSObject
-- (void)setAllowsBadgeDisplay:(BOOL)flag;
-- (void)setInsetsFromArea:(UIEdgeInsets)insets;
-- (void)setBadgeDisplayAreaToInsideLayoutGuides;
-- (void)setBadgeDisplayAreaToSafeArea SWIFT_AVAILABILITY(ios,introduced=11);
-- (void)setBadgeDisplayAreaToScreen;
-- (void)setBadgeDisplayArea:(CGRect)rect;
-- (void)offsetBadgePositionByX:(CGFloat)x Y:(CGFloat)y;
-- (void)setBadgePosition:(CGPoint)point;
-- (void)resetBadgePosition;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
 
 @class AIDConversionItem;
 
