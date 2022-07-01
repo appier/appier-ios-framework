@@ -22,12 +22,12 @@ let package = Package(
   ],
   targets: [
     .binaryTarget(
-      name: "AppierFramework",
-      path: "AppierFramework.xcframework"
+      name: "Appier",
+      path: "Appier.xcframework"
     ),
     .binaryTarget(
-      name: "AppierExtensionFramework",
-      path: "AppierExtensionFramework.xcframework"
+      name: "AppierExtension",
+      path: "AppierExtension.xcframework"
     )
   ]
 )
