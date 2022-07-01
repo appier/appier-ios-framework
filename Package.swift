@@ -10,13 +10,13 @@ let package = Package(
     .library(
       name: "AppierFramework",
       targets: [
-        "AppierFramework"
+        "Appier"
       ]
     ),
     .library(
       name: "AppierExtensionFramework",
       targets: [
-        "AppierExtensionFramework"
+        "AppierExtension"
       ]
     )
   ],
