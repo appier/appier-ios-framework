@@ -10,6 +10,8 @@
 #import <UIKit/UIKit.h>
 #import <UserNotifications/UserNotifications.h>
 #import "QGInbox.h"
+#import "QGInApp.h"
+#import "AIQInAppCondition.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
@@ -342,8 +344,10 @@ NS_ASSUME_NONNULL_BEGIN
  @param vtsCurr         currency code of the value to sum
  @param convertedEventName    name of multi-parameters event
  @param enabled         enabled / disabled sending attribution info
+ 
+ @deprecated in version 7.18.0
  */
-- (void)logEvent:(NSString *)name withParameters:(NSDictionary *)parameters withValueToSum:(nullable NSNumber *)valueToSum withValueToSumCurrency:(nullable NSString *)vtsCurr withConvertedEvent:(nullable NSString *)convertedEventName withAttributionEnabled:(BOOL)enabled;
+- (void)logEvent:(NSString *)name withParameters:(NSDictionary *)parameters withValueToSum:(nullable NSNumber *)valueToSum withValueToSumCurrency:(nullable NSString *)vtsCurr withConvertedEvent:(nullable NSString *)convertedEventName withAttributionEnabled:(BOOL)enabled DEPRECATED_MSG_ATTRIBUTE("Use logEvent:withParameters:withValueToSum:withValueToSumCurrency: instead.");
 
 /*!
  @abstract
@@ -474,35 +478,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /*!
  @abstract
- Returns recommendation data for the user based on User to Product AI Model without Category Filter
+ This is a no-op API to keep backward compatibility without breaking any compiler.
 
- @discussion
- This is a asynchronous function which returns array of recommended objects
- based on User To Product AI Model without filtering any category from the product data feed.
- Parse the response object and use it as required
+ @deprecated in version 7.16.3
  */
 - (void)getRecommendationForModelUserToProductWithCompletion:(void (^)(NSArray *response))completion DEPRECATED_MSG_ATTRIBUTE("Use getRecommendationWithScenarioId:withQueryParameters:withCompletion:  instead");
 
 /*!
  @abstract
- Returns recommendation data for the user based on User to Product AI Model with Some Category Filter
+ This is a no-op API to keep backward compatibility without breaking any compiler.
 
- @discussion
- This is a asynchronous function which returns array of recommended objects
- based on User To Product AI Model with filtering a specified product category with sub-category and sub-sub-category.
-
- For Example: Filter with following categories
- Cateory - Clothing
- Sub-Category - Men
- Sub-Sub-Category - Shirts
-
- @code
- [[QGSdk getSharedInstance] getRecommendationForModelUserToProductWithCategory:@"Clothing" withSubCategory:@"Men" withSubSubCategory:@"Shirts" withCompletion:^(NSArray * _Nonnull response) {
-    QGLog(@"Recommendation Response:%@", response);
- }];
- @endcode
-
- Parse the response object and use it as required
+ @deprecated in version 7.16.3
 */
 - (void)getRecommendationForModelUserToProductWithCategory:(NSString * _Nullable)category withSubCategory:(NSString * _Nullable)subCategory
                                         withSubSubCategory:(NSString * _Nullable)subSubCategory
