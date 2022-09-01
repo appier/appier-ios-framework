@@ -1,11 +1,12 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
 // swift-module-flags: -target x86_64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AppierExtension
 @_exported import AppierExtension
 import Foundation
 import Swift
+import _Concurrency
 import os
-extension Logger {
+extension AppierExtension.Logger {
   @objc(aiquaNotificationLogger) public static let aiquaNotification: AppierExtension.Logger
 }
 @_inheritsConvenienceInitializers @objc(APRFrameworkInfo) @objcMembers final public class FrameworkInfo : ObjectiveC.NSObject {
@@ -24,7 +25,6 @@ extension Logger {
     @objc get
   }
   @objc(descriptionForLevel:) public static func description(for level: AppierExtension.LogType) -> Swift.String
-  @objc override dynamic public init()
   @objc deinit
 }
 @objc(APRLogType) public enum LogType : Swift.Int {
@@ -35,7 +35,7 @@ extension Logger {
     get
   }
 }
-extension LogType : Swift.CustomStringConvertible {
+extension AppierExtension.LogType : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }
@@ -45,7 +45,7 @@ public protocol URLSessionProtocol {
   func dataTask(with request: Foundation.URLRequest, completionHandler: @escaping (Foundation.Data?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionDataTask
   func downloadTask(with url: Foundation.URL, completionHandler: @escaping (Foundation.URL?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionDownloadTask
 }
-extension URLSession : AppierExtension.URLSessionProtocol {
+extension Foundation.URLSession : AppierExtension.URLSessionProtocol {
 }
 extension AppierExtension.LogType : Swift.Equatable {}
 extension AppierExtension.LogType : Swift.Hashable {}
