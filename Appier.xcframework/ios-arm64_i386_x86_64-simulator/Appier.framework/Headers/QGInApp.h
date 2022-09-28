@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "QGImageManager.h"
+#import "AIQInAppCondition.h"
 
 typedef NS_ENUM(NSInteger, InAppType){
     InAppTypeUnknown = -1,

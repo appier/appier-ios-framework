@@ -225,7 +225,11 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 SWIFT_PROTOCOL_NAMED("AIQUAConfiguration")
 @protocol AIQConfiguration
-@property (nonatomic, readonly, copy) NSString * _Nullable userServerEndpoint;
+@property (nonatomic, copy) NSString * _Nullable userServerEndpoint;
+@property (nonatomic, copy) NSString * _Nullable remoteConfigEndpoint;
+@property (nonatomic, copy) NSString * _Nullable dbackEndpoint;
+@property (nonatomic, copy) NSString * _Nullable recommendationEndpoint;
+@property (nonatomic, copy) NSString * _Nullable personalizationEndpoint;
 @property (nonatomic, readonly, copy) NSString * _Nullable appIdentifier;
 @property (nonatomic, readonly) NSInteger userIdentifier;
 @property (nonatomic, readonly) BOOL isNewUser;
@@ -401,6 +405,43 @@ SWIFT_CLASS_NAMED("CoreDataComponent")
 @end
 
 
+SWIFT_CLASS_NAMED("DataCollectionRemoteService")
+@interface AIQDataCollectionRemoteService : NSObject
+- (nonnull instancetype)initWithConfiguration:(id <AIQConfiguration> _Nonnull)configuration;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class NSData;
+@class AIQDataPointsResponse;
+
+SWIFT_PROTOCOL_NAMED("DataCollectionService")
+@protocol AIQDataCollectionService
+- (void)uploadDataPoints:(NSData * _Nonnull)dataPoints completionHandler:(void (^ _Nonnull)(AIQDataPointsResponse * _Nullable, double, NSError * _Nullable))completionHandler;
+@end
+
+
+@interface AIQDataCollectionRemoteService (SWIFT_EXTENSION(Appier)) <AIQDataCollectionService>
+- (void)uploadDataPoints:(NSData * _Nonnull)dataPoints completionHandler:(void (^ _Nonnull)(AIQDataPointsResponse * _Nullable, double, NSError * _Nullable))completionHandler;
+@end
+
+
+
+SWIFT_CLASS_NAMED("DataPointsResponse")
+@interface AIQDataPointsResponse : NSObject
+@property (nonatomic) BOOL success;
+@property (nonatomic, copy) NSString * _Nullable error;
++ (AIQDataPointsResponse * _Nullable)decodeWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_PROTOCOL_NAMED("EventLogger")
+@protocol AIQEventLogger
+- (void)logErrorWithMissingEndpoint:(NSString * _Nonnull)missingEndpoint api:(NSString * _Nonnull)api;
+@end
+
+
 SWIFT_CLASS_NAMED("FrameworkInfo")
 @interface APRFrameworkInfo : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull buildString;)
@@ -411,7 +452,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 @end
 
 @class AIQInAppAdditionalimeRange;
-@class NSData;
 @class AIQLoggedEvent;
 
 SWIFT_CLASS_NAMED("InAppAdditionalCondition")
@@ -535,21 +575,124 @@ SWIFT_CLASS_NAMED("Logger")
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
-+ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-@interface APRLogger (SWIFT_EXTENSION(Appier))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
 + (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
+@interface APRLogger (SWIFT_EXTENSION(Appier))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
++ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
+@end
 
 
 
 
+
+
+
+
+
+@class NSURLSession;
+
+SWIFT_CLASS_NAMED("PersonalizationRemoteService")
+@interface AIQPersonalizationRemoteService : NSObject
+- (nonnull instancetype)initWithConfiguration:(id <AIQConfiguration> _Nonnull)configuration session:(NSURLSession * _Nonnull)session;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_PROTOCOL_NAMED("PersonalizationService")
+@protocol AIQPersonalizationService
+- (void)reportDebugConfigContext:(NSDictionary<NSString *, id> * _Nonnull)context;
+- (void)requestPersonalizationConfig:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
+@end
+
+
+@interface AIQPersonalizationRemoteService (SWIFT_EXTENSION(Appier)) <AIQPersonalizationService>
+/// Calling this method only in debug mode
+- (void)reportDebugConfigContext:(NSDictionary<NSString *, id> * _Nonnull)context;
+- (void)requestPersonalizationConfig:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
+@end
+
+
+@class NSURLRequest;
+
+SWIFT_CLASS_NAMED("RecommendationRemoteService")
+@interface AIQRecommendationRemoteService : NSObject
+@property (nonatomic, copy) NSURLRequest * _Nullable observingRequest;
+- (nonnull instancetype)initWithConfiguration:(id <AIQConfiguration> _Nonnull)configuration session:(NSURLSession * _Nonnull)session;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_PROTOCOL_NAMED("RecommendationService")
+@protocol AIQRecommendationService
+@property (nonatomic, copy) NSURLRequest * _Nullable observingRequest;
+- (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId withProductId:(NSString * _Nonnull)productId withQueryParameters:(NSDictionary<NSString *, id> * _Nullable)queryStringDict withCompletionHandler:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
+- (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId withQueryParameters:(NSDictionary<NSString *, id> * _Nullable)queryStringDict withCompletionHandler:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
+@end
+
+
+@interface AIQRecommendationRemoteService (SWIFT_EXTENSION(Appier)) <AIQRecommendationService>
+- (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId withProductId:(NSString * _Nonnull)productId withQueryParameters:(NSDictionary<NSString *, id> * _Nullable)queryStringDict withCompletionHandler:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
+- (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId withQueryParameters:(NSDictionary<NSString *, id> * _Nullable)queryStringDict withCompletionHandler:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
+@end
+
+
+@class AIQRemoteConfigEndpoints;
+
+SWIFT_CLASS_NAMED("RemoteConfig")
+@interface AIQRemoteConfig : NSObject
+@property (nonatomic, strong) AIQRemoteConfigEndpoints * _Nullable endpoints;
++ (AIQRemoteConfig * _Nullable)decodeWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("RemoteConfigEndpoints")
+@interface AIQRemoteConfigEndpoints : NSObject
+@property (nonatomic, copy) NSString * _Nullable dback;
+@property (nonatomic, copy) NSString * _Nullable user;
+@property (nonatomic, copy) NSString * _Nullable personalization;
+@property (nonatomic, copy) NSString * _Nullable recommendation;
++ (AIQRemoteConfigEndpoints * _Nullable)decodeWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("RemoteConfigLocalService")
+@interface AIQRemoteConfigLocalService : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_PROTOCOL_NAMED("RemoteConfigService")
+@protocol AIQRemoteConfigService
+- (void)fetchRemoteConfigWithCompletionHandler:(void (^ _Nonnull)(AIQRemoteConfig * _Nullable, NSError * _Nullable))completionHandler;
+@end
+
+
+@interface AIQRemoteConfigLocalService (SWIFT_EXTENSION(Appier)) <AIQRemoteConfigService>
+- (void)fetchRemoteConfigWithCompletionHandler:(void (^ _Nonnull)(AIQRemoteConfig * _Nullable, NSError * _Nullable))completionHandler;
+@end
+
+
+SWIFT_CLASS_NAMED("RemoteConfigRemoteService")
+@interface AIQRemoteConfigRemoteService : NSObject
+- (nonnull instancetype)initWithConfiguration:(id <AIQConfiguration> _Nonnull)configuration;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+@interface AIQRemoteConfigRemoteService (SWIFT_EXTENSION(Appier)) <AIQRemoteConfigService>
+- (void)fetchRemoteConfigWithCompletionHandler:(void (^ _Nonnull)(AIQRemoteConfig * _Nullable, NSError * _Nullable))completionHandler;
+@end
 
 
 
@@ -790,7 +933,11 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 SWIFT_PROTOCOL_NAMED("AIQUAConfiguration")
 @protocol AIQConfiguration
-@property (nonatomic, readonly, copy) NSString * _Nullable userServerEndpoint;
+@property (nonatomic, copy) NSString * _Nullable userServerEndpoint;
+@property (nonatomic, copy) NSString * _Nullable remoteConfigEndpoint;
+@property (nonatomic, copy) NSString * _Nullable dbackEndpoint;
+@property (nonatomic, copy) NSString * _Nullable recommendationEndpoint;
+@property (nonatomic, copy) NSString * _Nullable personalizationEndpoint;
 @property (nonatomic, readonly, copy) NSString * _Nullable appIdentifier;
 @property (nonatomic, readonly) NSInteger userIdentifier;
 @property (nonatomic, readonly) BOOL isNewUser;
@@ -966,6 +1113,43 @@ SWIFT_CLASS_NAMED("CoreDataComponent")
 @end
 
 
+SWIFT_CLASS_NAMED("DataCollectionRemoteService")
+@interface AIQDataCollectionRemoteService : NSObject
+- (nonnull instancetype)initWithConfiguration:(id <AIQConfiguration> _Nonnull)configuration;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class NSData;
+@class AIQDataPointsResponse;
+
+SWIFT_PROTOCOL_NAMED("DataCollectionService")
+@protocol AIQDataCollectionService
+- (void)uploadDataPoints:(NSData * _Nonnull)dataPoints completionHandler:(void (^ _Nonnull)(AIQDataPointsResponse * _Nullable, double, NSError * _Nullable))completionHandler;
+@end
+
+
+@interface AIQDataCollectionRemoteService (SWIFT_EXTENSION(Appier)) <AIQDataCollectionService>
+- (void)uploadDataPoints:(NSData * _Nonnull)dataPoints completionHandler:(void (^ _Nonnull)(AIQDataPointsResponse * _Nullable, double, NSError * _Nullable))completionHandler;
+@end
+
+
+
+SWIFT_CLASS_NAMED("DataPointsResponse")
+@interface AIQDataPointsResponse : NSObject
+@property (nonatomic) BOOL success;
+@property (nonatomic, copy) NSString * _Nullable error;
++ (AIQDataPointsResponse * _Nullable)decodeWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_PROTOCOL_NAMED("EventLogger")
+@protocol AIQEventLogger
+- (void)logErrorWithMissingEndpoint:(NSString * _Nonnull)missingEndpoint api:(NSString * _Nonnull)api;
+@end
+
+
 SWIFT_CLASS_NAMED("FrameworkInfo")
 @interface APRFrameworkInfo : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull buildString;)
@@ -976,7 +1160,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 @end
 
 @class AIQInAppAdditionalimeRange;
-@class NSData;
 @class AIQLoggedEvent;
 
 SWIFT_CLASS_NAMED("InAppAdditionalCondition")
@@ -1100,21 +1283,124 @@ SWIFT_CLASS_NAMED("Logger")
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
-+ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-@interface APRLogger (SWIFT_EXTENSION(Appier))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
 + (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
+@interface APRLogger (SWIFT_EXTENSION(Appier))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
++ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
+@end
 
 
 
 
+
+
+
+
+
+@class NSURLSession;
+
+SWIFT_CLASS_NAMED("PersonalizationRemoteService")
+@interface AIQPersonalizationRemoteService : NSObject
+- (nonnull instancetype)initWithConfiguration:(id <AIQConfiguration> _Nonnull)configuration session:(NSURLSession * _Nonnull)session;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_PROTOCOL_NAMED("PersonalizationService")
+@protocol AIQPersonalizationService
+- (void)reportDebugConfigContext:(NSDictionary<NSString *, id> * _Nonnull)context;
+- (void)requestPersonalizationConfig:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
+@end
+
+
+@interface AIQPersonalizationRemoteService (SWIFT_EXTENSION(Appier)) <AIQPersonalizationService>
+/// Calling this method only in debug mode
+- (void)reportDebugConfigContext:(NSDictionary<NSString *, id> * _Nonnull)context;
+- (void)requestPersonalizationConfig:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
+@end
+
+
+@class NSURLRequest;
+
+SWIFT_CLASS_NAMED("RecommendationRemoteService")
+@interface AIQRecommendationRemoteService : NSObject
+@property (nonatomic, copy) NSURLRequest * _Nullable observingRequest;
+- (nonnull instancetype)initWithConfiguration:(id <AIQConfiguration> _Nonnull)configuration session:(NSURLSession * _Nonnull)session;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_PROTOCOL_NAMED("RecommendationService")
+@protocol AIQRecommendationService
+@property (nonatomic, copy) NSURLRequest * _Nullable observingRequest;
+- (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId withProductId:(NSString * _Nonnull)productId withQueryParameters:(NSDictionary<NSString *, id> * _Nullable)queryStringDict withCompletionHandler:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
+- (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId withQueryParameters:(NSDictionary<NSString *, id> * _Nullable)queryStringDict withCompletionHandler:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
+@end
+
+
+@interface AIQRecommendationRemoteService (SWIFT_EXTENSION(Appier)) <AIQRecommendationService>
+- (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId withProductId:(NSString * _Nonnull)productId withQueryParameters:(NSDictionary<NSString *, id> * _Nullable)queryStringDict withCompletionHandler:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
+- (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId withQueryParameters:(NSDictionary<NSString *, id> * _Nullable)queryStringDict withCompletionHandler:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
+@end
+
+
+@class AIQRemoteConfigEndpoints;
+
+SWIFT_CLASS_NAMED("RemoteConfig")
+@interface AIQRemoteConfig : NSObject
+@property (nonatomic, strong) AIQRemoteConfigEndpoints * _Nullable endpoints;
++ (AIQRemoteConfig * _Nullable)decodeWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("RemoteConfigEndpoints")
+@interface AIQRemoteConfigEndpoints : NSObject
+@property (nonatomic, copy) NSString * _Nullable dback;
+@property (nonatomic, copy) NSString * _Nullable user;
+@property (nonatomic, copy) NSString * _Nullable personalization;
+@property (nonatomic, copy) NSString * _Nullable recommendation;
++ (AIQRemoteConfigEndpoints * _Nullable)decodeWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("RemoteConfigLocalService")
+@interface AIQRemoteConfigLocalService : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_PROTOCOL_NAMED("RemoteConfigService")
+@protocol AIQRemoteConfigService
+- (void)fetchRemoteConfigWithCompletionHandler:(void (^ _Nonnull)(AIQRemoteConfig * _Nullable, NSError * _Nullable))completionHandler;
+@end
+
+
+@interface AIQRemoteConfigLocalService (SWIFT_EXTENSION(Appier)) <AIQRemoteConfigService>
+- (void)fetchRemoteConfigWithCompletionHandler:(void (^ _Nonnull)(AIQRemoteConfig * _Nullable, NSError * _Nullable))completionHandler;
+@end
+
+
+SWIFT_CLASS_NAMED("RemoteConfigRemoteService")
+@interface AIQRemoteConfigRemoteService : NSObject
+- (nonnull instancetype)initWithConfiguration:(id <AIQConfiguration> _Nonnull)configuration;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+@interface AIQRemoteConfigRemoteService (SWIFT_EXTENSION(Appier)) <AIQRemoteConfigService>
+- (void)fetchRemoteConfigWithCompletionHandler:(void (^ _Nonnull)(AIQRemoteConfig * _Nullable, NSError * _Nullable))completionHandler;
+@end
 
 
 
@@ -1355,7 +1641,11 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 SWIFT_PROTOCOL_NAMED("AIQUAConfiguration")
 @protocol AIQConfiguration
-@property (nonatomic, readonly, copy) NSString * _Nullable userServerEndpoint;
+@property (nonatomic, copy) NSString * _Nullable userServerEndpoint;
+@property (nonatomic, copy) NSString * _Nullable remoteConfigEndpoint;
+@property (nonatomic, copy) NSString * _Nullable dbackEndpoint;
+@property (nonatomic, copy) NSString * _Nullable recommendationEndpoint;
+@property (nonatomic, copy) NSString * _Nullable personalizationEndpoint;
 @property (nonatomic, readonly, copy) NSString * _Nullable appIdentifier;
 @property (nonatomic, readonly) NSInteger userIdentifier;
 @property (nonatomic, readonly) BOOL isNewUser;
@@ -1531,6 +1821,43 @@ SWIFT_CLASS_NAMED("CoreDataComponent")
 @end
 
 
+SWIFT_CLASS_NAMED("DataCollectionRemoteService")
+@interface AIQDataCollectionRemoteService : NSObject
+- (nonnull instancetype)initWithConfiguration:(id <AIQConfiguration> _Nonnull)configuration;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class NSData;
+@class AIQDataPointsResponse;
+
+SWIFT_PROTOCOL_NAMED("DataCollectionService")
+@protocol AIQDataCollectionService
+- (void)uploadDataPoints:(NSData * _Nonnull)dataPoints completionHandler:(void (^ _Nonnull)(AIQDataPointsResponse * _Nullable, double, NSError * _Nullable))completionHandler;
+@end
+
+
+@interface AIQDataCollectionRemoteService (SWIFT_EXTENSION(Appier)) <AIQDataCollectionService>
+- (void)uploadDataPoints:(NSData * _Nonnull)dataPoints completionHandler:(void (^ _Nonnull)(AIQDataPointsResponse * _Nullable, double, NSError * _Nullable))completionHandler;
+@end
+
+
+
+SWIFT_CLASS_NAMED("DataPointsResponse")
+@interface AIQDataPointsResponse : NSObject
+@property (nonatomic) BOOL success;
+@property (nonatomic, copy) NSString * _Nullable error;
++ (AIQDataPointsResponse * _Nullable)decodeWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_PROTOCOL_NAMED("EventLogger")
+@protocol AIQEventLogger
+- (void)logErrorWithMissingEndpoint:(NSString * _Nonnull)missingEndpoint api:(NSString * _Nonnull)api;
+@end
+
+
 SWIFT_CLASS_NAMED("FrameworkInfo")
 @interface APRFrameworkInfo : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull buildString;)
@@ -1541,7 +1868,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 @end
 
 @class AIQInAppAdditionalimeRange;
-@class NSData;
 @class AIQLoggedEvent;
 
 SWIFT_CLASS_NAMED("InAppAdditionalCondition")
@@ -1665,21 +1991,124 @@ SWIFT_CLASS_NAMED("Logger")
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
-+ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-@interface APRLogger (SWIFT_EXTENSION(Appier))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
 + (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
+@interface APRLogger (SWIFT_EXTENSION(Appier))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
++ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
+@end
 
 
 
 
+
+
+
+
+
+@class NSURLSession;
+
+SWIFT_CLASS_NAMED("PersonalizationRemoteService")
+@interface AIQPersonalizationRemoteService : NSObject
+- (nonnull instancetype)initWithConfiguration:(id <AIQConfiguration> _Nonnull)configuration session:(NSURLSession * _Nonnull)session;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_PROTOCOL_NAMED("PersonalizationService")
+@protocol AIQPersonalizationService
+- (void)reportDebugConfigContext:(NSDictionary<NSString *, id> * _Nonnull)context;
+- (void)requestPersonalizationConfig:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
+@end
+
+
+@interface AIQPersonalizationRemoteService (SWIFT_EXTENSION(Appier)) <AIQPersonalizationService>
+/// Calling this method only in debug mode
+- (void)reportDebugConfigContext:(NSDictionary<NSString *, id> * _Nonnull)context;
+- (void)requestPersonalizationConfig:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
+@end
+
+
+@class NSURLRequest;
+
+SWIFT_CLASS_NAMED("RecommendationRemoteService")
+@interface AIQRecommendationRemoteService : NSObject
+@property (nonatomic, copy) NSURLRequest * _Nullable observingRequest;
+- (nonnull instancetype)initWithConfiguration:(id <AIQConfiguration> _Nonnull)configuration session:(NSURLSession * _Nonnull)session;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_PROTOCOL_NAMED("RecommendationService")
+@protocol AIQRecommendationService
+@property (nonatomic, copy) NSURLRequest * _Nullable observingRequest;
+- (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId withProductId:(NSString * _Nonnull)productId withQueryParameters:(NSDictionary<NSString *, id> * _Nullable)queryStringDict withCompletionHandler:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
+- (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId withQueryParameters:(NSDictionary<NSString *, id> * _Nullable)queryStringDict withCompletionHandler:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
+@end
+
+
+@interface AIQRecommendationRemoteService (SWIFT_EXTENSION(Appier)) <AIQRecommendationService>
+- (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId withProductId:(NSString * _Nonnull)productId withQueryParameters:(NSDictionary<NSString *, id> * _Nullable)queryStringDict withCompletionHandler:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
+- (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId withQueryParameters:(NSDictionary<NSString *, id> * _Nullable)queryStringDict withCompletionHandler:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
+@end
+
+
+@class AIQRemoteConfigEndpoints;
+
+SWIFT_CLASS_NAMED("RemoteConfig")
+@interface AIQRemoteConfig : NSObject
+@property (nonatomic, strong) AIQRemoteConfigEndpoints * _Nullable endpoints;
++ (AIQRemoteConfig * _Nullable)decodeWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("RemoteConfigEndpoints")
+@interface AIQRemoteConfigEndpoints : NSObject
+@property (nonatomic, copy) NSString * _Nullable dback;
+@property (nonatomic, copy) NSString * _Nullable user;
+@property (nonatomic, copy) NSString * _Nullable personalization;
+@property (nonatomic, copy) NSString * _Nullable recommendation;
++ (AIQRemoteConfigEndpoints * _Nullable)decodeWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("RemoteConfigLocalService")
+@interface AIQRemoteConfigLocalService : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_PROTOCOL_NAMED("RemoteConfigService")
+@protocol AIQRemoteConfigService
+- (void)fetchRemoteConfigWithCompletionHandler:(void (^ _Nonnull)(AIQRemoteConfig * _Nullable, NSError * _Nullable))completionHandler;
+@end
+
+
+@interface AIQRemoteConfigLocalService (SWIFT_EXTENSION(Appier)) <AIQRemoteConfigService>
+- (void)fetchRemoteConfigWithCompletionHandler:(void (^ _Nonnull)(AIQRemoteConfig * _Nullable, NSError * _Nullable))completionHandler;
+@end
+
+
+SWIFT_CLASS_NAMED("RemoteConfigRemoteService")
+@interface AIQRemoteConfigRemoteService : NSObject
+- (nonnull instancetype)initWithConfiguration:(id <AIQConfiguration> _Nonnull)configuration;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+@interface AIQRemoteConfigRemoteService (SWIFT_EXTENSION(Appier)) <AIQRemoteConfigService>
+- (void)fetchRemoteConfigWithCompletionHandler:(void (^ _Nonnull)(AIQRemoteConfig * _Nullable, NSError * _Nullable))completionHandler;
+@end
 
 
 
