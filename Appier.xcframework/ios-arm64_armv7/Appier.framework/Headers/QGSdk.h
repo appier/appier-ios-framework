@@ -517,7 +517,7 @@ NS_ASSUME_NONNULL_BEGIN
 */
 - (void)getRecommendationWithScenarioId:(NSString *)scenarioId
                     withQueryParameters:(NSDictionary * _Nullable)queryStringDict
-                         withCompletion:(void (^)(NSArray * response))completion DEPRECATED_MSG_ATTRIBUTE("Use getRecommendationWithScenarioId:withQueryParameters:withCompletionResponse:  instead");
+                         withCompletion:(void (^)(NSArray * response))completion DEPRECATED_MSG_ATTRIBUTE("Use getRecommendationWithScenarioId:withQueryParameters:withCompletionHandler:  instead");
 
 /*!
  @abstract
@@ -656,7 +656,7 @@ Get locally saved push notification data, which is a list of notification payloa
 Whenever we received push notification, we save the payload in the local storage
 
 @code
-NSArray *payloadList = [QGSdk getSharedInstance] fetchSavedPushNotifications];
+NSArray *payloadList = [[QGSdk getSharedInstance] fetchSavedPushNotifications];
 @endcode
 */
 - (NSArray*)fetchSavedPushNotifications;
@@ -669,7 +669,7 @@ Remove all local-saved push notification data
 Clean all local-saved push notification data if we don't need it
 
 @code
-[QGSdk getSharedInstance] deleteSavedPushNotifications];
+[[QGSdk getSharedInstance] deleteSavedPushNotifications];
 @endcode
 */
 - (void)deleteSavedPushNotifications;
@@ -682,7 +682,7 @@ Remove one specific local-saved push notification
 We just need to remove one specific local-saved push notification
 
 @code
-[QGSdk getSharedInstance] deleteNotificationAtIndex:index];
+[[QGSdk getSharedInstance] deleteNotificationAtIndex:index];
 @endcode
 */
 - (void)deleteNotificationAtIndex:(NSUInteger)index;
@@ -700,7 +700,7 @@ By default, it is @b DISABLED.
 @note QGNotificationSdk (Version 5.2.1 and above) i.e. Rich push @b MUST be integrated
 
 @code
-[QGSdk getSharedInstance] enablePushNotificationStorage];
+[[QGSdk getSharedInstance] enablePushNotificationStorage];
 @endcode
 */
 - (void)enablePushNotificationStorage;
@@ -714,9 +714,22 @@ By default, it is @b DISABLED.
  If the limit you set is smaller than the existing limit, for example changing from 100 to 80, the older 20 notifications will be deleted.
 
 @code
-[QGSdk getSharedInstance] setPushNotificationStorageLimit:100];
+[[QGSdk getSharedInstance] setPushNotificationStorageLimit:100];
 @endcode
 */
 - (void)setPushNotificationStorageLimit:(long)limit;
+
+/*!
+@abstract
+ Check if the push notification is from Appier
+
+@discussion
+ This is a helper function to check if the push notification is from Appier SDK.
+
+@code
+BOOL isAppierPush = [[QGSdk getSharedInstance] isAppierPush:@{@"example": @"example"}];
+@endcode
+*/
+- (BOOL)isAppierPush:(NSDictionary * _Nullable)userInfo;
 @end
 NS_ASSUME_NONNULL_END
