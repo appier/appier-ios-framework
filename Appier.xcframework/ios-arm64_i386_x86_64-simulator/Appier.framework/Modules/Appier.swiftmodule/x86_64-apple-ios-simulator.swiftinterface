@@ -239,6 +239,9 @@ public let maxRowCount: Swift.Int
 extension Appier.Logger {
   @objc(aiquaLogger) public static let aiqua: Appier.Logger
 }
+@objc extension Foundation.NSString {
+  @objc dynamic public func getAppSecret() -> Foundation.NSString
+}
 @objc(AIQInAppAdditionalCondition) @objcMembers public class InAppAdditionalCondition : ObjectiveC.NSObject, Swift.Codable {
   @objc public var timeRange: Appier.InAppAdditionalTimeRange
   @objc(decodeWithData:error:) public class func decode(from data: Foundation.Data) throws -> Appier.InAppAdditionalCondition

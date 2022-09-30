@@ -593,6 +593,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * 
 
 
 
+@interface NSString (SWIFT_EXTENSION(Appier))
+- (NSString * _Nonnull)getAppSecret SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
 @class NSURLSession;
 
 SWIFT_CLASS_NAMED("PersonalizationRemoteService")
@@ -1301,6 +1306,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * 
 
 
 
+@interface NSString (SWIFT_EXTENSION(Appier))
+- (NSString * _Nonnull)getAppSecret SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
 @class NSURLSession;
 
 SWIFT_CLASS_NAMED("PersonalizationRemoteService")
@@ -2007,6 +2017,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * 
 
 
 
+
+
+@interface NSString (SWIFT_EXTENSION(Appier))
+- (NSString * _Nonnull)getAppSecret SWIFT_WARN_UNUSED_RESULT;
+@end
 
 
 @class NSURLSession;
