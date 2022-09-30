@@ -42,7 +42,7 @@
 		</data>
 		<key>Headers/Appier-Swift.h</key>
 		<data>
-		SYHTFzdpZ8JAybX/jXmgFHNlo4o=
+		RAnEWpzBcEjtpUqwlGzwU21qDFc=
 		</data>
 		<key>Headers/Appier.h</key>
 		<data>
@@ -90,7 +90,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		g94Kiwux2hOepsVRoc3CXFM5/vc=
+		/Sg8kbhc+dwF/NqR+mOautBbk20=
 		</data>
 		<key>Modules/Appier.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -98,11 +98,11 @@
 		</data>
 		<key>Modules/Appier.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		oPCD3FHd7ZVlf+ryWFaPMAfpbh8=
+		90mW8JJ/fvgk31kO4LiB7RyYS94=
 		</data>
 		<key>Modules/Appier.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		Y5evHFkrCGRip1be5k4uPeso64o=
+		zNYfC3dpPurKkUdDhgKaS3Hz69E=
 		</data>
 		<key>Modules/Appier.swiftmodule/i386-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -110,11 +110,11 @@
 		</data>
 		<key>Modules/Appier.swiftmodule/i386-apple-ios-simulator.swiftinterface</key>
 		<data>
-		jZq4gSy9nYUfcYMGLOLzBcIiMp4=
+		BmjPDRjZTV1O4AHlfB8ywavSZy4=
 		</data>
 		<key>Modules/Appier.swiftmodule/i386-apple-ios-simulator.swiftmodule</key>
 		<data>
-		2CcKd1Hn+sQM1fXUyrhRP5H59Sw=
+		hVon3kTcPCBrED57PSEQxFQmlY8=
 		</data>
 		<key>Modules/Appier.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -122,11 +122,11 @@
 		</data>
 		<key>Modules/Appier.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		XI43qpQV9sqmAbn801OijUV1ox0=
+		OmgoON1KJ1zFyOtlpeI5nrsyvqc=
 		</data>
 		<key>Modules/Appier.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		zGY8zKITAFUyxR9YZ36Uu40tVac=
+		pb7uLQyCeQJ0Ov0CP9KV8uQ0xJk=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -293,11 +293,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			SYHTFzdpZ8JAybX/jXmgFHNlo4o=
+			RAnEWpzBcEjtpUqwlGzwU21qDFc=
 			</data>
 			<key>hash2</key>
 			<data>
-			5qbK/ym4iDqdomduzl0Nhk80aBG52SSwSzHp3Oyo3kI=
+			AXCpiiE5jjz86zW5N404nrVE2OxQOvYpO/MKttGwEnY=
 			</data>
 		</dict>
 		<key>Headers/Appier.h</key>
@@ -436,22 +436,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			oPCD3FHd7ZVlf+ryWFaPMAfpbh8=
+			90mW8JJ/fvgk31kO4LiB7RyYS94=
 			</data>
 			<key>hash2</key>
 			<data>
-			3ssgihQFESj8vIrZfd2JDfyIlhCifUQJ91/AC2s7KpM=
+			4deIppc2v44RTS8WxHsBQYaHOs7VxwKc7GGQNSnTVkU=
 			</data>
 		</dict>
 		<key>Modules/Appier.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Y5evHFkrCGRip1be5k4uPeso64o=
+			zNYfC3dpPurKkUdDhgKaS3Hz69E=
 			</data>
 			<key>hash2</key>
 			<data>
-			GGanla7xPIWV51AvgGj1NuB7Z94juJdVYlOYdzb6hvY=
+			fh6KC2fHYzyB7F+3usmoH/vEriVlNXjAaLqacYzq1Qk=
 			</data>
 		</dict>
 		<key>Modules/Appier.swiftmodule/i386-apple-ios-simulator.swiftdoc</key>
@@ -469,22 +469,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			jZq4gSy9nYUfcYMGLOLzBcIiMp4=
+			BmjPDRjZTV1O4AHlfB8ywavSZy4=
 			</data>
 			<key>hash2</key>
 			<data>
-			ukIzuPIBEKsAuury4np+CfvJo3rH+mO0KZ8XHyrVq50=
+			xnpuUAi/8gvyn1V/C6b6iOMLwKVXqzkYY4s6jpQ0zyo=
 			</data>
 		</dict>
 		<key>Modules/Appier.swiftmodule/i386-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			2CcKd1Hn+sQM1fXUyrhRP5H59Sw=
+			hVon3kTcPCBrED57PSEQxFQmlY8=
 			</data>
 			<key>hash2</key>
 			<data>
-			WWmpki4ZVB8I++LCuLwLG3IBSk5ErOIWutBoSV5NPsM=
+			7LIHM3/FDQ4qsX59+dz67rulFNlfKq6EcgSBf6Rljio=
 			</data>
 		</dict>
 		<key>Modules/Appier.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -502,22 +502,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			XI43qpQV9sqmAbn801OijUV1ox0=
+			OmgoON1KJ1zFyOtlpeI5nrsyvqc=
 			</data>
 			<key>hash2</key>
 			<data>
-			+mp4mbFg9ALCoi4QcQcaJDcNz0bJ25EfGOk4pDMOqkI=
+			vhxdqWlqHeJCHhSNmAzoZF+pO7daRUwMTwWi9aEhBPo=
 			</data>
 		</dict>
 		<key>Modules/Appier.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			zGY8zKITAFUyxR9YZ36Uu40tVac=
+			pb7uLQyCeQJ0Ov0CP9KV8uQ0xJk=
 			</data>
 			<key>hash2</key>
 			<data>
-			KJy498Zn24Q5dBnlYRW37URtERQDE3ZCGpjSRXn+e3s=
+			zhnKYb2+2kq4KheRVwKI4aKcDxuUmE7rkRlsPljY6e4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
