@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QGNotificationService : UNNotificationServiceExtension
 
++ (NSString *)getAppGroup;
+
 @end
 
 NS_ASSUME_NONNULL_END

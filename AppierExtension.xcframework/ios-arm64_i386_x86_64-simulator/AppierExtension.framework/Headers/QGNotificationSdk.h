@@ -244,6 +244,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)extensionLogEvent:(NSString *)name withParameters:(nullable NSDictionary *)parameters withValueToSum:(nullable NSNumber *)valueToSum;
 
+/*!
+@method
+ 
+@abstract
+Check if the push notification is from Appier
+
+@discussion
+This is a helper function to check if the push notification is from Appier SDK.
+
+@code
+BOOL isAppierPush = [[QGNotificationSdk sharedInstanceWithAppGroup:APP_GROUP] isAppierPush:@{@"example": @"example"}];
+@endcode
+*/
+- (BOOL)isAppierPush:(NSDictionary * _Nullable)userInfo;
+
 @end
 
 NS_ASSUME_NONNULL_END
