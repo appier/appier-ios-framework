@@ -1,14 +1,18 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
 // swift-module-flags: -target arm64-apple-ios9.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Appier
+import AdSupport
+import AppTrackingTransparency
 @_exported import Appier
 import CommonCrypto
 import CoreData
 import CoreGraphics
+import CoreTelephony
 import Dispatch
 import Foundation
 import Network
 import Swift
+import SystemConfiguration
 import UIKit
 import WebKit
 import _Concurrency
@@ -164,15 +168,95 @@ public typealias AIDConversionItem = Appier.ConversionItem
 extension Appier.Logger {
   @objc(aiquaNotificationLogger) public static let aiquaNotification: Appier.Logger
 }
-@objc(AIQConfiguration) public protocol AIQUAConfiguration {
-  @objc var userServerEndpoint: Swift.String? { get set }
-  @objc var remoteConfigEndpoint: Swift.String? { get set }
-  @objc var dbackEndpoint: Swift.String? { get set }
-  @objc var recommendationEndpoint: Swift.String? { get set }
-  @objc var personalizationEndpoint: Swift.String? { get set }
-  @objc var appIdentifier: Swift.String? { get }
-  @objc var userIdentifier: Swift.Int { get }
-  @objc var isNewUser: Swift.Bool { get }
+@_inheritsConvenienceInitializers @objc(QGConstant) @objcMembers public class Constant : ObjectiveC.NSObject {
+  @objc public static let QG_SDK_VERSION: Swift.String
+  @objc public static let AIQ_SDK_VERSION_KEY: Swift.String
+  @objc public static let AIQ_SDK_SUB_TYPE_KEY: Swift.String
+  @objc public static let AIQ_SDK_SUB_TYPE_IOS: Swift.String
+  @objc public static let AIQ_SDK_SUB_VERSION_KEY: Swift.String
+  @objc public static let QG_APP_VERSION: Swift.String
+  @objc public static let QG_LAST_CLICKED_NOTIFICATION_ID: Swift.String
+  @objc public static let QG_LAST_CLICKED_NOTIFICATION_TIME: Swift.String
+  @objc public static let QG_NOTIFICATION_ID: Swift.String
+  @objc public static let QG_CAMPAIGN_ID: Swift.String
+  @objc public static let QG_KEY: Swift.String
+  @objc public static let QG_NOTIF_ID: Swift.String
+  @objc public static let QG_GCM_ID: Swift.String
+  @objc public static let QG_NOTIFICATION_SOURCE: Swift.String
+  @objc public static let QG_CLICK_ATTRIBUTION_WINDOW: Swift.String
+  @objc public static let QG_CLICK_ATTRIBUTION_WINDOW_DEFAULT_VALUE: Swift.Int
+  @objc public static let QG_VIEW_THROUGH_ATTRIBUTION_WINDOW: Swift.String
+  @objc public static let QG_VIEW_THROUGH_ATTRIBUTION_WINDOW_DEFAULT_VALUE: Swift.Int
+  @objc public static let QG_APP_ID: Swift.String
+  @objc public static let QG_APP_SECRET: Swift.String
+  @objc public static let AIQ_CROSS_PLATFORM_FRAMEWORK_SDK_TYPE: Swift.String
+  @objc public static let AIQ_CROSS_PLATFORM_FRAMEWORK_SDK_VERSION: Swift.String
+  @objc public static let QG_USER_ID: Swift.String
+  @objc public static let AIQ_USER_ID_CREATE_TIME: Swift.String
+  @objc public static let AIQ_NEW_USER_DURATION: Swift.Double
+  @objc public static let QG_DEVICE_TOKEN: Swift.String
+  @objc public static let QG_UNKNOWN_VALUE: Swift.String
+  @objc public static let QG_LAST_LOCATION: Swift.String
+  @objc public static let QG_APP_LAUNCH: Swift.String
+  @objc public static let QG_FIRST_APP_LAUNCH: Swift.String
+  @objc public static let QG_RECOMMENDATION_IMPRESSION: Swift.String
+  @objc public static let QG_RECOMMENDATION_CLICKED: Swift.String
+  @objc public static let QG_APP_LAUNCH_DELAY: Swift.Double
+  @objc public static let QG_IN_APP: Swift.String
+  @objc public static let QG_IN_APP_FIRST_APP_LAUNCHED_MATCHED: Swift.String
+  @objc public static let QG_LAST_VIEW_THROUGH_NOTIFICATION_ID: Swift.String
+  @objc public static let QG_LAST_VIEW_THROUGH_TIME: Swift.String
+  @objc public static let QG_IN_APP_DISABLED_STATUS: Swift.String
+  @objc public static let QG_PROFILE_INFO_LAST_SENT_TIME: Swift.String
+  @objc public static let QG_USER_DETAILS_LAST_SENT_TIME: Swift.String
+  @objc public static let QG_DEV_PROFILE: Swift.String
+  @objc public static let QG_AIQ_PUSH_ENABLED_STATUS: Swift.String
+  @objc public static let QG_INBOX: Swift.String
+  @objc public static let QG_INBOX_LIMIT: Swift.String
+  @objc public static let QG_CAROUSEL_ACTION_CATEGORY: Swift.String
+  @objc public static let QG_CAROUSEL_ACTION_OPEN_APP: Swift.String
+  @objc public static let QG_CAROUSEL_ACTION_NEXT: Swift.String
+  @objc public static let QG_SEND_IDFA_WITH_CONSENT: Swift.String
+  @objc public static let QG_ADS_TRACKING_STATUS: Swift.String
+  @objc public static let QG_OPTOUT_STATUS: Swift.String
+  @objc public static let QG_CRASH_LOG_KEY: Swift.String
+  @objc public static let QG_SAVED_PUSH_NOTIFICATION: Swift.String
+  @objc public static let AIQP_CONFIG: Swift.String
+  @objc public static let AIQP_DISABLED_STATUS: Swift.String
+  @objc public static let QG_SAFARI_TRACKING_DISABLED_STATUS: Swift.String
+  @objc public static let QG_SAFARI_DATA_SENT_STATUS: Swift.String
+  @objc public static let QG_APP_GROUP_NAME_SDK: Swift.String
+  @objc public static let QG_FORCE_TOUCH_CAPABILITY_STATUS: Swift.String
+  @objc public static let QG_RICH_PUSH_SUPPORTED_STATUS: Swift.String
+  @objc public static let QG_EXT_RICH_PUSH_DEEPLINK: Swift.String
+  @objc public static let QG_IS_NOT_FIRST_APP_BACKGROUND: Swift.String
+  @objc public static let QG_EXIT_PUSH_PAYLOAD: Swift.String
+  @objc public static let EVENT_CONTROL_GROUP_RECEIVED: Swift.String
+  @objc public static let EVENT_INAPP_DISPLAYED: Swift.String
+  @objc public static let EVENT_INAPP_TOGGLED: Swift.String
+  @objc public static let AIQ_REMOTE_CONFIG_URL: Swift.String
+  @objc public static let ENVIRONMENT: Swift.String
+  @objc public static let QG_UNIVERSAL_LINK_DOMAINS: Swift.String
+  @objc public static let QG_INAPP_CLOSE_IMAGE_URL: Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(AIQConfiguration) @objcMembers public class AIQUAConfiguration : ObjectiveC.NSObject {
+  @objc public static let shared: Appier.AIQUAConfiguration
+  @objc public var userServerEndpoint: Swift.String?
+  @objc public var remoteConfigEndpoint: Swift.String?
+  @objc public var dbackEndpoint: Swift.String?
+  @objc public var recommendationEndpoint: Swift.String?
+  @objc public var personalizationEndpoint: Swift.String?
+  @objc public var appIdentifier: Swift.String? {
+    @objc get
+  }
+  @objc public var userIdentifier: Swift.Int {
+    @objc get
+  }
+  @objc public var isNewUser: Swift.Bool
+  @objc override dynamic public init()
+  @objc deinit
 }
 @objc(AIQDataPointsResponse) @objcMembers public class DataPointsResponse : ObjectiveC.NSObject, Swift.Codable {
   @objc public var success: Swift.Bool
@@ -236,11 +320,78 @@ public let maxRowCount: Swift.Int
   public func create(loggedEvent: Appier.LoggedEvent) -> Swift.Bool
   @objc deinit
 }
+@_inheritsConvenienceInitializers @objc(QGDeviceInfo) @objcMembers public class DeviceInfo : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension Appier.DeviceInfo {
+  @objc public static func optOutSet() -> Foundation.NSNumber
+  @objc public static func IDFA() -> Swift.String
+  @objc public static func IDFV() -> Swift.String
+  @objc public static func systemVersion() -> Swift.String
+  @objc public static func deviceModel() -> Swift.String
+  @objc public static func modelName() -> Swift.String
+  @objc public static func deviceName() -> Swift.String
+  @objc public static func language() -> Swift.String
+  @objc public static func timeZone() -> Swift.String
+  @objc public static func appVersion() -> Swift.String
+  @objc public static func appBuildNumber() -> Swift.String
+  @objc public static func appBundleIdentifier() -> Swift.String
+  @objc public static func diskSpace() -> [Swift.AnyHashable : Any]?
+  @objc public static func coreTelephonyNetwork() -> Swift.String
+  @objc public static func networkType() -> Swift.String
+  @objc public static func simCardInfo() -> [Swift.AnyHashable : Any]
+  @objc public static func richPushSupported() -> Swift.Bool
+  @objc public static func systemVersionEqualTo(_ version: Swift.String) -> Swift.Bool
+  @objc public static func systemVersionGreaterThan(_ version: Swift.String) -> Swift.Bool
+  @objc public static func systemVersionGreaterThanOrEqualTo(_ version: Swift.String) -> Swift.Bool
+  @objc public static func systemVersionLessThan(_ version: Swift.String) -> Swift.Bool
+  @objc public static func systemVersionLessThanOrEqualTo(_ version: Swift.String) -> Swift.Bool
+}
 extension Appier.Logger {
   @objc(aiquaLogger) public static let aiqua: Appier.Logger
 }
 @objc extension Foundation.NSString {
+  @objc dynamic public func isValidStr() -> Swift.Bool
+  @objc dynamic public func encodedURL() -> Foundation.URL?
   @objc dynamic public func getAppSecret() -> Foundation.NSString
+}
+extension Swift.String {
+  public func isValidStr() -> Swift.Bool
+  public func encodedURL() -> Foundation.URL?
+  public func getAppSecret() -> Swift.String
+}
+@objc extension UIKit.UIColor {
+  @objc public static func qgColor(_ r: CoreGraphics.CGFloat, _ g: CoreGraphics.CGFloat, _ b: CoreGraphics.CGFloat, _ a: CoreGraphics.CGFloat) -> UIKit.UIColor
+  @objc public static var qgBackgroundOverlay: UIKit.UIColor {
+    @objc get
+  }
+  @objc public static var qgMessage: UIKit.UIColor {
+    @objc get
+  }
+  @objc public static var qgClear: UIKit.UIColor {
+    @objc get
+  }
+  @objc public static var qgAdaptiveWhite: UIKit.UIColor {
+    @objc get
+  }
+  @objc public static var qgAdaptiveBlack: UIKit.UIColor {
+    @objc get
+  }
+}
+@objc extension UIKit.UIFont {
+  @objc public static func qgHelveticaNeue(_ size: CoreGraphics.CGFloat) -> UIKit.UIFont
+  @objc public static func qgHelveticaNeueBold(_ size: CoreGraphics.CGFloat) -> UIKit.UIFont
+  @objc public static func qgHelveticaNeueLight(_ size: CoreGraphics.CGFloat) -> UIKit.UIFont
+  @objc public static func qgHelveticaNeueMedium(_ size: CoreGraphics.CGFloat) -> UIKit.UIFont
+  @objc public static var qgInAppMessage: UIKit.UIFont {
+    @objc get
+  }
+}
+extension Foundation.URLSessionConfiguration {
+  @objc public static var aiqDefault: Foundation.URLSessionConfiguration {
+    @objc get
+  }
 }
 @objc(AIQInAppAdditionalCondition) @objcMembers public class InAppAdditionalCondition : ObjectiveC.NSObject, Swift.Codable {
   @objc public var timeRange: Appier.InAppAdditionalTimeRange
@@ -361,6 +512,16 @@ extension Appier.InAppRemoteService : Appier.InAppService {
   @objc(fetchInAppCampaignsWithCompletionHandler:) func fetchInAppCampaigns(_ completionHandler: @escaping (Self.PopupCampaigns?, Self.InboxCampaigns?, Swift.Error?) -> Swift.Void)
   @objc(fetchInAppCampaignsWithTimeoutInterval::) func fetchInAppCampaigns(timeoutInterval: Swift.Double, _ completionHandler: @escaping (Self.PopupCampaigns?, Self.InboxCampaigns?, Swift.Error?) -> Swift.Void)
 }
+@objc(QGDATATYPE) public enum DataType : Swift.Int {
+  @objc(QGDATATYPE_PROFILE) case profile = 0
+  @objc(QGDATATYPE_EVENTS) case events = 1
+  @objc(QGDATATYPE_USERDETAILS) case userDetails = 2
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 @_hasMissingDesignatedInitializers @objc(AIQDataCollectionRemoteService) @objcMembers final public class DataCollectionRemoteService : ObjectiveC.NSObject {
   @objc(initWithConfiguration:) convenience public init(configuration: Appier.AIQUAConfiguration)
   @objc deinit
@@ -389,12 +550,10 @@ extension Appier.PersonalizationRemoteService : Appier.PersonalizationService {
   @objc deinit
 }
 extension Appier.RecommendationRemoteService : Appier.RecommendationService {
-  @objc final public func getRecommendation(scenarioId: Swift.String, productId: Swift.String, queryStringDict: [Swift.String : Any]?, completionHandler: @escaping ([Swift.String : Any]?, Swift.Error?) -> Swift.Void)
   @objc final public func getRecommendation(scenarioId: Swift.String, queryStringDict: [Swift.String : Any]?, completionHandler: @escaping ([Swift.String : Any]?, Swift.Error?) -> Swift.Void)
 }
 @objc(AIQRecommendationService) public protocol RecommendationService {
   @objc var observingRequest: Foundation.URLRequest? { get set }
-  @objc(getRecommendationWithScenarioId:withProductId:withQueryParameters:withCompletionHandler:) func getRecommendation(scenarioId: Swift.String, productId: Swift.String, queryStringDict: [Swift.String : Any]?, completionHandler: @escaping ([Swift.String : Any]?, Swift.Error?) -> Swift.Void)
   @objc(getRecommendationWithScenarioId:withQueryParameters:withCompletionHandler:) func getRecommendation(scenarioId: Swift.String, queryStringDict: [Swift.String : Any]?, completionHandler: @escaping ([Swift.String : Any]?, Swift.Error?) -> Swift.Void)
 }
 @_inheritsConvenienceInitializers @objc(AIQRemoteConfigLocalService) @objcMembers final public class RemoteConfigLocalService : ObjectiveC.NSObject {
@@ -413,6 +572,12 @@ extension Appier.RemoteConfigRemoteService : Appier.RemoteConfigService {
 }
 @objc(AIQRemoteConfigService) public protocol RemoteConfigService {
   @objc(fetchRemoteConfigWithCompletionHandler:) func fetchRemoteConfig(_ completionHandler: @escaping (Appier.RemoteConfig?, Swift.Error?) -> Swift.Void)
+}
+@_inheritsConvenienceInitializers @objc(QGSessionDelegate) public class SessionDelegate : ObjectiveC.NSObject, Foundation.URLSessionDataDelegate {
+  @objc public static let shared: Appier.SessionDelegate
+  @objc public func urlSession(_ session: Foundation.URLSession, dataTask: Foundation.URLSessionDataTask, willCacheResponse proposedResponse: Foundation.CachedURLResponse, completionHandler: @escaping (Foundation.CachedURLResponse?) -> Swift.Void)
+  @objc override dynamic public init()
+  @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(APRApp) @objcMembers public class AppierApp : ObjectiveC.NSObject {
   @objc public var aiDeal: Appier.AiDeal {
@@ -499,6 +664,9 @@ extension Appier.InAppBadgeAlignment : Swift.RawRepresentable {}
 extension Appier.InAppMatchOperator : Swift.Equatable {}
 extension Appier.InAppMatchOperator : Swift.Hashable {}
 extension Appier.InAppMatchOperator : Swift.RawRepresentable {}
+extension Appier.DataType : Swift.Equatable {}
+extension Appier.DataType : Swift.Hashable {}
+extension Appier.DataType : Swift.RawRepresentable {}
 extension Appier.LogType : Swift.Equatable {}
 extension Appier.LogType : Swift.Hashable {}
 extension Appier.LogType : Swift.RawRepresentable {}

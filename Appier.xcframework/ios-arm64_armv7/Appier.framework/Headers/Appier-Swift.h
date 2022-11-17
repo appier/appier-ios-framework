@@ -223,8 +223,10 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 @class NSString;
 
-SWIFT_PROTOCOL_NAMED("AIQUAConfiguration")
-@protocol AIQConfiguration
+SWIFT_CLASS_NAMED("AIQUAConfiguration")
+@interface AIQConfiguration : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIQConfiguration * _Nonnull shared;)
++ (AIQConfiguration * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, copy) NSString * _Nullable userServerEndpoint;
 @property (nonatomic, copy) NSString * _Nullable remoteConfigEndpoint;
 @property (nonatomic, copy) NSString * _Nullable dbackEndpoint;
@@ -232,7 +234,8 @@ SWIFT_PROTOCOL_NAMED("AIQUAConfiguration")
 @property (nonatomic, copy) NSString * _Nullable personalizationEndpoint;
 @property (nonatomic, readonly, copy) NSString * _Nullable appIdentifier;
 @property (nonatomic, readonly) NSInteger userIdentifier;
-@property (nonatomic, readonly) BOOL isNewUser;
+@property (nonatomic) BOOL isNewUser;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -363,6 +366,150 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NSBundle * _
 
 
 
+
+SWIFT_CLASS_NAMED("Constant")
+@interface QGConstant : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_SDK_VERSION;)
++ (NSString * _Nonnull)QG_SDK_VERSION SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AIQ_SDK_VERSION_KEY;)
++ (NSString * _Nonnull)AIQ_SDK_VERSION_KEY SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AIQ_SDK_SUB_TYPE_KEY;)
++ (NSString * _Nonnull)AIQ_SDK_SUB_TYPE_KEY SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AIQ_SDK_SUB_TYPE_IOS;)
++ (NSString * _Nonnull)AIQ_SDK_SUB_TYPE_IOS SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AIQ_SDK_SUB_VERSION_KEY;)
++ (NSString * _Nonnull)AIQ_SDK_SUB_VERSION_KEY SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_APP_VERSION;)
++ (NSString * _Nonnull)QG_APP_VERSION SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_LAST_CLICKED_NOTIFICATION_ID;)
++ (NSString * _Nonnull)QG_LAST_CLICKED_NOTIFICATION_ID SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_LAST_CLICKED_NOTIFICATION_TIME;)
++ (NSString * _Nonnull)QG_LAST_CLICKED_NOTIFICATION_TIME SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_NOTIFICATION_ID;)
++ (NSString * _Nonnull)QG_NOTIFICATION_ID SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_CAMPAIGN_ID;)
++ (NSString * _Nonnull)QG_CAMPAIGN_ID SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_KEY;)
++ (NSString * _Nonnull)QG_KEY SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_NOTIF_ID;)
++ (NSString * _Nonnull)QG_NOTIF_ID SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_GCM_ID;)
++ (NSString * _Nonnull)QG_GCM_ID SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_NOTIFICATION_SOURCE;)
++ (NSString * _Nonnull)QG_NOTIFICATION_SOURCE SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_CLICK_ATTRIBUTION_WINDOW;)
++ (NSString * _Nonnull)QG_CLICK_ATTRIBUTION_WINDOW SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSInteger QG_CLICK_ATTRIBUTION_WINDOW_DEFAULT_VALUE;)
++ (NSInteger)QG_CLICK_ATTRIBUTION_WINDOW_DEFAULT_VALUE SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_VIEW_THROUGH_ATTRIBUTION_WINDOW;)
++ (NSString * _Nonnull)QG_VIEW_THROUGH_ATTRIBUTION_WINDOW SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSInteger QG_VIEW_THROUGH_ATTRIBUTION_WINDOW_DEFAULT_VALUE;)
++ (NSInteger)QG_VIEW_THROUGH_ATTRIBUTION_WINDOW_DEFAULT_VALUE SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_APP_ID;)
++ (NSString * _Nonnull)QG_APP_ID SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_APP_SECRET;)
++ (NSString * _Nonnull)QG_APP_SECRET SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AIQ_CROSS_PLATFORM_FRAMEWORK_SDK_TYPE;)
++ (NSString * _Nonnull)AIQ_CROSS_PLATFORM_FRAMEWORK_SDK_TYPE SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AIQ_CROSS_PLATFORM_FRAMEWORK_SDK_VERSION;)
++ (NSString * _Nonnull)AIQ_CROSS_PLATFORM_FRAMEWORK_SDK_VERSION SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_USER_ID;)
++ (NSString * _Nonnull)QG_USER_ID SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AIQ_USER_ID_CREATE_TIME;)
++ (NSString * _Nonnull)AIQ_USER_ID_CREATE_TIME SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSTimeInterval AIQ_NEW_USER_DURATION;)
++ (NSTimeInterval)AIQ_NEW_USER_DURATION SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_DEVICE_TOKEN;)
++ (NSString * _Nonnull)QG_DEVICE_TOKEN SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_UNKNOWN_VALUE;)
++ (NSString * _Nonnull)QG_UNKNOWN_VALUE SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_LAST_LOCATION;)
++ (NSString * _Nonnull)QG_LAST_LOCATION SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_APP_LAUNCH;)
++ (NSString * _Nonnull)QG_APP_LAUNCH SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_FIRST_APP_LAUNCH;)
++ (NSString * _Nonnull)QG_FIRST_APP_LAUNCH SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_RECOMMENDATION_IMPRESSION;)
++ (NSString * _Nonnull)QG_RECOMMENDATION_IMPRESSION SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_RECOMMENDATION_CLICKED;)
++ (NSString * _Nonnull)QG_RECOMMENDATION_CLICKED SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) double QG_APP_LAUNCH_DELAY;)
++ (double)QG_APP_LAUNCH_DELAY SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_IN_APP;)
++ (NSString * _Nonnull)QG_IN_APP SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_IN_APP_FIRST_APP_LAUNCHED_MATCHED;)
++ (NSString * _Nonnull)QG_IN_APP_FIRST_APP_LAUNCHED_MATCHED SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_LAST_VIEW_THROUGH_NOTIFICATION_ID;)
++ (NSString * _Nonnull)QG_LAST_VIEW_THROUGH_NOTIFICATION_ID SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_LAST_VIEW_THROUGH_TIME;)
++ (NSString * _Nonnull)QG_LAST_VIEW_THROUGH_TIME SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_IN_APP_DISABLED_STATUS;)
++ (NSString * _Nonnull)QG_IN_APP_DISABLED_STATUS SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_PROFILE_INFO_LAST_SENT_TIME;)
++ (NSString * _Nonnull)QG_PROFILE_INFO_LAST_SENT_TIME SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_USER_DETAILS_LAST_SENT_TIME;)
++ (NSString * _Nonnull)QG_USER_DETAILS_LAST_SENT_TIME SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_DEV_PROFILE;)
++ (NSString * _Nonnull)QG_DEV_PROFILE SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_AIQ_PUSH_ENABLED_STATUS;)
++ (NSString * _Nonnull)QG_AIQ_PUSH_ENABLED_STATUS SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_INBOX;)
++ (NSString * _Nonnull)QG_INBOX SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_INBOX_LIMIT;)
++ (NSString * _Nonnull)QG_INBOX_LIMIT SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_CAROUSEL_ACTION_CATEGORY;)
++ (NSString * _Nonnull)QG_CAROUSEL_ACTION_CATEGORY SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_CAROUSEL_ACTION_OPEN_APP;)
++ (NSString * _Nonnull)QG_CAROUSEL_ACTION_OPEN_APP SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_CAROUSEL_ACTION_NEXT;)
++ (NSString * _Nonnull)QG_CAROUSEL_ACTION_NEXT SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_SEND_IDFA_WITH_CONSENT;)
++ (NSString * _Nonnull)QG_SEND_IDFA_WITH_CONSENT SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_ADS_TRACKING_STATUS;)
++ (NSString * _Nonnull)QG_ADS_TRACKING_STATUS SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_OPTOUT_STATUS;)
++ (NSString * _Nonnull)QG_OPTOUT_STATUS SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_CRASH_LOG_KEY;)
++ (NSString * _Nonnull)QG_CRASH_LOG_KEY SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_SAVED_PUSH_NOTIFICATION;)
++ (NSString * _Nonnull)QG_SAVED_PUSH_NOTIFICATION SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AIQP_CONFIG;)
++ (NSString * _Nonnull)AIQP_CONFIG SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AIQP_DISABLED_STATUS;)
++ (NSString * _Nonnull)AIQP_DISABLED_STATUS SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_SAFARI_TRACKING_DISABLED_STATUS;)
++ (NSString * _Nonnull)QG_SAFARI_TRACKING_DISABLED_STATUS SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_SAFARI_DATA_SENT_STATUS;)
++ (NSString * _Nonnull)QG_SAFARI_DATA_SENT_STATUS SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_APP_GROUP_NAME_SDK;)
++ (NSString * _Nonnull)QG_APP_GROUP_NAME_SDK SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_FORCE_TOUCH_CAPABILITY_STATUS;)
++ (NSString * _Nonnull)QG_FORCE_TOUCH_CAPABILITY_STATUS SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_RICH_PUSH_SUPPORTED_STATUS;)
++ (NSString * _Nonnull)QG_RICH_PUSH_SUPPORTED_STATUS SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_EXT_RICH_PUSH_DEEPLINK;)
++ (NSString * _Nonnull)QG_EXT_RICH_PUSH_DEEPLINK SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_IS_NOT_FIRST_APP_BACKGROUND;)
++ (NSString * _Nonnull)QG_IS_NOT_FIRST_APP_BACKGROUND SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_EXIT_PUSH_PAYLOAD;)
++ (NSString * _Nonnull)QG_EXIT_PUSH_PAYLOAD SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull EVENT_CONTROL_GROUP_RECEIVED;)
++ (NSString * _Nonnull)EVENT_CONTROL_GROUP_RECEIVED SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull EVENT_INAPP_DISPLAYED;)
++ (NSString * _Nonnull)EVENT_INAPP_DISPLAYED SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull EVENT_INAPP_TOGGLED;)
++ (NSString * _Nonnull)EVENT_INAPP_TOGGLED SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AIQ_REMOTE_CONFIG_URL;)
++ (NSString * _Nonnull)AIQ_REMOTE_CONFIG_URL SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull ENVIRONMENT;)
++ (NSString * _Nonnull)ENVIRONMENT SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_UNIVERSAL_LINK_DOMAINS;)
++ (NSString * _Nonnull)QG_UNIVERSAL_LINK_DOMAINS SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_INAPP_CLOSE_IMAGE_URL;)
++ (NSString * _Nonnull)QG_INAPP_CLOSE_IMAGE_URL SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class AIDConversionItem;
 
 SWIFT_CLASS_NAMED("Conversion")
@@ -407,7 +554,7 @@ SWIFT_CLASS_NAMED("CoreDataComponent")
 
 SWIFT_CLASS_NAMED("DataCollectionRemoteService")
 @interface AIQDataCollectionRemoteService : NSObject
-- (nonnull instancetype)initWithConfiguration:(id <AIQConfiguration> _Nonnull)configuration;
+- (nonnull instancetype)initWithConfiguration:(AIQConfiguration * _Nonnull)configuration;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -433,6 +580,45 @@ SWIFT_CLASS_NAMED("DataPointsResponse")
 @property (nonatomic, copy) NSString * _Nullable error;
 + (AIQDataPointsResponse * _Nullable)decodeWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+@end
+
+typedef SWIFT_ENUM_NAMED(NSInteger, QGDATATYPE, "DataType", open) {
+  QGDATATYPE_PROFILE SWIFT_COMPILE_NAME("profile") = 0,
+  QGDATATYPE_EVENTS SWIFT_COMPILE_NAME("events") = 1,
+  QGDATATYPE_USERDETAILS SWIFT_COMPILE_NAME("userDetails") = 2,
+};
+
+
+SWIFT_CLASS_NAMED("DeviceInfo")
+@interface QGDeviceInfo : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NSNumber;
+
+@interface QGDeviceInfo (SWIFT_EXTENSION(Appier))
++ (NSNumber * _Nonnull)optOutSet SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)IDFA SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)IDFV SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)systemVersion SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)deviceModel SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)modelName SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)deviceName SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)language SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)timeZone SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)appVersion SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)appBuildNumber SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)appBundleIdentifier SWIFT_WARN_UNUSED_RESULT;
++ (NSDictionary * _Nullable)diskSpace SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)coreTelephonyNetwork SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)networkType SWIFT_WARN_UNUSED_RESULT;
++ (NSDictionary * _Nonnull)simCardInfo SWIFT_WARN_UNUSED_RESULT;
++ (BOOL)richPushSupported SWIFT_WARN_UNUSED_RESULT;
++ (BOOL)systemVersionEqualTo:(NSString * _Nonnull)version SWIFT_WARN_UNUSED_RESULT;
++ (BOOL)systemVersionGreaterThan:(NSString * _Nonnull)version SWIFT_WARN_UNUSED_RESULT;
++ (BOOL)systemVersionGreaterThanOrEqualTo:(NSString * _Nonnull)version SWIFT_WARN_UNUSED_RESULT;
++ (BOOL)systemVersionLessThan:(NSString * _Nonnull)version SWIFT_WARN_UNUSED_RESULT;
++ (BOOL)systemVersionLessThanOrEqualTo:(NSString * _Nonnull)version SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -497,7 +683,7 @@ SWIFT_CLASS_NAMED("InAppMatchCondition")
 
 SWIFT_CLASS_NAMED("InAppRemoteService")
 @interface AIQInAppRemoteService : NSObject
-- (nonnull instancetype)initWithConfiguration:(id <AIQConfiguration> _Nonnull)configuration;
+- (nonnull instancetype)initWithConfiguration:(AIQConfiguration * _Nonnull)configuration;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -575,14 +761,14 @@ SWIFT_CLASS_NAMED("Logger")
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
-+ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
++ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
-+ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
++ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -594,6 +780,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * 
 
 
 @interface NSString (SWIFT_EXTENSION(Appier))
+- (BOOL)isValidStr SWIFT_WARN_UNUSED_RESULT;
+- (NSURL * _Nullable)encodedURL SWIFT_WARN_UNUSED_RESULT;
 - (NSString * _Nonnull)getAppSecret SWIFT_WARN_UNUSED_RESULT;
 @end
 
@@ -602,7 +790,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * 
 
 SWIFT_CLASS_NAMED("PersonalizationRemoteService")
 @interface AIQPersonalizationRemoteService : NSObject
-- (nonnull instancetype)initWithConfiguration:(id <AIQConfiguration> _Nonnull)configuration session:(NSURLSession * _Nonnull)session;
+- (nonnull instancetype)initWithConfiguration:(AIQConfiguration * _Nonnull)configuration session:(NSURLSession * _Nonnull)session;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -627,7 +815,7 @@ SWIFT_PROTOCOL_NAMED("PersonalizationService")
 SWIFT_CLASS_NAMED("RecommendationRemoteService")
 @interface AIQRecommendationRemoteService : NSObject
 @property (nonatomic, copy) NSURLRequest * _Nullable observingRequest;
-- (nonnull instancetype)initWithConfiguration:(id <AIQConfiguration> _Nonnull)configuration session:(NSURLSession * _Nonnull)session;
+- (nonnull instancetype)initWithConfiguration:(AIQConfiguration * _Nonnull)configuration session:(NSURLSession * _Nonnull)session;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -636,13 +824,11 @@ SWIFT_CLASS_NAMED("RecommendationRemoteService")
 SWIFT_PROTOCOL_NAMED("RecommendationService")
 @protocol AIQRecommendationService
 @property (nonatomic, copy) NSURLRequest * _Nullable observingRequest;
-- (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId withProductId:(NSString * _Nonnull)productId withQueryParameters:(NSDictionary<NSString *, id> * _Nullable)queryStringDict withCompletionHandler:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
 - (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId withQueryParameters:(NSDictionary<NSString *, id> * _Nullable)queryStringDict withCompletionHandler:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
 
 @interface AIQRecommendationRemoteService (SWIFT_EXTENSION(Appier)) <AIQRecommendationService>
-- (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId withProductId:(NSString * _Nonnull)productId withQueryParameters:(NSDictionary<NSString *, id> * _Nullable)queryStringDict withCompletionHandler:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
 - (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId withQueryParameters:(NSDictionary<NSString *, id> * _Nullable)queryStringDict withCompletionHandler:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
@@ -689,7 +875,7 @@ SWIFT_PROTOCOL_NAMED("RemoteConfigService")
 
 SWIFT_CLASS_NAMED("RemoteConfigRemoteService")
 @interface AIQRemoteConfigRemoteService : NSObject
-- (nonnull instancetype)initWithConfiguration:(id <AIQConfiguration> _Nonnull)configuration;
+- (nonnull instancetype)initWithConfiguration:(AIQConfiguration * _Nonnull)configuration;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -700,8 +886,50 @@ SWIFT_CLASS_NAMED("RemoteConfigRemoteService")
 @end
 
 
+@class NSURLSessionDataTask;
+@class NSCachedURLResponse;
+
+SWIFT_CLASS_NAMED("SessionDelegate")
+@interface QGSessionDelegate : NSObject <NSURLSessionDataDelegate>
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) QGSessionDelegate * _Nonnull shared;)
++ (QGSessionDelegate * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+- (void)URLSession:(NSURLSession * _Nonnull)session dataTask:(NSURLSessionDataTask * _Nonnull)dataTask willCacheResponse:(NSCachedURLResponse * _Nonnull)proposedResponse completionHandler:(void (^ _Nonnull)(NSCachedURLResponse * _Nullable))completionHandler;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
 
 
+
+
+@interface UIColor (SWIFT_EXTENSION(Appier))
++ (UIColor * _Nonnull)qgColor:(CGFloat)r :(CGFloat)g :(CGFloat)b :(CGFloat)a SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull qgBackgroundOverlay;)
++ (UIColor * _Nonnull)qgBackgroundOverlay SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull qgMessage;)
++ (UIColor * _Nonnull)qgMessage SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull qgClear;)
++ (UIColor * _Nonnull)qgClear SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull qgAdaptiveWhite;)
++ (UIColor * _Nonnull)qgAdaptiveWhite SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull qgAdaptiveBlack;)
++ (UIColor * _Nonnull)qgAdaptiveBlack SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+@interface UIFont (SWIFT_EXTENSION(Appier))
++ (UIFont * _Nonnull)qgHelveticaNeue:(CGFloat)size SWIFT_WARN_UNUSED_RESULT;
++ (UIFont * _Nonnull)qgHelveticaNeueBold:(CGFloat)size SWIFT_WARN_UNUSED_RESULT;
++ (UIFont * _Nonnull)qgHelveticaNeueLight:(CGFloat)size SWIFT_WARN_UNUSED_RESULT;
++ (UIFont * _Nonnull)qgHelveticaNeueMedium:(CGFloat)size SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIFont * _Nonnull qgInAppMessage;)
++ (UIFont * _Nonnull)qgInAppMessage SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+
+@interface NSURLSessionConfiguration (SWIFT_EXTENSION(Appier))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NSURLSessionConfiguration * _Nonnull aiqDefault;)
++ (NSURLSessionConfiguration * _Nonnull)aiqDefault SWIFT_WARN_UNUSED_RESULT;
+@end
 
 
 
@@ -936,8 +1164,10 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 @class NSString;
 
-SWIFT_PROTOCOL_NAMED("AIQUAConfiguration")
-@protocol AIQConfiguration
+SWIFT_CLASS_NAMED("AIQUAConfiguration")
+@interface AIQConfiguration : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIQConfiguration * _Nonnull shared;)
++ (AIQConfiguration * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, copy) NSString * _Nullable userServerEndpoint;
 @property (nonatomic, copy) NSString * _Nullable remoteConfigEndpoint;
 @property (nonatomic, copy) NSString * _Nullable dbackEndpoint;
@@ -945,7 +1175,8 @@ SWIFT_PROTOCOL_NAMED("AIQUAConfiguration")
 @property (nonatomic, copy) NSString * _Nullable personalizationEndpoint;
 @property (nonatomic, readonly, copy) NSString * _Nullable appIdentifier;
 @property (nonatomic, readonly) NSInteger userIdentifier;
-@property (nonatomic, readonly) BOOL isNewUser;
+@property (nonatomic) BOOL isNewUser;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -1076,6 +1307,150 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NSBundle * _
 
 
 
+
+SWIFT_CLASS_NAMED("Constant")
+@interface QGConstant : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_SDK_VERSION;)
++ (NSString * _Nonnull)QG_SDK_VERSION SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AIQ_SDK_VERSION_KEY;)
++ (NSString * _Nonnull)AIQ_SDK_VERSION_KEY SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AIQ_SDK_SUB_TYPE_KEY;)
++ (NSString * _Nonnull)AIQ_SDK_SUB_TYPE_KEY SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AIQ_SDK_SUB_TYPE_IOS;)
++ (NSString * _Nonnull)AIQ_SDK_SUB_TYPE_IOS SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AIQ_SDK_SUB_VERSION_KEY;)
++ (NSString * _Nonnull)AIQ_SDK_SUB_VERSION_KEY SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_APP_VERSION;)
++ (NSString * _Nonnull)QG_APP_VERSION SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_LAST_CLICKED_NOTIFICATION_ID;)
++ (NSString * _Nonnull)QG_LAST_CLICKED_NOTIFICATION_ID SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_LAST_CLICKED_NOTIFICATION_TIME;)
++ (NSString * _Nonnull)QG_LAST_CLICKED_NOTIFICATION_TIME SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_NOTIFICATION_ID;)
++ (NSString * _Nonnull)QG_NOTIFICATION_ID SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_CAMPAIGN_ID;)
++ (NSString * _Nonnull)QG_CAMPAIGN_ID SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_KEY;)
++ (NSString * _Nonnull)QG_KEY SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_NOTIF_ID;)
++ (NSString * _Nonnull)QG_NOTIF_ID SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_GCM_ID;)
++ (NSString * _Nonnull)QG_GCM_ID SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_NOTIFICATION_SOURCE;)
++ (NSString * _Nonnull)QG_NOTIFICATION_SOURCE SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_CLICK_ATTRIBUTION_WINDOW;)
++ (NSString * _Nonnull)QG_CLICK_ATTRIBUTION_WINDOW SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSInteger QG_CLICK_ATTRIBUTION_WINDOW_DEFAULT_VALUE;)
++ (NSInteger)QG_CLICK_ATTRIBUTION_WINDOW_DEFAULT_VALUE SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_VIEW_THROUGH_ATTRIBUTION_WINDOW;)
++ (NSString * _Nonnull)QG_VIEW_THROUGH_ATTRIBUTION_WINDOW SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSInteger QG_VIEW_THROUGH_ATTRIBUTION_WINDOW_DEFAULT_VALUE;)
++ (NSInteger)QG_VIEW_THROUGH_ATTRIBUTION_WINDOW_DEFAULT_VALUE SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_APP_ID;)
++ (NSString * _Nonnull)QG_APP_ID SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_APP_SECRET;)
++ (NSString * _Nonnull)QG_APP_SECRET SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AIQ_CROSS_PLATFORM_FRAMEWORK_SDK_TYPE;)
++ (NSString * _Nonnull)AIQ_CROSS_PLATFORM_FRAMEWORK_SDK_TYPE SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AIQ_CROSS_PLATFORM_FRAMEWORK_SDK_VERSION;)
++ (NSString * _Nonnull)AIQ_CROSS_PLATFORM_FRAMEWORK_SDK_VERSION SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_USER_ID;)
++ (NSString * _Nonnull)QG_USER_ID SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AIQ_USER_ID_CREATE_TIME;)
++ (NSString * _Nonnull)AIQ_USER_ID_CREATE_TIME SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSTimeInterval AIQ_NEW_USER_DURATION;)
++ (NSTimeInterval)AIQ_NEW_USER_DURATION SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_DEVICE_TOKEN;)
++ (NSString * _Nonnull)QG_DEVICE_TOKEN SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_UNKNOWN_VALUE;)
++ (NSString * _Nonnull)QG_UNKNOWN_VALUE SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_LAST_LOCATION;)
++ (NSString * _Nonnull)QG_LAST_LOCATION SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_APP_LAUNCH;)
++ (NSString * _Nonnull)QG_APP_LAUNCH SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_FIRST_APP_LAUNCH;)
++ (NSString * _Nonnull)QG_FIRST_APP_LAUNCH SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_RECOMMENDATION_IMPRESSION;)
++ (NSString * _Nonnull)QG_RECOMMENDATION_IMPRESSION SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_RECOMMENDATION_CLICKED;)
++ (NSString * _Nonnull)QG_RECOMMENDATION_CLICKED SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) double QG_APP_LAUNCH_DELAY;)
++ (double)QG_APP_LAUNCH_DELAY SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_IN_APP;)
++ (NSString * _Nonnull)QG_IN_APP SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_IN_APP_FIRST_APP_LAUNCHED_MATCHED;)
++ (NSString * _Nonnull)QG_IN_APP_FIRST_APP_LAUNCHED_MATCHED SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_LAST_VIEW_THROUGH_NOTIFICATION_ID;)
++ (NSString * _Nonnull)QG_LAST_VIEW_THROUGH_NOTIFICATION_ID SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_LAST_VIEW_THROUGH_TIME;)
++ (NSString * _Nonnull)QG_LAST_VIEW_THROUGH_TIME SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_IN_APP_DISABLED_STATUS;)
++ (NSString * _Nonnull)QG_IN_APP_DISABLED_STATUS SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_PROFILE_INFO_LAST_SENT_TIME;)
++ (NSString * _Nonnull)QG_PROFILE_INFO_LAST_SENT_TIME SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_USER_DETAILS_LAST_SENT_TIME;)
++ (NSString * _Nonnull)QG_USER_DETAILS_LAST_SENT_TIME SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_DEV_PROFILE;)
++ (NSString * _Nonnull)QG_DEV_PROFILE SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_AIQ_PUSH_ENABLED_STATUS;)
++ (NSString * _Nonnull)QG_AIQ_PUSH_ENABLED_STATUS SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_INBOX;)
++ (NSString * _Nonnull)QG_INBOX SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_INBOX_LIMIT;)
++ (NSString * _Nonnull)QG_INBOX_LIMIT SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_CAROUSEL_ACTION_CATEGORY;)
++ (NSString * _Nonnull)QG_CAROUSEL_ACTION_CATEGORY SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_CAROUSEL_ACTION_OPEN_APP;)
++ (NSString * _Nonnull)QG_CAROUSEL_ACTION_OPEN_APP SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_CAROUSEL_ACTION_NEXT;)
++ (NSString * _Nonnull)QG_CAROUSEL_ACTION_NEXT SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_SEND_IDFA_WITH_CONSENT;)
++ (NSString * _Nonnull)QG_SEND_IDFA_WITH_CONSENT SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_ADS_TRACKING_STATUS;)
++ (NSString * _Nonnull)QG_ADS_TRACKING_STATUS SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_OPTOUT_STATUS;)
++ (NSString * _Nonnull)QG_OPTOUT_STATUS SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_CRASH_LOG_KEY;)
++ (NSString * _Nonnull)QG_CRASH_LOG_KEY SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_SAVED_PUSH_NOTIFICATION;)
++ (NSString * _Nonnull)QG_SAVED_PUSH_NOTIFICATION SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AIQP_CONFIG;)
++ (NSString * _Nonnull)AIQP_CONFIG SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AIQP_DISABLED_STATUS;)
++ (NSString * _Nonnull)AIQP_DISABLED_STATUS SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_SAFARI_TRACKING_DISABLED_STATUS;)
++ (NSString * _Nonnull)QG_SAFARI_TRACKING_DISABLED_STATUS SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_SAFARI_DATA_SENT_STATUS;)
++ (NSString * _Nonnull)QG_SAFARI_DATA_SENT_STATUS SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_APP_GROUP_NAME_SDK;)
++ (NSString * _Nonnull)QG_APP_GROUP_NAME_SDK SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_FORCE_TOUCH_CAPABILITY_STATUS;)
++ (NSString * _Nonnull)QG_FORCE_TOUCH_CAPABILITY_STATUS SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_RICH_PUSH_SUPPORTED_STATUS;)
++ (NSString * _Nonnull)QG_RICH_PUSH_SUPPORTED_STATUS SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_EXT_RICH_PUSH_DEEPLINK;)
++ (NSString * _Nonnull)QG_EXT_RICH_PUSH_DEEPLINK SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_IS_NOT_FIRST_APP_BACKGROUND;)
++ (NSString * _Nonnull)QG_IS_NOT_FIRST_APP_BACKGROUND SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_EXIT_PUSH_PAYLOAD;)
++ (NSString * _Nonnull)QG_EXIT_PUSH_PAYLOAD SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull EVENT_CONTROL_GROUP_RECEIVED;)
++ (NSString * _Nonnull)EVENT_CONTROL_GROUP_RECEIVED SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull EVENT_INAPP_DISPLAYED;)
++ (NSString * _Nonnull)EVENT_INAPP_DISPLAYED SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull EVENT_INAPP_TOGGLED;)
++ (NSString * _Nonnull)EVENT_INAPP_TOGGLED SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AIQ_REMOTE_CONFIG_URL;)
++ (NSString * _Nonnull)AIQ_REMOTE_CONFIG_URL SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull ENVIRONMENT;)
++ (NSString * _Nonnull)ENVIRONMENT SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_UNIVERSAL_LINK_DOMAINS;)
++ (NSString * _Nonnull)QG_UNIVERSAL_LINK_DOMAINS SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_INAPP_CLOSE_IMAGE_URL;)
++ (NSString * _Nonnull)QG_INAPP_CLOSE_IMAGE_URL SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class AIDConversionItem;
 
 SWIFT_CLASS_NAMED("Conversion")
@@ -1120,7 +1495,7 @@ SWIFT_CLASS_NAMED("CoreDataComponent")
 
 SWIFT_CLASS_NAMED("DataCollectionRemoteService")
 @interface AIQDataCollectionRemoteService : NSObject
-- (nonnull instancetype)initWithConfiguration:(id <AIQConfiguration> _Nonnull)configuration;
+- (nonnull instancetype)initWithConfiguration:(AIQConfiguration * _Nonnull)configuration;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1146,6 +1521,45 @@ SWIFT_CLASS_NAMED("DataPointsResponse")
 @property (nonatomic, copy) NSString * _Nullable error;
 + (AIQDataPointsResponse * _Nullable)decodeWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+@end
+
+typedef SWIFT_ENUM_NAMED(NSInteger, QGDATATYPE, "DataType", open) {
+  QGDATATYPE_PROFILE SWIFT_COMPILE_NAME("profile") = 0,
+  QGDATATYPE_EVENTS SWIFT_COMPILE_NAME("events") = 1,
+  QGDATATYPE_USERDETAILS SWIFT_COMPILE_NAME("userDetails") = 2,
+};
+
+
+SWIFT_CLASS_NAMED("DeviceInfo")
+@interface QGDeviceInfo : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NSNumber;
+
+@interface QGDeviceInfo (SWIFT_EXTENSION(Appier))
++ (NSNumber * _Nonnull)optOutSet SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)IDFA SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)IDFV SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)systemVersion SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)deviceModel SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)modelName SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)deviceName SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)language SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)timeZone SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)appVersion SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)appBuildNumber SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)appBundleIdentifier SWIFT_WARN_UNUSED_RESULT;
++ (NSDictionary * _Nullable)diskSpace SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)coreTelephonyNetwork SWIFT_WARN_UNUSED_RESULT;
++ (NSString * _Nonnull)networkType SWIFT_WARN_UNUSED_RESULT;
++ (NSDictionary * _Nonnull)simCardInfo SWIFT_WARN_UNUSED_RESULT;
++ (BOOL)richPushSupported SWIFT_WARN_UNUSED_RESULT;
++ (BOOL)systemVersionEqualTo:(NSString * _Nonnull)version SWIFT_WARN_UNUSED_RESULT;
++ (BOOL)systemVersionGreaterThan:(NSString * _Nonnull)version SWIFT_WARN_UNUSED_RESULT;
++ (BOOL)systemVersionGreaterThanOrEqualTo:(NSString * _Nonnull)version SWIFT_WARN_UNUSED_RESULT;
++ (BOOL)systemVersionLessThan:(NSString * _Nonnull)version SWIFT_WARN_UNUSED_RESULT;
++ (BOOL)systemVersionLessThanOrEqualTo:(NSString * _Nonnull)version SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1210,7 +1624,7 @@ SWIFT_CLASS_NAMED("InAppMatchCondition")
 
 SWIFT_CLASS_NAMED("InAppRemoteService")
 @interface AIQInAppRemoteService : NSObject
-- (nonnull instancetype)initWithConfiguration:(id <AIQConfiguration> _Nonnull)configuration;
+- (nonnull instancetype)initWithConfiguration:(AIQConfiguration * _Nonnull)configuration;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1288,14 +1702,14 @@ SWIFT_CLASS_NAMED("Logger")
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
-+ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
++ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
-+ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
++ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1307,6 +1721,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * 
 
 
 @interface NSString (SWIFT_EXTENSION(Appier))
+- (BOOL)isValidStr SWIFT_WARN_UNUSED_RESULT;
+- (NSURL * _Nullable)encodedURL SWIFT_WARN_UNUSED_RESULT;
 - (NSString * _Nonnull)getAppSecret SWIFT_WARN_UNUSED_RESULT;
 @end
 
@@ -1315,7 +1731,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * 
 
 SWIFT_CLASS_NAMED("PersonalizationRemoteService")
 @interface AIQPersonalizationRemoteService : NSObject
-- (nonnull instancetype)initWithConfiguration:(id <AIQConfiguration> _Nonnull)configuration session:(NSURLSession * _Nonnull)session;
+- (nonnull instancetype)initWithConfiguration:(AIQConfiguration * _Nonnull)configuration session:(NSURLSession * _Nonnull)session;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1340,7 +1756,7 @@ SWIFT_PROTOCOL_NAMED("PersonalizationService")
 SWIFT_CLASS_NAMED("RecommendationRemoteService")
 @interface AIQRecommendationRemoteService : NSObject
 @property (nonatomic, copy) NSURLRequest * _Nullable observingRequest;
-- (nonnull instancetype)initWithConfiguration:(id <AIQConfiguration> _Nonnull)configuration session:(NSURLSession * _Nonnull)session;
+- (nonnull instancetype)initWithConfiguration:(AIQConfiguration * _Nonnull)configuration session:(NSURLSession * _Nonnull)session;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1349,13 +1765,11 @@ SWIFT_CLASS_NAMED("RecommendationRemoteService")
 SWIFT_PROTOCOL_NAMED("RecommendationService")
 @protocol AIQRecommendationService
 @property (nonatomic, copy) NSURLRequest * _Nullable observingRequest;
-- (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId withProductId:(NSString * _Nonnull)productId withQueryParameters:(NSDictionary<NSString *, id> * _Nullable)queryStringDict withCompletionHandler:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
 - (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId withQueryParameters:(NSDictionary<NSString *, id> * _Nullable)queryStringDict withCompletionHandler:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
 
 @interface AIQRecommendationRemoteService (SWIFT_EXTENSION(Appier)) <AIQRecommendationService>
-- (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId withProductId:(NSString * _Nonnull)productId withQueryParameters:(NSDictionary<NSString *, id> * _Nullable)queryStringDict withCompletionHandler:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
 - (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId withQueryParameters:(NSDictionary<NSString *, id> * _Nullable)queryStringDict withCompletionHandler:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
@@ -1402,7 +1816,7 @@ SWIFT_PROTOCOL_NAMED("RemoteConfigService")
 
 SWIFT_CLASS_NAMED("RemoteConfigRemoteService")
 @interface AIQRemoteConfigRemoteService : NSObject
-- (nonnull instancetype)initWithConfiguration:(id <AIQConfiguration> _Nonnull)configuration;
+- (nonnull instancetype)initWithConfiguration:(AIQConfiguration * _Nonnull)configuration;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1413,8 +1827,50 @@ SWIFT_CLASS_NAMED("RemoteConfigRemoteService")
 @end
 
 
+@class NSURLSessionDataTask;
+@class NSCachedURLResponse;
+
+SWIFT_CLASS_NAMED("SessionDelegate")
+@interface QGSessionDelegate : NSObject <NSURLSessionDataDelegate>
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) QGSessionDelegate * _Nonnull shared;)
++ (QGSessionDelegate * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+- (void)URLSession:(NSURLSession * _Nonnull)session dataTask:(NSURLSessionDataTask * _Nonnull)dataTask willCacheResponse:(NSCachedURLResponse * _Nonnull)proposedResponse completionHandler:(void (^ _Nonnull)(NSCachedURLResponse * _Nullable))completionHandler;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
 
 
+
+
+@interface UIColor (SWIFT_EXTENSION(Appier))
++ (UIColor * _Nonnull)qgColor:(CGFloat)r :(CGFloat)g :(CGFloat)b :(CGFloat)a SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull qgBackgroundOverlay;)
++ (UIColor * _Nonnull)qgBackgroundOverlay SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull qgMessage;)
++ (UIColor * _Nonnull)qgMessage SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull qgClear;)
++ (UIColor * _Nonnull)qgClear SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull qgAdaptiveWhite;)
++ (UIColor * _Nonnull)qgAdaptiveWhite SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _Nonnull qgAdaptiveBlack;)
++ (UIColor * _Nonnull)qgAdaptiveBlack SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+@interface UIFont (SWIFT_EXTENSION(Appier))
++ (UIFont * _Nonnull)qgHelveticaNeue:(CGFloat)size SWIFT_WARN_UNUSED_RESULT;
++ (UIFont * _Nonnull)qgHelveticaNeueBold:(CGFloat)size SWIFT_WARN_UNUSED_RESULT;
++ (UIFont * _Nonnull)qgHelveticaNeueLight:(CGFloat)size SWIFT_WARN_UNUSED_RESULT;
++ (UIFont * _Nonnull)qgHelveticaNeueMedium:(CGFloat)size SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIFont * _Nonnull qgInAppMessage;)
++ (UIFont * _Nonnull)qgInAppMessage SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+
+@interface NSURLSessionConfiguration (SWIFT_EXTENSION(Appier))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NSURLSessionConfiguration * _Nonnull aiqDefault;)
++ (NSURLSessionConfiguration * _Nonnull)aiqDefault SWIFT_WARN_UNUSED_RESULT;
+@end
 
 
 

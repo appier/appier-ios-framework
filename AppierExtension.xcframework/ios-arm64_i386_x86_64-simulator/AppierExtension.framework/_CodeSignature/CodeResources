@@ -18,11 +18,11 @@
 		</data>
 		<key>Headers/QGNotificationSdk.h</key>
 		<data>
-		SLcx1hVMTLyah/bZ3s9GAqyjWYo=
+		OFK1FG1x9fANB9cIPATt8GuhEws=
 		</data>
 		<key>Headers/QGNotificationService.h</key>
 		<data>
-		LiOBNQsJMprsmSIocOmkEbRtLCY=
+		SzKvBPBWzrr4jX0J79ex7hpVOlg=
 		</data>
 		<key>Headers/iCarousel.h</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		EyYopGDV13TZEyQcEISmZStOPEE=
+		5N87Q6JR16h3SfUO01mJu2/ZT8k=
 		</data>
 		<key>Modules/AppierExtension.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -112,22 +112,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			SLcx1hVMTLyah/bZ3s9GAqyjWYo=
+			OFK1FG1x9fANB9cIPATt8GuhEws=
 			</data>
 			<key>hash2</key>
 			<data>
-			3OEvkPqfbMYnEHVUsDosJELYXG3KI7gF7wO2ghoKIww=
+			OD8Rq8Hd6duS1CeL8AKCOjyct/GQ8waZdFHh5TpR0J8=
 			</data>
 		</dict>
 		<key>Headers/QGNotificationService.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			LiOBNQsJMprsmSIocOmkEbRtLCY=
+			SzKvBPBWzrr4jX0J79ex7hpVOlg=
 			</data>
 			<key>hash2</key>
 			<data>
-			4C800OgbtJMT2mYndg2ctp7zotTkTRSKmP3Lb0sJ0WA=
+			gr/6MgDGDd4AhoQElwLw6M25zhhjX5R0Bt9xjS15fys=
 			</data>
 		</dict>
 		<key>Headers/iCarousel.h</key>
