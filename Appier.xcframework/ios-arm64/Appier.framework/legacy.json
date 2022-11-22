@@ -1,0 +1,8 @@
+{
+  "endpoints": {
+    "dback": "https://api.quantumgraph.com/qga",
+    "user": "https://users.quantumgraph.com/aiq-data",
+    "personalization": "https://config.quantumgraph.com/api/v1.0/user_config",
+    "recommendation": "https://aiqua-recommendation.c.appier.net"
+  }
+}
