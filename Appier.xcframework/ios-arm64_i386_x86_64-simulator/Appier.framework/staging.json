@@ -1,8 +1,0 @@
-{
-  "endpoints": {
-    "dback": "https://dback.stg.qgraph.io/qga",
-    "user": "https://users.stg.qgraph.io/aiq-data",
-    "personalization": "https://config.stg.qgraph.io/api/v1.0/user_config",
-    "recommendation": "https://aiqua-recommendation.stg.c.appier.net"
-  }
-}

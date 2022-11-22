@@ -1,0 +1,4 @@
+#import <Foundation/Foundation.h>
+
+extern NSNotificationName const APRAiDealOfferButtonTappedNotification;
+extern NSNotificationName const APRAiDealConfigurationDidChangeNotification;

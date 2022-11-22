@@ -1,0 +1,54 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AppierExtension
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+@_exported import AppierExtension
+import Foundation
+import Swift
+import _Concurrency
+import _StringProcessing
+import os
+extension AppierExtension.Logger {
+  @objc(aiquaNotificationLogger) public static let aiquaNotification: AppierExtension.Logger
+}
+@_inheritsConvenienceInitializers @objc(APRFrameworkInfo) @objcMembers final public class FrameworkInfo : ObjectiveC.NSObject {
+  @objc public static var buildString: Swift.String {
+    @objc get
+  }
+  @objc public static var versionString: Swift.String {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(APRLogger) public class Logger : ObjectiveC.NSObject {
+  @objc final public let category: Swift.String
+  @objc public var enabled: Swift.Bool {
+    @objc get
+  }
+  @objc(descriptionForLevel:) public static func description(for level: AppierExtension.LogType) -> Swift.String
+  @objc deinit
+}
+@objc(APRLogType) public enum LogType : Swift.Int {
+  case debug, info, warning, error
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension AppierExtension.LogType : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public protocol URLSessionProtocol {
+  func dataTask(with url: Foundation.URL, completionHandler: @escaping (Foundation.Data?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionDataTask
+  func dataTask(with request: Foundation.URLRequest, completionHandler: @escaping (Foundation.Data?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionDataTask
+  func downloadTask(with url: Foundation.URL, completionHandler: @escaping (Foundation.URL?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionDownloadTask
+}
+extension Foundation.URLSession : AppierExtension.URLSessionProtocol {
+}
+extension AppierExtension.LogType : Swift.Equatable {}
+extension AppierExtension.LogType : Swift.Hashable {}
+extension AppierExtension.LogType : Swift.RawRepresentable {}
