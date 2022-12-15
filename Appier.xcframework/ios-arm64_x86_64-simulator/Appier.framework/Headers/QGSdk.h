@@ -12,6 +12,7 @@
 #import "QGInbox.h"
 #import "QGInApp.h"
 #import "AIQInAppCondition.h"
+#import "SwiftMediator.h"
 
 NS_ASSUME_NONNULL_BEGIN
 @interface QGSdk : NSObject
@@ -730,5 +731,21 @@ BOOL isAppierPush = [[QGSdk getSharedInstance] isAppierPush:@{@"example": @"exam
 @endcode
 */
 - (BOOL)isAppierPush:(NSDictionary * _Nullable)userInfo;
+
+/// This method will do the necessary URL handling with Appier-integrated third-party services.
+/// eg. LINE data syncing
+/// However, you only need to call this if you set the `AppierAppDelegateProxyEnabled`
+/// flag to `NO` in your Info.plist. If `AppierAppDelegateProxyEnabled` is either missing
+/// or set to `YES` in your Info.plist, the library will call this automatically.
+/// @param url The URL resource to open.
+- (void)handleOpenUrl:(NSURL *)url NS_SWIFT_NAME(handleOpenUrl(_:));
+
+/// This method will do the necessary userActivity handling with Appier-integrated third-party services.
+/// eg. LINE data syncing
+/// However, you only need to call this if you set the `AppierAppDelegateProxyEnabled`
+/// flag to `NO` in your Info.plist. If `AppierAppDelegateProxyEnabled` is either missing
+/// or set to `YES` in your Info.plist, the library will call this automatically.
+/// @param userActivity The activity object containing the data associated with the task the user was performing. Use the data to continue the user's activity in your iOS app.
+- (void)handleUserActivity:(NSUserActivity *)userActivity NS_SWIFT_NAME(handleUserActivity(_:));
 @end
 NS_ASSUME_NONNULL_END

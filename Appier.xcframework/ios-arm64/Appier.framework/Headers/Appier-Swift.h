@@ -270,7 +270,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIQConfigura
 @property (nonatomic, copy) NSString * _Nullable personalizationEndpoint;
 @property (nonatomic, readonly, copy) NSString * _Nullable appIdentifier;
 @property (nonatomic, readonly) NSInteger userIdentifier;
-@property (nonatomic) BOOL isNewUser;
+@property (nonatomic, readonly) BOOL isNewUser;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -423,6 +423,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 + (NSString * _Nonnull)QG_LAST_CLICKED_NOTIFICATION_TIME SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_NOTIFICATION_ID;)
 + (NSString * _Nonnull)QG_NOTIFICATION_ID SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_NOTIFICATION_CLICKED;)
++ (NSString * _Nonnull)QG_NOTIFICATION_CLICKED SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_CAMPAIGN_ID;)
 + (NSString * _Nonnull)QG_CAMPAIGN_ID SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_KEY;)
@@ -543,6 +545,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 + (NSString * _Nonnull)QG_UNIVERSAL_LINK_DOMAINS SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_INAPP_CLOSE_IMAGE_URL;)
 + (NSString * _Nonnull)QG_INAPP_CLOSE_IMAGE_URL SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull APPIER_APP_DELEGATE_PROXY_ENABLED_INFO_PLIST_KEY;)
++ (NSString * _Nonnull)APPIER_APP_DELEGATE_PROXY_ENABLED_INFO_PLIST_KEY SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -933,6 +937,20 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) QGSessionDel
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NSUserActivity;
+
+SWIFT_CLASS("_TtC6Appier27ThirdPartyUrlHandlerService")
+@interface ThirdPartyUrlHandlerService : NSObject
++ (void)handleUrl:(NSURL * _Nonnull)url;
++ (void)handleUserActivity:(NSUserActivity * _Nonnull)userActivity;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+@interface UIApplication (SWIFT_EXTENSION(Appier))
++ (BOOL)isAbleToSwizzleMethods SWIFT_WARN_UNUSED_RESULT;
+@end
 
 
 

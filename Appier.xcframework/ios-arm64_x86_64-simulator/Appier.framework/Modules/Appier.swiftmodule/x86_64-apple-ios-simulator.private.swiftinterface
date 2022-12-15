@@ -171,6 +171,12 @@ extension Appier.Logger {
   @objc(aiquaNotificationLogger) public static let aiquaNotification: Appier.Logger
 }
 @_inheritsConvenienceInitializers @objc(QGConstant) @objcMembers public class Constant : ObjectiveC.NSObject {
+  public struct Key {
+  }
+  public struct UTM {
+  }
+  public struct Event {
+  }
   @objc public static let QG_SDK_VERSION: Swift.String
   @objc public static let AIQ_SDK_VERSION_KEY: Swift.String
   @objc public static let AIQ_SDK_SUB_TYPE_KEY: Swift.String
@@ -179,7 +185,12 @@ extension Appier.Logger {
   @objc public static let QG_APP_VERSION: Swift.String
   @objc public static let QG_LAST_CLICKED_NOTIFICATION_ID: Swift.String
   @objc public static let QG_LAST_CLICKED_NOTIFICATION_TIME: Swift.String
-  @objc public static let QG_NOTIFICATION_ID: Swift.String
+  @objc public static var QG_NOTIFICATION_ID: Swift.String {
+    @objc get
+  }
+  @objc public static var QG_NOTIFICATION_CLICKED: Swift.String {
+    @objc get
+  }
   @objc public static let QG_CAMPAIGN_ID: Swift.String
   @objc public static let QG_KEY: Swift.String
   @objc public static let QG_NOTIF_ID: Swift.String
@@ -240,8 +251,24 @@ extension Appier.Logger {
   @objc public static let ENVIRONMENT: Swift.String
   @objc public static let QG_UNIVERSAL_LINK_DOMAINS: Swift.String
   @objc public static let QG_INAPP_CLOSE_IMAGE_URL: Swift.String
+  @objc public static let APPIER_APP_DELEGATE_PROXY_ENABLED_INFO_PLIST_KEY: Swift.String
   @objc override dynamic public init()
   @objc deinit
+}
+extension Appier.Constant.Key {
+  public static let URL: Swift.String
+  public static let notificationID: Swift.String
+}
+extension Appier.Constant.UTM {
+  public static let campaign: Swift.String
+  public static let content: Swift.String
+  public static let medium: Swift.String
+  public static let source: Swift.String
+  public static let term: Swift.String
+}
+extension Appier.Constant.Event {
+  public static let notificationClicked: Swift.String
+  public static let lineClicked: Swift.String
 }
 @_inheritsConvenienceInitializers @objc(AIQConfiguration) @objcMembers public class AIQUAConfiguration : ObjectiveC.NSObject {
   @objc public static let shared: Appier.AIQUAConfiguration
@@ -256,7 +283,9 @@ extension Appier.Logger {
   @objc public var userIdentifier: Swift.Int {
     @objc get
   }
-  @objc public var isNewUser: Swift.Bool
+  @objc public var isNewUser: Swift.Bool {
+    @objc get
+  }
   @objc override dynamic public init()
   @objc deinit
 }
@@ -362,6 +391,9 @@ extension Swift.String {
   public func isValidStr() -> Swift.Bool
   public func encodedURL() -> Foundation.URL?
   public func getAppSecret() -> Swift.String
+}
+extension UIKit.UIApplication {
+  @objc @_Concurrency.MainActor(unsafe) public static func isAbleToSwizzleMethods() -> Swift.Bool
 }
 @objc extension UIKit.UIColor {
   @objc public static func qgColor(_ r: CoreFoundation.CGFloat, _ g: CoreFoundation.CGFloat, _ b: CoreFoundation.CGFloat, _ a: CoreFoundation.CGFloat) -> UIKit.UIColor
@@ -574,6 +606,27 @@ extension Appier.RemoteConfigRemoteService : Appier.RemoteConfigService {
 }
 @objc(AIQRemoteConfigService) public protocol RemoteConfigService {
   @objc(fetchRemoteConfigWithCompletionHandler:) func fetchRemoteConfig(_ completionHandler: @escaping (Appier.RemoteConfig?, Swift.Error?) -> Swift.Void)
+}
+@_hasMissingDesignatedInitializers @objcMembers public class LINEUrlHandler {
+  @objc deinit
+}
+extension Appier.LINEUrlHandler : Appier.ThirdPartyUrlHandlerProtocol {
+  @objc public static func isEnable() -> Swift.Bool
+  @objc public static func handleUrl(_ url: Foundation.URL, eventLogger: Appier.QGSdk = QGSdk.getSharedInstance())
+  @objc public static func handleUserActivity(_ userActivity: Foundation.NSUserActivity, eventLogger: Appier.QGSdk = QGSdk.getSharedInstance())
+  @objc public static func modifyUrlIfNeeded(_ url: Foundation.URL) -> Foundation.URL?
+}
+public protocol ThirdPartyUrlHandlerProtocol {
+  static func isEnable() -> Swift.Bool
+  static func handleUrl(_ url: Foundation.URL, eventLogger: Appier.QGSdk)
+  static func handleUserActivity(_ userActivity: Foundation.NSUserActivity, eventLogger: Appier.QGSdk)
+  static func modifyUrlIfNeeded(_ url: Foundation.URL) -> Foundation.URL?
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class ThirdPartyUrlHandlerService : ObjectiveC.NSObject {
+  @objc public static func handleUrl(_ url: Foundation.URL)
+  @objc public static func handleUserActivity(_ userActivity: Foundation.NSUserActivity)
+  @objc override dynamic public init()
+  @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(QGSessionDelegate) public class SessionDelegate : ObjectiveC.NSObject, Foundation.URLSessionDataDelegate {
   @objc public static let shared: Appier.SessionDelegate
