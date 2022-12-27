@@ -31402,7 +31402,7 @@
       "kind": "StringLiteral",
       "offset": 193,
       "length": 8,
-      "value": "\"7.20.0\""
+      "value": "\"7.21.0\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",

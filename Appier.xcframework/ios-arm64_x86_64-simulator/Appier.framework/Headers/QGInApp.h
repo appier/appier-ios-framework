@@ -66,6 +66,7 @@ typedef NS_ENUM(NSInteger, InAppPersistency) {
 @property (nonatomic, assign) BOOL badgeCloseButton;
 @property (nonatomic, assign) BOOL creativeCloseButton;
 @property (nonatomic) InAppPersistency persistency;
+@property (nonatomic, assign) BOOL showOverlay;
 
 //frequency cap
 @property (nonatomic) NSInteger frequency;    //how many times
