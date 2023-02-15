@@ -258,21 +258,20 @@ using UInt = size_t;
 
 #if defined(__OBJC__)
 @class NSString;
+@class EndpointConfiguration;
 
 SWIFT_CLASS_NAMED("AIQUAConfiguration")
 @interface AIQConfiguration : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIQConfiguration * _Nonnull shared;)
 + (AIQConfiguration * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, copy) NSString * _Nullable userServerEndpoint;
 @property (nonatomic, copy) NSString * _Nullable remoteConfigEndpoint;
-@property (nonatomic, copy) NSString * _Nullable dbackEndpoint;
-@property (nonatomic, copy) NSString * _Nullable recommendationEndpoint;
-@property (nonatomic, copy) NSString * _Nullable personalizationEndpoint;
+@property (nonatomic, strong) EndpointConfiguration * _Nonnull endpoint;
 @property (nonatomic, readonly, copy) NSString * _Nullable appIdentifier;
 @property (nonatomic, readonly) NSInteger userIdentifier;
 @property (nonatomic, readonly) BOOL isNewUser;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init;
 @end
+
 
 
 /// An object that represents an action to report to the framework.
@@ -547,6 +546,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 + (NSString * _Nonnull)QG_INAPP_CLOSE_IMAGE_URL SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull APPIER_APP_DELEGATE_PROXY_ENABLED_INFO_PLIST_KEY;)
 + (NSString * _Nonnull)APPIER_APP_DELEGATE_PROXY_ENABLED_INFO_PLIST_KEY SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_FAILED_PUSH_EVENT_STACK;)
++ (NSString * _Nonnull)QG_FAILED_PUSH_EVENT_STACK SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -659,6 +660,21 @@ SWIFT_CLASS_NAMED("DeviceInfo")
 + (BOOL)systemVersionGreaterThanOrEqualTo:(NSString * _Nonnull)version SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)systemVersionLessThan:(NSString * _Nonnull)version SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)systemVersionLessThanOrEqualTo:(NSString * _Nonnull)version SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS("_TtC6Appier21EndpointConfiguration")
+@interface EndpointConfiguration : NSObject
+/// API key: userServerEndpoint
+@property (nonatomic, copy) NSString * _Nullable userServer;
+/// API key: dbackEndpoint
+@property (nonatomic, copy) NSString * _Nullable dback;
+/// API key: recommendationEndpoint
+@property (nonatomic, copy) NSString * _Nullable recommendation;
+/// API key: personalizationEndpoint
+@property (nonatomic, copy) NSString * _Nullable personalization;
+- (void)clear;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -1256,21 +1272,20 @@ using UInt = size_t;
 
 #if defined(__OBJC__)
 @class NSString;
+@class EndpointConfiguration;
 
 SWIFT_CLASS_NAMED("AIQUAConfiguration")
 @interface AIQConfiguration : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIQConfiguration * _Nonnull shared;)
 + (AIQConfiguration * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, copy) NSString * _Nullable userServerEndpoint;
 @property (nonatomic, copy) NSString * _Nullable remoteConfigEndpoint;
-@property (nonatomic, copy) NSString * _Nullable dbackEndpoint;
-@property (nonatomic, copy) NSString * _Nullable recommendationEndpoint;
-@property (nonatomic, copy) NSString * _Nullable personalizationEndpoint;
+@property (nonatomic, strong) EndpointConfiguration * _Nonnull endpoint;
 @property (nonatomic, readonly, copy) NSString * _Nullable appIdentifier;
 @property (nonatomic, readonly) NSInteger userIdentifier;
 @property (nonatomic, readonly) BOOL isNewUser;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init;
 @end
+
 
 
 /// An object that represents an action to report to the framework.
@@ -1545,6 +1560,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 + (NSString * _Nonnull)QG_INAPP_CLOSE_IMAGE_URL SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull APPIER_APP_DELEGATE_PROXY_ENABLED_INFO_PLIST_KEY;)
 + (NSString * _Nonnull)APPIER_APP_DELEGATE_PROXY_ENABLED_INFO_PLIST_KEY SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_FAILED_PUSH_EVENT_STACK;)
++ (NSString * _Nonnull)QG_FAILED_PUSH_EVENT_STACK SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1657,6 +1674,21 @@ SWIFT_CLASS_NAMED("DeviceInfo")
 + (BOOL)systemVersionGreaterThanOrEqualTo:(NSString * _Nonnull)version SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)systemVersionLessThan:(NSString * _Nonnull)version SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)systemVersionLessThanOrEqualTo:(NSString * _Nonnull)version SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
+SWIFT_CLASS("_TtC6Appier21EndpointConfiguration")
+@interface EndpointConfiguration : NSObject
+/// API key: userServerEndpoint
+@property (nonatomic, copy) NSString * _Nullable userServer;
+/// API key: dbackEndpoint
+@property (nonatomic, copy) NSString * _Nullable dback;
+/// API key: recommendationEndpoint
+@property (nonatomic, copy) NSString * _Nullable recommendation;
+/// API key: personalizationEndpoint
+@property (nonatomic, copy) NSString * _Nullable personalization;
+- (void)clear;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 

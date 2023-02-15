@@ -177,6 +177,8 @@ extension Appier.Logger {
   }
   public struct Event {
   }
+  public struct Endpoint {
+  }
   @objc public static let QG_SDK_VERSION: Swift.String
   @objc public static let AIQ_SDK_VERSION_KEY: Swift.String
   @objc public static let AIQ_SDK_SUB_TYPE_KEY: Swift.String
@@ -252,6 +254,7 @@ extension Appier.Logger {
   @objc public static let QG_UNIVERSAL_LINK_DOMAINS: Swift.String
   @objc public static let QG_INAPP_CLOSE_IMAGE_URL: Swift.String
   @objc public static let APPIER_APP_DELEGATE_PROXY_ENABLED_INFO_PLIST_KEY: Swift.String
+  @objc public static let QG_FAILED_PUSH_EVENT_STACK: Swift.String
   @objc override dynamic public init()
   @objc deinit
 }
@@ -270,13 +273,16 @@ extension Appier.Constant.Event {
   public static let notificationClicked: Swift.String
   public static let lineClicked: Swift.String
 }
-@_inheritsConvenienceInitializers @objc(AIQConfiguration) @objcMembers public class AIQUAConfiguration : ObjectiveC.NSObject {
+extension Appier.Constant.Endpoint {
+  public static let userServer: Swift.String
+  public static let dback: Swift.String
+  public static let recommendation: Swift.String
+  public static let personalization: Swift.String
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(AIQConfiguration) @objcMembers public class AIQUAConfiguration : ObjectiveC.NSObject {
   @objc public static let shared: Appier.AIQUAConfiguration
-  @objc public var userServerEndpoint: Swift.String?
   @objc public var remoteConfigEndpoint: Swift.String?
-  @objc public var dbackEndpoint: Swift.String?
-  @objc public var recommendationEndpoint: Swift.String?
-  @objc public var personalizationEndpoint: Swift.String?
+  @objc public var endpoint: Appier.EndpointConfiguration
   @objc public var appIdentifier: Swift.String? {
     @objc get
   }
@@ -286,7 +292,7 @@ extension Appier.Constant.Event {
   @objc public var isNewUser: Swift.Bool {
     @objc get
   }
-  @objc override dynamic public init()
+  @objc(init) override convenience dynamic public init()
   @objc deinit
 }
 @objc(AIQDataPointsResponse) @objcMembers public class DataPointsResponse : ObjectiveC.NSObject, Swift.Codable {
@@ -297,6 +303,27 @@ extension Appier.Constant.Event {
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class EndpointConfiguration : ObjectiveC.NSObject {
+  @objc public var userServer: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var dback: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var recommendation: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var personalization: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public func clear()
+  @objc override dynamic public init()
+  @objc deinit
 }
 @objc(AIQEventLogger) public protocol EventLogger {
   @objc func logError(missingEndpoint: Swift.String, api: Swift.String)
@@ -339,8 +366,8 @@ extension Appier.Constant.Event {
 public let maxRowCount: Swift.Int
 @objc(AIQLoggedEventDAO) @objcMembers public class LoggedEventDAO : ObjectiveC.NSObject {
   @objc(initWithManagedObjectContext:) public init(context: CoreData.NSManagedObjectContext)
-  @objc public func getAll(withLimit: Swift.Int = maxRowCount) -> Swift.Array<Appier.LoggedEvent>
-  @objc(getLoggedEventEarlierBeforeWithTime:) public func getLoggedEventEarlierBeforeWithTime(beforeFromNow: Swift.Int) -> Swift.Array<Appier.LoggedEvent>
+  @objc public func getAll(withLimit: Swift.Int = maxRowCount) -> [Appier.LoggedEvent]
+  @objc(getLoggedEventEarlierBeforeWithTime:) public func getLoggedEventEarlierBeforeWithTime(beforeFromNow: Swift.Int) -> [Appier.LoggedEvent]
   @objc @discardableResult
   public func deleteOverflowed() -> Swift.Int
   @objc @discardableResult
@@ -381,16 +408,6 @@ extension Appier.DeviceInfo {
 }
 extension Appier.Logger {
   @objc(aiquaLogger) public static let aiqua: Appier.Logger
-}
-@objc extension Foundation.NSString {
-  @objc dynamic public func isValidStr() -> Swift.Bool
-  @objc dynamic public func encodedURL() -> Foundation.URL?
-  @objc dynamic public func getAppSecret() -> Foundation.NSString
-}
-extension Swift.String {
-  public func isValidStr() -> Swift.Bool
-  public func encodedURL() -> Foundation.URL?
-  public func getAppSecret() -> Swift.String
 }
 extension UIKit.UIApplication {
   @objc @_Concurrency.MainActor(unsafe) public static func isAbleToSwizzleMethods() -> Swift.Bool
@@ -677,6 +694,16 @@ extension Appier.LogType : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }
+}
+@objc extension Foundation.NSString {
+  @objc dynamic public func isValidStr() -> Swift.Bool
+  @objc dynamic public func encodedURL() -> Foundation.URL?
+  @objc dynamic public func getAppSecret() -> Foundation.NSString
+}
+extension Swift.String {
+  public func isValidStr() -> Swift.Bool
+  public func encodedURL() -> Foundation.URL?
+  public func getAppSecret() -> Swift.String
 }
 public protocol URLSessionProtocol {
   func dataTask(with url: Foundation.URL, completionHandler: @escaping (Foundation.Data?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionDataTask
