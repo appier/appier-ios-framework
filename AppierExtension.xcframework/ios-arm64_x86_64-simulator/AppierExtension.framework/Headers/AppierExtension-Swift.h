@@ -230,6 +230,7 @@ using UInt = size_t;
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import Foundation;
 @import ObjectiveC;
 #endif
 
@@ -285,6 +286,14 @@ SWIFT_CLASS_NAMED("Logger")
 @interface APRLogger (SWIFT_EXTENSION(AppierExtension))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
 + (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class NSURL;
+
+@interface NSString (SWIFT_EXTENSION(AppierExtension))
+- (BOOL)isValidStr SWIFT_WARN_UNUSED_RESULT;
+- (NSURL * _Nullable)encodedURL SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nonnull)getAppSecret SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -528,6 +537,7 @@ using UInt = size_t;
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import Foundation;
 @import ObjectiveC;
 #endif
 
@@ -583,6 +593,14 @@ SWIFT_CLASS_NAMED("Logger")
 @interface APRLogger (SWIFT_EXTENSION(AppierExtension))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
 + (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@class NSURL;
+
+@interface NSString (SWIFT_EXTENSION(AppierExtension))
+- (BOOL)isValidStr SWIFT_WARN_UNUSED_RESULT;
+- (NSURL * _Nullable)encodedURL SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nonnull)getAppSecret SWIFT_WARN_UNUSED_RESULT;
 @end
 
 

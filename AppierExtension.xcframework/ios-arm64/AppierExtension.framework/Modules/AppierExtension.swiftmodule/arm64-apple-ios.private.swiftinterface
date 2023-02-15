@@ -3,6 +3,7 @@
 // swift-module-flags: -target arm64-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AppierExtension
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 @_exported import AppierExtension
+import CommonCrypto
 import Foundation
 import Swift
 import _Concurrency
@@ -41,6 +42,16 @@ extension AppierExtension.LogType : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }
+}
+@objc extension Foundation.NSString {
+  @objc dynamic public func isValidStr() -> Swift.Bool
+  @objc dynamic public func encodedURL() -> Foundation.URL?
+  @objc dynamic public func getAppSecret() -> Foundation.NSString
+}
+extension Swift.String {
+  public func isValidStr() -> Swift.Bool
+  public func encodedURL() -> Foundation.URL?
+  public func getAppSecret() -> Swift.String
 }
 public protocol URLSessionProtocol {
   func dataTask(with url: Foundation.URL, completionHandler: @escaping (Foundation.Data?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionDataTask
