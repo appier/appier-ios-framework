@@ -264,7 +264,7 @@ SWIFT_CLASS_NAMED("AIQUAConfiguration")
 @interface AIQConfiguration : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIQConfiguration * _Nonnull shared;)
 + (AIQConfiguration * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, copy) NSString * _Nullable remoteConfigEndpoint;
+@property (nonatomic, copy) NSString * _Nonnull remoteConfigEndpoint;
 @property (nonatomic, strong) EndpointConfiguration * _Nonnull endpoint;
 @property (nonatomic, readonly, copy) NSString * _Nullable appIdentifier;
 @property (nonatomic, readonly) NSInteger userIdentifier;
@@ -912,28 +912,17 @@ SWIFT_CLASS_NAMED("RemoteConfigEndpoints")
 @end
 
 
-SWIFT_CLASS_NAMED("RemoteConfigLocalService")
-@interface AIQRemoteConfigLocalService : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+SWIFT_CLASS_NAMED("RemoteConfigRemoteService")
+@interface AIQRemoteConfigRemoteService : NSObject
+- (nonnull instancetype)initWithConfiguration:(AIQConfiguration * _Nonnull)configuration;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
 SWIFT_PROTOCOL_NAMED("RemoteConfigService")
 @protocol AIQRemoteConfigService
 - (void)fetchRemoteConfigWithCompletionHandler:(void (^ _Nonnull)(AIQRemoteConfig * _Nullable, NSError * _Nullable))completionHandler;
-@end
-
-
-@interface AIQRemoteConfigLocalService (SWIFT_EXTENSION(Appier)) <AIQRemoteConfigService>
-- (void)fetchRemoteConfigWithCompletionHandler:(void (^ _Nonnull)(AIQRemoteConfig * _Nullable, NSError * _Nullable))completionHandler;
-@end
-
-
-SWIFT_CLASS_NAMED("RemoteConfigRemoteService")
-@interface AIQRemoteConfigRemoteService : NSObject
-- (nonnull instancetype)initWithConfiguration:(AIQConfiguration * _Nonnull)configuration;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
@@ -1278,7 +1267,7 @@ SWIFT_CLASS_NAMED("AIQUAConfiguration")
 @interface AIQConfiguration : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIQConfiguration * _Nonnull shared;)
 + (AIQConfiguration * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
-@property (nonatomic, copy) NSString * _Nullable remoteConfigEndpoint;
+@property (nonatomic, copy) NSString * _Nonnull remoteConfigEndpoint;
 @property (nonatomic, strong) EndpointConfiguration * _Nonnull endpoint;
 @property (nonatomic, readonly, copy) NSString * _Nullable appIdentifier;
 @property (nonatomic, readonly) NSInteger userIdentifier;
@@ -1926,28 +1915,17 @@ SWIFT_CLASS_NAMED("RemoteConfigEndpoints")
 @end
 
 
-SWIFT_CLASS_NAMED("RemoteConfigLocalService")
-@interface AIQRemoteConfigLocalService : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+SWIFT_CLASS_NAMED("RemoteConfigRemoteService")
+@interface AIQRemoteConfigRemoteService : NSObject
+- (nonnull instancetype)initWithConfiguration:(AIQConfiguration * _Nonnull)configuration;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
 SWIFT_PROTOCOL_NAMED("RemoteConfigService")
 @protocol AIQRemoteConfigService
 - (void)fetchRemoteConfigWithCompletionHandler:(void (^ _Nonnull)(AIQRemoteConfig * _Nullable, NSError * _Nullable))completionHandler;
-@end
-
-
-@interface AIQRemoteConfigLocalService (SWIFT_EXTENSION(Appier)) <AIQRemoteConfigService>
-- (void)fetchRemoteConfigWithCompletionHandler:(void (^ _Nonnull)(AIQRemoteConfig * _Nullable, NSError * _Nullable))completionHandler;
-@end
-
-
-SWIFT_CLASS_NAMED("RemoteConfigRemoteService")
-@interface AIQRemoteConfigRemoteService : NSObject
-- (nonnull instancetype)initWithConfiguration:(AIQConfiguration * _Nonnull)configuration;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 

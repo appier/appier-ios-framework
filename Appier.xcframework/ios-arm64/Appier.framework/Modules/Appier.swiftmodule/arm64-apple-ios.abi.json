@@ -10604,22 +10604,14 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
               }
             ],
             "declKind": "Var",
             "usr": "c:@M@Appier@objc(cs)AIQConfiguration(py)remoteConfigEndpoint",
-            "mangledName": "$s6Appier18AIQUAConfigurationC20remoteConfigEndpointSSSgvp",
+            "mangledName": "$s6Appier18AIQUAConfigurationC20remoteConfigEndpointSSvp",
             "moduleName": "Appier",
             "declAttributes": [
               "HasInitialValue",
@@ -10636,22 +10628,14 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.String?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sq"
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
                   }
                 ],
                 "declKind": "Accessor",
                 "usr": "c:@M@Appier@objc(cs)AIQConfiguration(im)remoteConfigEndpoint",
-                "mangledName": "$s6Appier18AIQUAConfigurationC20remoteConfigEndpointSSSgvg",
+                "mangledName": "$s6Appier18AIQUAConfigurationC20remoteConfigEndpointSSvg",
                 "moduleName": "Appier",
                 "implicit": true,
                 "declAttributes": [
@@ -10671,22 +10655,14 @@
                   },
                   {
                     "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.String?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sq"
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
                   }
                 ],
                 "declKind": "Accessor",
                 "usr": "c:@M@Appier@objc(cs)AIQConfiguration(im)setRemoteConfigEndpoint:",
-                "mangledName": "$s6Appier18AIQUAConfigurationC20remoteConfigEndpointSSSgvs",
+                "mangledName": "$s6Appier18AIQUAConfigurationC20remoteConfigEndpointSSvs",
                 "moduleName": "Appier",
                 "implicit": true,
                 "declAttributes": [
@@ -10706,8 +10682,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:6Appier18AIQUAConfigurationC20remoteConfigEndpointSSSgvM",
-                "mangledName": "$s6Appier18AIQUAConfigurationC20remoteConfigEndpointSSSgvM",
+                "usr": "s:6Appier18AIQUAConfigurationC20remoteConfigEndpointSSvM",
+                "mangledName": "$s6Appier18AIQUAConfigurationC20remoteConfigEndpointSSvM",
                 "moduleName": "Appier",
                 "implicit": true,
                 "accessorKind": "_modify"
@@ -20185,191 +20161,6 @@
         "declAttributes": [
           "AccessControl",
           "ObjC"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "Appier"
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "RemoteConfigLocalService",
-        "printedName": "RemoteConfigLocalService",
-        "children": [
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "RemoteConfigLocalService",
-                "printedName": "Appier.RemoteConfigLocalService",
-                "usr": "c:@M@Appier@objc(cs)AIQRemoteConfigLocalService"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@Appier@objc(cs)AIQRemoteConfigLocalService(im)init",
-            "mangledName": "$s6Appier24RemoteConfigLocalServiceCACycfc",
-            "moduleName": "Appier",
-            "overriding": true,
-            "implicit": true,
-            "objc_name": "init",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "Override"
-            ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Function",
-            "name": "fetchRemoteConfig",
-            "printedName": "fetchRemoteConfig(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(Appier.RemoteConfig?, Swift.Error?) -> ()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Tuple",
-                    "printedName": "(Appier.RemoteConfig?, Swift.Error?)",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Optional",
-                        "printedName": "Appier.RemoteConfig?",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "RemoteConfig",
-                            "printedName": "Appier.RemoteConfig",
-                            "usr": "c:@M@Appier@objc(cs)AIQRemoteConfig"
-                          }
-                        ],
-                        "usr": "s:Sq"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Optional",
-                        "printedName": "Swift.Error?",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "Error",
-                            "printedName": "Swift.Error",
-                            "usr": "s:s5ErrorP"
-                          }
-                        ],
-                        "usr": "s:Sq"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@Appier@objc(cs)AIQRemoteConfigLocalService(im)fetchRemoteConfigWithCompletionHandler:",
-            "mangledName": "$s6Appier24RemoteConfigLocalServiceC05fetchbC0yyyAA0bC0CSg_s5Error_pSgtcF",
-            "moduleName": "Appier",
-            "objc_name": "fetchRemoteConfigWithCompletionHandler:",
-            "declAttributes": [
-              "Final",
-              "ObjC",
-              "AccessControl"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          }
-        ],
-        "declKind": "Class",
-        "usr": "c:@M@Appier@objc(cs)AIQRemoteConfigLocalService",
-        "mangledName": "$s6Appier24RemoteConfigLocalServiceC",
-        "moduleName": "Appier",
-        "objc_name": "AIQRemoteConfigLocalService",
-        "declAttributes": [
-          "Final",
-          "AccessControl",
-          "ObjCMembers",
-          "ObjC"
-        ],
-        "superclassUsr": "c:objc(cs)NSObject",
-        "inheritsConvenienceInitializers": true,
-        "superclassNames": [
-          "ObjectiveC.NSObject"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "RemoteConfigService",
-            "printedName": "RemoteConfigService",
-            "usr": "c:@M@Appier@objc(pl)AIQRemoteConfigService",
-            "mangledName": "$s6Appier19RemoteConfigServiceP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CVarArg",
-            "printedName": "CVarArg",
-            "usr": "s:s7CVarArgP",
-            "mangledName": "$ss7CVarArgP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObservingPublishing",
-            "printedName": "_KeyValueCodingAndObservingPublishing",
-            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
-            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObserving",
-            "printedName": "_KeyValueCodingAndObserving",
-            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
-            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomStringConvertible",
-            "printedName": "CustomStringConvertible",
-            "usr": "s:s23CustomStringConvertibleP",
-            "mangledName": "$ss23CustomStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomDebugStringConvertible",
-            "printedName": "CustomDebugStringConvertible",
-            "usr": "s:s28CustomDebugStringConvertibleP",
-            "mangledName": "$ss28CustomDebugStringConvertibleP"
-          }
         ]
       },
       {
@@ -31886,7 +31677,7 @@
       "kind": "StringLiteral",
       "offset": 221,
       "length": 8,
-      "value": "\"7.22.0\""
+      "value": "\"7.23.0\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
@@ -32461,6 +32252,13 @@
       "offset": 6244,
       "length": 33,
       "value": "\"appier_endpoint_personalization\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/Core\/AIQUAConfiguration.swift",
+      "kind": "StringLiteral",
+      "offset": 764,
+      "length": 32,
+      "value": "\"https:\/\/config.aiqua.io\/mobile\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/CoreDataComponent.swift",
