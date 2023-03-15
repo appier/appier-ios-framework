@@ -281,7 +281,7 @@ extension Appier.Constant.Endpoint {
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(AIQConfiguration) @objcMembers public class AIQUAConfiguration : ObjectiveC.NSObject {
   @objc public static let shared: Appier.AIQUAConfiguration
-  @objc public var remoteConfigEndpoint: Swift.String?
+  @objc public var remoteConfigEndpoint: Swift.String
   @objc public var endpoint: Appier.EndpointConfiguration
   @objc public var appIdentifier: Swift.String? {
     @objc get
@@ -606,13 +606,6 @@ extension Appier.RecommendationRemoteService : Appier.RecommendationService {
 @objc(AIQRecommendationService) public protocol RecommendationService {
   @objc var observingRequest: Foundation.URLRequest? { get set }
   @objc(getRecommendationWithScenarioId:withQueryParameters:withCompletionHandler:) func getRecommendation(scenarioId: Swift.String, queryStringDict: [Swift.String : Any]?, completionHandler: @escaping ([Swift.String : Any]?, Swift.Error?) -> Swift.Void)
-}
-@_inheritsConvenienceInitializers @objc(AIQRemoteConfigLocalService) @objcMembers final public class RemoteConfigLocalService : ObjectiveC.NSObject {
-  @objc override dynamic public init()
-  @objc deinit
-}
-extension Appier.RemoteConfigLocalService : Appier.RemoteConfigService {
-  @objc final public func fetchRemoteConfig(_ completionHandler: @escaping (Appier.RemoteConfig?, Swift.Error?) -> Swift.Void)
 }
 @_hasMissingDesignatedInitializers @objc(AIQRemoteConfigRemoteService) @objcMembers final public class RemoteConfigRemoteService : ObjectiveC.NSObject {
   @objc(initWithConfiguration:) convenience public init(configuration: Appier.AIQUAConfiguration)
