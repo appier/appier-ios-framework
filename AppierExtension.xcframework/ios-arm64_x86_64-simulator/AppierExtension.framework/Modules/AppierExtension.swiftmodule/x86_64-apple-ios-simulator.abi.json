@@ -1220,6 +1220,25 @@
             "moduleName": "AppierExtension",
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "isStringContainsNewLineCharacter",
+            "printedName": "isStringContainsNewLineCharacter()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:SS15AppierExtensionE32isStringContainsNewLineCharacterSbyF",
+            "mangledName": "$sSS15AppierExtensionE32isStringContainsNewLineCharacterSbyF",
+            "moduleName": "AppierExtension",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Struct",
@@ -1826,6 +1845,29 @@
             "declKind": "Func",
             "usr": "c:@CM@AppierExtension@@objc(cs)NSString(im)getAppSecret",
             "mangledName": "$sSo8NSStringC15AppierExtensionE12getAppSecretAByF",
+            "moduleName": "AppierExtension",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "isStringContainsNewLineCharacter",
+            "printedName": "isStringContainsNewLineCharacter()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@AppierExtension@@objc(cs)NSString(im)isStringContainsNewLineCharacter",
+            "mangledName": "$sSo8NSStringC15AppierExtensionE32isStringContainsNewLineCharacterSbyF",
             "moduleName": "AppierExtension",
             "declAttributes": [
               "Dynamic",

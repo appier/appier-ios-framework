@@ -26252,6 +26252,25 @@
             "moduleName": "Appier",
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "isStringContainsNewLineCharacter",
+            "printedName": "isStringContainsNewLineCharacter()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:SS6AppierE32isStringContainsNewLineCharacterSbyF",
+            "mangledName": "$sSS6AppierE32isStringContainsNewLineCharacterSbyF",
+            "moduleName": "Appier",
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Struct",
@@ -28608,6 +28627,29 @@
             "declKind": "Func",
             "usr": "c:@CM@Appier@@objc(cs)NSString(im)getAppSecret",
             "mangledName": "$sSo8NSStringC6AppierE12getAppSecretAByF",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "isStringContainsNewLineCharacter",
+            "printedName": "isStringContainsNewLineCharacter()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Appier@@objc(cs)NSString(im)isStringContainsNewLineCharacter",
+            "mangledName": "$sSo8NSStringC6AppierE32isStringContainsNewLineCharacterSbyF",
             "moduleName": "Appier",
             "declAttributes": [
               "Dynamic",
@@ -31677,7 +31719,7 @@
       "kind": "StringLiteral",
       "offset": 221,
       "length": 8,
-      "value": "\"7.23.0\""
+      "value": "\"7.23.1\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",

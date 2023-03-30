@@ -294,6 +294,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * 
 - (BOOL)isValidStr SWIFT_WARN_UNUSED_RESULT;
 - (NSURL * _Nullable)encodedURL SWIFT_WARN_UNUSED_RESULT;
 - (NSString * _Nonnull)getAppSecret SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)isStringContainsNewLineCharacter SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
