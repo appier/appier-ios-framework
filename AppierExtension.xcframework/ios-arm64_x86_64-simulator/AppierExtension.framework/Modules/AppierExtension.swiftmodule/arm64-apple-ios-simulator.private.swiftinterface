@@ -47,11 +47,13 @@ extension AppierExtension.LogType : Swift.CustomStringConvertible {
   @objc dynamic public func isValidStr() -> Swift.Bool
   @objc dynamic public func encodedURL() -> Foundation.URL?
   @objc dynamic public func getAppSecret() -> Foundation.NSString
+  @objc dynamic public func isStringContainsNewLineCharacter() -> Swift.Bool
 }
 extension Swift.String {
   public func isValidStr() -> Swift.Bool
   public func encodedURL() -> Foundation.URL?
   public func getAppSecret() -> Swift.String
+  public func isStringContainsNewLineCharacter() -> Swift.Bool
 }
 public protocol URLSessionProtocol {
   func dataTask(with url: Foundation.URL, completionHandler: @escaping (Foundation.Data?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionDataTask
