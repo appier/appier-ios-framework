@@ -674,6 +674,7 @@ SWIFT_CLASS("_TtC6Appier21EndpointConfiguration")
 /// API key: personalizationEndpoint
 @property (nonatomic, copy) NSString * _Nullable personalization;
 - (void)clear;
+@property (nonatomic, readonly, copy) NSString * _Nonnull description;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -817,14 +818,14 @@ SWIFT_CLASS_NAMED("Logger")
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
-+ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
++ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
-+ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
++ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -867,6 +868,85 @@ SWIFT_PROTOCOL_NAMED("PersonalizationService")
 @end
 
 
+
+SWIFT_CLASS_NAMED("RecommendationRequest")
+@interface AIQRecommendationRequest : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("RecommendationPopularTagsRequest")
+@interface AIQRecommendationPopularTagsRequest : AIQRecommendationRequest
+@property (nonatomic, readonly, copy) NSString * _Nonnull scenarioId;
+@property (nonatomic, readonly, strong) NSNumber * _Nonnull numberOfReturn;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class NSError;
+
+SWIFT_CLASS_NAMED("Builder")
+@interface AIQRecommendationPopularTagsRequestBuilder : NSObject
+- (nonnull instancetype)setScenarioId:(NSString * _Nonnull)scenarioId;
+- (nonnull instancetype)setNumberOfReturn:(NSNumber * _Nonnull)numOfReturn;
+- (AIQRecommendationPopularTagsRequest * _Nullable)buildWithError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("RecommendationProductItem")
+@interface AIQRecommendationProductItem : NSObject
+@property (nonatomic, copy) NSString * _Nullable productId;
+@property (nonatomic, readonly, strong) NSNumber * _Nullable positionNumber;
+@property (nonatomic, copy) NSString * _Nullable image;
+@property (nonatomic, copy) NSString * _Nullable title;
+@property (nonatomic, copy) NSString * _Nullable descriptionText;
+@property (nonatomic, copy) NSString * _Nullable url;
+@property (nonatomic, copy) NSString * _Nullable category;
+@property (nonatomic, copy) NSString * _Nullable currency;
+@property (nonatomic, copy) NSString * _Nullable price;
+@property (nonatomic, copy) NSString * _Nullable originalPrice;
+@property (nonatomic, copy) NSString * _Nullable ID;
+@property (nonatomic, copy) NSString * _Nullable availability;
+@property (nonatomic, readonly, strong) NSNumber * _Nullable scoreNumber;
+@property (nonatomic, copy) NSString * _Nullable imageLink;
+@property (nonatomic, copy) NSString * _Nullable link;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("RecommendationProductResponse")
+@interface AIQRecommendationProductResponse : NSObject
+@property (nonatomic, copy) NSString * _Nullable errorMessage;
+@property (nonatomic, copy) NSString * _Nullable scenarioId;
+@property (nonatomic, copy) NSString * _Nullable modelId;
+@property (nonatomic, copy) NSString * _Nullable recId;
+@property (nonatomic, copy) NSString * _Nullable expType;
+@property (nonatomic, copy) NSArray<AIQRecommendationProductItem *> * _Nonnull items;
+@property (nonatomic) BOOL hasNextPage;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("RecommendationProductToTagsRequest")
+@interface AIQRecommendationProductToTagsRequest : AIQRecommendationRequest
+@property (nonatomic, readonly, copy) NSString * _Nonnull productId;
+@property (nonatomic, readonly, copy) NSString * _Nonnull scenarioId;
+@property (nonatomic, readonly, strong) NSNumber * _Nonnull numberOfReturn;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS_NAMED("Builder")
+@interface AIQRecommendationProductToTagsRequestBuilder : NSObject
+- (nonnull instancetype)setProductId:(NSString * _Nonnull)productId;
+- (nonnull instancetype)setScenarioId:(NSString * _Nonnull)scenarioId;
+- (nonnull instancetype)setNumberOfReturn:(NSNumber * _Nonnull)numOfReturn;
+- (AIQRecommendationProductToTagsRequest * _Nullable)buildWithError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class NSURLRequest;
 
 SWIFT_CLASS_NAMED("RecommendationRemoteService")
@@ -877,18 +957,110 @@ SWIFT_CLASS_NAMED("RecommendationRemoteService")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@class AIQRecommendationTagResponse;
 
 SWIFT_PROTOCOL_NAMED("RecommendationService")
 @protocol AIQRecommendationService
 @property (nonatomic, copy) NSURLRequest * _Nullable observingRequest;
 - (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId withQueryParameters:(NSDictionary<NSString *, id> * _Nullable)queryStringDict withCompletionHandler:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
+- (void)getTagsWithRequest:(AIQRecommendationRequest * _Nonnull)request withCompletionHandler:(void (^ _Nonnull)(AIQRecommendationTagResponse * _Nullable, NSError * _Nullable))completionHandler;
+- (void)getProductsWithRequest:(AIQRecommendationRequest * _Nonnull)request withCompletionHandler:(void (^ _Nonnull)(AIQRecommendationProductResponse * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
 
 @interface AIQRecommendationRemoteService (SWIFT_EXTENSION(Appier)) <AIQRecommendationService>
 - (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId withQueryParameters:(NSDictionary<NSString *, id> * _Nullable)queryStringDict withCompletionHandler:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
+- (void)getTagsWithRequest:(AIQRecommendationRequest * _Nonnull)requestObj withCompletionHandler:(void (^ _Nonnull)(AIQRecommendationTagResponse * _Nullable, NSError * _Nullable))completionHandler;
+- (void)getProductsWithRequest:(AIQRecommendationRequest * _Nonnull)requestObj withCompletionHandler:(void (^ _Nonnull)(AIQRecommendationProductResponse * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
+
+
+
+
+SWIFT_CLASS_NAMED("RecommendationTagItem")
+@interface AIQRecommendationTagItem : NSObject
+@property (nonatomic, copy) NSString * _Nullable tagName;
+@property (nonatomic, copy) NSString * _Nullable ID;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("RecommendationTagResponse")
+@interface AIQRecommendationTagResponse : NSObject
+@property (nonatomic, copy) NSString * _Nullable errorMessage;
+@property (nonatomic, copy) NSString * _Nullable scenarioId;
+@property (nonatomic, copy) NSString * _Nullable modelId;
+@property (nonatomic, copy) NSString * _Nullable recId;
+@property (nonatomic, copy) NSString * _Nullable expType;
+@property (nonatomic, copy) NSArray<AIQRecommendationTagItem *> * _Nonnull items;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("RecommendationTagToProductsRequest")
+@interface AIQRecommendationTagToProductsRequest : AIQRecommendationRequest
+@property (nonatomic, readonly, copy) NSString * _Nonnull scenarioId;
+@property (nonatomic, readonly, strong) NSNumber * _Nonnull numberOfReturn;
+@property (nonatomic, readonly, strong) NSNumber * _Nonnull pageNumber;
+@property (nonatomic, copy) NSString * _Nonnull tags;
+@property (nonatomic, readonly, strong) NSNumber * _Nonnull seedNum;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS_NAMED("Builder")
+@interface AIQRecommendationTagToProductsRequestBuilder : NSObject
+- (nonnull instancetype)setScenarioId:(NSString * _Nonnull)scenarioId;
+- (nonnull instancetype)setNumberOfReturn:(NSNumber * _Nonnull)numOfReturn;
+- (nonnull instancetype)setPageNumber:(NSNumber * _Nonnull)pageNum;
+- (nonnull instancetype)setTags:(NSString * _Nonnull)tags;
+- (nonnull instancetype)setSeedNumber:(NSNumber * _Nonnull)seed;
+- (nonnull instancetype)nextPage;
+- (AIQRecommendationTagToProductsRequest * _Nullable)buildWithError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("RecommendationTagToTagsRequest")
+@interface AIQRecommendationTagToTagsRequest : AIQRecommendationRequest
+@property (nonatomic, readonly, copy) NSString * _Nonnull tagName;
+@property (nonatomic, readonly, copy) NSString * _Nonnull scenarioId;
+@property (nonatomic, readonly, strong) NSNumber * _Nonnull numberOfReturn;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS_NAMED("Builder")
+@interface AIQRecommendationTagToTagsRequestBuilder : NSObject
+- (nonnull instancetype)setTagName:(NSString * _Nonnull)tagName;
+- (nonnull instancetype)setScenarioId:(NSString * _Nonnull)scenarioId;
+- (nonnull instancetype)setNumberOfReturn:(NSNumber * _Nonnull)numOfReturn;
+- (AIQRecommendationTagToTagsRequest * _Nullable)buildWithError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS_NAMED("RecommendationUserToTagsRequest")
+@interface AIQRecommendationUserToTagsRequest : AIQRecommendationRequest
+@property (nonatomic, readonly, copy) NSString * _Nonnull userId;
+@property (nonatomic, readonly, copy) NSString * _Nonnull scenarioId;
+@property (nonatomic, readonly, strong) NSNumber * _Nonnull numberOfReturn;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS_NAMED("Builder")
+@interface AIQRecommendationUserToTagsRequestBuilder : NSObject
+- (nonnull instancetype)setUserId:(NSString * _Nonnull)userId;
+- (nonnull instancetype)setScenarioId:(NSString * _Nonnull)scenarioId;
+- (nonnull instancetype)setNumberOfReturn:(NSNumber * _Nonnull)numOfReturn;
+- (AIQRecommendationUserToTagsRequest * _Nullable)buildWithError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
 
 @class AIQRemoteConfigEndpoints;
 
@@ -909,6 +1081,7 @@ SWIFT_CLASS_NAMED("RemoteConfigEndpoints")
 @property (nonatomic, copy) NSString * _Nullable recommendation;
 + (AIQRemoteConfigEndpoints * _Nullable)decodeWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, readonly, copy) NSString * _Nonnull description;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
