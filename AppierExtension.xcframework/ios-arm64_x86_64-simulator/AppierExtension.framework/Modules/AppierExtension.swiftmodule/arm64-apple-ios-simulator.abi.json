@@ -2136,7 +2136,7 @@
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 1652,
+      "offset": 1656,
       "length": 29,
       "value": "\"yyyy-MM-dd HH:mm:ss.SSSSSSZ\""
     },
@@ -2150,42 +2150,42 @@
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 1790,
+      "offset": 1794,
       "length": 4,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 1796,
+      "offset": 1800,
       "length": 7,
       "value": "2"
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 1805,
+      "offset": 1809,
       "length": 5,
       "value": "3"
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 1790,
+      "offset": 1794,
       "length": 4,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 1796,
+      "offset": 1800,
       "length": 7,
       "value": "2"
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 1805,
+      "offset": 1809,
       "length": 5,
       "value": "3"
     }

@@ -322,13 +322,16 @@ extension Appier.Constant.Endpoint {
     @objc set
   }
   @objc public func clear()
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
   @objc override dynamic public init()
   @objc deinit
 }
 @objc(AIQEventLogger) public protocol EventLogger {
   @objc func logError(missingEndpoint: Swift.String, api: Swift.String)
 }
-@_inheritsConvenienceInitializers @objc(AIQRemoteConfig) @objcMembers public class RemoteConfig : ObjectiveC.NSObject, Swift.Codable {
+@_inheritsConvenienceInitializers @objcMembers @objc(AIQRemoteConfig) public class RemoteConfig : ObjectiveC.NSObject, Swift.Codable {
   @objc public var endpoints: Appier.RemoteConfigEndpoints?
   @objc(decodeWithData:error:) public class func decode(from data: Foundation.Data) throws -> Appier.RemoteConfig
   @objc public func data() throws -> Foundation.Data
@@ -337,13 +340,16 @@ extension Appier.Constant.Endpoint {
   public func encode(to encoder: Swift.Encoder) throws
   required public init(from decoder: Swift.Decoder) throws
 }
-@_inheritsConvenienceInitializers @objc(AIQRemoteConfigEndpoints) @objcMembers public class RemoteConfigEndpoints : ObjectiveC.NSObject, Swift.Codable {
+@_inheritsConvenienceInitializers @objcMembers @objc(AIQRemoteConfigEndpoints) public class RemoteConfigEndpoints : ObjectiveC.NSObject, Swift.Codable {
   @objc public var dback: Swift.String?
   @objc public var user: Swift.String?
   @objc public var personalization: Swift.String?
   @objc public var recommendation: Swift.String?
   @objc(decodeWithData:error:) public class func decode(from data: Foundation.Data) throws -> Appier.RemoteConfigEndpoints
   @objc public func data() throws -> Foundation.Data
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
   @objc override dynamic public init()
   @objc deinit
   public func encode(to encoder: Swift.Encoder) throws
@@ -408,6 +414,60 @@ extension Appier.DeviceInfo {
 }
 extension Appier.Logger {
   @objc(aiquaLogger) public static let aiqua: Appier.Logger
+}
+@propertyWrapper public struct Default<Provider> : Swift.Codable where Provider : Appier.DefaultValueProvider {
+  public var wrappedValue: Provider.Value
+  public init()
+  public init(wrappedValue: Provider.Value)
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+extension Appier.Default : Swift.Equatable {
+  public static func == (a: Appier.Default<Provider>, b: Appier.Default<Provider>) -> Swift.Bool
+}
+extension Appier.Default : Swift.Hashable where Provider.Value : Swift.Hashable {
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Swift.KeyedDecodingContainer {
+  public func decode<P>(_: Appier.Default<P>.Type, forKey key: Swift.KeyedDecodingContainer<K>.Key) throws -> Appier.Default<P> where P : Appier.DefaultValueProvider
+}
+extension Swift.KeyedEncodingContainer {
+  public mutating func encode<P>(_ value: Appier.Default<P>, forKey key: Swift.KeyedEncodingContainer<K>.Key) throws where P : Appier.DefaultValueProvider
+}
+public protocol DefaultValueProvider {
+  associatedtype Value : Swift.Decodable, Swift.Encodable, Swift.Equatable
+  static var `default`: Self.Value { get }
+}
+public enum False : Appier.DefaultValueProvider {
+  public static let `default`: Swift.Bool
+  public typealias Value = Swift.Bool
+}
+public enum True : Appier.DefaultValueProvider {
+  public static let `default`: Swift.Bool
+  public typealias Value = Swift.Bool
+}
+public enum Empty<A> : Appier.DefaultValueProvider where A : Swift.Decodable, A : Swift.Encodable, A : Swift.Equatable, A : Swift.RangeReplaceableCollection {
+  public static var `default`: A {
+    get
+  }
+  public typealias Value = A
+}
+public enum EmptyDictionary<K, V> : Appier.DefaultValueProvider where K : Swift.Decodable, K : Swift.Encodable, K : Swift.Hashable, V : Swift.Decodable, V : Swift.Encodable, V : Swift.Equatable {
+  public static var `default`: [K : V] {
+    get
+  }
+  public typealias Value = [K : V]
+}
+public enum Zero : Appier.DefaultValueProvider {
+  public static let `default`: Swift.Int
+  public typealias Value = Swift.Int
+}
+public enum ZeroDouble : Appier.DefaultValueProvider {
+  public static let `default`: Swift.Double
+  public typealias Value = Swift.Double
 }
 extension UIKit.UIApplication {
   @objc @_Concurrency.MainActor(unsafe) public static func isAbleToSwizzleMethods() -> Swift.Bool
@@ -602,10 +662,226 @@ extension Appier.PersonalizationRemoteService : Appier.PersonalizationService {
 }
 extension Appier.RecommendationRemoteService : Appier.RecommendationService {
   @objc final public func getRecommendation(scenarioId: Swift.String, queryStringDict: [Swift.String : Any]?, completionHandler: @escaping ([Swift.String : Any]?, Swift.Error?) -> Swift.Void)
+  @objc final public func getTags(request requestObj: Appier.RecommendationRequest, completionHandler: @escaping (Appier.RecommendationTagResponse?, Swift.Error?) -> Swift.Void)
+  @objc final public func getProducts(request requestObj: Appier.RecommendationRequest, completionHandler: @escaping (Appier.RecommendationProductResponse?, Swift.Error?) -> Swift.Void)
+}
+@_inheritsConvenienceInitializers @objcMembers @objc(AIQRecommendationRequest) public class RecommendationRequest : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
 }
 @objc(AIQRecommendationService) public protocol RecommendationService {
   @objc var observingRequest: Foundation.URLRequest? { get set }
   @objc(getRecommendationWithScenarioId:withQueryParameters:withCompletionHandler:) func getRecommendation(scenarioId: Swift.String, queryStringDict: [Swift.String : Any]?, completionHandler: @escaping ([Swift.String : Any]?, Swift.Error?) -> Swift.Void)
+  @objc(getTagsWithRequest:withCompletionHandler:) func getTags(request: Appier.RecommendationRequest, completionHandler: @escaping (Appier.RecommendationTagResponse?, Swift.Error?) -> Swift.Void)
+  @objc(getProductsWithRequest:withCompletionHandler:) func getProducts(request: Appier.RecommendationRequest, completionHandler: @escaping (Appier.RecommendationProductResponse?, Swift.Error?) -> Swift.Void)
+}
+@_hasMissingDesignatedInitializers @objcMembers @objc(AIQRecommendationPopularTagsRequest) public class RecommendationPopularTagsRequest : Appier.RecommendationRequest {
+  @objc final public let scenarioId: Swift.String
+  @nonobjc final public let numOfReturn: Swift.Int
+  @objc @available(swift, obsoleted: 1.0)
+  public var numberOfReturn: Foundation.NSNumber {
+    @objc get
+  }
+  @_inheritsConvenienceInitializers @objcMembers @objc(AIQRecommendationPopularTagsRequestBuilder) public class Builder : ObjectiveC.NSObject {
+    @objc @discardableResult
+    public func setScenarioId(_ scenarioId: Swift.String) -> Self
+    @discardableResult
+    @nonobjc public func setNumOfReturn(_ numOfReturn: Swift.Int) -> Self
+    @objc @discardableResult
+    @available(swift, obsoleted: 1.0)
+    public func setNumberOfReturn(_ numOfReturn: Foundation.NSNumber) -> Self
+    @objc public func build(error: Foundation.NSErrorPointer) -> Appier.RecommendationPopularTagsRequest?
+    @objc override dynamic public init()
+    @objc deinit
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objcMembers @objc(AIQRecommendationProductToTagsRequest) public class RecommendationProductToTagsRequest : Appier.RecommendationRequest {
+  @objc final public let productId: Swift.String
+  @objc final public let scenarioId: Swift.String
+  @nonobjc final public let numOfReturn: Swift.Int
+  @objc @available(swift, obsoleted: 1.0)
+  public var numberOfReturn: Foundation.NSNumber {
+    @objc get
+  }
+  @_inheritsConvenienceInitializers @objcMembers @objc(AIQRecommendationProductToTagsRequestBuilder) public class Builder : ObjectiveC.NSObject {
+    @objc @discardableResult
+    public func setProductId(_ productId: Swift.String) -> Self
+    @objc @discardableResult
+    public func setScenarioId(_ scenarioId: Swift.String) -> Self
+    @discardableResult
+    @nonobjc public func setNumOfReturn(_ numOfReturn: Swift.Int) -> Self
+    @objc @discardableResult
+    @available(swift, obsoleted: 1.0)
+    public func setNumberOfReturn(_ numOfReturn: Foundation.NSNumber) -> Self
+    @objc public func build(error: Foundation.NSErrorPointer) -> Appier.RecommendationProductToTagsRequest?
+    @objc override dynamic public init()
+    @objc deinit
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objcMembers @objc(AIQRecommendationTagToProductsRequest) public class RecommendationTagToProductsRequest : Appier.RecommendationRequest {
+  @objc final public let scenarioId: Swift.String
+  @nonobjc final public let numOfReturn: Swift.Int
+  @objc @available(swift, obsoleted: 1.0)
+  public var numberOfReturn: Foundation.NSNumber {
+    @objc get
+  }
+  @nonobjc final public let pageNum: Swift.Int
+  @objc @available(swift, obsoleted: 1.0)
+  public var pageNumber: Foundation.NSNumber {
+    @objc get
+  }
+  @objc public var tags: Swift.String
+  @nonobjc final public let seed: Swift.Double
+  @objc @available(swift, obsoleted: 1.0)
+  public var seedNum: Foundation.NSNumber {
+    @objc get
+  }
+  @_inheritsConvenienceInitializers @objcMembers @objc(AIQRecommendationTagToProductsRequestBuilder) public class Builder : ObjectiveC.NSObject {
+    @objc @discardableResult
+    public func setScenarioId(_ scenarioId: Swift.String) -> Self
+    @discardableResult
+    @nonobjc public func setNumOfReturn(_ numOfReturn: Swift.Int) -> Self
+    @objc @discardableResult
+    @available(swift, obsoleted: 1.0)
+    public func setNumberOfReturn(_ numOfReturn: Foundation.NSNumber) -> Self
+    @discardableResult
+    @nonobjc public func setPageNum(_ pageNum: Swift.Int) -> Self
+    @objc @discardableResult
+    @available(swift, obsoleted: 1.0)
+    public func setPageNumber(_ pageNum: Foundation.NSNumber) -> Self
+    @objc @discardableResult
+    public func setTags(_ tags: Swift.String) -> Self
+    @discardableResult
+    @nonobjc public func setSeed(_ seed: Swift.Double) -> Self
+    @objc @discardableResult
+    @available(swift, obsoleted: 1.0)
+    public func setSeedNumber(_ seed: Foundation.NSNumber) -> Self
+    @objc @discardableResult
+    public func nextPage() -> Self
+    @objc public func build(error: Foundation.NSErrorPointer) -> Appier.RecommendationTagToProductsRequest?
+    @objc override dynamic public init()
+    @objc deinit
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objcMembers @objc(AIQRecommendationTagToTagsRequest) public class RecommendationTagToTagsRequest : Appier.RecommendationRequest {
+  @objc final public let tagName: Swift.String
+  @objc final public let scenarioId: Swift.String
+  @nonobjc final public let numOfReturn: Swift.Int
+  @objc @available(swift, obsoleted: 1.0)
+  public var numberOfReturn: Foundation.NSNumber {
+    @objc get
+  }
+  @_inheritsConvenienceInitializers @objcMembers @objc(AIQRecommendationTagToTagsRequestBuilder) public class Builder : ObjectiveC.NSObject {
+    @objc @discardableResult
+    public func setTagName(_ tagName: Swift.String) -> Self
+    @objc @discardableResult
+    public func setScenarioId(_ scenarioId: Swift.String) -> Self
+    @discardableResult
+    @nonobjc public func setNumOfReturn(_ numOfReturn: Swift.Int) -> Self
+    @objc @discardableResult
+    @available(swift, obsoleted: 1.0)
+    public func setNumberOfReturn(_ numOfReturn: Foundation.NSNumber) -> Self
+    @objc public func build(error: Foundation.NSErrorPointer) -> Appier.RecommendationTagToTagsRequest?
+    @objc override dynamic public init()
+    @objc deinit
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objcMembers @objc(AIQRecommendationUserToTagsRequest) public class RecommendationUserToTagsRequest : Appier.RecommendationRequest {
+  @objc final public let userId: Swift.String
+  @objc final public let scenarioId: Swift.String
+  @nonobjc final public let numOfReturn: Swift.Int
+  @objc @available(swift, obsoleted: 1.0)
+  public var numberOfReturn: Foundation.NSNumber {
+    @objc get
+  }
+  @_inheritsConvenienceInitializers @objcMembers @objc(AIQRecommendationUserToTagsRequestBuilder) public class Builder : ObjectiveC.NSObject {
+    @objc @discardableResult
+    public func setUserId(_ userId: Swift.String) -> Self
+    @objc @discardableResult
+    public func setScenarioId(_ scenarioId: Swift.String) -> Self
+    @discardableResult
+    @nonobjc public func setNumOfReturn(_ numOfReturn: Swift.Int) -> Self
+    @objc @discardableResult
+    @available(swift, obsoleted: 1.0)
+    public func setNumberOfReturn(_ numOfReturn: Foundation.NSNumber) -> Self
+    @objc public func build(error: Foundation.NSErrorPointer) -> Appier.RecommendationUserToTagsRequest?
+    @objc override dynamic public init()
+    @objc deinit
+  }
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objcMembers @objc(AIQRecommendationProductItem) public class RecommendationProductItem : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var productId: Swift.String?
+  @nonobjc public var position: Swift.Int?
+  @objc @available(swift, obsoleted: 1.0)
+  public var positionNumber: Foundation.NSNumber? {
+    @objc get
+  }
+  @objc public var image: Swift.String?
+  @objc public var title: Swift.String?
+  @objc public var descriptionText: Swift.String?
+  @objc public var url: Swift.String?
+  @objc public var category: Swift.String?
+  @objc public var currency: Swift.String?
+  @objc public var price: Swift.String?
+  @objc public var originalPrice: Swift.String?
+  @objc(ID) public var id: Swift.String?
+  @objc public var availability: Swift.String?
+  @nonobjc public var score: Swift.Double?
+  @objc @available(swift, obsoleted: 1.0)
+  public var scoreNumber: Foundation.NSNumber? {
+    @objc get
+  }
+  @objc public var imageLink: Swift.String?
+  @objc public var link: Swift.String?
+  @objc override dynamic public init()
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+@_inheritsConvenienceInitializers @objcMembers @objc(AIQRecommendationProductResponse) public class RecommendationProductResponse : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var errorMessage: Swift.String?
+  @objc public var scenarioId: Swift.String?
+  @objc public var modelId: Swift.String?
+  @objc public var recId: Swift.String?
+  @objc public var expType: Swift.String?
+  @objc @Appier.Default<Appier.Empty> public var items: [Appier.RecommendationProductItem] {
+    @objc get
+    @objc set
+    _modify
+  }
+  @objc public var hasNextPage: Swift.Bool
+  @objc override dynamic public init()
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+@_inheritsConvenienceInitializers @objcMembers @objc(AIQRecommendationTagItem) public class RecommendationTagItem : ObjectiveC.NSObject, Swift.Codable {
+  @objc public var tagName: Swift.String?
+  @objc(ID) public var id: Swift.String?
+  @objc override dynamic public init()
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+@_inheritsConvenienceInitializers @objcMembers @objc(AIQRecommendationTagResponse) public class RecommendationTagResponse : ObjectiveC.NSObject, Swift.Decodable {
+  @objc public var errorMessage: Swift.String?
+  @objc public var scenarioId: Swift.String?
+  @objc public var modelId: Swift.String?
+  @objc public var recId: Swift.String?
+  @objc public var expType: Swift.String?
+  @objc @Appier.Default<Appier.Empty> public var items: [Appier.RecommendationTagItem] {
+    @objc get
+    @objc set
+    _modify
+  }
+  @objc override dynamic public init()
+  @objc deinit
+  required public init(from decoder: Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers @objc(AIQRemoteConfigRemoteService) @objcMembers final public class RemoteConfigRemoteService : ObjectiveC.NSObject {
   @objc(initWithConfiguration:) convenience public init(configuration: Appier.AIQUAConfiguration)

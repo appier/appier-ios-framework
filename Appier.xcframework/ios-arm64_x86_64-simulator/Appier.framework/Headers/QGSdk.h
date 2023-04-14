@@ -15,6 +15,9 @@
 #import "SwiftMediator.h"
 
 NS_ASSUME_NONNULL_BEGIN
+@class AIQRecommendationRequest;
+@class AIQRecommendationTagResponse;
+@class AIQRecommendationProductResponse;
 @interface QGSdk : NSObject
 
 /*!
@@ -547,7 +550,7 @@ NS_ASSUME_NONNULL_BEGIN
  Returns recommendation data with 2.0 url for the user with scenario Id and query string
 
  @discussion
- This is a asynchronous function which returns a dictonary of recommended objects with a scenario Id and an optional dictionary for query string that may contain filter.
+ This is an asynchronous function which returns a dictionary of recommended objects with a scenario Id and an optional dictionary for query string that may contain filter.
 
  @param scenarioId ScenarioId
 
@@ -569,6 +572,56 @@ NS_ASSUME_NONNULL_BEGIN
                           withProductId:(NSString *)productId
                     withQueryParameters:(NSDictionary * _Nullable)queryStringDict
                   withCompletionHandler:(void (^)(id _Nullable response))completion;
+
+/*!
+ @abstract
+ Returns recommendation tags based on the actual request type.
+
+ @discussion
+ This is an asynchronous function that returns a dictionary of recommended tag objects. To use it, select the appropriate request based on your scenario and initialize it using the corresponding builder.
+
+ @param request ScenarioId
+
+ @code
+ AIQRecommendationPopularTagsRequestBuilder *builder = [AIQRecommendationPopularTagsRequestBuilder new];
+ NSError *error = [NSError new];
+ AIQRecommendationPopularTagsRequest *request = [[builder setScenarioId:@"sid"] buildWithError:&error];
+ [[QGSdk getSharedInstance] getRecommendationTagsWithRequest:request withCompletionHandler:^(AIQRecommendationTagResponse _Nullable response) {
+        if (response) {
+            QGLog(@"You can parse response");
+        }
+ }];
+ @endcode
+
+ Parse the response object and use it as required
+*/
+- (void)getRecommendationTagsWithRequest:(AIQRecommendationRequest *)request
+                   withCompletionHandler:(void (^)(AIQRecommendationTagResponse * _Nullable response))completion;
+
+/*!
+ @abstract
+ Returns recommendation tags based on the actual request type.
+
+ @discussion
+ This is an asynchronous function that returns a dictionary of recommended product objects. To use it, select the appropriate request based on your scenario and initialize it using the corresponding builder.
+
+ @param request ScenarioId
+
+ @code
+ AIQRecommendationTagToProductsRequestBuilder *builder = [AIQRecommendationTagToProductsRequestBuilder new];
+ NSError *error = [NSError new];
+ AIQRecommendationTagToProductsRequest *request = [[builder setScenarioId:@"sid"] buildWithError:&error];
+ [[QGSdk getSharedInstance] getRecommendationProductsWithRequest:request withCompletionHandler:^(AIQRecommendationProductResponse _Nullable response) {
+        if (response) {
+            QGLog(@"You can parse response");
+        }
+ }];
+ @endcode
+
+ Parse the response object and use it as required
+*/
+- (void)getRecommendationProductsWithRequest:(AIQRecommendationRequest *)request
+                       withCompletionHandler:(void (^)(AIQRecommendationProductResponse * _Nullable response))completion;
 
 /*!
  @abstract
