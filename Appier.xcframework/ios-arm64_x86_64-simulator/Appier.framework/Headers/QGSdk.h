@@ -12,6 +12,7 @@
 #import "QGInbox.h"
 #import "QGInApp.h"
 #import "AIQInAppCondition.h"
+#import "AIQMutableOrderedDictionary.h"
 #import "SwiftMediator.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -245,7 +246,27 @@ NS_ASSUME_NONNULL_BEGIN
  Log Events, Push Notifications, InBox, InApp Campaigns and so on.
  Refer to documentation for some use cases when this method should be used.
  */
-- (void)renewUserId:(void (^)(void))completionHandler;
+- (void)renewUserId:(void (^)(void))completionHandler DEPRECATED_MSG_ATTRIBUTE("Use renewAppierId:completionHandler: instead.");
+
+/*!
+ @abstract
+ Creates a new AIQUA Appier ID and clean all local data related the previous Appier ID
+
+ @discussion
+ Creates a new AIQUA Appier ID, and clean local cache related to previous Appier ID including
+ Log Events, Push Notifications, InBox, InApp Campaigns and so on.
+ Refer to documentation for some use cases when this method should be used.
+ */
+- (void)renewAppierId:(void (^)(void))completionHandler;
+
+/*!
+ @abstract
+ Get AIQUA Appier ID from storage
+ 
+ @discussion
+ Get AIQUA Appier ID from storage
+ */
+- (NSString *)getAppierId;
 
 /*!
  @abstract

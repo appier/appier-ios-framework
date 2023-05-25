@@ -1,16 +1,49 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
 // swift-module-flags: -target arm64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AppierExtension
 // swift-module-flags-ignorable: -enable-bare-slash-regex
+import AdSupport
+import AppTrackingTransparency
 @_exported import AppierExtension
 import CommonCrypto
+import CoreTelephony
 import Foundation
 import Swift
+import SystemConfiguration
+import UIKit
 import _Concurrency
 import _StringProcessing
 import os
 extension AppierExtension.Logger {
   @objc(aiquaNotificationLogger) public static let aiquaNotification: AppierExtension.Logger
+}
+@_inheritsConvenienceInitializers @objc(APRDeviceInfo) @objcMembers public class DeviceInfo : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension AppierExtension.DeviceInfo {
+  @objc public static func optOutSet() -> Foundation.NSNumber
+  @objc public static func IDFA() -> Swift.String
+  @objc public static func IDFV() -> Swift.String
+  @objc public static func systemVersion() -> Swift.String
+  @objc public static func deviceModel() -> Swift.String
+  @objc public static func modelName() -> Swift.String
+  @objc public static func deviceName() -> Swift.String
+  @objc public static func language() -> Swift.String
+  @objc public static func timeZone() -> Swift.String
+  @objc public static func appVersion() -> Swift.String
+  @objc public static func appBuildNumber() -> Swift.String
+  @objc public static func appBundleIdentifier() -> Swift.String
+  @objc public static func diskSpace() -> [Swift.AnyHashable : Any]?
+  @objc public static func coreTelephonyNetwork() -> Swift.String
+  @objc public static func networkType() -> Swift.String
+  @objc public static func simCardInfo() -> [Swift.AnyHashable : Any]
+  @objc public static func richPushSupported() -> Swift.Bool
+  @objc public static func systemVersionEqualTo(_ version: Swift.String) -> Swift.Bool
+  @objc public static func systemVersionGreaterThan(_ version: Swift.String) -> Swift.Bool
+  @objc public static func systemVersionGreaterThanOrEqualTo(_ version: Swift.String) -> Swift.Bool
+  @objc public static func systemVersionLessThan(_ version: Swift.String) -> Swift.Bool
+  @objc public static func systemVersionLessThanOrEqualTo(_ version: Swift.String) -> Swift.Bool
 }
 @_inheritsConvenienceInitializers @objc(APRFrameworkInfo) @objcMembers final public class FrameworkInfo : ObjectiveC.NSObject {
   @objc public static var buildString: Swift.String {

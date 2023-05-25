@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
 // swift-module-flags: -target x86_64-apple-ios9.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Appier
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AdSupport
@@ -170,6 +170,326 @@ public typealias AIDConversionItem = Appier.ConversionItem
 extension Appier.Logger {
   @objc(aiquaNotificationLogger) public static let aiquaNotification: Appier.Logger
 }
+@_inheritsConvenienceInitializers @objc public class AIQUALocalStorage : ObjectiveC.NSObject {
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
+  @objc public static var shared: Appier.AIQUALocalStorage
+  @objc override convenience dynamic public init()
+  @objc public init(suiteName: Swift.String)
+  @objc public func updateSuiteNameIfNeeded(_ suiteName: Swift.String)
+  @objc deinit
+}
+extension Appier.AIQUALocalStorage : Appier.AIQUAStorage {
+  @objc dynamic public func clean()
+  @objc dynamic public var devProfile: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var appID: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasAppID: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var appSecret: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var appVersion: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasAppVersion: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var deviceToken: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var crossPlatformFrameworkSdkType: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var crossPlatformFrameworkSdkVersion: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var appierID: Foundation.NSNumber? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasAppierID: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var appierIdCreateTime: Foundation.Date? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasAppierIdCreateTime: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var universalLinkDomains: [Swift.String]? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var isRichPushSupported: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var lastViewThroughTime: Foundation.Date? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasLastViewThroughTime: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var lastClickedNotificationTime: Foundation.Date? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasLastClickedNotificationTime: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var lastClickedNotificationID: Foundation.NSNumber? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var lastViewThroughNotificationID: Foundation.NSNumber? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var viewThroughAttributionWindow: Foundation.NSNumber? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasViewThroughAttributionWindow: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var clickAttributionWindow: Foundation.NSNumber? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasClickAttributionWindow: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var lastLocation: [Swift.String : [Foundation.NSNumber]]? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasLastLocation: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var sdkVersionKey: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasSdkVersionKey: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var sendIdfaWithConsent: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var userDetailsLastSentTime: Foundation.Date? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasUserDetailsLastSentTime: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var optoutStatus: Foundation.NSNumber? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasOptoutStatus: Swift.Bool {
+    @objc get
+  }
+  @available(iOS 14.0, *)
+  @objc dynamic public var adsTrackingStatus: AppTrackingTransparency.ATTrackingManager.AuthorizationStatus {
+    @objc get
+    @objc set
+  }
+  @available(iOS 14.0, *)
+  @objc dynamic public var hasAdsTrackingStatus: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var personalizationConfig: [Swift.AnyHashable : Any]? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasPersonalizationConfig: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var personalizationDisabledStatus: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasPersonalizationDisabledStatus: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var inbox: [Swift.AnyHashable : Any]? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasInbox: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var inboxLimit: Swift.Int {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasInboxLimit: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var isNotFirstAppBackground: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var forceTouchCapabilityStatus: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var inAppDisabledStatus: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var inApp: Appier.AIQMutableOrderedDictionary? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasInApp: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var inAppFirstAppLaunchedMatched: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var crashLogKey: [Swift.String]? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var savedPushNotifications: [[Swift.AnyHashable : Any]]? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasSavedPushNotifications: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var savedPushNotificationLimit: Foundation.NSNumber {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var isSavedPushNotificationEnabled: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var richPushDeeplink: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var firstAppLaunch: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var endpointUserServer: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var endpointDback: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var endpointRecommendation: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var endpointPersonalization: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var failedPushEventStack: [[Swift.AnyHashable : Any]]? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var exitPushPayload: Foundation.Data? {
+    @objc get
+    @objc set
+  }
+}
+extension Appier.AIQUALocalStorage {
+  @objc dynamic public func save(value: Any?, key: Swift.String)
+  @objc dynamic public func getValue(for key: Swift.String) -> Any?
+}
+@objc public protocol AIQUAStorage {
+  @objc func clean()
+  @objc var devProfile: Swift.Bool { get set }
+  @objc var appID: Swift.String? { get set }
+  @objc var hasAppID: Swift.Bool { get }
+  @objc var appSecret: Swift.String { get set }
+  @objc var appVersion: Swift.String? { get set }
+  @objc var hasAppVersion: Swift.Bool { get }
+  @objc var deviceToken: Swift.String? { get set }
+  @objc var crossPlatformFrameworkSdkType: Swift.String? { get set }
+  @objc var crossPlatformFrameworkSdkVersion: Swift.String? { get set }
+  @objc var appierID: Foundation.NSNumber? { get set }
+  @objc var hasAppierID: Swift.Bool { get }
+  @objc var appierIdCreateTime: Foundation.Date? { get set }
+  @objc var hasAppierIdCreateTime: Swift.Bool { get }
+  @objc var universalLinkDomains: [Swift.String]? { get set }
+  @objc var isRichPushSupported: Swift.Bool { get set }
+  @objc var lastViewThroughTime: Foundation.Date? { get set }
+  @objc var hasLastViewThroughTime: Swift.Bool { get }
+  @objc var lastClickedNotificationTime: Foundation.Date? { get set }
+  @objc var hasLastClickedNotificationTime: Swift.Bool { get }
+  @objc var lastClickedNotificationID: Foundation.NSNumber? { get set }
+  @objc var lastViewThroughNotificationID: Foundation.NSNumber? { get set }
+  @objc var viewThroughAttributionWindow: Foundation.NSNumber? { get set }
+  @objc var hasViewThroughAttributionWindow: Swift.Bool { get }
+  @objc var clickAttributionWindow: Foundation.NSNumber? { get set }
+  @objc var hasClickAttributionWindow: Swift.Bool { get }
+  @objc var lastLocation: [Swift.String : [Foundation.NSNumber]]? { get set }
+  @objc var hasLastLocation: Swift.Bool { get }
+  @objc var sdkVersionKey: Swift.String? { get set }
+  @objc var hasSdkVersionKey: Swift.Bool { get }
+  @objc var sendIdfaWithConsent: Swift.Bool { get set }
+  @objc var userDetailsLastSentTime: Foundation.Date? { get set }
+  @objc var hasUserDetailsLastSentTime: Swift.Bool { get }
+  @objc var optoutStatus: Foundation.NSNumber? { get set }
+  @objc var hasOptoutStatus: Swift.Bool { get }
+  @objc @available(iOS 14.0, *)
+  var adsTrackingStatus: AppTrackingTransparency.ATTrackingManager.AuthorizationStatus { get set }
+  @objc @available(iOS 14.0, *)
+  var hasAdsTrackingStatus: Swift.Bool { get }
+  @objc var personalizationConfig: [Swift.AnyHashable : Any]? { get set }
+  @objc var hasPersonalizationConfig: Swift.Bool { get }
+  @objc var personalizationDisabledStatus: Swift.Bool { get set }
+  @objc var hasPersonalizationDisabledStatus: Swift.Bool { get }
+  @objc var inbox: [Swift.AnyHashable : Any]? { get set }
+  @objc var hasInbox: Swift.Bool { get }
+  @objc var inboxLimit: Swift.Int { get set }
+  @objc var hasInboxLimit: Swift.Bool { get }
+  @objc var isNotFirstAppBackground: Swift.Bool { get set }
+  @objc var forceTouchCapabilityStatus: Swift.Bool { get set }
+  @objc var inAppDisabledStatus: Swift.Bool { get set }
+  @objc var inApp: Appier.AIQMutableOrderedDictionary? { get set }
+  @objc var hasInApp: Swift.Bool { get }
+  @objc var inAppFirstAppLaunchedMatched: Swift.Bool { get set }
+  @objc var crashLogKey: [Swift.String]? { get set }
+  @objc var savedPushNotifications: [[Swift.AnyHashable : Any]]? { get set }
+  @objc var hasSavedPushNotifications: Swift.Bool { get }
+  @objc var savedPushNotificationLimit: Foundation.NSNumber { get set }
+  @objc var isSavedPushNotificationEnabled: Swift.Bool { get set }
+  @objc var richPushDeeplink: Swift.String? { get set }
+  @objc var firstAppLaunch: Swift.Bool { get set }
+  @objc var endpointUserServer: Swift.String? { get set }
+  @objc var endpointDback: Swift.String? { get set }
+  @objc var endpointRecommendation: Swift.String? { get set }
+  @objc var endpointPersonalization: Swift.String? { get set }
+  @objc var failedPushEventStack: [[Swift.AnyHashable : Any]]? { get set }
+  @objc var exitPushPayload: Foundation.Data? { get set }
+}
 @_inheritsConvenienceInitializers @objc(QGConstant) @objcMembers public class Constant : ObjectiveC.NSObject {
   public struct Key {
   }
@@ -206,8 +526,8 @@ extension Appier.Logger {
   @objc public static let QG_APP_SECRET: Swift.String
   @objc public static let AIQ_CROSS_PLATFORM_FRAMEWORK_SDK_TYPE: Swift.String
   @objc public static let AIQ_CROSS_PLATFORM_FRAMEWORK_SDK_VERSION: Swift.String
-  @objc public static let QG_USER_ID: Swift.String
-  @objc public static let AIQ_USER_ID_CREATE_TIME: Swift.String
+  @objc public static let AIQ_APPIER_ID: Swift.String
+  @objc public static let AIQ_APPIER_ID_CREATE_TIME: Swift.String
   @objc public static let AIQ_NEW_USER_DURATION: Swift.Double
   @objc public static let QG_DEVICE_TOKEN: Swift.String
   @objc public static let QG_UNKNOWN_VALUE: Swift.String
@@ -236,6 +556,8 @@ extension Appier.Logger {
   @objc public static let QG_OPTOUT_STATUS: Swift.String
   @objc public static let QG_CRASH_LOG_KEY: Swift.String
   @objc public static let QG_SAVED_PUSH_NOTIFICATION: Swift.String
+  @objc public static let QG_SAVED_PUSH_NOTIFICATION_LIMIT: Swift.String
+  @objc public static let QG_SAVE_PUSH_NOTIFICATION_ENABLED: Swift.String
   @objc public static let AIQP_CONFIG: Swift.String
   @objc public static let AIQP_DISABLED_STATUS: Swift.String
   @objc public static let QG_SAFARI_TRACKING_DISABLED_STATUS: Swift.String
@@ -279,10 +601,14 @@ extension Appier.Constant.Endpoint {
   public static let recommendation: Swift.String
   public static let personalization: Swift.String
 }
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(AIQConfiguration) @objcMembers public class AIQUAConfiguration : ObjectiveC.NSObject {
+@_inheritsConvenienceInitializers @objc(AIQConfiguration) @objcMembers public class AIQUAConfiguration : ObjectiveC.NSObject {
   @objc public static let shared: Appier.AIQUAConfiguration
+  @objc final public let storage: Appier.AIQUALocalStorage
   @objc public var remoteConfigEndpoint: Swift.String
-  @objc public var endpoint: Appier.EndpointConfiguration
+  @objc public var endpoint: Appier.EndpointConfiguration {
+    @objc get
+    @objc set
+  }
   @objc public var appIdentifier: Swift.String? {
     @objc get
   }
@@ -292,7 +618,8 @@ extension Appier.Constant.Endpoint {
   @objc public var isNewUser: Swift.Bool {
     @objc get
   }
-  @objc(init) override convenience dynamic public init()
+  @objc override convenience dynamic public init()
+  @objc public init(storage: Appier.AIQUALocalStorage)
   @objc deinit
 }
 @objc(AIQDataPointsResponse) @objcMembers public class DataPointsResponse : ObjectiveC.NSObject, Swift.Codable {
@@ -383,34 +710,6 @@ public let maxRowCount: Swift.Int
   @objc @discardableResult
   public func create(loggedEvent: Appier.LoggedEvent) -> Swift.Bool
   @objc deinit
-}
-@_inheritsConvenienceInitializers @objc(QGDeviceInfo) @objcMembers public class DeviceInfo : ObjectiveC.NSObject {
-  @objc override dynamic public init()
-  @objc deinit
-}
-extension Appier.DeviceInfo {
-  @objc public static func optOutSet() -> Foundation.NSNumber
-  @objc public static func IDFA() -> Swift.String
-  @objc public static func IDFV() -> Swift.String
-  @objc public static func systemVersion() -> Swift.String
-  @objc public static func deviceModel() -> Swift.String
-  @objc public static func modelName() -> Swift.String
-  @objc public static func deviceName() -> Swift.String
-  @objc public static func language() -> Swift.String
-  @objc public static func timeZone() -> Swift.String
-  @objc public static func appVersion() -> Swift.String
-  @objc public static func appBuildNumber() -> Swift.String
-  @objc public static func appBundleIdentifier() -> Swift.String
-  @objc public static func diskSpace() -> [Swift.AnyHashable : Any]?
-  @objc public static func coreTelephonyNetwork() -> Swift.String
-  @objc public static func networkType() -> Swift.String
-  @objc public static func simCardInfo() -> [Swift.AnyHashable : Any]
-  @objc public static func richPushSupported() -> Swift.Bool
-  @objc public static func systemVersionEqualTo(_ version: Swift.String) -> Swift.Bool
-  @objc public static func systemVersionGreaterThan(_ version: Swift.String) -> Swift.Bool
-  @objc public static func systemVersionGreaterThanOrEqualTo(_ version: Swift.String) -> Swift.Bool
-  @objc public static func systemVersionLessThan(_ version: Swift.String) -> Swift.Bool
-  @objc public static func systemVersionLessThanOrEqualTo(_ version: Swift.String) -> Swift.Bool
 }
 extension Appier.Logger {
   @objc(aiquaLogger) public static let aiqua: Appier.Logger
@@ -632,6 +931,12 @@ extension Appier.InAppRemoteService : Appier.InAppService {
   public var rawValue: Swift.Int {
     get
   }
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class AIQUtility : ObjectiveC.NSObject {
+  @objc public class func encode(obj: Any?) -> Foundation.Data?
+  @objc public class func decode(data: Foundation.Data?) -> Any?
+  @objc override dynamic public init()
+  @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(AIQDataCollectionRemoteService) @objcMembers final public class DataCollectionRemoteService : ObjectiveC.NSObject {
   @objc(initWithConfiguration:) convenience public init(configuration: Appier.AIQUAConfiguration)
@@ -932,6 +1237,34 @@ public protocol ThirdPartyUrlHandlerProtocol {
   @objc public func showConsole()
   @objc(sharedApp) public static let shared: Appier.AppierApp
   @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(APRDeviceInfo) @objcMembers public class DeviceInfo : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension Appier.DeviceInfo {
+  @objc public static func optOutSet() -> Foundation.NSNumber
+  @objc public static func IDFA() -> Swift.String
+  @objc public static func IDFV() -> Swift.String
+  @objc public static func systemVersion() -> Swift.String
+  @objc public static func deviceModel() -> Swift.String
+  @objc public static func modelName() -> Swift.String
+  @objc public static func deviceName() -> Swift.String
+  @objc public static func language() -> Swift.String
+  @objc public static func timeZone() -> Swift.String
+  @objc public static func appVersion() -> Swift.String
+  @objc public static func appBuildNumber() -> Swift.String
+  @objc public static func appBundleIdentifier() -> Swift.String
+  @objc public static func diskSpace() -> [Swift.AnyHashable : Any]?
+  @objc public static func coreTelephonyNetwork() -> Swift.String
+  @objc public static func networkType() -> Swift.String
+  @objc public static func simCardInfo() -> [Swift.AnyHashable : Any]
+  @objc public static func richPushSupported() -> Swift.Bool
+  @objc public static func systemVersionEqualTo(_ version: Swift.String) -> Swift.Bool
+  @objc public static func systemVersionGreaterThan(_ version: Swift.String) -> Swift.Bool
+  @objc public static func systemVersionGreaterThanOrEqualTo(_ version: Swift.String) -> Swift.Bool
+  @objc public static func systemVersionLessThan(_ version: Swift.String) -> Swift.Bool
+  @objc public static func systemVersionLessThanOrEqualTo(_ version: Swift.String) -> Swift.Bool
 }
 @_inheritsConvenienceInitializers @objc(APRFrameworkInfo) @objcMembers final public class FrameworkInfo : ObjectiveC.NSObject {
   @objc public static var buildString: Swift.String {
