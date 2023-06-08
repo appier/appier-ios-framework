@@ -806,19 +806,17 @@ BOOL isAppierPush = [[QGSdk getSharedInstance] isAppierPush:@{@"example": @"exam
 */
 - (BOOL)isAppierPush:(NSDictionary * _Nullable)userInfo;
 
-/// This method will do the necessary URL handling with Appier-integrated third-party services.
-/// eg. LINE data syncing
-/// However, you only need to call this if you set the `AppierAppDelegateProxyEnabled`
-/// flag to `NO` in your Info.plist. If `AppierAppDelegateProxyEnabled` is either missing
-/// or set to `YES` in your Info.plist, the library will call this automatically.
+/// By calling this method, the SDK will do the necessary URL handling with Appier-integrated
+/// third-party services. eg. LINE data syncing
+/// However, you don't have to call this method if you set the `AppierAppDelegateProxyEnabled`
+/// flag to `YES` in your Info.plist.
 /// @param url The URL resource to open.
 - (void)handleOpenUrl:(NSURL *)url NS_SWIFT_NAME(handleOpenUrl(_:));
 
-/// This method will do the necessary userActivity handling with Appier-integrated third-party services.
-/// eg. LINE data syncing
-/// However, you only need to call this if you set the `AppierAppDelegateProxyEnabled`
-/// flag to `NO` in your Info.plist. If `AppierAppDelegateProxyEnabled` is either missing
-/// or set to `YES` in your Info.plist, the library will call this automatically.
+/// By calling this method, the SDK will do the necessary URL handling with Appier-integrated
+/// third-party services. eg. LINE data syncing
+/// However, you don't have to call this method if you set the `AppierAppDelegateProxyEnabled`
+/// flag to `YES` in your Info.plist.
 /// @param userActivity The activity object containing the data associated with the task the user was performing. Use the data to continue the user's activity in your iOS app.
 - (void)handleUserActivity:(NSUserActivity *)userActivity NS_SWIFT_NAME(handleUserActivity(_:));
 @end

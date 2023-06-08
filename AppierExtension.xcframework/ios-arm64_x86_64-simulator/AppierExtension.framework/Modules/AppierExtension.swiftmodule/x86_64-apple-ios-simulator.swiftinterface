@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
 // swift-module-flags: -target x86_64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name AppierExtension
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AdSupport
@@ -89,9 +89,9 @@ extension Swift.String {
   public func isStringContainsNewLineCharacter() -> Swift.Bool
 }
 public protocol URLSessionProtocol {
-  func dataTask(with url: Foundation.URL, completionHandler: @escaping (Foundation.Data?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionDataTask
-  func dataTask(with request: Foundation.URLRequest, completionHandler: @escaping (Foundation.Data?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionDataTask
-  func downloadTask(with url: Foundation.URL, completionHandler: @escaping (Foundation.URL?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionDownloadTask
+  func dataTask(with url: Foundation.URL, completionHandler: @escaping (Foundation.Data?, Foundation.URLResponse?, (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionDataTask
+  func dataTask(with request: Foundation.URLRequest, completionHandler: @escaping (Foundation.Data?, Foundation.URLResponse?, (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionDataTask
+  func downloadTask(with url: Foundation.URL, completionHandler: @escaping (Foundation.URL?, Foundation.URLResponse?, (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionDownloadTask
 }
 extension Foundation.URLSession : AppierExtension.URLSessionProtocol {
 }
