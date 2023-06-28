@@ -2624,6 +2624,53 @@
             ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "SHA256string",
+            "printedName": "SHA256string",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NSString",
+                "printedName": "Foundation.NSString",
+                "usr": "c:objc(cs)NSString"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@CM@AppierExtension@@objc(cs)NSString(py)SHA256string",
+            "mangledName": "$sSo8NSStringC15AppierExtensionE12SHA256stringABvp",
+            "moduleName": "AppierExtension",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSString",
+                    "printedName": "Foundation.NSString",
+                    "usr": "c:objc(cs)NSString"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@CM@AppierExtension@@objc(cs)NSString(im)SHA256string",
+                "mangledName": "$sSo8NSStringC15AppierExtensionE12SHA256stringABvg",
+                "moduleName": "AppierExtension",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
           }
         ],
         "declKind": "Class",
@@ -2869,515 +2916,81 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/QGNotificationSdk\/Extensions\/Logger+AIQUANotification.swift",
+      "filePath": "\/Users\/distiller\/project\/QGNotificationSdk\/Extensions\/Logger+AIQUANotification.swift",
       "kind": "StringLiteral",
       "offset": 128,
       "length": 20,
       "value": "\"AIQUA Notification\""
     },
     {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
+      "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/DeviceInfo.swift",
       "kind": "StringLiteral",
       "offset": 153,
       "length": 9,
       "value": "\"Unknown\""
     },
     {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "BooleanLiteral",
-      "offset": 323,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "Dictionary",
-      "offset": 1137,
-      "length": 6596,
-      "value": "[(\"i386\", \"Simulator\"), (\"x86_64\", \"Simulator\"), (\"arm64\", \"Simulator\"), (\"iPod1,1\", \"iPod Touch\"), (\"iPod2,1\", \"iPod Touch 2\"), (\"iPod3,1\", \"iPod Touch 3\"), (\"iPod4,1\", \"iPod Touch 4\"), (\"iPod5,1\", \"iPod Touch 5th Gen\"), (\"iPod7,1\", \"iPod Touch 6th Gen\"), (\"iPod9,1\", \"iPod Touch 7th Gen\"), (\"iPhone1,1\", \"iPhone\"), (\"iPhone1,2\", \"iPhone 3G\"), (\"iPhone2,1\", \"iPhone 3GS\"), (\"iPhone3,1\", \"iPhone 4\"), (\"iPhone3,2\", \"iPhone 4\"), (\"iPhone3,3\", \"iPhone 4\"), (\"iPhone4,1\", \"iPhone 4S\"), (\"iPhone5,1\", \"iPhone 5\"), (\"iPhone5,2\", \"iPhone 5\"), (\"iPhone5,3\", \"iPhone 5C\"), (\"iPhone5,4\", \"iPhone 5C\"), (\"iPhone6,1\", \"iPhone 5S\"), (\"iPhone6,2\", \"iPhone 5S\"), (\"iPhone7,2\", \"iPhone 6\"), (\"iPhone7,1\", \"iPhone 6 Plus\"), (\"iPhone8,1\", \"iPhone 6S\"), (\"iPhone8,2\", \"iPhone 6S Plus\"), (\"iPhone9,1\", \"iPhone 7\"), (\"iPhone9,3\", \"iPhone 7\"), (\"iPhone9,2\", \"iPhone 7 Plus\"), (\"iPhone9,4\", \"iPhone 7 Plus\"), (\"iPhone10,1\", \"iPhone 8\"), (\"iPhone10,4\", \"iPhone 8\"), (\"iPhone10,2\", \"iPhone 8 Plus\"), (\"iPhone10,5\", \"iPhone 8 Plus\"), (\"iPhone10,3\", \"iPhone X\"), (\"iPhone10,6\", \"iPhone X\"), (\"iPhone11,2\", \"iPhone XS\"), (\"iPhone11,4\", \"iPhone XS Max\"), (\"iPhone11,6\", \"iPhone XS Max\"), (\"iPhone11,8\", \"iPhone XR\"), (\"iPhone12,1\", \"iPhone 11\"), (\"iPhone12,3\", \"iPhone 11 Pro\"), (\"iPhone12,5\", \"iPhone 11 Pro Max\"), (\"iPhone13,1\", \"iPhone 12 Mini\"), (\"iPhone13,2\", \"iPhone 12\"), (\"iPhone13,3\", \"iPhone 12 Pro\"), (\"iPhone13,4\", \"iPhone 12 Pro Max\"), (\"iPhone14,4\", \"iPhone 13 Mini\"), (\"iPhone14,5\", \"iPhone 13\"), (\"iPhone14,2\", \"iPhone 13 Pro\"), (\"iPhone14,3\", \"iPhone 13 Pro Max\"), (\"iPhone14,7\", \"iPhone 14\"), (\"iPhone14,8\", \"iPhone 14 Plus\"), (\"iPhone15,2\", \"iPhone 14 Pro\"), (\"iPhone15,3\", \"iPhone 14 Pro Max\"), (\"iPhone8,4\", \"iPhone SE\"), (\"iPhone12,8\", \"iPhone SE 2nd Gen\"), (\"iPhone14,6\", \"iPhone SE 3rd Gen\"), (\"iPad1,1\", \"iPad\"), (\"iPad2,1\", \"iPad 2\"), (\"iPad2,2\", \"iPad 2\"), (\"iPad2,3\", \"iPad 2\"), (\"iPad2,4\", \"iPad 2\"), (\"iPad3,1\", \"iPad 3rd Gen\"), (\"iPad3,2\", \"iPad 3rd Gen\"), (\"iPad3,3\", \"iPad 3rd Gen\"), (\"iPad3,4\", \"iPad 4th Gen\"), (\"iPad3,5\", \"iPad 4th Gen\"), (\"iPad3,6\", \"iPad 4th Gen\"), (\"iPad6,11\", \"iPad 5th Gen\"), (\"iPad6,12\", \"iPad 5th Gen\"), (\"iPad7,5\", \"iPad 6th Gen\"), (\"iPad7,6\", \"iPad 6th Gen\"), (\"iPad7,11\", \"iPad 7th Gen (WiFi)\"), (\"iPad7,12\", \"iPad 7th Gen (WiFi+Cellular)\"), (\"iPad11,6\", \"iPad 8th Gen (WiFi)\"), (\"iPad11,7\", \"iPad 8th Gen (WiFi+Cellular)\"), (\"iPad12,1\", \"iPad 9th Gen (WiFi)\"), (\"iPad12,2\", \"iPad 9th Gen (WiFi+Cellular)\"), (\"iPad13,18\", \"iPad 10th Gen (WiFi)\"), (\"iPad13,19\", \"iPad 10th Gen (WiFi+Cellular)\"), (\"iPad4,1\", \"iPad Air (Wifi)\"), (\"iPad4,2\", \"iPad Air (WiFi+Cellular)\"), (\"iPad4,3\", \"iPad Air\"), (\"iPad5,3\", \"iPad Air 2 (Wifi)\"), (\"iPad5,4\", \"iPad Air 2 (WiFi+Cellular)\"), (\"iPad11,3\", \"iPad Air 3rd Gen (WiFi)\"), (\"iPad11,4\", \"iPad Air 3rd Gen (WiFi+Cellular)\"), (\"iPad13,1\", \"iPad Air 4th Gen (WiFi)\"), (\"iPad13,2\", \"iPad Air 4th Gen (WiFi+Cellular)\"), (\"iPad13,16\", \"iPad Air 5th Gen (WiFi)\"), (\"iPad13,17\", \"iPad Air 5th Gen (WiFi+Cellular)\"), (\"iPad2,5\", \"iPad Mini (Wifi)\"), (\"iPad2,6\", \"iPad Mini (WiFi+Cellular)\"), (\"iPad2,7\", \"iPad Mini\"), (\"iPad4,4\", \"iPad Mini 2 (Wifi)\"), (\"iPad4,5\", \"iPad Mini 2 (WiFi+Cellular)\"), (\"iPad4,6\", \"iPad Mini 2\"), (\"iPad4,7\", \"iPad Mini 3 (Wifi)\"), (\"iPad4,8\", \"iPad Mini 3 (WiFi+Cellular)\"), (\"iPad4,9\", \"iPad Mini 3\"), (\"iPad5,1\", \"iPad Mini 4 (Wifi)\"), (\"iPad5,2\", \"iPad Mini 4 (WiFi+Cellular)\"), (\"iPad11,1\", \"iPad Mini 5th Gen (WiFi)\"), (\"iPad11,2\", \"iPad Mini 5th Gen (WiFi+Cellular)\"), (\"iPad14,1\", \"iPad mini 6th Gen (WiFi)\"), (\"iPad14,2\", \"iPad mini 6th Gen (WiFi+Cellular)\"), (\"iPad6,3\", \"iPad Pro 9.7\" (WiFi)\"), (\"iPad6,4\", \"iPad Pro 9.7\" (WiFi+Cellular)\"), (\"iPad6,7\", \"iPad Pro 12.9\" (WiFi)\"), (\"iPad6,8\", \"iPad Pro 12.9\" (WiFi+Cellular)\"), (\"iPad7,3\", \"iPad Pro 10.5\" (WiFi)\"), (\"iPad7,4\", \"iPad Pro 10.5\" (WiFi+Cellular)\"), (\"iPad7,1\", \"iPad Pro 12.9\" 2nd Gen (WiFi)\"), (\"iPad7,2\", \"iPad Pro 12.9\" 2nd Gen (WiFi+Cellular)\"), (\"iPad8,1\", \"iPad Pro 11\" (WiFi)\"), (\"iPad8,2\", \"iPad Pro 11\" (1TB, WiFi)\"), (\"iPad8,3\", \"iPad Pro 11\" (WiFi+Cellular)\"), (\"iPad8,4\", \"iPad Pro 11\" (1TB, WiFi+Cellular)\"), (\"iPad8,5\", \"iPad Pro 12.9\" 3rd Gen (WiFi)\"), (\"iPad8,6\", \"iPad Pro 12.9\" 3rd Gen (1TB, WiFi)\"), (\"iPad8,7\", \"iPad Pro 12.9\" 3rd Gen (WiFi+Cellular)\"), (\"iPad8,8\", \"iPad Pro 12.9\" 3rd Gen (1TB, WiFi+Cellular)\"), (\"iPad8,9\", \"iPad Pro 11\" 2nd Gen (WiFi)\"), (\"iPad8,10\", \"iPad Pro 11\" 2nd Gen (WiFi+Cellular)\"), (\"iPad8,11\", \"iPad Pro 12.9\" 4th Gen (WiFi)\"), (\"iPad8,12\", \"iPad Pro 12.9\" 4th Gen (WiFi+Cellular)\"), (\"iPad13,4\", \"iPad Pro 11\" 3rd Gen (WiFi)\"), (\"iPad13,5\", \"iPad Pro 11\" 3rd Gen (1TB, WiFi)\"), (\"iPad13,6\", \"iPad Pro 11\" 3rd Gen (WiFi+Cellular)\"), (\"iPad13,7\", \"iPad Pro 11\" 3rd Gen (1TB, WiFi+Cellular)\"), (\"iPad13,8\", \"iPad Pro 12.9\" 5th Gen (WiFi)\"), (\"iPad13,9\", \"iPad Pro 12.9\" 5th Gen (1TB, WiFi)\"), (\"iPad13,10\", \"iPad Pro 12.9\" 5th Gen (WiFi+Cellular)\"), (\"iPad13,11\", \"iPad Pro 12.9\" 5th Gen (1TB, WiFi+Cellular)\"), (\"iPad14,3\", \"iPad Pro 11\" 4th Gen (WiFi)\"), (\"iPad14,4\", \"iPad Pro 11\" 4th Gen (WiFi+Cellular)\"), (\"iPad14,5\", \"iPad Pro 12.9\" 6th Gen (WiFi)\"), (\"iPad14,6\", \"iPad Pro 12.9\" 6th Gen (WiFi+Cellular)\")]"
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "StringLiteral",
-      "offset": 8032,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "IntegerLiteral",
-      "offset": 8118,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "StringLiteral",
-      "offset": 8492,
-      "length": 28,
-      "value": "\"CFBundleShortVersionString\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "BooleanLiteral",
-      "offset": 8941,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "IntegerLiteral",
-      "offset": 9376,
-      "length": 4,
-      "value": "1024"
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "IntegerLiteral",
-      "offset": 9469,
-      "length": 4,
-      "value": "1024"
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "StringLiteral",
-      "offset": 9488,
-      "length": 7,
-      "value": "\"total\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "StringLiteral",
-      "offset": 9521,
-      "length": 6,
-      "value": "\"free\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "StringLiteral",
-      "offset": 9633,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "StringLiteral",
-      "offset": 9834,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "StringLiteral",
-      "offset": 9914,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "StringLiteral",
-      "offset": 9980,
-      "length": 25,
-      "value": "\"CTRadioAccessTechnology\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "StringLiteral",
-      "offset": 10063,
-      "length": 25,
-      "value": "\"CTRadioAccessTechnology\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "StringLiteral",
-      "offset": 10096,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "StringLiteral",
-      "offset": 10200,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "IntegerLiteral",
-      "offset": 10573,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "Array",
-      "offset": 10721,
-      "length": 2,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "BooleanLiteral",
-      "offset": 10991,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "StringLiteral",
-      "offset": 11143,
-      "length": 6,
-      "value": "\"wifi\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "BooleanLiteral",
-      "offset": 11437,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "StringLiteral",
-      "offset": 11519,
-      "length": 6,
-      "value": "\"wifi\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "StringLiteral",
-      "offset": 12018,
-      "length": 18,
-      "value": "\"0000000100000001\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "StringLiteral",
-      "offset": 12218,
-      "length": 6,
-      "value": "\"name\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "StringLiteral",
-      "offset": 12357,
-      "length": 5,
-      "value": "\"mcc\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "StringLiteral",
-      "offset": 12501,
-      "length": 5,
-      "value": "\"mnc\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "StringLiteral",
-      "offset": 12636,
-      "length": 9,
-      "value": "\"country\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/DeviceInfo.swift",
-      "kind": "Dictionary",
-      "offset": 12833,
-      "length": 1029,
-      "value": "[(\"iPod1,1\", 1), (\"iPod2,1\", 1), (\"iPod3,1\", 1), (\"iPod4,1\", 1), (\"iPhone1,1\", 1), (\"iPhone1,2\", 1), (\"iPhone2,1\", 1), (\"iPad1,1\", 1), (\"iPad2,1\", 1), (\"iPad3,1\", 1), (\"iPhone3,1\", 1), (\"iPhone3,3\", 1), (\"iPhone4,1\", 1), (\"iPhone5,1\", 1), (\"iPhone5,2\", 1), (\"iPad3,4\", 1), (\"iPad2,5\", 1), (\"iPhone5,3\", 1), (\"iPhone5,4\", 1), (\"iPhone6,1\", 1), (\"iPhone6,2\", 1)]"
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/FrameworkInfo.swift",
-      "kind": "StringLiteral",
-      "offset": 192,
-      "length": 17,
-      "value": "\"CFBundleVersion\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/FrameworkInfo.swift",
-      "kind": "StringLiteral",
-      "offset": 225,
-      "length": 9,
-      "value": "\"Unknown\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/FrameworkInfo.swift",
-      "kind": "StringLiteral",
-      "offset": 333,
-      "length": 28,
-      "value": "\"CFBundleShortVersionString\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/FrameworkInfo.swift",
-      "kind": "StringLiteral",
-      "offset": 377,
-      "length": 9,
-      "value": "\"Unknown\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/Logger\/LogMessage.swift",
+      "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/LogMessage.swift",
       "kind": "StringLiteral",
       "offset": 712,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/Logger\/LogMessage.swift",
-      "kind": "IntegerLiteral",
-      "offset": 821,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/Logger\/LogMessage.swift",
-      "kind": "StringLiteral",
-      "offset": 1238,
-      "length": 12,
-      "value": "\"[REDACTED]\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/Logger\/LogMessage.swift",
-      "kind": "StringLiteral",
-      "offset": 1286,
-      "length": 20,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/Logger\/LogMessage.swift",
-      "kind": "StringLiteral",
-      "offset": 1299,
-      "length": 5,
-      "value": "\"nil\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/Logger\/LogMessage.swift",
-      "kind": "StringLiteral",
-      "offset": 1305,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/Logger\/Logger.swift",
-      "kind": "StringLiteral",
-      "offset": 324,
-      "length": 10,
-      "value": "\"APRDebug\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/Logger\/Logger.swift",
-      "kind": "StringLiteral",
-      "offset": 339,
-      "length": 5,
-      "value": "\"YES\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/Logger\/Logger.swift",
-      "kind": "StringLiteral",
-      "offset": 1201,
-      "length": 77,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/Logger\/Logger.swift",
-      "kind": "StringLiteral",
-      "offset": 1209,
-      "length": 6,
-      "value": "\" Appier [\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/Logger\/Logger.swift",
-      "kind": "StringLiteral",
-      "offset": 1251,
-      "length": 1,
-      "value": "\"] [\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/Logger\/Logger.swift",
-      "kind": "StringLiteral",
-      "offset": 1265,
-      "length": 1,
-      "value": "\"] \""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/Logger\/Logger.swift",
-      "kind": "StringLiteral",
-      "offset": 1277,
-      "length": 1,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/Logger\/Logger.swift",
-      "kind": "StringLiteral",
-      "offset": 1422,
-      "length": 7,
-      "value": "\"Debug\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/Logger\/Logger.swift",
-      "kind": "StringLiteral",
-      "offset": 1453,
-      "length": 6,
-      "value": "\"Info\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/Logger\/Logger.swift",
-      "kind": "StringLiteral",
-      "offset": 1486,
-      "length": 9,
-      "value": "\"Warning\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/Logger\/Logger.swift",
-      "kind": "StringLiteral",
-      "offset": 1520,
-      "length": 7,
-      "value": "\"Error\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
       "offset": 1656,
       "length": 29,
       "value": "\"yyyy-MM-dd HH:mm:ss.SSSSSSZ\""
     },
     {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
       "offset": 189,
       "length": 6,
       "value": "\"AppierExtension.Logger\""
     },
     {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
       "offset": 1794,
       "length": 4,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
       "offset": 1800,
       "length": 7,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
       "offset": 1809,
       "length": 5,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
       "offset": 1794,
       "length": 4,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
       "offset": 1800,
       "length": 7,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
       "offset": 1809,
       "length": 5,
       "value": "3"
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/String+Additions.swift",
-      "kind": "BooleanLiteral",
-      "offset": 173,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/String+Additions.swift",
-      "kind": "Dictionary",
-      "offset": 194,
-      "length": 3,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/String+Additions.swift",
-      "kind": "StringLiteral",
-      "offset": 432,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/String+Additions.swift",
-      "kind": "IntegerLiteral",
-      "offset": 568,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/String+Additions.swift",
-      "kind": "IntegerLiteral",
-      "offset": 757,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/String+Additions.swift",
-      "kind": "StringLiteral",
-      "offset": 866,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/String+Additions.swift",
-      "kind": "StringLiteral",
-      "offset": 929,
-      "length": 6,
-      "value": "\"%02x\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/String+Additions.swift",
-      "kind": "StringLiteral",
-      "offset": 1658,
-      "length": 5,
-      "value": "\"%23\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/String+Additions.swift",
-      "kind": "StringLiteral",
-      "offset": 1794,
-      "length": 3,
-      "value": "\"#\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/String+Additions.swift",
-      "kind": "StringLiteral",
-      "offset": 2311,
-      "length": 32,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/String+Additions.swift",
-      "kind": "StringLiteral",
-      "offset": 2319,
-      "length": 23,
-      "value": "\"supersecretquantumgraph\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/String+Additions.swift",
-      "kind": "StringLiteral",
-      "offset": 2424,
-      "length": 4,
-      "value": "\"\n\""
-    },
-    {
-      "filePath": "\/Users\/woody.lai\/Desktop\/appier-ios-development\/appier-ios-sdk\/Sources\/Shared\/String+Additions.swift",
-      "kind": "StringLiteral",
-      "offset": 2442,
-      "length": 4,
-      "value": "\"\r\""
     }
   ]
 }

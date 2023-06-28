@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controller</title>
+  <style>
+    body {
+      width: 100%;
+      height: 100%;
+      background: transparent;
+    }
+
+    .background {
+      position: absolute;
+      left: 0%;
+      top: 0%;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+    }
+
+    .inner {
+      position: relative;
+      width: 80vmin;
+      border-radius: 3vmin;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .image {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+    }
+
+    .text {
+      position: relative;
+      width: 100%;
+      min-height: 6vmin;
+      max-height: 20vmin;
+      font-size: 4vmin;
+      overflow: scroll;
+      padding: 4vmin;
+      box-sizing: border-box;
+      line-break: normal;
+      white-space: pre-wrap;
+      overflow-wrap: break-word;
+      background: #FFF;
+      color: #808080;
+    }
+
+    .button-area {
+      position: relative;
+      width: 100%;
+      height: 14vmin;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 1vmin;
+      box-sizing: border-box;
+    }
+
+    .button {
+      position: relative;
+      width: 49%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border-radius: 3vmin;
+      box-sizing: border-box;
+      overflow: hidden;
+      font-size: 4vmin;
+      line-height: 6vmin;
+      color: #FFF;
+    }
+
+    .close-button {
+      position: absolute;
+      width: 6vmin;
+      height: 6vmin;
+      top: 2vmin;
+      right: 2vmin;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    function onWindowResize(event = NULL, width = window.innerWidth, height = window.innerHeight) {
+      if (width === 0 || height === 0) {
+        return;
+      }
+      const text = document.getElementById("com.appier.aiqua.demoapp:id/inapp_message");
+      const button = document.getElementById("com.appier.aiqua.demoapp:id/button-area");
+      const vmin = Math.round(Math.min(height, width) / 100)
+      const margin = 2 * vmin;
+      const maxHeight = 80 * vmin;
+      const newHeight = height - text.offsetHeight - button.offsetHeight - margin * 2;
+      document.getElementById("com.appier.aiqua.demoapp:id/inapp_medium_image").style.height = `${Math.min(maxHeight, newHeight)}px`;
+    }
+
+    function setUpCreative(creativeString, hasCloseButton, platform) {
+      if (platform === 'android') {
+        window.addEventListener('resize', onWindowResize, false);
+      } else if (platform === 'ios') {
+        window.addEventListener('orientationchange', onWindowResize, false);
+      }
+
+      var creative = JSON.parse(creativeString);
+
+      // Set background (required)
+      document.getElementById("com.appier.aiqua.demoapp:id/background").addEventListener('click', function(e) {
+        if (!e.target.matches('.background')) {
+          return;
+        }
+        if (platform === "android") {
+          Android.onClose();
+        } else if (platform === "ios") {
+          window.webkit.messageHandlers.aiqua.postMessage({command:'close'});
+        }
+      }, true);
+
+      // Set text (optional)
+      var text = document.getElementById("com.appier.aiqua.demoapp:id/inapp_message");
+      if (creative.fb_push_card.body) {
+        text.innerHTML = creative.fb_push_card.body.content.text;
+        text.style.visibility = "visible";
+      } else {
+        text.style.minHeight = "0vmin";
+        text.style.padding = "0vmin";
+        text.style.visibility = "hidden";
+      }
+
+      // Set image (required)
+      var image = document.getElementById("com.appier.aiqua.demoapp:id/inapp_medium_image");
+      image.addEventListener("load", function () {
+        if (platform === "android") {
+          Android.onPageLoaded();
+        } else if (platform === "ios") {
+          window.webkit.messageHandlers.aiqua.postMessage({command:'pageLoaded'});
+        }
+      });
+      image.src = creative.fb_push_card.hero.background.url;
+
+      // Set action buttons (optional)
+      var buttonArea = document.getElementById("com.appier.aiqua.demoapp:id/button-area");
+      if (creative.fb_push_card.actions) {
+        setUpActionButtons(creative.fb_push_card.actions, platform);
+        buttonArea.style.visibility = "visible";
+      } else {
+        buttonArea.style.height = "0vmin";
+        buttonArea.style.padding = "0vmin";
+        buttonArea.style.visibility = "hidden";
+      }
+
+      // Set close button (optional)
+      var closeButton = document.getElementById("com.appier.aiqua.demoapp:id/inapp_dismiss_button");
+      if (hasCloseButton) {
+        closeButton.style.visibility = "visible";
+        closeButton.addEventListener('click', function(e) {
+          if (platform === "android") {
+            Android.onClose();
+          } else if (platform === "ios") {
+            window.webkit.messageHandlers.aiqua.postMessage({command:'close'});
+          }
+        }, true);
+      } else {
+        closeButton.style.width = "0vmin";
+        closeButton.style.visibility = "hidden";
+      }
+    }
+
+    function setUpActionButtons(actions, platform) {
+      var button0Id = "com.appier.aiqua.demoapp:id/inapp_button_00";
+      var button1Id = "com.appier.aiqua.demoapp:id/inapp_button_01";
+      var backgroundColor = actions.background.rgbaHex;
+      document.getElementById("com.appier.aiqua.demoapp:id/button-area").style.background = backgroundColor;
+      setUpButton(actions.actions[0], button0Id, 0, platform);
+
+      var button1 = document.getElementById(button1Id);
+      if (actions.actions.length == 1) {
+        document.getElementById(button0Id).style.width = "100%";
+        button1.style.width = "0%";
+        button1.style.visibility = "hidden";
+        return;
+      }
+
+      setUpButton(actions.actions[1], button1Id, 1, platform);
+      button1.style.visibility = "visible";
+    }
+
+    function setUpButton(button, id, index, platform) {
+      document.getElementById(id).style.background = button.backgroundColor;
+      document.getElementById(id).innerHTML = button.content.text;
+      document.getElementById(id).addEventListener('click', function(e) {
+        if (platform === "android") {
+          Android.onActionButtonClicked(index);
+        } else if (platform === "ios") {
+          window.webkit.messageHandlers.aiqua.postMessage({command:'actionButtonClicked',index:index});
+        }
+      }, true);
+    }
+  </script>
+
+  <div id="com.appier.aiqua.demoapp:id/background" class="background">
+    <div id="com.appier.aiqua.demoapp:id/inner" class="inner">
+      <img id="com.appier.aiqua.demoapp:id/inapp_medium_image" class="image" aria-label="inapp_medium_image" role="inapp_medium_image">
+      <img id="com.appier.aiqua.demoapp:id/inapp_dismiss_button" class="close-button" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAApCAYAAABDV7v1AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAKqADAAQAAAABAAAAKQAAAACTut/bAAAAHGlET1QAAAACAAAAAAAAABUAAAAoAAAAFQAAABQAAAGYTArerwAAAWRJREFUWAnMl8/RgkAMxe3DGS40wgXq4EQPDgfpwR5swA44eLMBm9nvPT+XgcC6CQuOmcnoZvOSnxn+rIdDojnnjvAK3sBP8O79yTXjx8QW6+VoXsAv8CdcY8xjfrG+q0GJRjX8AU8x6mtDW30qCnOC9xS6BS3rFXqKSCaK8Zrb07oIQnwbdNc9CUe1r3GaQAaK3EaFvvH1FkAJh0H1rUnKAegnC+Xe16SEk+suPML3DhS8u3/Bio+wIIw+gvq+T/ohSv09CIrudYyATfI8d23bxlIX96mjXglbL8Ki8sc3jofMsszRrbDM91ol7GMGCkjVtTluZoFdqyPXBBYBHhhUZm1qzRcQFwmqPQW96miba/ME3Hj5HEAR5XnSbDGI2L6h4f95FoLKIJqkhmBC8YlYv6heU0V+o9fMMyVUWZbD3W254eaVh0jjQfn3IckkrH8MMb6BnTzoeYNiTk6S643sTNA/AAAA//8TFl1XAAABVUlEQVS9l8ERgjAQRe2DGS40kgvUwYkeGA7Sgz3YgB1w8GYDNhP3M4lKgGR3iWYmZkj2//8mAsaTtbanfqgNw2DLslx1zGdo/QmNjLojZiFkXdcL4AywnQdttKAhpIfam1fmNB600BikYFLrgsxiBsUHiZ4CoeVCcOsi2c83pAO9RIoXS9Jwaf0izNpLCGqCgs1LbahWRxBmAep29bFJ5yanabJVVb2faIRL2jcsfOCXaI8VpANtE8LZHCFSSO8LHRMSknYT1MHeveneyNiJPek8z9TfdyEdKOtejZLkWTRRUAc75slSu4xJSF9AEVd1zDHh1TOwR8q7HcsUq29suLCQov61s/Kd3ID99T07hpnqa9pZvA2Sry7hlw0/o4aKCcm4pR79BWPAQt/GcrKtURB2GAcZ7qkLdag32SCkRhSO82xDvaOOvzVnN+Ia85/zpNT8q/4FCoLGMbpXji4AAAAASUVORK5CYII=" aria-label="inapp_dismiss_button" role="inapp_dismiss_button">
+      <div id="com.appier.aiqua.demoapp:id/inapp_message" class="text" aria-label="inapp_message" role="inapp_message"></div>
+      <div id="com.appier.aiqua.demoapp:id/button-area" class="button-area">
+        <div id="com.appier.aiqua.demoapp:id/inapp_button_00" class="button" aria-label="inapp_button_00" role="inapp_button_00"></div>
+        <div id="com.appier.aiqua.demoapp:id/inapp_button_01" class="button" aria-label="inapp_button_01" role="inapp_button_01"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

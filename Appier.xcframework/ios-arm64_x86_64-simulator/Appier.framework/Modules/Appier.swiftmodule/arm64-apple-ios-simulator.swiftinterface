@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
 // swift-module-flags: -target arm64-apple-ios9.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Appier
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AdSupport
@@ -92,7 +92,7 @@ extension Appier.Action : Swift.RawRepresentable {
   @objc(logAction:) final public func log(_ action: Appier.Action)
   @objc(setDataCollection:) final public func setDataCollection(_ enabled: Swift.Bool)
   @objc(openURL:) final public func open(_ url: Foundation.URL)
-  @objc(viewWillTransitionWithTransitionCoordinator:) final public func viewWillTransition(with coordinator: any UIKit.UIViewControllerTransitionCoordinator)
+  @objc(viewWillTransitionWithTransitionCoordinator:) final public func viewWillTransition(with coordinator: UIKit.UIViewControllerTransitionCoordinator)
   @objc public static let shared: Appier.AiDeal
   @objc public static let offerButtonTappedNotification: Foundation.Notification.Name
   @objc public static let configurationDidChangeNotification: Foundation.Notification.Name
@@ -139,8 +139,8 @@ extension Appier.Action : Swift.RawRepresentable {
   }
   @objc public init(identifier: Swift.String)
   @objc deinit
-  final public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
+  final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 @objc(AIDConversionItem) @objcMembers final public class ConversionItem : ObjectiveC.NSObject, Swift.Codable {
   @objc final public let identifier: Swift.String
@@ -155,8 +155,8 @@ extension Appier.Action : Swift.RawRepresentable {
   }
   @objc public init(identifier: Swift.String)
   @objc deinit
-  final public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
+  final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 @available(*, deprecated, renamed: "ConversionItem")
 public typealias AIDConversionItem = Appier.ConversionItem
@@ -574,7 +574,6 @@ extension Appier.AIQUALocalStorage {
   @objc public static let AIQ_REMOTE_CONFIG_URL: Swift.String
   @objc public static let ENVIRONMENT: Swift.String
   @objc public static let QG_UNIVERSAL_LINK_DOMAINS: Swift.String
-  @objc public static let QG_INAPP_CLOSE_IMAGE_URL: Swift.String
   @objc public static let APPIER_APP_DELEGATE_PROXY_ENABLED_INFO_PLIST_KEY: Swift.String
   @objc public static let QG_FAILED_PUSH_EVENT_STACK: Swift.String
   @objc override dynamic public init()
@@ -628,8 +627,8 @@ extension Appier.Constant.Endpoint {
   @objc(decodeWithData:error:) public class func decode(from data: Foundation.Data) throws -> Appier.DataPointsResponse
   @objc public func data() throws -> Foundation.Data
   @objc deinit
-  public func encode(to encoder: any Swift.Encoder) throws
-  required public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class EndpointConfiguration : ObjectiveC.NSObject {
   @objc public var userServer: Swift.String? {
@@ -664,8 +663,8 @@ extension Appier.Constant.Endpoint {
   @objc public func data() throws -> Foundation.Data
   @objc override dynamic public init()
   @objc deinit
-  public func encode(to encoder: any Swift.Encoder) throws
-  required public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 @_inheritsConvenienceInitializers @objcMembers @objc(AIQRemoteConfigEndpoints) public class RemoteConfigEndpoints : ObjectiveC.NSObject, Swift.Codable {
   @objc public var dback: Swift.String?
@@ -679,8 +678,8 @@ extension Appier.Constant.Endpoint {
   }
   @objc override dynamic public init()
   @objc deinit
-  public func encode(to encoder: any Swift.Encoder) throws
-  required public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 @_inheritsConvenienceInitializers @objc(AIQCoreDataComponent) @objcMembers public class CoreDataComponent : ObjectiveC.NSObject {
   @objc public var managedObjectContext: CoreData.NSManagedObjectContext {
@@ -718,8 +717,8 @@ extension Appier.Logger {
   public var wrappedValue: Provider.Value
   public init()
   public init(wrappedValue: Provider.Value)
-  public init(from decoder: any Swift.Decoder) throws
-  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
 }
 extension Appier.Default : Swift.Equatable {
   public static func == (a: Appier.Default<Provider>, b: Appier.Default<Provider>) -> Swift.Bool
@@ -809,16 +808,16 @@ extension Foundation.URLSessionConfiguration {
   @objc public func data() throws -> Foundation.Data
   @objc(matchWithLoggedEvents:) public func match(loggedEvents: [Appier.LoggedEvent]) -> Swift.Bool
   @objc deinit
-  public func encode(to encoder: any Swift.Encoder) throws
-  required public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 @objc(AIQInAppAdditionalimeRange) @objcMembers public class InAppAdditionalTimeRange : ObjectiveC.NSObject, Swift.Codable {
   @objc public var durationInMilliSec: Swift.Int {
     @objc get
   }
   @objc deinit
-  public func encode(to encoder: any Swift.Encoder) throws
-  required public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 public enum InAppAdditionalTimeUnit : Swift.String, Swift.Codable {
   case Hour
@@ -830,8 +829,8 @@ public enum InAppAdditionalTimeUnit : Swift.String, Swift.Codable {
   }
 }
 public struct InAppAdditionalCriteria : Swift.Codable {
-  public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 public enum InAppAdditionalCriteriaOperator : Swift.String, Swift.Codable {
   case And
@@ -843,8 +842,8 @@ public enum InAppAdditionalCriteriaOperator : Swift.String, Swift.Codable {
   }
 }
 public struct InAppAdditionalEventCriteria : Swift.Codable {
-  public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 public enum InAppAdditionalEventOperator : Swift.String, Swift.Codable {
   case Equal
@@ -862,16 +861,16 @@ public enum InAppAdditionalEventOperator : Swift.String, Swift.Codable {
 @_hasMissingDesignatedInitializers @objc(AIQInAppBadgeSetting) @objcMembers public class InAppBadgeSetting : ObjectiveC.NSObject, Swift.Codable {
   @objc public var align: Appier.InAppBadgeAlignment
   @objc public var asDeepLink: Swift.Bool
-  required public init(from decoder: any Swift.Decoder) throws
+  required public init(from decoder: Swift.Decoder) throws
   @objc(decodeWithData:error:) public class func decode(from data: Foundation.Data) throws -> Appier.InAppBadgeSetting
   @objc public func data() throws -> Foundation.Data
   @objc deinit
-  public func encode(to encoder: any Swift.Encoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
 }
 @objc(AIQInAppBadgeAlignment) public enum InAppBadgeAlignment : Swift.Int, Swift.Codable {
   case TopLeft, TopRight
-  public init(from decoder: any Swift.Decoder) throws
-  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -883,8 +882,8 @@ public enum InAppAdditionalEventOperator : Swift.String, Swift.Codable {
   @objc public func data() throws -> Foundation.Data
   @objc public func match(parameters: [Swift.String : Any]) -> Swift.Bool
   @objc deinit
-  public func encode(to encoder: any Swift.Encoder) throws
-  required public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 public enum InAppMatchOperator : Swift.String, Swift.Codable {
   case Equals
@@ -905,22 +904,22 @@ public enum InAppMatchOperator : Swift.String, Swift.Codable {
 public enum InAppStringOrDouble : Swift.Codable {
   case string(Swift.String)
   case double(Swift.Double)
-  public init(from decoder: any Swift.Decoder) throws
-  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
 }
 @_hasMissingDesignatedInitializers @objc(AIQInAppRemoteService) @objcMembers final public class InAppRemoteService : ObjectiveC.NSObject {
   @objc(initWithConfiguration:) convenience public init(configuration: Appier.AIQUAConfiguration)
   @objc deinit
 }
 extension Appier.InAppRemoteService : Appier.InAppService {
-  @objc final public func fetchInAppCampaigns(_ completionHandler: @escaping (Appier.InAppRemoteService.PopupCampaigns?, Appier.InAppRemoteService.InboxCampaigns?, (any Swift.Error)?) -> Swift.Void)
-  @objc final public func fetchInAppCampaigns(timeoutInterval: Swift.Double, _ completionHandler: @escaping (Appier.InAppRemoteService.PopupCampaigns?, Appier.InAppRemoteService.InboxCampaigns?, (any Swift.Error)?) -> Swift.Void)
+  @objc final public func fetchInAppCampaigns(_ completionHandler: @escaping (Appier.InAppRemoteService.PopupCampaigns?, Appier.InAppRemoteService.InboxCampaigns?, Swift.Error?) -> Swift.Void)
+  @objc final public func fetchInAppCampaigns(timeoutInterval: Swift.Double, _ completionHandler: @escaping (Appier.InAppRemoteService.PopupCampaigns?, Appier.InAppRemoteService.InboxCampaigns?, Swift.Error?) -> Swift.Void)
 }
 @objc(AIQInAppService) public protocol InAppService {
   typealias PopupCampaigns = [[Swift.String : Any]]
   typealias InboxCampaigns = [[Swift.String : Any]]
-  @objc(fetchInAppCampaignsWithCompletionHandler:) func fetchInAppCampaigns(_ completionHandler: @escaping (Self.PopupCampaigns?, Self.InboxCampaigns?, (any Swift.Error)?) -> Swift.Void)
-  @objc(fetchInAppCampaignsWithTimeoutInterval::) func fetchInAppCampaigns(timeoutInterval: Swift.Double, _ completionHandler: @escaping (Self.PopupCampaigns?, Self.InboxCampaigns?, (any Swift.Error)?) -> Swift.Void)
+  @objc(fetchInAppCampaignsWithCompletionHandler:) func fetchInAppCampaigns(_ completionHandler: @escaping (Self.PopupCampaigns?, Self.InboxCampaigns?, Swift.Error?) -> Swift.Void)
+  @objc(fetchInAppCampaignsWithTimeoutInterval::) func fetchInAppCampaigns(timeoutInterval: Swift.Double, _ completionHandler: @escaping (Self.PopupCampaigns?, Self.InboxCampaigns?, Swift.Error?) -> Swift.Void)
 }
 @objc(QGDATATYPE) public enum DataType : Swift.Int {
   @objc(QGDATATYPE_PROFILE) case profile = 0
@@ -943,10 +942,10 @@ extension Appier.InAppRemoteService : Appier.InAppService {
   @objc deinit
 }
 extension Appier.DataCollectionRemoteService : Appier.DataCollectionService {
-  @objc final public func upload(_ dataPoints: Foundation.NSData, completionHandler: @escaping (Appier.DataPointsResponse?, Swift.Double, (any Swift.Error)?) -> Swift.Void)
+  @objc final public func upload(_ dataPoints: Foundation.NSData, completionHandler: @escaping (Appier.DataPointsResponse?, Swift.Double, Swift.Error?) -> Swift.Void)
 }
 @objc(AIQDataCollectionService) public protocol DataCollectionService {
-  @objc(uploadDataPoints:completionHandler:) func upload(_ dataPoints: Foundation.NSData, completionHandler: @escaping (Appier.DataPointsResponse?, Swift.Double, (any Swift.Error)?) -> Swift.Void)
+  @objc(uploadDataPoints:completionHandler:) func upload(_ dataPoints: Foundation.NSData, completionHandler: @escaping (Appier.DataPointsResponse?, Swift.Double, Swift.Error?) -> Swift.Void)
 }
 @_hasMissingDesignatedInitializers @objc(AIQPersonalizationRemoteService) @objcMembers final public class PersonalizationRemoteService : ObjectiveC.NSObject {
   @objc(initWithConfiguration:session:) convenience public init(configuration: Appier.AIQUAConfiguration, session: Foundation.URLSession)
@@ -954,11 +953,11 @@ extension Appier.DataCollectionRemoteService : Appier.DataCollectionService {
 }
 extension Appier.PersonalizationRemoteService : Appier.PersonalizationService {
   @objc final public func reportDebugConfigContext(_ context: [Swift.String : Any])
-  @objc final public func requestPersonalizationConfig(_ completionHandler: @escaping ([Swift.String : Any]?, (any Swift.Error)?) -> Swift.Void)
+  @objc final public func requestPersonalizationConfig(_ completionHandler: @escaping ([Swift.String : Any]?, Swift.Error?) -> Swift.Void)
 }
 @objc(AIQPersonalizationService) public protocol PersonalizationService {
   @objc(reportDebugConfigContext:) func reportDebugConfigContext(_ context: [Swift.String : Any])
-  @objc(requestPersonalizationConfig:) func requestPersonalizationConfig(_ completionHandler: @escaping ([Swift.String : Any]?, (any Swift.Error)?) -> Swift.Void)
+  @objc(requestPersonalizationConfig:) func requestPersonalizationConfig(_ completionHandler: @escaping ([Swift.String : Any]?, Swift.Error?) -> Swift.Void)
 }
 @_hasMissingDesignatedInitializers @objc(AIQRecommendationRemoteService) @objcMembers final public class RecommendationRemoteService : ObjectiveC.NSObject {
   @objc final public var observingRequest: Foundation.URLRequest?
@@ -966,9 +965,9 @@ extension Appier.PersonalizationRemoteService : Appier.PersonalizationService {
   @objc deinit
 }
 extension Appier.RecommendationRemoteService : Appier.RecommendationService {
-  @objc final public func getRecommendation(scenarioId: Swift.String, queryStringDict: [Swift.String : Any]?, completionHandler: @escaping ([Swift.String : Any]?, (any Swift.Error)?) -> Swift.Void)
-  @objc final public func getTags(request requestObj: Appier.RecommendationRequest, completionHandler: @escaping (Appier.RecommendationTagResponse?, (any Swift.Error)?) -> Swift.Void)
-  @objc final public func getProducts(request requestObj: Appier.RecommendationRequest, completionHandler: @escaping (Appier.RecommendationProductResponse?, (any Swift.Error)?) -> Swift.Void)
+  @objc final public func getRecommendation(scenarioId: Swift.String, queryStringDict: [Swift.String : Any]?, completionHandler: @escaping ([Swift.String : Any]?, Swift.Error?) -> Swift.Void)
+  @objc final public func getTags(request requestObj: Appier.RecommendationRequest, completionHandler: @escaping (Appier.RecommendationTagResponse?, Swift.Error?) -> Swift.Void)
+  @objc final public func getProducts(request requestObj: Appier.RecommendationRequest, completionHandler: @escaping (Appier.RecommendationProductResponse?, Swift.Error?) -> Swift.Void)
 }
 @_inheritsConvenienceInitializers @objcMembers @objc(AIQRecommendationRequest) public class RecommendationRequest : ObjectiveC.NSObject {
   @objc override dynamic public init()
@@ -976,9 +975,9 @@ extension Appier.RecommendationRemoteService : Appier.RecommendationService {
 }
 @objc(AIQRecommendationService) public protocol RecommendationService {
   @objc var observingRequest: Foundation.URLRequest? { get set }
-  @objc(getRecommendationWithScenarioId:withQueryParameters:withCompletionHandler:) func getRecommendation(scenarioId: Swift.String, queryStringDict: [Swift.String : Any]?, completionHandler: @escaping ([Swift.String : Any]?, (any Swift.Error)?) -> Swift.Void)
-  @objc(getTagsWithRequest:withCompletionHandler:) func getTags(request: Appier.RecommendationRequest, completionHandler: @escaping (Appier.RecommendationTagResponse?, (any Swift.Error)?) -> Swift.Void)
-  @objc(getProductsWithRequest:withCompletionHandler:) func getProducts(request: Appier.RecommendationRequest, completionHandler: @escaping (Appier.RecommendationProductResponse?, (any Swift.Error)?) -> Swift.Void)
+  @objc(getRecommendationWithScenarioId:withQueryParameters:withCompletionHandler:) func getRecommendation(scenarioId: Swift.String, queryStringDict: [Swift.String : Any]?, completionHandler: @escaping ([Swift.String : Any]?, Swift.Error?) -> Swift.Void)
+  @objc(getTagsWithRequest:withCompletionHandler:) func getTags(request: Appier.RecommendationRequest, completionHandler: @escaping (Appier.RecommendationTagResponse?, Swift.Error?) -> Swift.Void)
+  @objc(getProductsWithRequest:withCompletionHandler:) func getProducts(request: Appier.RecommendationRequest, completionHandler: @escaping (Appier.RecommendationProductResponse?, Swift.Error?) -> Swift.Void)
 }
 @_hasMissingDesignatedInitializers @objcMembers @objc(AIQRecommendationPopularTagsRequest) public class RecommendationPopularTagsRequest : Appier.RecommendationRequest {
   @objc final public let scenarioId: Swift.String
@@ -1145,8 +1144,8 @@ extension Appier.RecommendationRemoteService : Appier.RecommendationService {
   @objc public var link: Swift.String?
   @objc override dynamic public init()
   @objc deinit
-  public func encode(to encoder: any Swift.Encoder) throws
-  required public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 @_inheritsConvenienceInitializers @objcMembers @objc(AIQRecommendationProductResponse) public class RecommendationProductResponse : ObjectiveC.NSObject, Swift.Codable {
   @objc public var errorMessage: Swift.String?
@@ -1162,16 +1161,16 @@ extension Appier.RecommendationRemoteService : Appier.RecommendationService {
   @objc public var hasNextPage: Swift.Bool
   @objc override dynamic public init()
   @objc deinit
-  public func encode(to encoder: any Swift.Encoder) throws
-  required public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 @_inheritsConvenienceInitializers @objcMembers @objc(AIQRecommendationTagItem) public class RecommendationTagItem : ObjectiveC.NSObject, Swift.Codable {
   @objc public var tagName: Swift.String?
   @objc(ID) public var id: Swift.String?
   @objc override dynamic public init()
   @objc deinit
-  public func encode(to encoder: any Swift.Encoder) throws
-  required public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 @_inheritsConvenienceInitializers @objcMembers @objc(AIQRecommendationTagResponse) public class RecommendationTagResponse : ObjectiveC.NSObject, Swift.Decodable {
   @objc public var errorMessage: Swift.String?
@@ -1186,17 +1185,17 @@ extension Appier.RecommendationRemoteService : Appier.RecommendationService {
   }
   @objc override dynamic public init()
   @objc deinit
-  required public init(from decoder: any Swift.Decoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers @objc(AIQRemoteConfigRemoteService) @objcMembers final public class RemoteConfigRemoteService : ObjectiveC.NSObject {
   @objc(initWithConfiguration:) convenience public init(configuration: Appier.AIQUAConfiguration)
   @objc deinit
 }
 extension Appier.RemoteConfigRemoteService : Appier.RemoteConfigService {
-  @objc final public func fetchRemoteConfig(_ completionHandler: @escaping (Appier.RemoteConfig?, (any Swift.Error)?) -> Swift.Void)
+  @objc final public func fetchRemoteConfig(_ completionHandler: @escaping (Appier.RemoteConfig?, Swift.Error?) -> Swift.Void)
 }
 @objc(AIQRemoteConfigService) public protocol RemoteConfigService {
-  @objc(fetchRemoteConfigWithCompletionHandler:) func fetchRemoteConfig(_ completionHandler: @escaping (Appier.RemoteConfig?, (any Swift.Error)?) -> Swift.Void)
+  @objc(fetchRemoteConfigWithCompletionHandler:) func fetchRemoteConfig(_ completionHandler: @escaping (Appier.RemoteConfig?, Swift.Error?) -> Swift.Void)
 }
 @_hasMissingDesignatedInitializers @objcMembers public class LINEUrlHandler {
   @objc deinit
@@ -1302,6 +1301,9 @@ extension Appier.LogType : Swift.CustomStringConvertible {
   @objc dynamic public func encodedURL() -> Foundation.URL?
   @objc dynamic public func getAppSecret() -> Foundation.NSString
   @objc dynamic public func isStringContainsNewLineCharacter() -> Swift.Bool
+  @objc dynamic public var SHA256string: Foundation.NSString {
+    @objc get
+  }
 }
 extension Swift.String {
   public func isValidStr() -> Swift.Bool
@@ -1310,9 +1312,9 @@ extension Swift.String {
   public func isStringContainsNewLineCharacter() -> Swift.Bool
 }
 public protocol URLSessionProtocol {
-  func dataTask(with url: Foundation.URL, completionHandler: @escaping (Foundation.Data?, Foundation.URLResponse?, (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionDataTask
-  func dataTask(with request: Foundation.URLRequest, completionHandler: @escaping (Foundation.Data?, Foundation.URLResponse?, (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionDataTask
-  func downloadTask(with url: Foundation.URL, completionHandler: @escaping (Foundation.URL?, Foundation.URLResponse?, (any Swift.Error)?) -> Swift.Void) -> Foundation.URLSessionDownloadTask
+  func dataTask(with url: Foundation.URL, completionHandler: @escaping (Foundation.Data?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionDataTask
+  func dataTask(with request: Foundation.URLRequest, completionHandler: @escaping (Foundation.Data?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionDataTask
+  func downloadTask(with url: Foundation.URL, completionHandler: @escaping (Foundation.URL?, Foundation.URLResponse?, Swift.Error?) -> Swift.Void) -> Foundation.URLSessionDownloadTask
 }
 extension Foundation.URLSession : Appier.URLSessionProtocol {
 }
