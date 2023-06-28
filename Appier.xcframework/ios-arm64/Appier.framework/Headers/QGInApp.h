@@ -14,9 +14,9 @@ typedef NS_ENUM(NSInteger, InAppType){
     InAppTypeUnknown = -1,
     InAppTypeControlGroup = 0,
     InAppTypeText = 1,
-    InAppTypeImage = 2,
-    InAppTypeFacebook = 3,
-    InAppTypeInbox = 4,
+    InAppTypeImage = 2, // Deprecated
+    InAppTypePopup = 3,
+    InAppTypeInbox = 4, // Not used in codebase
     InAppTypeWebView = 5
 };
 

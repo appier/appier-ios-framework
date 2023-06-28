@@ -33,6 +33,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (atomic) NSUInteger flushInterval;
 
 /*!
+ @abstract
+ Use `[QGSdk getSharedInstance]` instead.
+ */
+- (instancetype)init NS_UNAVAILABLE;
+
+/*!
  @discussion
  Initialises QGSdk and returns the shared instance of the sdk,
  to access all the methods of the sdk
