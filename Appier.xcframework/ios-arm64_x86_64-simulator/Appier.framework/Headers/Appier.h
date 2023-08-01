@@ -11,7 +11,6 @@ FOUNDATION_EXPORT const unsigned char AppierVersionString[];
 // AIQUA public headers
 #import <Appier/QGSdk.h>
 #import <Appier/QGSdk+CrossPlatformFramework.h>
-#import <Appier/QGWKWebView.h>
 #import <Appier/QGInbox.h>
 #import <Appier/AIQP.h>
 #import <Appier/AIQP+ReactNative.h>

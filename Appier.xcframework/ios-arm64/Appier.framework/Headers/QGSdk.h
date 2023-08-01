@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
 #import <UserNotifications/UserNotifications.h>
 #import "QGInbox.h"
 #import "QGInApp.h"
@@ -19,6 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 @class AIQRecommendationRequest;
 @class AIQRecommendationTagResponse;
 @class AIQRecommendationProductResponse;
+
+/// This is the JavaScript to be injected into custom web view, in order to track custom events and attributes
+extern NSString * const QGWKWebViewUserScript;
+
 @interface QGSdk : NSObject
 
 /*!
@@ -825,5 +830,9 @@ BOOL isAppierPush = [[QGSdk getSharedInstance] isAppierPush:@{@"example": @"exam
 /// flag to `YES` in your Info.plist.
 /// @param userActivity The activity object containing the data associated with the task the user was performing. Use the data to continue the user's activity in your iOS app.
 - (void)handleUserActivity:(NSUserActivity *)userActivity NS_SWIFT_NAME(handleUserActivity(_:));
+
+/// This is a handler of AIQUA-related WKWebView script message for the implementation of custom web view, to track custom events and attributes in such web view
+- (void)handleScriptMessageOfWebView:(WKWebView *)webView userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message;
+
 @end
 NS_ASSUME_NONNULL_END
