@@ -16,7 +16,7 @@ typedef NS_ENUM(NSInteger, InAppType){
     InAppTypeText = 1,
     InAppTypeImage = 2, // Deprecated
     InAppTypePopup = 3,
-    InAppTypeInbox = 4, // Not used in codebase
+    InAppTypeInbox = 4, // The enum is not used in codebase, though inbox is still working
     InAppTypeWebView = 5
 };
 
@@ -41,7 +41,6 @@ typedef NS_ENUM(NSInteger, InAppPersistency) {
 @property (nonatomic) NSNumber *notificationId;
 @property (nonatomic) InAppType type;
 @property (nonatomic) NSString * icon;          //bubble button image
-@property (nonatomic) NSString * image;         //image for type 2 (image)
 @property (nonatomic) NSString * gravity;       //top or bottom
 @property (nonatomic) float margin;             //margin for bubble button
 @property (nonatomic) NSString * deepLink;
@@ -53,7 +52,6 @@ typedef NS_ENUM(NSInteger, InAppPersistency) {
 @property (nonatomic, retain) AIQInAppBadgeSetting *badge; // The setting for the badge button.
 @property (nonatomic) long long startTime;
 @property (nonatomic) long long endTime;
-//@property (nonatomic) long messageNo;
 @property (nonatomic) NSInteger maxNumTimesToShow;
 @property (nonatomic) NSInteger numShown;
 @property (nonatomic, assign) BOOL neverShowAgain; //needed by InAppWebView
