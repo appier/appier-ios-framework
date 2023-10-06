@@ -263,6 +263,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @import AppTrackingTransparency;
 @import CoreData;
 @import CoreFoundation;
+@import CoreLocation;
 @import Foundation;
 @import ObjectiveC;
 @import UIKit;
@@ -289,8 +290,136 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 #if defined(__OBJC__)
-@class AIQUALocalStorage;
 @class NSString;
+
+SWIFT_CLASS("_TtC6Appier9AIQObject")
+@interface AIQObject : NSObject
+@property (nonatomic, readonly, copy) NSString * _Nonnull description;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC6Appier11AIQGeofence")
+@interface AIQGeofence : AIQObject
+@property (nonatomic, readonly) NSInteger id;
+@property (nonatomic, readonly, copy) NSString * _Nonnull name;
+- (BOOL)isEqual:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class AIQGeofencing;
+
+SWIFT_CLASS("_TtC6Appier15AIQGeofenceData")
+@interface AIQGeofenceData : AIQObject
+@property (nonatomic, readonly, strong) AIQGeofencing * _Nonnull geofencing;
+@end
+
+@protocol AIQGeofenceManagerDelegate;
+@class AIQUALocalStorage;
+
+SWIFT_CLASS("_TtC6Appier18AIQGeofenceManager")
+@interface AIQGeofenceManager : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIQGeofenceManager * _Nonnull shared;)
++ (AIQGeofenceManager * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, weak) id <AIQGeofenceManagerDelegate> _Nullable delegate;
+- (nonnull instancetype)initWithStorage:(AIQUALocalStorage * _Nonnull)storage OBJC_DESIGNATED_INITIALIZER;
+- (void)getGeofenceDetailsWithCompletion:(void (^ _Nonnull)(NSDictionary * _Nonnull))completion;
+- (void)shouldFetchGeofenceWithCompletion:(void (^ _Nonnull)(BOOL))completion;
+- (void)updateWithGeofencing:(NSDictionary<NSString *, id> * _Nonnull)geofencing;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class CLLocation;
+
+SWIFT_PROTOCOL("_TtP6Appier29AIQGeofenceMonitoringDelegate_")
+@protocol AIQGeofenceMonitoringDelegate
+- (void)didStartMonitoringWithRegionIdentifier:(NSString * _Nonnull)regionIdentifier;
+- (void)monitoringDidFailWithRegionIdentifier:(NSString * _Nullable)regionIdentifier error:(NSError * _Nonnull)error;
+- (void)didEnterRegionWithIdentifier:(NSString * _Nonnull)identifier location:(CLLocation * _Nonnull)location;
+- (void)didExitRegionWithIdentifier:(NSString * _Nonnull)identifier location:(CLLocation * _Nonnull)location;
+- (void)locationAuthorizationDidChange;
+@end
+
+
+@interface AIQGeofenceManager (SWIFT_EXTENSION(Appier)) <AIQGeofenceMonitoringDelegate>
+- (void)didStartMonitoringWithRegionIdentifier:(NSString * _Nonnull)regionIdentifier;
+- (void)monitoringDidFailWithRegionIdentifier:(NSString * _Nullable)regionIdentifier error:(NSError * _Nonnull)error;
+- (void)didEnterRegionWithIdentifier:(NSString * _Nonnull)identifier location:(CLLocation * _Nonnull)location;
+- (void)didExitRegionWithIdentifier:(NSString * _Nonnull)identifier location:(CLLocation * _Nonnull)location;
+- (void)locationAuthorizationDidChange;
+@end
+
+
+
+SWIFT_PROTOCOL("_TtP6Appier26AIQGeofenceManagerDelegate_")
+@protocol AIQGeofenceManagerDelegate
+- (void)logGeofenceWithEvent:(NSString * _Nonnull)event parameters:(NSDictionary * _Nonnull)parameters;
+- (void)setUserProfileWithGeofencingCapable:(BOOL)geofencingCapable;
+- (void)fetchGeofence;
+@end
+
+
+
+SWIFT_CLASS("_TtC6Appier13AIQGeofencing")
+@interface AIQGeofencing : AIQObject
+@property (nonatomic, readonly, copy) NSArray<AIQGeofence *> * _Nullable geofences;
+@end
+
+@protocol AIQLocationUpdateDelegate;
+
+SWIFT_CLASS("_TtC6Appier18AIQLocationManager")
+@interface AIQLocationManager : NSObject
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIQLocationManager * _Nonnull shared;)
++ (AIQLocationManager * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, weak) id <AIQLocationUpdateDelegate> _Nullable locationDelegate;
+@property (nonatomic, weak) id <AIQGeofenceMonitoringDelegate> _Nullable geofenceDelegate;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class CLLocationManager;
+@class CLRegion;
+
+@interface AIQLocationManager (SWIFT_EXTENSION(Appier)) <CLLocationManagerDelegate>
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status;
+- (void)locationManagerDidChangeAuthorization:(CLLocationManager * _Nonnull)manager SWIFT_AVAILABILITY(ios,introduced=14.0);
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateLocations:(NSArray<CLLocation *> * _Nonnull)locations;
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didFailWithError:(NSError * _Nonnull)error;
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didStartMonitoringForRegion:(CLRegion * _Nonnull)region;
+- (void)locationManager:(CLLocationManager * _Nonnull)manager monitoringDidFailForRegion:(CLRegion * _Nullable)region withError:(NSError * _Nonnull)error;
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didEnterRegion:(CLRegion * _Nonnull)region;
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didExitRegion:(CLRegion * _Nonnull)region;
+@end
+
+
+SWIFT_PROTOCOL("_TtP6Appier25AIQLocationUpdateDelegate_")
+@protocol AIQLocationUpdateDelegate
+- (void)locationUpdatedWith:(NSDictionary * _Nullable)location;
+@end
+
+
+
+SWIFT_PROTOCOL("_TtP6Appier28AIQSilentPushHandlerDelegate_")
+@protocol AIQSilentPushHandlerDelegate
+- (void)updateInAppCampaignWithUserInfo:(NSDictionary * _Nonnull)userInfo completion:(void (^ _Nonnull)(void))completion;
+- (void)updateGeofenceWithUserInfo:(NSDictionary * _Nonnull)userInfo completion:(void (^ _Nonnull)(void))completion;
+@end
+
+
+SWIFT_PROTOCOL("_TtP6Appier28AIQSilentPushHandlerProtocol_")
+@protocol AIQSilentPushHandlerProtocol
+@property (nonatomic, weak) id <AIQSilentPushHandlerDelegate> _Nullable delegate;
+- (void)executeWithCompletion:(void (^ _Nonnull)(void))completion;
+@end
+
+
+SWIFT_CLASS("_TtC6Appier20AIQSilentPushManager")
+@interface AIQSilentPushManager : NSObject
+- (NSArray<id <AIQSilentPushHandlerProtocol>> * _Nonnull)parseWithPayload:(NSDictionary * _Nullable)payload SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 @class EndpointConfiguration;
 
 SWIFT_CLASS_NAMED("AIQUAConfiguration")
@@ -401,7 +530,11 @@ SWIFT_PROTOCOL("_TtP6Appier12AIQUAStorage_")
 @property (nonatomic) BOOL personalizationDisabledStatus;
 /// This is equivalent to <em>personalizationDisabledStatus != nil</em>
 @property (nonatomic, readonly) BOOL hasPersonalizationDisabledStatus;
-/// The raw data is encoded before set and decoded before return
+/// JSON string of [AIQGeofence].
+@property (nonatomic, copy) NSString * _Nullable geofences;
+/// The geofence capablility
+@property (nonatomic) BOOL isGeofenceCapable;
+/// The raw data is encoded before set and decoded before return. ([notificationId: QGInbox])
 @property (nonatomic, copy) NSDictionary * _Nullable inbox;
 /// This is equivalent to <em>inbox != nil</em>
 @property (nonatomic, readonly) BOOL hasInbox;
@@ -479,6 +612,8 @@ SWIFT_PROTOCOL("_TtP6Appier12AIQUAStorage_")
 @property (nonatomic, readonly) BOOL hasPersonalizationConfig;
 @property (nonatomic) BOOL personalizationDisabledStatus;
 @property (nonatomic, readonly) BOOL hasPersonalizationDisabledStatus;
+@property (nonatomic, copy) NSString * _Nullable geofences;
+@property (nonatomic) BOOL isGeofenceCapable;
 @property (nonatomic, copy) NSDictionary * _Nullable inbox;
 @property (nonatomic, readonly) BOOL hasInbox;
 @property (nonatomic) NSInteger inboxLimit;
@@ -754,6 +889,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 + (NSString * _Nonnull)QG_SAVED_PUSH_NOTIFICATION_LIMIT SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_SAVE_PUSH_NOTIFICATION_ENABLED;)
 + (NSString * _Nonnull)QG_SAVE_PUSH_NOTIFICATION_ENABLED SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AIQ_GEOFENCING_CAPABLE;)
++ (NSString * _Nonnull)AIQ_GEOFENCING_CAPABLE SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AIQP_CONFIG;)
 + (NSString * _Nonnull)AIQP_CONFIG SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AIQP_DISABLED_STATUS;)
@@ -988,14 +1125,12 @@ SWIFT_CLASS_NAMED("InAppRemoteService")
 
 SWIFT_PROTOCOL_NAMED("InAppService")
 @protocol AIQInAppService
-- (void)fetchInAppCampaignsWithCompletionHandler:(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSError * _Nullable))completionHandler;
-- (void)fetchInAppCampaignsWithTimeoutInterval:(double)timeoutInterval :(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSError * _Nullable))completionHandler;
+- (void)fetchInAppCampaignsWithShouldFetchInapp:(BOOL)shouldFetchInapp shouldFetchGeofence:(BOOL)shouldFetchGeofence completionHandler:(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
 
 @interface AIQInAppRemoteService (SWIFT_EXTENSION(Appier)) <AIQInAppService>
-- (void)fetchInAppCampaignsWithCompletionHandler:(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSError * _Nullable))completionHandler;
-- (void)fetchInAppCampaignsWithTimeoutInterval:(double)timeoutInterval :(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSError * _Nullable))completionHandler;
+- (void)fetchInAppCampaignsWithShouldFetchInapp:(BOOL)shouldFetchInapp shouldFetchGeofence:(BOOL)shouldFetchGeofence completionHandler:(void (^ _Nonnull)(NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSArray<NSDictionary<NSString *, id> *> * _Nullable, NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
 @end
 
 
@@ -1058,14 +1193,14 @@ SWIFT_CLASS_NAMED("Logger")
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
-+ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
++ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
-+ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
++ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
