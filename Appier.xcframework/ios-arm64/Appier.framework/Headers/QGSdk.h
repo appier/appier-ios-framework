@@ -447,11 +447,22 @@ extern NSString * const QGWKWebViewUserScript;
  Captures the push notification sent by QGraph server
 
  @discussion
- Add to your AppDelegate application:didReceiveRemoteNotification:fetchCompletionHandler:
+ Add to your AppDelegate application:didReceiveRemoteNotification:
+ Implement this method if your app supports iOS 9
  pass all the push notifications received by the app
  This method also let the sdk track app_launched event due to click on the notification sent by QGraph
  */
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo;
+
+/*!
+ @abstract
+ Tells the app that a remote notification arrived that indicates there is data to be fetched.
+
+ @discussion
+ Add to your AppDelegate application:didReceiveRemoteNotification:fetchCompletionHandler:
+ This method handles the silent push notifications sent by QGraph
+ */
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))fetchCompletionHandler;
 
 /*!
  @abstract
