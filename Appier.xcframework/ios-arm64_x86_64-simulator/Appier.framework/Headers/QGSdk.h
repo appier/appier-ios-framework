@@ -1,11 +1,3 @@
-//
-//  QGSdk.h
-//  QGSdk
-//
-//  Created by Shiv
-//  Copyright (c) 2019 APPIER INC. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
@@ -20,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class AIQRecommendationRequest;
 @class AIQRecommendationTagResponse;
 @class AIQRecommendationProductResponse;
+@class AIQDataTrackingConfiguration;
 
 /// This is the JavaScript to be injected into custom web view, in order to track custom events and attributes
 extern NSString * const QGWKWebViewUserScript;
@@ -36,6 +29,15 @@ extern NSString * const QGWKWebViewUserScript;
  @note Default to 1 sec in Dev and 15 secs in Release
  */
 @property (atomic) NSUInteger flushInterval;
+
+/*!
+ @abstract
+ Data Tracking Configuration.
+
+ @discussion
+ Setting the data tracking configuration of the sdk.
+ */
+@property (nonatomic, strong, nonnull) AIQDataTrackingConfiguration *dataTrackingConfig;
 
 /*!
  @abstract
