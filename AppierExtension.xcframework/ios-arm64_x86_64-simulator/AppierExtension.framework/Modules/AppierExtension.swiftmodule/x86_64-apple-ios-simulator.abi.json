@@ -475,18 +475,19 @@
               {
                 "kind": "TypeNominal",
                 "name": "Dictionary",
-                "printedName": "[Swift.AnyHashable : Any]",
+                "printedName": "[Swift.String : Swift.String]",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "AnyHashable",
-                    "printedName": "Swift.AnyHashable",
-                    "usr": "s:s11AnyHashableV"
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
                   },
                   {
                     "kind": "TypeNominal",
-                    "name": "ProtocolComposition",
-                    "printedName": "Any"
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
                   }
                 ],
                 "usr": "s:SD"
@@ -494,7 +495,7 @@
             ],
             "declKind": "Func",
             "usr": "c:@CM@AppierExtension@objc(cs)APRDeviceInfo(cm)simCardInfo",
-            "mangledName": "$s15AppierExtension10DeviceInfoC07simCardD0SDys11AnyHashableVypGyFZ",
+            "mangledName": "$s15AppierExtension10DeviceInfoC07simCardD0SDyS2SGyFZ",
             "moduleName": "AppierExtension",
             "static": true,
             "declAttributes": [
@@ -3093,42 +3094,42 @@
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/DeviceInfo.swift",
       "kind": "StringLiteral",
-      "offset": 12167,
+      "offset": 12163,
       "length": 18,
       "value": "\"0000000100000001\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/DeviceInfo.swift",
       "kind": "StringLiteral",
-      "offset": 12367,
+      "offset": 12363,
       "length": 6,
       "value": "\"name\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/DeviceInfo.swift",
       "kind": "StringLiteral",
-      "offset": 12506,
+      "offset": 12502,
       "length": 5,
       "value": "\"mcc\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/DeviceInfo.swift",
       "kind": "StringLiteral",
-      "offset": 12650,
+      "offset": 12646,
       "length": 5,
       "value": "\"mnc\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/DeviceInfo.swift",
       "kind": "StringLiteral",
-      "offset": 12785,
+      "offset": 12781,
       "length": 9,
       "value": "\"country\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/DeviceInfo.swift",
       "kind": "Dictionary",
-      "offset": 12982,
+      "offset": 12978,
       "length": 1029,
       "value": "[(\"iPod1,1\", 1), (\"iPod2,1\", 1), (\"iPod3,1\", 1), (\"iPod4,1\", 1), (\"iPhone1,1\", 1), (\"iPhone1,2\", 1), (\"iPhone2,1\", 1), (\"iPad1,1\", 1), (\"iPad2,1\", 1), (\"iPad3,1\", 1), (\"iPhone3,1\", 1), (\"iPhone3,3\", 1), (\"iPhone4,1\", 1), (\"iPhone5,1\", 1), (\"iPhone5,2\", 1), (\"iPad3,4\", 1), (\"iPad2,5\", 1), (\"iPhone5,3\", 1), (\"iPhone5,4\", 1), (\"iPhone6,1\", 1), (\"iPhone6,2\", 1)]"
     },

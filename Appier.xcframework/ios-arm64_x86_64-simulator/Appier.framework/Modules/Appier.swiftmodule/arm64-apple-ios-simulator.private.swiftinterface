@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.8.1 (swiftlang-5.8.0.124.5 clang-1403.0.22.11.100)
+// swift-compiler-version: Apple Swift version 5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)
 // swift-module-flags: -target arm64-apple-ios9.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Appier
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AdSupport
@@ -10,15 +10,18 @@ import CoreData
 import CoreGraphics
 import CoreLocation
 import CoreTelephony
+import DeveloperToolsSupport
 import Dispatch
 import Foundation
 import Network
 import Swift
+import SwiftUI
 import SystemConfiguration
 import UIKit
 import WebKit
 import _Concurrency
 import _StringProcessing
+import _SwiftConcurrencyShims
 import os
 import zlib
 public enum PageType {
@@ -171,70 +174,9 @@ public typealias AIDConversionItem = Appier.ConversionItem
 extension Appier.Logger {
   @objc(aiquaNotificationLogger) public static let aiquaNotification: Appier.Logger
 }
-@objc public protocol AIQLocationUpdateDelegate {
-  @objc(locationUpdatedWith:) func locationUpdated(location: [Swift.AnyHashable : Any]?)
-}
-@objc public protocol AIQGeofenceMonitoringDelegate {
-  @objc func didStartMonitoring(regionIdentifier: Swift.String)
-  @objc func monitoringDidFail(regionIdentifier: Swift.String?, error: any Swift.Error)
-  @objc func didEnterRegion(identifier: Swift.String, location: CoreLocation.CLLocation)
-  @objc func didExitRegion(identifier: Swift.String, location: CoreLocation.CLLocation)
-  @objc func locationAuthorizationDidChange()
-}
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers public class AIQLocationManager : ObjectiveC.NSObject {
-  @objc public static let shared: Appier.AIQLocationManager
-  @objc weak public var locationDelegate: (any Appier.AIQLocationUpdateDelegate)?
-  @objc weak public var geofenceDelegate: (any Appier.AIQGeofenceMonitoringDelegate)?
-  @objc override dynamic public init()
-  @objc deinit
-}
-extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
-  @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didChangeAuthorization status: CoreLocation.CLAuthorizationStatus)
-  @available(iOS 14.0, *)
-  @objc dynamic public func locationManagerDidChangeAuthorization(_ manager: CoreLocation.CLLocationManager)
-  @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didUpdateLocations locations: [CoreLocation.CLLocation])
-  @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didFailWithError error: any Swift.Error)
-  @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didStartMonitoringFor region: CoreLocation.CLRegion)
-  @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, monitoringDidFailFor region: CoreLocation.CLRegion?, withError error: any Swift.Error)
-  @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didEnterRegion region: CoreLocation.CLRegion)
-  @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didExitRegion region: CoreLocation.CLRegion)
-}
-@objc public protocol AIQSilentPushHandlerDelegate {
-  @objc func updateInAppCampaign(userInfo: [Swift.AnyHashable : Any], completion: @escaping () -> Swift.Void)
-  @objc func updateGeofence(userInfo: [Swift.AnyHashable : Any], completion: @escaping () -> Swift.Void)
-}
-@objc public protocol AIQSilentPushHandlerProtocol {
-  @objc weak var delegate: (any Appier.AIQSilentPushHandlerDelegate)? { get set }
-  @objc func execute(completion: @escaping () -> Swift.Void)
-}
-@objc @_inheritsConvenienceInitializers @objcMembers public class AIQSilentPushManager : ObjectiveC.NSObject {
-  @objc public func parse(payload: [Swift.AnyHashable : Any]?) -> [any Appier.AIQSilentPushHandlerProtocol]
-  @objc override dynamic public init()
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers @objcMembers public class AIQSilentPushUpdateGeofenceHandler : Appier.AIQSilentPushHandlerProtocol {
-  @objc weak public var delegate: (any Appier.AIQSilentPushHandlerDelegate)?
-  @objc public func execute(completion: @escaping () -> Swift.Void)
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers @objcMembers public class AIQSilentPushUpdateInAppCampaignHandler : Appier.AIQSilentPushHandlerProtocol {
-  @objc weak public var delegate: (any Appier.AIQSilentPushHandlerDelegate)?
-  @objc public func execute(completion: @escaping () -> Swift.Void)
-  @objc deinit
-}
-@_inheritsConvenienceInitializers @objc public class AIQUALocalStorage : ObjectiveC.NSObject {
-  @objc override dynamic public var description: Swift.String {
-    @objc get
-  }
-  @objc public static var shared: Appier.AIQUALocalStorage
-  @objc override convenience dynamic public init()
-  @objc public init(suiteName: Swift.String)
-  @objc public func updateSuiteNameIfNeeded(_ suiteName: Swift.String)
-  @objc deinit
-}
-extension Appier.AIQUALocalStorage : Appier.AIQUAStorage {
+extension Appier.AIQLocalStorage : Appier.AIQStorage {
   @objc dynamic public func clean()
-  @objc dynamic public var devProfile: Swift.Bool {
+  @objc dynamic public var isDevProfile: Swift.Bool {
     @objc get
     @objc set
   }
@@ -252,9 +194,6 @@ extension Appier.AIQUALocalStorage : Appier.AIQUAStorage {
   @objc dynamic public var appVersion: Swift.String? {
     @objc get
     @objc set
-  }
-  @objc dynamic public var hasAppVersion: Swift.Bool {
-    @objc get
   }
   @objc dynamic public var deviceToken: Swift.String? {
     @objc get
@@ -294,15 +233,9 @@ extension Appier.AIQUALocalStorage : Appier.AIQUAStorage {
     @objc get
     @objc set
   }
-  @objc dynamic public var hasLastViewThroughTime: Swift.Bool {
-    @objc get
-  }
   @objc dynamic public var lastClickedNotificationTime: Foundation.Date? {
     @objc get
     @objc set
-  }
-  @objc dynamic public var hasLastClickedNotificationTime: Swift.Bool {
-    @objc get
   }
   @objc dynamic public var lastClickedNotificationID: Foundation.NSNumber? {
     @objc get
@@ -323,15 +256,9 @@ extension Appier.AIQUALocalStorage : Appier.AIQUAStorage {
     @objc get
     @objc set
   }
-  @objc dynamic public var hasClickAttributionWindow: Swift.Bool {
-    @objc get
-  }
   @objc dynamic public var lastLocation: [Swift.String : [Foundation.NSNumber]]? {
     @objc get
     @objc set
-  }
-  @objc dynamic public var hasLastLocation: Swift.Bool {
-    @objc get
   }
   @objc dynamic public var sdkVersionKey: Swift.String? {
     @objc get
@@ -340,7 +267,7 @@ extension Appier.AIQUALocalStorage : Appier.AIQUAStorage {
   @objc dynamic public var hasSdkVersionKey: Swift.Bool {
     @objc get
   }
-  @objc dynamic public var sendIdfaWithConsent: Swift.Bool {
+  @objc dynamic public var shouldSendIDFAWithConsent: Swift.Bool {
     @objc get
     @objc set
   }
@@ -374,11 +301,11 @@ extension Appier.AIQUALocalStorage : Appier.AIQUAStorage {
   @objc dynamic public var hasPersonalizationConfig: Swift.Bool {
     @objc get
   }
-  @objc dynamic public var personalizationDisabledStatus: Swift.Bool {
+  @objc dynamic public var isPersonalizationDisabled: Swift.Bool {
     @objc get
     @objc set
   }
-  @objc dynamic public var hasPersonalizationDisabledStatus: Swift.Bool {
+  @objc dynamic public var isPersonalizationDisabledStatusNotConfigured: Swift.Bool {
     @objc get
   }
   @objc dynamic public var geofences: Swift.String? {
@@ -407,7 +334,7 @@ extension Appier.AIQUALocalStorage : Appier.AIQUAStorage {
     @objc get
     @objc set
   }
-  @objc dynamic public var forceTouchCapabilityStatus: Swift.Bool {
+  @objc dynamic public var isForceTouchCapabilityEnabled: Swift.Bool {
     @objc get
     @objc set
   }
@@ -449,7 +376,7 @@ extension Appier.AIQUALocalStorage : Appier.AIQUAStorage {
     @objc get
     @objc set
   }
-  @objc dynamic public var firstAppLaunch: Swift.Bool {
+  @objc dynamic public var isFirstAppLaunch: Swift.Bool {
     @objc get
     @objc set
   }
@@ -477,19 +404,101 @@ extension Appier.AIQUALocalStorage : Appier.AIQUAStorage {
     @objc get
     @objc set
   }
+  @objc dynamic public var isCollectIDFA: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var isCollectLocation: Swift.Bool {
+    @objc get
+    @objc set
+  }
 }
-extension Appier.AIQUALocalStorage {
-  @objc dynamic public func save(value: Any?, key: Swift.String)
-  @objc dynamic public func getValue(for key: Swift.String) -> Any?
+extension Appier.AIQLocalStorage {
+  @objc dynamic public func updateSuiteNameIfNeeded(_ suiteName: Swift.String)
+  @objc(setAppID:groupName:devProfile:frameworkType:version:) dynamic public func set(appID: Swift.String, groupName: Swift.String, devProfile: Swift.Bool, frameworkType: Swift.String, version: Swift.String)
+  @objc dynamic public func createAndSaveNewAppierId()
+  @objc dynamic public func shouldUserDetailsBeSent() -> Swift.Bool
+  @objc dynamic public func getFailedPushEventLogs() -> [[Swift.AnyHashable : Any]]
+  @objc dynamic public func clearFailedPushEventLogs()
+  @objc dynamic public func isNewUser() -> Swift.Bool
+  @objc dynamic public func handleDeepLink(_ url: Foundation.URL)
+  @objc dynamic public func isClickThroughAttribution() -> Swift.Bool
+  @objc dynamic public func setClickThroughFor(notificationId: Foundation.NSNumber)
+  @objc dynamic public func isViewThroughAttribution() -> Swift.Bool
+  @objc dynamic public func setViewThroughFor(notificationId: Foundation.NSNumber)
 }
-@objc public protocol AIQUAStorage {
+@_inheritsConvenienceInitializers @objc public class AIQLocalStorage : ObjectiveC.NSObject {
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
+  @objc public static var shared: Appier.AIQLocalStorage
+  @objc override convenience dynamic public init()
+  @objc public init(suiteName: Swift.String)
+  @objc deinit
+}
+@objc public protocol AIQLocationUpdateDelegate {
+  @objc(locationUpdatedWith:) func locationUpdated(location: [Swift.AnyHashable : Any]?)
+}
+@objc public protocol AIQGeofenceMonitoringDelegate {
+  @objc func didStartMonitoring(regionIdentifier: Swift.String)
+  @objc func monitoringDidFail(regionIdentifier: Swift.String?, error: any Swift.Error)
+  @objc func didEnterRegion(identifier: Swift.String, location: CoreLocation.CLLocation)
+  @objc func didExitRegion(identifier: Swift.String, location: CoreLocation.CLLocation)
+  @objc func locationAuthorizationDidChange()
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers public class AIQLocationManager : ObjectiveC.NSObject {
+  @objc public static let shared: Appier.AIQLocationManager
+  @objc weak public var locationDelegate: (any Appier.AIQLocationUpdateDelegate)?
+  @objc weak public var geofenceDelegate: (any Appier.AIQGeofenceMonitoringDelegate)?
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
+  @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didChangeAuthorization status: CoreLocation.CLAuthorizationStatus)
+  @available(iOS 14.0, *)
+  @objc dynamic public func locationManagerDidChangeAuthorization(_ manager: CoreLocation.CLLocationManager)
+  @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didUpdateLocations locations: [CoreLocation.CLLocation])
+  @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didFailWithError error: any Swift.Error)
+  @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didStartMonitoringFor region: CoreLocation.CLRegion)
+  @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, monitoringDidFailFor region: CoreLocation.CLRegion?, withError error: any Swift.Error)
+  @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didEnterRegion region: CoreLocation.CLRegion)
+  @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didExitRegion region: CoreLocation.CLRegion)
+}
+@objc @objcMembers public class AIQRequestManager : ObjectiveC.NSObject {
+  @objc public init(with config: Appier.AIQUAConfiguration)
+  @objc public func requestExitPushDataFromServer(_ completionHandler: @escaping (Foundation.Data?, Foundation.URLResponse?, (any Swift.Error)?) -> Swift.Void)
+  @objc deinit
+}
+@objc public protocol AIQSilentPushHandlerDelegate {
+  @objc func updateInAppCampaign(userInfo: [Swift.AnyHashable : Any], completion: @escaping () -> Swift.Void)
+  @objc func updateGeofence(userInfo: [Swift.AnyHashable : Any], completion: @escaping () -> Swift.Void)
+}
+@objc public protocol AIQSilentPushHandlerProtocol {
+  @objc weak var delegate: (any Appier.AIQSilentPushHandlerDelegate)? { get set }
+  @objc func execute(completion: @escaping () -> Swift.Void)
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class AIQSilentPushManager : ObjectiveC.NSObject {
+  @objc public func parse(payload: [Swift.AnyHashable : Any]?) -> [any Appier.AIQSilentPushHandlerProtocol]
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objcMembers public class AIQSilentPushUpdateGeofenceHandler : Appier.AIQSilentPushHandlerProtocol {
+  @objc weak public var delegate: (any Appier.AIQSilentPushHandlerDelegate)?
+  @objc public func execute(completion: @escaping () -> Swift.Void)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objcMembers public class AIQSilentPushUpdateInAppCampaignHandler : Appier.AIQSilentPushHandlerProtocol {
+  @objc weak public var delegate: (any Appier.AIQSilentPushHandlerDelegate)?
+  @objc public func execute(completion: @escaping () -> Swift.Void)
+  @objc deinit
+}
+@objc public protocol AIQStorage {
   @objc func clean()
-  @objc var devProfile: Swift.Bool { get set }
+  @objc var isDevProfile: Swift.Bool { get set }
   @objc var appID: Swift.String? { get set }
   @objc var hasAppID: Swift.Bool { get }
   @objc var appSecret: Swift.String { get set }
   @objc var appVersion: Swift.String? { get set }
-  @objc var hasAppVersion: Swift.Bool { get }
   @objc var deviceToken: Swift.String? { get set }
   @objc var crossPlatformFrameworkSdkType: Swift.String? { get set }
   @objc var crossPlatformFrameworkSdkVersion: Swift.String? { get set }
@@ -500,20 +509,16 @@ extension Appier.AIQUALocalStorage {
   @objc var universalLinkDomains: [Swift.String]? { get set }
   @objc var isRichPushSupported: Swift.Bool { get set }
   @objc var lastViewThroughTime: Foundation.Date? { get set }
-  @objc var hasLastViewThroughTime: Swift.Bool { get }
   @objc var lastClickedNotificationTime: Foundation.Date? { get set }
-  @objc var hasLastClickedNotificationTime: Swift.Bool { get }
   @objc var lastClickedNotificationID: Foundation.NSNumber? { get set }
   @objc var lastViewThroughNotificationID: Foundation.NSNumber? { get set }
   @objc var viewThroughAttributionWindow: Foundation.NSNumber? { get set }
   @objc var hasViewThroughAttributionWindow: Swift.Bool { get }
   @objc var clickAttributionWindow: Foundation.NSNumber? { get set }
-  @objc var hasClickAttributionWindow: Swift.Bool { get }
   @objc var lastLocation: [Swift.String : [Foundation.NSNumber]]? { get set }
-  @objc var hasLastLocation: Swift.Bool { get }
   @objc var sdkVersionKey: Swift.String? { get set }
   @objc var hasSdkVersionKey: Swift.Bool { get }
-  @objc var sendIdfaWithConsent: Swift.Bool { get set }
+  @objc var shouldSendIDFAWithConsent: Swift.Bool { get set }
   @objc var userDetailsLastSentTime: Foundation.Date? { get set }
   @objc var hasUserDetailsLastSentTime: Swift.Bool { get }
   @objc var optoutStatus: Foundation.NSNumber? { get set }
@@ -524,8 +529,8 @@ extension Appier.AIQUALocalStorage {
   var hasAdsTrackingStatus: Swift.Bool { get }
   @objc var personalizationConfig: [Swift.AnyHashable : Any]? { get set }
   @objc var hasPersonalizationConfig: Swift.Bool { get }
-  @objc var personalizationDisabledStatus: Swift.Bool { get set }
-  @objc var hasPersonalizationDisabledStatus: Swift.Bool { get }
+  @objc var isPersonalizationDisabled: Swift.Bool { get set }
+  @objc var isPersonalizationDisabledStatusNotConfigured: Swift.Bool { get }
   @objc var geofences: Swift.String? { get set }
   @objc var isGeofenceCapable: Swift.Bool { get set }
   @objc var inbox: [Swift.AnyHashable : Any]? { get set }
@@ -533,7 +538,7 @@ extension Appier.AIQUALocalStorage {
   @objc var inboxLimit: Swift.Int { get set }
   @objc var hasInboxLimit: Swift.Bool { get }
   @objc var isNotFirstAppBackground: Swift.Bool { get set }
-  @objc var forceTouchCapabilityStatus: Swift.Bool { get set }
+  @objc var isForceTouchCapabilityEnabled: Swift.Bool { get set }
   @objc var inAppDisabledStatus: Swift.Bool { get set }
   @objc var inApp: Appier.AIQMutableOrderedDictionary? { get set }
   @objc var hasInApp: Swift.Bool { get }
@@ -544,13 +549,58 @@ extension Appier.AIQUALocalStorage {
   @objc var savedPushNotificationLimit: Foundation.NSNumber { get set }
   @objc var isSavedPushNotificationEnabled: Swift.Bool { get set }
   @objc var richPushDeeplink: Swift.String? { get set }
-  @objc var firstAppLaunch: Swift.Bool { get set }
+  @objc var isFirstAppLaunch: Swift.Bool { get set }
   @objc var endpointUserServer: Swift.String? { get set }
   @objc var endpointDback: Swift.String? { get set }
   @objc var endpointRecommendation: Swift.String? { get set }
   @objc var endpointPersonalization: Swift.String? { get set }
   @objc var failedPushEventStack: [[Swift.AnyHashable : Any]]? { get set }
   @objc var exitPushPayload: Foundation.Data? { get set }
+  @objc var isCollectIDFA: Swift.Bool { get set }
+  @objc var isCollectLocation: Swift.Bool { get set }
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class AIQUncaughtExceptionHandler : ObjectiveC.NSObject {
+  @objc public class func uploadCrashLog(_ postData: Foundation.Data, completionHandler: @escaping (Foundation.URLResponse?, (any Swift.Error)?) -> Swift.Void)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(QGDATATYPE) public enum DataType : Swift.Int {
+  @objc(QGDATATYPE_PROFILE) case profile = 0
+  @objc(QGDATATYPE_EVENTS) case events = 1
+  @objc(QGDATATYPE_USERDETAILS) case userDetails = 2
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(InAppCreativeType) public enum InAppCreativeType : Swift.Int {
+  @objc(InAppCreativeType_UNKNOWN) case unknown = 0
+  @objc(InAppCreativeType_SMALL) case small = 1
+  @objc(InAppCreativeType_MEDIUM) case medium = 2
+  @objc(InAppCreativeType_LARGE) case large = 3
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class AIQUtility : ObjectiveC.NSObject {
+  @objc public static let session: Foundation.URLSession
+  @objc public static let isRunningTests: Swift.Bool
+  @objc public class func isDevApnsEnv() -> Swift.Bool
+  @objc public class func encode(obj: Any?) -> Foundation.Data?
+  @objc public class func decode(data: Foundation.Data?) -> Any?
+  @objc public class func getNewAppierId() -> Swift.Int64
+  @objc(daysBetweenDate:andDate:) public class func daysBetween(startDate: Foundation.Date, endDate: Foundation.Date) -> Swift.Int
+  @objc public class func isValidObject(_ object: Any?) -> Swift.Bool
+  @objc(assertPropertyTypesIn:) public class func assertPropertyTypes(in dict: [Swift.AnyHashable : Any]?) -> Swift.Bool
+  @objc public class func isRichPushSupported() -> Swift.Bool
+  @objc public class func getInAppCreativeType(fbCreativeDict: [Swift.AnyHashable : Any]) -> Appier.InAppCreativeType
+  @objc public class func getUserDetails(from storage: Appier.AIQLocalStorage, with trackingConfig: Appier.AIQDataTrackingConfiguration, completion: @escaping ([Swift.String : Any]) -> Swift.Void)
+  @objc public class func crashLogConcernKeywords() -> [Swift.String]
+  @objc override dynamic public init()
+  @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(QGConstant) @objcMembers public class Constant : ObjectiveC.NSObject {
   @objc public static let QG_SDK_VERSION: Swift.String
@@ -623,6 +673,8 @@ extension Appier.AIQUALocalStorage {
   @objc public static let QG_EXT_RICH_PUSH_DEEPLINK: Swift.String
   @objc public static let QG_IS_NOT_FIRST_APP_BACKGROUND: Swift.String
   @objc public static let QG_EXIT_PUSH_PAYLOAD: Swift.String
+  @objc public static let QG_IS_COLLECT_IDFA: Swift.String
+  @objc public static let QG_IS_COLLECT_LOCATION: Swift.String
   @objc public static let EVENT_CONTROL_GROUP_RECEIVED: Swift.String
   @objc public static let EVENT_INAPP_DISPLAYED: Swift.String
   @objc public static let EVENT_INAPP_TOGGLED: Swift.String
@@ -634,9 +686,28 @@ extension Appier.AIQUALocalStorage {
   @objc override dynamic public init()
   @objc deinit
 }
+@objc public protocol AIQDataTrackingConfigurationDelegate {
+  @objc func updateUserDetailWhenDataTrackingConfigChanged()
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class AIQDataTrackingConfiguration : ObjectiveC.NSObject {
+  @objc weak public var delegate: (any Appier.AIQDataTrackingConfigurationDelegate)?
+  @objc public var storage: Appier.AIQLocalStorage
+  @objc public var isCollectIDFA: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var isCollectLocation: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc override convenience dynamic public init()
+  @objc convenience public init(isCollectIDFA: Swift.Bool, isCollectLocation: Swift.Bool)
+  @objc public init(storage: Appier.AIQLocalStorage)
+  @objc deinit
+}
 @_inheritsConvenienceInitializers @objc(AIQConfiguration) @objcMembers public class AIQUAConfiguration : ObjectiveC.NSObject {
   @objc public static let shared: Appier.AIQUAConfiguration
-  @objc final public let storage: Appier.AIQUALocalStorage
+  @objc final public let storage: Appier.AIQLocalStorage
   @objc public var remoteConfigEndpoint: Swift.String
   @objc public var endpoint: Appier.EndpointConfiguration {
     @objc get
@@ -645,14 +716,14 @@ extension Appier.AIQUALocalStorage {
   @objc public var appIdentifier: Swift.String? {
     @objc get
   }
-  @objc public var userIdentifier: Swift.Int {
+  @objc public var appierIdentifier: Swift.Int64 {
     @objc get
   }
   @objc public var isNewUser: Swift.Bool {
     @objc get
   }
   @objc override convenience dynamic public init()
-  @objc public init(storage: Appier.AIQUALocalStorage)
+  @objc public init(storage: Appier.AIQLocalStorage)
   @objc deinit
 }
 @objc(AIQDataPointsResponse) @objcMembers public class DataPointsResponse : ObjectiveC.NSObject, Swift.Codable {
@@ -874,7 +945,7 @@ extension Foundation.URLSessionConfiguration {
 @objc @objcMembers public class AIQGeofenceManager : ObjectiveC.NSObject {
   @objc public static let shared: Appier.AIQGeofenceManager
   @objc weak public var delegate: (any Appier.AIQGeofenceManagerDelegate)?
-  @objc public init(storage: Appier.AIQUALocalStorage)
+  @objc public init(storage: Appier.AIQLocalStorage)
   @objc public func getGeofenceDetails(completion: @escaping ([Swift.AnyHashable : Any]) -> Swift.Void)
   @objc public func shouldFetchGeofence(completion: @escaping (Swift.Bool) -> Swift.Void)
   @objc public func update(geofencing: [Swift.String : Any])
@@ -949,6 +1020,7 @@ public enum InAppAdditionalEventOperator : Swift.String, Swift.Codable {
   required public init(from decoder: any Swift.Decoder) throws
   @objc(decodeWithData:error:) public class func decode(from data: Foundation.Data) throws -> Appier.InAppBadgeSetting
   @objc public func data() throws -> Foundation.Data
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
   @objc deinit
   public func encode(to encoder: any Swift.Encoder) throws
 }
@@ -966,6 +1038,7 @@ public enum InAppAdditionalEventOperator : Swift.String, Swift.Codable {
   @objc(decodeWithData:error:) public class func decode(from data: Foundation.Data) throws -> Appier.InAppMatchCondition
   @objc public func data() throws -> Foundation.Data
   @objc public func match(parameters: [Swift.String : Any]) -> Swift.Bool
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
   @objc deinit
   public func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
@@ -986,11 +1059,12 @@ public enum InAppMatchOperator : Swift.String, Swift.Codable {
     get
   }
 }
-public enum InAppStringOrDouble : Swift.Codable {
+public enum InAppStringOrDouble : Swift.Codable, Swift.Equatable {
   case string(Swift.String)
   case double(Swift.Double)
   public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
+  public static func == (a: Appier.InAppStringOrDouble, b: Appier.InAppStringOrDouble) -> Swift.Bool
 }
 @_hasMissingDesignatedInitializers @objc(AIQInAppRemoteService) @objcMembers final public class InAppRemoteService : ObjectiveC.NSObject {
   @objc(initWithConfiguration:) convenience public init(configuration: Appier.AIQUAConfiguration)
@@ -1004,22 +1078,6 @@ extension Appier.InAppRemoteService : Appier.InAppService {
   typealias InboxCampaigns = [[Swift.String : Any]]
   typealias Geofencing = [Swift.String : Any]
   @objc(fetchInAppCampaignsWithShouldFetchInapp:shouldFetchGeofence:completionHandler:) func fetchInAppCampaigns(shouldFetchInapp: Swift.Bool, shouldFetchGeofence: Swift.Bool, completionHandler: @escaping (Self.PopupCampaigns?, Self.InboxCampaigns?, Self.Geofencing?, (any Swift.Error)?) -> Swift.Void)
-}
-@objc(QGDATATYPE) public enum DataType : Swift.Int {
-  @objc(QGDATATYPE_PROFILE) case profile = 0
-  @objc(QGDATATYPE_EVENTS) case events = 1
-  @objc(QGDATATYPE_USERDETAILS) case userDetails = 2
-  public init?(rawValue: Swift.Int)
-  public typealias RawValue = Swift.Int
-  public var rawValue: Swift.Int {
-    get
-  }
-}
-@objc @_inheritsConvenienceInitializers @objcMembers public class AIQUtility : ObjectiveC.NSObject {
-  @objc public class func encode(obj: Any?) -> Foundation.Data?
-  @objc public class func decode(data: Foundation.Data?) -> Any?
-  @objc override dynamic public init()
-  @objc deinit
 }
 @objc public protocol QGWKScriptMessageHandler {
   @objc func userContentController(_ userContentController: WebKit.WKUserContentController, didReceiveScriptMessage message: WebKit.WKScriptMessage)
@@ -1355,7 +1413,7 @@ extension Appier.DeviceInfo {
   @objc public static func diskSpace() -> [Swift.AnyHashable : Any]?
   @objc public static func coreTelephonyNetwork() -> Swift.String
   @objc public static func networkType() -> Swift.String
-  @objc public static func simCardInfo() -> [Swift.AnyHashable : Any]
+  @objc public static func simCardInfo() -> [Swift.String : Swift.String]
   @objc public static func richPushSupported() -> Swift.Bool
   @objc public static func systemVersionEqualTo(_ version: Swift.String) -> Swift.Bool
   @objc public static func systemVersionGreaterThan(_ version: Swift.String) -> Swift.Bool
@@ -1435,6 +1493,12 @@ extension Appier.LoggedEventEntity {
     @objc set
   }
 }
+extension Appier.DataType : Swift.Equatable {}
+extension Appier.DataType : Swift.Hashable {}
+extension Appier.DataType : Swift.RawRepresentable {}
+extension Appier.InAppCreativeType : Swift.Equatable {}
+extension Appier.InAppCreativeType : Swift.Hashable {}
+extension Appier.InAppCreativeType : Swift.RawRepresentable {}
 extension Appier.InAppAdditionalTimeUnit : Swift.Equatable {}
 extension Appier.InAppAdditionalTimeUnit : Swift.Hashable {}
 extension Appier.InAppAdditionalTimeUnit : Swift.RawRepresentable {}
@@ -1450,9 +1514,6 @@ extension Appier.InAppBadgeAlignment : Swift.RawRepresentable {}
 extension Appier.InAppMatchOperator : Swift.Equatable {}
 extension Appier.InAppMatchOperator : Swift.Hashable {}
 extension Appier.InAppMatchOperator : Swift.RawRepresentable {}
-extension Appier.DataType : Swift.Equatable {}
-extension Appier.DataType : Swift.Hashable {}
-extension Appier.DataType : Swift.RawRepresentable {}
 extension Appier.LogType : Swift.Equatable {}
 extension Appier.LogType : Swift.Hashable {}
 extension Appier.LogType : Swift.RawRepresentable {}
