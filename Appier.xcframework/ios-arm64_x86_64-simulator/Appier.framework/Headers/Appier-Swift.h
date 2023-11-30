@@ -724,6 +724,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isRunningTests;
 + (BOOL)isDevApnsEnv SWIFT_WARN_UNUSED_RESULT;
 + (NSData * _Nullable)encodeWithObj:(id _Nullable)obj SWIFT_WARN_UNUSED_RESULT;
 + (id _Nullable)decodeWithData:(NSData * _Nullable)data SWIFT_WARN_UNUSED_RESULT;
+/// Decoding migration for renamed classes for avoiding SDK from crash.
+/// Check out ticket MT-3918 for more details.
++ (void)decodingMigration;
 + (int64_t)getNewAppierId SWIFT_WARN_UNUSED_RESULT;
 + (NSInteger)daysBetweenDate:(NSDate * _Nonnull)startDate andDate:(NSDate * _Nonnull)endDate SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)isValidObject:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
@@ -2405,6 +2408,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isRunningTests;
 + (BOOL)isDevApnsEnv SWIFT_WARN_UNUSED_RESULT;
 + (NSData * _Nullable)encodeWithObj:(id _Nullable)obj SWIFT_WARN_UNUSED_RESULT;
 + (id _Nullable)decodeWithData:(NSData * _Nullable)data SWIFT_WARN_UNUSED_RESULT;
+/// Decoding migration for renamed classes for avoiding SDK from crash.
+/// Check out ticket MT-3918 for more details.
++ (void)decodingMigration;
 + (int64_t)getNewAppierId SWIFT_WARN_UNUSED_RESULT;
 + (NSInteger)daysBetweenDate:(NSDate * _Nonnull)startDate andDate:(NSDate * _Nonnull)endDate SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)isValidObject:(id _Nullable)object SWIFT_WARN_UNUSED_RESULT;
