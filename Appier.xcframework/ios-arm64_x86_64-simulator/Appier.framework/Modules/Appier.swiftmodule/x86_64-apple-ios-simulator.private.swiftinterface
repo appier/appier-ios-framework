@@ -591,6 +591,7 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
   @objc public class func isDevApnsEnv() -> Swift.Bool
   @objc public class func encode(obj: Any?) -> Foundation.Data?
   @objc public class func decode(data: Foundation.Data?) -> Any?
+  @objc public class func decodingMigration()
   @objc public class func getNewAppierId() -> Swift.Int64
   @objc(daysBetweenDate:andDate:) public class func daysBetween(startDate: Foundation.Date, endDate: Foundation.Date) -> Swift.Int
   @objc public class func isValidObject(_ object: Any?) -> Swift.Bool
