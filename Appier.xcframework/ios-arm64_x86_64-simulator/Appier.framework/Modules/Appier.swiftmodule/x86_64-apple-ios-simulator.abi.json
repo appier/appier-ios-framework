@@ -20680,6 +20680,29 @@
           },
           {
             "kind": "Function",
+            "name": "decodingMigration",
+            "printedName": "decodingMigration()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Appier@objc(cs)AIQUtility(cm)decodingMigration",
+            "mangledName": "$s6Appier10AIQUtilityC17decodingMigrationyyFZ",
+            "moduleName": "Appier",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "getNewAppierId",
             "printedName": "getNewAppierId()",
             "children": [
@@ -61873,218 +61896,225 @@
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
+      "kind": "StringLiteral",
+      "offset": 2313,
+      "length": 11,
+      "value": "\"Condition\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "IntegerLiteral",
-      "offset": 2155,
+      "offset": 2407,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "IntegerLiteral",
-      "offset": 2740,
+      "offset": 2992,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "BooleanLiteral",
-      "offset": 2881,
+      "offset": 3133,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "BooleanLiteral",
-      "offset": 2907,
+      "offset": 3159,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "BooleanLiteral",
-      "offset": 2930,
+      "offset": 3182,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "BooleanLiteral",
-      "offset": 3092,
+      "offset": 3344,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "BooleanLiteral",
-      "offset": 3116,
+      "offset": 3368,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "StringLiteral",
-      "offset": 3216,
+      "offset": 3468,
       "length": 53,
       "value": "\"keys must be NSString. got: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "StringLiteral",
-      "offset": 3261,
+      "offset": 3513,
       "length": 1,
       "value": "\" \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "StringLiteral",
-      "offset": 3268,
+      "offset": 3520,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "BooleanLiteral",
-      "offset": 3286,
+      "offset": 3538,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "BooleanLiteral",
-      "offset": 3522,
+      "offset": 3774,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "StringLiteral",
-      "offset": 3571,
+      "offset": 3823,
       "length": 126,
       "value": "\"property values must be NSString, NSNumber, NSNull, NSArray, NSDictionary, NSDate or NSURL. got: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "StringLiteral",
-      "offset": 3687,
+      "offset": 3939,
       "length": 1,
       "value": "\" \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "StringLiteral",
-      "offset": 3696,
+      "offset": 3948,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "StringLiteral",
-      "offset": 4069,
+      "offset": 4321,
       "length": 14,
       "value": "\"fb_push_card\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "StringLiteral",
-      "offset": 4141,
+      "offset": 4393,
       "length": 6,
       "value": "\"size\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "StringLiteral",
-      "offset": 4232,
+      "offset": 4484,
       "length": 7,
       "value": "\"small\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "StringLiteral",
-      "offset": 4283,
+      "offset": 4535,
       "length": 8,
       "value": "\"medium\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "StringLiteral",
-      "offset": 4390,
+      "offset": 4642,
       "length": 6,
       "value": "\"hero\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "StringLiteral",
-      "offset": 4456,
+      "offset": 4708,
       "length": 12,
       "value": "\"background\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "StringLiteral",
-      "offset": 4528,
+      "offset": 4780,
       "length": 7,
       "value": "\"_type\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "StringLiteral",
-      "offset": 4594,
+      "offset": 4846,
       "length": 7,
       "value": "\"Color\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "StringLiteral",
-      "offset": 4663,
+      "offset": 4915,
       "length": 7,
       "value": "\"Image\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "StringLiteral",
-      "offset": 4726,
+      "offset": 4978,
       "length": 7,
       "value": "\"large\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "StringLiteral",
-      "offset": 5237,
+      "offset": 5489,
       "length": 55,
       "value": "\"Don't send IDFA if consent is true and optOut is true\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "StringLiteral",
-      "offset": 5332,
+      "offset": 5584,
       "length": 6,
       "value": "\"IDFA\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "BooleanLiteral",
-      "offset": 5716,
+      "offset": 5968,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "StringLiteral",
-      "offset": 5747,
+      "offset": 5999,
       "length": 6,
       "value": "\"locn\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "BooleanLiteral",
-      "offset": 5928,
+      "offset": 6180,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "Array",
-      "offset": 6303,
+      "offset": 6555,
       "length": 556,
       "value": "[\"QGSdk\", \"QGraph\", \"AIQUtility\", \"APRDeviceInfo\", \"DeviceInfo\", \"AIQLocalStorage\", \"RemoteConfigRemoteService\", \"RecommendationRemoteService\", \"AIQRequestManager\", \"AIQUncaughtExceptionHandler\", \"QGInAppManager\", \"QGInboxManager\", \"QGImageManager\", \"AIQLocationManager\", \"AIQGeofenceManager\", \"QGLocalNotificationManager\", \"QGWKWebView\", \"AIQP\", \"AIQP+ReactNative\", \"AIQP+DataFetch\", \"QGNotificationSDK\", \"QGGZIP\", \"QGStringUtil\", \"QGUncaughtExceptionHandler\", \"QGInApp\", \"QGInbox\", \"QGInAppWebViewController\", \"QGInAppDisplayManager\", \"AiDeal\", \"Appier\"]"
     },
@@ -62093,7 +62123,7 @@
       "kind": "StringLiteral",
       "offset": 235,
       "length": 8,
-      "value": "\"7.30.0\""
+      "value": "\"7.30.1\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
