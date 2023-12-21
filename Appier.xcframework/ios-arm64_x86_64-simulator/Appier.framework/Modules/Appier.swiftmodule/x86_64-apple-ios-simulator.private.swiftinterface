@@ -414,9 +414,10 @@ extension Appier.AIQLocalStorage : Appier.AIQStorage {
   }
 }
 extension Appier.AIQLocalStorage {
-  @objc dynamic public func updateSuiteNameIfNeeded(_ suiteName: Swift.String)
+  @objc dynamic public func synchronizeOnFirstLaunch(suiteName: Swift.String?)
   @objc(setAppID:groupName:devProfile:frameworkType:version:) dynamic public func set(appID: Swift.String, groupName: Swift.String, devProfile: Swift.Bool, frameworkType: Swift.String, version: Swift.String)
   @objc dynamic public func createAndSaveNewAppierId()
+  @objc dynamic public func cleanAttribution()
   @objc dynamic public func shouldUserDetailsBeSent() -> Swift.Bool
   @objc dynamic public func getFailedPushEventLogs() -> [[Swift.AnyHashable : Any]]
   @objc dynamic public func clearFailedPushEventLogs()
@@ -433,7 +434,7 @@ extension Appier.AIQLocalStorage {
   }
   @objc public static var shared: Appier.AIQLocalStorage
   @objc override convenience dynamic public init()
-  @objc public init(suiteName: Swift.String)
+  @objc public init(suiteName: Swift.String?)
   @objc deinit
 }
 @objc public protocol AIQLocationUpdateDelegate {
@@ -599,6 +600,7 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
   @objc public class func isRichPushSupported() -> Swift.Bool
   @objc public class func getInAppCreativeType(fbCreativeDict: [Swift.AnyHashable : Any]) -> Appier.InAppCreativeType
   @objc public class func getUserDetails(from storage: Appier.AIQLocalStorage, with trackingConfig: Appier.AIQDataTrackingConfiguration, completion: @escaping ([Swift.String : Any]) -> Swift.Void)
+  @objc public class func isSceneDelegateDeeplinkHandlingEnabled(_ infoDictionary: [Swift.String : Any]? = Bundle.main.infoDictionary) -> Swift.Bool
   @objc public class func crashLogConcernKeywords() -> [Swift.String]
   @objc override dynamic public init()
   @objc deinit
@@ -683,6 +685,7 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
   @objc public static let ENVIRONMENT: Swift.String
   @objc public static let QG_UNIVERSAL_LINK_DOMAINS: Swift.String
   @objc public static let APPIER_APP_DELEGATE_PROXY_ENABLED_INFO_PLIST_KEY: Swift.String
+  @objc public static let APPIER_SCENE_DELEGATE_DEEPLINK_HANDLING_ENABLED_INFO_PLIST_KEY: Swift.String
   @objc public static let QG_FAILED_PUSH_EVENT_STACK: Swift.String
   @objc override dynamic public init()
   @objc deinit
@@ -704,6 +707,9 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
   @objc override convenience dynamic public init()
   @objc convenience public init(isCollectIDFA: Swift.Bool, isCollectLocation: Swift.Bool)
   @objc public init(storage: Appier.AIQLocalStorage)
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(AIQConfiguration) @objcMembers public class AIQUAConfiguration : ObjectiveC.NSObject {

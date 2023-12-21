@@ -309,6 +309,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if defined(__OBJC__)
 @protocol AIQDataTrackingConfigurationDelegate;
 @class AIQLocalStorage;
+@class NSString;
 
 SWIFT_CLASS("_TtC6Appier28AIQDataTrackingConfiguration")
 @interface AIQDataTrackingConfiguration : NSObject
@@ -319,6 +320,7 @@ SWIFT_CLASS("_TtC6Appier28AIQDataTrackingConfiguration")
 - (nonnull instancetype)init;
 - (nonnull instancetype)initWithIsCollectIDFA:(BOOL)isCollectIDFA isCollectLocation:(BOOL)isCollectLocation;
 - (nonnull instancetype)initWithStorage:(AIQLocalStorage * _Nonnull)storage OBJC_DESIGNATED_INITIALIZER;
+@property (nonatomic, readonly, copy) NSString * _Nonnull description;
 @end
 
 
@@ -327,7 +329,6 @@ SWIFT_PROTOCOL("_TtP6Appier36AIQDataTrackingConfigurationDelegate_")
 - (void)updateUserDetailWhenDataTrackingConfigChanged;
 @end
 
-@class NSString;
 
 SWIFT_CLASS("_TtC6Appier9AIQObject")
 @interface AIQObject : NSObject
@@ -411,8 +412,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) AIQLocalStorage * _Non
 + (AIQLocalStorage * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 + (void)setShared:(AIQLocalStorage * _Nonnull)value;
 - (nonnull instancetype)init;
-- (nonnull instancetype)initWithSuiteName:(NSString * _Nonnull)suiteName OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithSuiteName:(NSString * _Nullable)suiteName OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 
 @class NSURL;
@@ -423,7 +425,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) AIQLocalStorage * _Non
 /// When the app is installed for the first time, we are unable to retrieve the QG_APP_GROUP_NAME_SDK prior to initialization. As a result, the UserDefaults of AIQLocalshared does not refer to the QG_APP_GROUP_NAME_SDK that the SDK is supposed to utilize.
 /// \param suiteName new suiteName
 ///
-- (void)updateSuiteNameIfNeeded:(NSString * _Nonnull)suiteName;
+- (void)synchronizeOnFirstLaunchWithSuiteName:(NSString * _Nullable)suiteName;
 /// Sets and persists initialization parameters.
 /// \param appID App ID.
 ///
@@ -438,6 +440,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) AIQLocalStorage * _Non
 - (void)setAppID:(NSString * _Nonnull)appID groupName:(NSString * _Nonnull)groupName devProfile:(BOOL)devProfile frameworkType:(NSString * _Nonnull)frameworkType version:(NSString * _Nonnull)version;
 /// Generates a new ‘appierId’ and persists it. Existing ‘appierId’ will be overwritten.
 - (void)createAndSaveNewAppierId;
+/// Clean attribution view/click
+- (void)cleanAttribution;
 /// Returns true if profile info is sent in last 24 hrs
 - (BOOL)shouldUserDetailsBeSent SWIFT_WARN_UNUSED_RESULT;
 - (NSArray<NSDictionary *> * _Nonnull)getFailedPushEventLogs SWIFT_WARN_UNUSED_RESULT;
@@ -456,7 +460,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) AIQLocalStorage * _Non
 /// view through attribution for inApp
 - (void)setViewThroughForNotificationId:(NSNumber * _Nonnull)notificationId;
 @end
-
 
 @class NSDate;
 @class AIQMutableOrderedDictionary;
@@ -734,6 +737,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isRunningTests;
 + (BOOL)isRichPushSupported SWIFT_WARN_UNUSED_RESULT;
 + (enum InAppCreativeType)getInAppCreativeTypeWithFbCreativeDict:(NSDictionary * _Nonnull)fbCreativeDict SWIFT_WARN_UNUSED_RESULT;
 + (void)getUserDetailsFrom:(AIQLocalStorage * _Nonnull)storage with:(AIQDataTrackingConfiguration * _Nonnull)trackingConfig completion:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nonnull))completion;
++ (BOOL)isSceneDelegateDeeplinkHandlingEnabled:(NSDictionary<NSString *, id> * _Nullable)infoDictionary SWIFT_WARN_UNUSED_RESULT;
 + (NSArray<NSString *> * _Nonnull)crashLogConcernKeywords SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -1019,6 +1023,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 + (NSString * _Nonnull)QG_UNIVERSAL_LINK_DOMAINS SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull APPIER_APP_DELEGATE_PROXY_ENABLED_INFO_PLIST_KEY;)
 + (NSString * _Nonnull)APPIER_APP_DELEGATE_PROXY_ENABLED_INFO_PLIST_KEY SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull APPIER_SCENE_DELEGATE_DEEPLINK_HANDLING_ENABLED_INFO_PLIST_KEY;)
++ (NSString * _Nonnull)APPIER_SCENE_DELEGATE_DEEPLINK_HANDLING_ENABLED_INFO_PLIST_KEY SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_FAILED_PUSH_EVENT_STACK;)
 + (NSString * _Nonnull)QG_FAILED_PUSH_EVENT_STACK SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
