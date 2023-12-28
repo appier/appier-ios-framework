@@ -1,11 +1,3 @@
-//
-//  QGInbox.h
-//  QGSdk
-//
-//  Created by Appier on 2019/7/16.
-//  Copyright © 2019 QGraph. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSInteger, QGInboxLimit) {

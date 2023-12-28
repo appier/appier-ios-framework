@@ -17,7 +17,8 @@ typedef NS_ENUM(NSInteger, InAppType){
     InAppTypeImage = 2, // Deprecated
     InAppTypePopup = 3,
     InAppTypeInbox = 4, // The enum is not used in codebase, though inbox is still working
-    InAppTypeWebView = 5
+    InAppTypeWebView = 5,
+    InAppTypeCreativeStudio = 6,
 };
 
 typedef NS_ENUM(NSInteger, InAppPersistency) {
@@ -30,23 +31,23 @@ typedef NS_ENUM(NSInteger, InAppPersistency) {
 @class AIQInAppAdditionalCondition;
 @class AIQInAppBadgeSetting;
 
-@interface WhenCond : NSObject<NSCoding>
-@property (nonatomic) NSString * eventName;
-@property (nonatomic) NSString * operators;
+@interface WhenCond: NSObject<NSCoding>
+@property (nonatomic) NSString *eventName;
+@property (nonatomic) NSString *operators;
 @property (nonatomic, retain) NSArray <AIQInAppCondition *> * conditions;
 @end
 
 
-@interface QGInApp : NSObject<NSCoding>
+@interface QGInApp: NSObject<NSCoding>
 @property (nonatomic) NSNumber *notificationId;
 @property (nonatomic) InAppType type;
-@property (nonatomic) NSString * icon;          //bubble button image
-@property (nonatomic) NSString * gravity;       //top or bottom
+@property (nonatomic) NSString *icon;          //bubble button image
+@property (nonatomic) NSString *gravity;       //top or bottom
 @property (nonatomic) float margin;             //margin for bubble button
-@property (nonatomic) NSString * deepLink;
-@property (nonatomic) NSString * text;          //text for message view for type 1
-@property (nonatomic) NSString * htmlCreative;
-@property (nonatomic, retain) WhenCond * whenCond;
+@property (nonatomic) NSString *deepLink;
+@property (nonatomic) NSString *text;          //text for message view for type 1
+@property (nonatomic) NSString *htmlCreative;
+@property (nonatomic, retain) WhenCond *whenCond;
 @property (nonatomic, retain) AIQInAppAdditionalCondition *preconditions;
 @property (nonatomic) NSDictionary *fbCreative;
 @property (nonatomic, retain) AIQInAppBadgeSetting *badge; // The setting for the badge button.
@@ -65,12 +66,13 @@ typedef NS_ENUM(NSInteger, InAppPersistency) {
 @property (nonatomic, assign) BOOL creativeCloseButton;
 @property (nonatomic) InAppPersistency persistency;
 @property (nonatomic, assign) BOOL showOverlay;
+@property (nonatomic) NSDictionary *creativeStudio;
 
 //frequency cap
 @property (nonatomic) NSInteger frequency;    //how many times
 @property (nonatomic) NSInteger cycle;        //day
 @property (nonatomic) NSInteger msgInterval; //minute
-@property (nonatomic) NSMutableArray * displayHistory;
+@property (nonatomic) NSMutableArray *displayHistory;
 //delay display
 @property (nonatomic, assign) NSInteger delayTime;
 
