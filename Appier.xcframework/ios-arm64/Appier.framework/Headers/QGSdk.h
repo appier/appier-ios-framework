@@ -13,11 +13,13 @@ NS_ASSUME_NONNULL_BEGIN
 @class AIQRecommendationTagResponse;
 @class AIQRecommendationProductResponse;
 @class AIQDataTrackingConfiguration;
+@protocol AIQEventLoggingProtocol;
+@protocol AIQUserProfileLoggingProtocol;
 
 /// This is the JavaScript to be injected into custom web view, in order to track custom events and attributes
 extern NSString * const QGWKWebViewUserScript;
 
-@interface QGSdk : NSObject
+@interface QGSdk : NSObject <AIQEventLoggingProtocol, AIQUserProfileLoggingProtocol>
 
 /*!
  @abstract

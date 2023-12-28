@@ -329,6 +329,18 @@ SWIFT_PROTOCOL("_TtP6Appier36AIQDataTrackingConfigurationDelegate_")
 - (void)updateUserDetailWhenDataTrackingConfigChanged;
 @end
 
+@class NSNumber;
+
+SWIFT_PROTOCOL("_TtP6Appier23AIQEventLoggingProtocol_")
+@protocol AIQEventLoggingProtocol
+- (void)logEvent:(NSString * _Nonnull)name;
+- (void)logEvent:(NSString * _Nonnull)name withParameters:(NSDictionary * _Nullable)param;
+- (void)logEvent:(NSString * _Nonnull)name withValueToSum:(NSNumber * _Nullable)valueToSum;
+- (void)logEvent:(NSString * _Nonnull)name withValueToSum:(NSNumber * _Nullable)valueToSum withValueToSumCurrency:(NSString * _Nullable)currency;
+- (void)logEvent:(NSString * _Nonnull)name withParameters:(NSDictionary * _Nullable)param withValueToSum:(NSNumber * _Nullable)valueToSum;
+- (void)logEvent:(NSString * _Nonnull)name withParameters:(NSDictionary * _Nullable)param withValueToSum:(NSNumber * _Nullable)valueToSum withValueToSumCurrency:(NSString * _Nullable)currency;
+@end
+
 
 SWIFT_CLASS("_TtC6Appier9AIQObject")
 @interface AIQObject : NSObject
@@ -404,6 +416,98 @@ SWIFT_CLASS("_TtC6Appier13AIQGeofencing")
 @property (nonatomic, readonly, copy) NSArray<AIQGeofence *> * _Nullable geofences;
 @end
 
+@class UIColor;
+@class NSCoder;
+
+SWIFT_CLASS("_TtC6Appier19AIQInAppCloseButton")
+@interface AIQInAppCloseButton : UIButton
+- (nonnull instancetype)initWithBgColor:(UIColor * _Nonnull)bgColor crossColor:(UIColor * _Nonnull)crossColor isDisplayShadow:(BOOL)isDisplayShadow OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+- (void)layoutSubviews;
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
+@protocol AIQInAppWebDelegate;
+@class NSBundle;
+
+SWIFT_CLASS("_TtC6Appier25AIQInAppWebViewController")
+@interface AIQInAppWebViewController : UIViewController
+@property (nonatomic, strong) NSNumber * _Nullable notificationId;
+@property (nonatomic, weak) id <AIQInAppWebDelegate> _Nullable delegate;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+- (void)viewDidLoad;
+- (void)inAppWebViewResize;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
+@end
+
+@protocol AIQUserProfileLoggingProtocol;
+@class AIQConfiguration;
+@class WKWebView;
+@class WKNavigation;
+@class WKNavigationAction;
+@class WKUserContentController;
+@class WKScriptMessage;
+
+SWIFT_CLASS("_TtC6Appier36AIQInAppCreativeStudioViewController")
+@interface AIQInAppCreativeStudioViewController : AIQInAppWebViewController
+- (nonnull instancetype)initWithCsPayload:(NSDictionary<NSString *, id> * _Nullable)csPayload notificationId:(NSNumber * _Nonnull)notificationId isShowDismissButton:(BOOL)isShowDismissButton isShowOverlay:(BOOL)isShowOverlay eventLogger:(id <AIQEventLoggingProtocol> _Nonnull)eventLogger userProfileLogger:(id <AIQUserProfileLoggingProtocol> _Nonnull)userProfileLogger config:(AIQConfiguration * _Nonnull)config storage:(AIQLocalStorage * _Nonnull)storage OBJC_DESIGNATED_INITIALIZER;
+- (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)prepareToBeDismissed;
+- (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
+- (void)webView:(WKWebView * _Nonnull)webView decidePolicyForNavigationAction:(WKNavigationAction * _Nonnull)navigationAction decisionHandler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
+- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC6Appier21AIQInAppCrossMarkView")
+@interface AIQInAppCrossMarkView : UIView
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+- (void)drawRect:(CGRect)rect;
+@end
+
+
+SWIFT_CLASS("_TtC6Appier31AIQInAppCustomWebViewController")
+@interface AIQInAppCustomWebViewController : AIQInAppWebViewController
+- (nonnull instancetype)initWithHtmlString:(NSString * _Nonnull)htmlString notificationId:(NSNumber * _Nonnull)notificationId isShowDismissButton:(BOOL)isShowDismissButton isShowOverlay:(BOOL)isShowOverlay eventLogger:(id <AIQEventLoggingProtocol> _Nonnull)eventLogger userProfileLogger:(id <AIQUserProfileLoggingProtocol> _Nonnull)userProfileLogger storage:(AIQLocalStorage * _Nonnull)storage OBJC_DESIGNATED_INITIALIZER;
+- (void)viewDidLoad;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC6Appier27AIQInAppPopUpViewController")
+@interface AIQInAppPopUpViewController : AIQInAppWebViewController
+- (nonnull instancetype)initWithHtmlString:(NSString * _Nonnull)htmlString payload:(NSDictionary<NSString *, id> * _Nonnull)payload notificationId:(NSNumber * _Nonnull)notificationId isShowDismissButton:(BOOL)isShowDismissButton isShowOverlay:(BOOL)isShowOverlay eventLogger:(id <AIQEventLoggingProtocol> _Nonnull)eventLogger userProfileLogger:(id <AIQUserProfileLoggingProtocol> _Nonnull)userProfileLogger storage:(AIQLocalStorage * _Nonnull)storage OBJC_DESIGNATED_INITIALIZER;
+- (void)viewDidLoad;
+- (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_PROTOCOL("_TtP6Appier19AIQInAppWebDelegate_")
+@protocol AIQInAppWebDelegate
+- (void)inAppWebViewDismissWithIsPermanentClose:(BOOL)isPermanentClose webView:(AIQInAppWebViewController * _Nonnull)webView;
+- (void)inAppWebViewDeepLinkWith:(AIQInAppWebViewController * _Nonnull)inAppWebView;
+@end
+
+
+
+@interface AIQInAppWebViewController (SWIFT_EXTENSION(Appier)) <WKScriptMessageHandler>
+- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
+@end
+
+
+@interface AIQInAppWebViewController (SWIFT_EXTENSION(Appier)) <WKNavigationDelegate>
+- (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
+- (void)webView:(WKWebView * _Nonnull)webView decidePolicyForNavigationAction:(WKNavigationAction * _Nonnull)navigationAction decisionHandler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
+@end
+
 
 SWIFT_CLASS("_TtC6Appier15AIQLocalStorage")
 @interface AIQLocalStorage : NSObject
@@ -418,7 +522,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) AIQLocalStorage * _Non
 
 
 @class NSURL;
-@class NSNumber;
 
 @interface AIQLocalStorage (SWIFT_EXTENSION(Appier))
 /// Calling this method will update the UserDefaults and the suiteName if the original suiteName is nil or differs from the new one.
@@ -553,10 +656,13 @@ SWIFT_PROTOCOL("_TtP6Appier10AIQStorage_")
 @property (nonatomic, copy) NSString * _Nullable endpointDback;
 @property (nonatomic, copy) NSString * _Nullable endpointRecommendation;
 @property (nonatomic, copy) NSString * _Nullable endpointPersonalization;
+@property (nonatomic, copy) NSString * _Nullable endpointCStudio;
 @property (nonatomic, copy) NSArray<NSDictionary *> * _Nullable failedPushEventStack;
 @property (nonatomic, copy) NSData * _Nullable exitPushPayload;
 @property (nonatomic) BOOL isCollectIDFA;
 @property (nonatomic) BOOL isCollectLocation;
+@property (nonatomic) BOOL didMigrateImageStorage;
+@property (nonatomic, copy) NSString * _Nonnull webkitVersion;
 @end
 
 
@@ -620,10 +726,13 @@ SWIFT_PROTOCOL("_TtP6Appier10AIQStorage_")
 @property (nonatomic, copy) NSString * _Nullable endpointDback;
 @property (nonatomic, copy) NSString * _Nullable endpointRecommendation;
 @property (nonatomic, copy) NSString * _Nullable endpointPersonalization;
+@property (nonatomic, copy) NSString * _Nullable endpointCStudio;
 @property (nonatomic, copy) NSArray<NSDictionary *> * _Nullable failedPushEventStack;
 @property (nonatomic, copy) NSData * _Nullable exitPushPayload;
 @property (nonatomic) BOOL isCollectIDFA;
 @property (nonatomic) BOOL isCollectLocation;
+@property (nonatomic) BOOL didMigrateImageStorage;
+@property (nonatomic, copy) NSString * _Nonnull webkitVersion;
 @end
 
 @protocol AIQLocationUpdateDelegate;
@@ -658,7 +767,6 @@ SWIFT_PROTOCOL("_TtP6Appier25AIQLocationUpdateDelegate_")
 @end
 
 
-@class AIQConfiguration;
 @class NSURLResponse;
 
 SWIFT_CLASS("_TtC6Appier17AIQRequestManager")
@@ -715,6 +823,22 @@ SWIFT_CLASS("_TtC6Appier27AIQUncaughtExceptionHandler")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+SWIFT_PROTOCOL("_TtP6Appier29AIQUserProfileLoggingProtocol_")
+@protocol AIQUserProfileLoggingProtocol
+- (void)setCustomKey:(NSString * _Nonnull)key withValue:(id _Nullable)value;
+- (void)setUserId:(NSString * _Nullable)userId;
+- (void)setName:(NSString * _Nullable)name;
+- (void)setFirstName:(NSString * _Nullable)name;
+- (void)setLastName:(NSString * _Nullable)name;
+- (void)setCity:(NSString * _Nullable)city;
+- (void)setEmail:(NSString * _Nullable)email;
+- (void)setPhoneNumber:(NSString * _Nullable)phoneNo;
+- (void)setDayOfBirth:(NSNumber * _Nullable)day;
+- (void)setMonthOfBirth:(NSNumber * _Nullable)month;
+- (void)setYearOfBirth:(NSNumber * _Nullable)year;
+@end
+
 @class NSURLSession;
 enum InAppCreativeType : NSInteger;
 
@@ -762,9 +886,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIDAction * 
 @end
 
 @class AIDConfiguration;
-@class UIViewController;
 @class UIScrollView;
-@class WKWebView;
 @class AIDConversion;
 @protocol UIViewControllerTransitionCoordinator;
 
@@ -859,7 +981,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRApp * _No
 + (APRApp * _Nonnull)sharedApp SWIFT_WARN_UNUSED_RESULT;
 @end
 
-@class NSBundle;
 
 SWIFT_CLASS("_TtC6Appier15AppierResources")
 @interface AppierResources : NSObject
@@ -889,10 +1010,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 + (NSString * _Nonnull)QG_LAST_CLICKED_NOTIFICATION_ID SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_LAST_CLICKED_NOTIFICATION_TIME;)
 + (NSString * _Nonnull)QG_LAST_CLICKED_NOTIFICATION_TIME SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_NOTIFICATION_ID;)
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull QG_NOTIFICATION_ID;)
 + (NSString * _Nonnull)QG_NOTIFICATION_ID SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_NOTIFICATION_CLICKED;)
++ (void)setQG_NOTIFICATION_ID:(NSString * _Nonnull)value;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull QG_NOTIFICATION_CLICKED;)
 + (NSString * _Nonnull)QG_NOTIFICATION_CLICKED SWIFT_WARN_UNUSED_RESULT;
++ (void)setQG_NOTIFICATION_CLICKED:(NSString * _Nonnull)value;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_CAMPAIGN_ID;)
 + (NSString * _Nonnull)QG_CAMPAIGN_ID SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_KEY;)
@@ -1009,12 +1132,34 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 + (NSString * _Nonnull)QG_IS_COLLECT_IDFA SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_IS_COLLECT_LOCATION;)
 + (NSString * _Nonnull)QG_IS_COLLECT_LOCATION SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_DID_MIGRATE_IMAGE_STORAGE;)
++ (NSString * _Nonnull)QG_DID_MIGRATE_IMAGE_STORAGE SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull EVENT_CONTROL_GROUP_RECEIVED;)
 + (NSString * _Nonnull)EVENT_CONTROL_GROUP_RECEIVED SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull EVENT_INAPP_DISPLAYED;)
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull EVENT_INAPP_DISPLAYED;)
 + (NSString * _Nonnull)EVENT_INAPP_DISPLAYED SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull EVENT_INAPP_TOGGLED;)
++ (void)setEVENT_INAPP_DISPLAYED:(NSString * _Nonnull)value;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull EVENT_INAPP_TOGGLED;)
 + (NSString * _Nonnull)EVENT_INAPP_TOGGLED SWIFT_WARN_UNUSED_RESULT;
++ (void)setEVENT_INAPP_TOGGLED:(NSString * _Nonnull)value;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull EVENT_INAPP_CLICKED;)
++ (NSString * _Nonnull)EVENT_INAPP_CLICKED SWIFT_WARN_UNUSED_RESULT;
++ (void)setEVENT_INAPP_CLICKED:(NSString * _Nonnull)value;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull EVENT_INAPP_CLOSED;)
++ (NSString * _Nonnull)EVENT_INAPP_CLOSED SWIFT_WARN_UNUSED_RESULT;
++ (void)setEVENT_INAPP_CLOSED:(NSString * _Nonnull)value;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull KEY_EVENT_NAME;)
++ (NSString * _Nonnull)KEY_EVENT_NAME SWIFT_WARN_UNUSED_RESULT;
++ (void)setKEY_EVENT_NAME:(NSString * _Nonnull)value;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull KEY_PARAMETERS;)
++ (NSString * _Nonnull)KEY_PARAMETERS SWIFT_WARN_UNUSED_RESULT;
++ (void)setKEY_PARAMETERS:(NSString * _Nonnull)value;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull KEY_VALUE_TO_SUM;)
++ (NSString * _Nonnull)KEY_VALUE_TO_SUM SWIFT_WARN_UNUSED_RESULT;
++ (void)setKEY_VALUE_TO_SUM:(NSString * _Nonnull)value;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull KEY_VALUE_TO_SUM_CURRENCY;)
++ (NSString * _Nonnull)KEY_VALUE_TO_SUM_CURRENCY SWIFT_WARN_UNUSED_RESULT;
++ (void)setKEY_VALUE_TO_SUM_CURRENCY:(NSString * _Nonnull)value;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AIQ_REMOTE_CONFIG_URL;)
 + (NSString * _Nonnull)AIQ_REMOTE_CONFIG_URL SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull ENVIRONMENT;)
@@ -1027,6 +1172,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 + (NSString * _Nonnull)APPIER_SCENE_DELEGATE_DEEPLINK_HANDLING_ENABLED_INFO_PLIST_KEY SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_FAILED_PUSH_EVENT_STACK;)
 + (NSString * _Nonnull)QG_FAILED_PUSH_EVENT_STACK SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AIQ_WEBKIT_VERSION;)
++ (NSString * _Nonnull)AIQ_WEBKIT_VERSION SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1150,6 +1297,8 @@ SWIFT_CLASS("_TtC6Appier21EndpointConfiguration")
 @property (nonatomic, copy) NSString * _Nullable recommendation;
 /// API key: personalizationEndpoint
 @property (nonatomic, copy) NSString * _Nullable personalization;
+/// API key: cstudioEndpoint
+@property (nonatomic, copy) NSString * _Nullable cstudio;
 - (void)clear;
 @property (nonatomic, readonly, copy) NSString * _Nonnull description;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -1302,14 +1451,14 @@ SWIFT_CLASS_NAMED("Logger")
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
-+ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
++ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
-+ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
++ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1352,8 +1501,6 @@ SWIFT_PROTOCOL_NAMED("PersonalizationService")
 @end
 
 
-@class WKUserContentController;
-@class WKScriptMessage;
 
 SWIFT_PROTOCOL("_TtP6Appier24QGWKScriptMessageHandler_")
 @protocol QGWKScriptMessageHandler
@@ -1361,7 +1508,6 @@ SWIFT_PROTOCOL("_TtP6Appier24QGWKScriptMessageHandler_")
 @end
 
 @class WKWebViewConfiguration;
-@class NSCoder;
 @class WKUserScript;
 
 SWIFT_CLASS("_TtC6Appier11QGWKWebView")
@@ -1590,6 +1736,7 @@ SWIFT_CLASS_NAMED("RemoteConfigEndpoints")
 @property (nonatomic, copy) NSString * _Nullable user;
 @property (nonatomic, copy) NSString * _Nullable personalization;
 @property (nonatomic, copy) NSString * _Nullable recommendation;
+@property (nonatomic, copy) NSString * _Nullable cstudio;
 + (AIQRemoteConfigEndpoints * _Nullable)decodeWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, readonly, copy) NSString * _Nonnull description;

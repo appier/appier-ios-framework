@@ -174,6 +174,63 @@ public typealias AIDConversionItem = Appier.ConversionItem
 extension Appier.Logger {
   @objc(aiquaNotificationLogger) public static let aiquaNotification: Appier.Logger
 }
+@objc public protocol AIQEventLoggingProtocol {
+  @objc func logEvent(_ name: Swift.String)
+  @objc(logEvent:withParameters:) func logEvent(_ name: Swift.String, parameters param: [Swift.AnyHashable : Any]?)
+  @objc(logEvent:withValueToSum:) func logEvent(_ name: Swift.String, valueToSum: Foundation.NSNumber?)
+  @objc(logEvent:withValueToSum:withValueToSumCurrency:) func logEvent(_ name: Swift.String, valueToSum: Foundation.NSNumber?, currency: Swift.String?)
+  @objc(logEvent:withParameters:withValueToSum:) func logEvent(_ name: Swift.String, parameters param: [Swift.AnyHashable : Any]?, valueToSum: Foundation.NSNumber?)
+  @objc(logEvent:withParameters:withValueToSum:withValueToSumCurrency:) func logEvent(_ name: Swift.String, parameters param: [Swift.AnyHashable : Any]?, valueToSum: Foundation.NSNumber?, currency: Swift.String?)
+}
+@objc @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class AIQInAppCloseButton : UIKit.UIButton {
+  @objc @_Concurrency.MainActor(unsafe) required public init(bgColor: UIKit.UIColor, crossColor: UIKit.UIColor, isDisplayShadow: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class AIQInAppCreativeStudioViewController : Appier.AIQInAppWebViewController {
+  @objc @_Concurrency.MainActor(unsafe) public init(csPayload: [Swift.String : Any]?, notificationId: Foundation.NSNumber, isShowDismissButton: Swift.Bool, isShowOverlay: Swift.Bool, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol, config: Appier.AIQUAConfiguration, storage: Appier.AIQLocalStorage)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @objc @_Concurrency.MainActor(unsafe) public func prepareToBeDismissed()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class AIQInAppCrossMarkView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func draw(_ rect: CoreFoundation.CGRect)
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class AIQInAppCustomWebViewController : Appier.AIQInAppWebViewController {
+  @objc @_Concurrency.MainActor(unsafe) public init(htmlString: Swift.String, notificationId: Foundation.NSNumber, isShowDismissButton: Swift.Bool, isShowOverlay: Swift.Bool, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol, storage: Appier.AIQLocalStorage)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class AIQInAppPopUpViewController : Appier.AIQInAppWebViewController {
+  @objc @_Concurrency.MainActor(unsafe) public init(htmlString: Swift.String, payload: [Swift.String : Any], notificationId: Foundation.NSNumber, isShowDismissButton: Swift.Bool, isShowOverlay: Swift.Bool, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol, storage: Appier.AIQLocalStorage)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+  @objc deinit
+}
+@objc public protocol AIQInAppWebDelegate {
+  @objc func inAppWebViewDismiss(isPermanentClose: Swift.Bool, webView: Appier.AIQInAppWebViewController)
+  @objc func inAppWebViewDeepLink(with inAppWebView: Appier.AIQInAppWebViewController)
+}
+@objc @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class AIQInAppWebViewController : UIKit.UIViewController {
+  @objc @_Concurrency.MainActor(unsafe) public var notificationId: Foundation.NSNumber?
+  @objc @_Concurrency.MainActor(unsafe) weak public var delegate: (any Appier.AIQInAppWebDelegate)?
+  @_Concurrency.MainActor(unsafe) @objc dynamic public init()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @objc @_Concurrency.MainActor(unsafe) public func inAppWebViewResize()
+  @objc deinit
+}
+extension Appier.AIQInAppWebViewController : WebKit.WKScriptMessageHandler {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
+}
+extension Appier.AIQInAppWebViewController : WebKit.WKNavigationDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
+}
 extension Appier.AIQLocalStorage : Appier.AIQStorage {
   @objc dynamic public func clean()
   @objc dynamic public var isDevProfile: Swift.Bool {
@@ -396,6 +453,10 @@ extension Appier.AIQLocalStorage : Appier.AIQStorage {
     @objc get
     @objc set
   }
+  @objc dynamic public var endpointCStudio: Swift.String? {
+    @objc get
+    @objc set
+  }
   @objc dynamic public var failedPushEventStack: [[Swift.AnyHashable : Any]]? {
     @objc get
     @objc set
@@ -409,6 +470,14 @@ extension Appier.AIQLocalStorage : Appier.AIQStorage {
     @objc set
   }
   @objc dynamic public var isCollectLocation: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var didMigrateImageStorage: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var webkitVersion: Swift.String {
     @objc get
     @objc set
   }
@@ -555,15 +624,31 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
   @objc var endpointDback: Swift.String? { get set }
   @objc var endpointRecommendation: Swift.String? { get set }
   @objc var endpointPersonalization: Swift.String? { get set }
+  @objc var endpointCStudio: Swift.String? { get set }
   @objc var failedPushEventStack: [[Swift.AnyHashable : Any]]? { get set }
   @objc var exitPushPayload: Foundation.Data? { get set }
   @objc var isCollectIDFA: Swift.Bool { get set }
   @objc var isCollectLocation: Swift.Bool { get set }
+  @objc var didMigrateImageStorage: Swift.Bool { get set }
+  @objc var webkitVersion: Swift.String { get set }
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class AIQUncaughtExceptionHandler : ObjectiveC.NSObject {
   @objc public class func uploadCrashLog(_ postData: Foundation.Data, completionHandler: @escaping (Foundation.URLResponse?, (any Swift.Error)?) -> Swift.Void)
   @objc override dynamic public init()
   @objc deinit
+}
+@objc public protocol AIQUserProfileLoggingProtocol {
+  @objc(setCustomKey:withValue:) func setCustomKey(_ key: Swift.String, value: Any?)
+  @objc func setUserId(_ userId: Swift.String?)
+  @objc func setName(_ name: Swift.String?)
+  @objc func setFirstName(_ name: Swift.String?)
+  @objc func setLastName(_ name: Swift.String?)
+  @objc func setCity(_ city: Swift.String?)
+  @objc func setEmail(_ email: Swift.String?)
+  @objc func setPhoneNumber(_ phoneNo: Swift.String?)
+  @objc func setDayOfBirth(_ day: Foundation.NSNumber?)
+  @objc func setMonthOfBirth(_ month: Foundation.NSNumber?)
+  @objc func setYearOfBirth(_ year: Foundation.NSNumber?)
 }
 @objc(QGDATATYPE) public enum DataType : Swift.Int {
   @objc(QGDATATYPE_PROFILE) case profile = 0
@@ -614,12 +699,8 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
   @objc public static let QG_APP_VERSION: Swift.String
   @objc public static let QG_LAST_CLICKED_NOTIFICATION_ID: Swift.String
   @objc public static let QG_LAST_CLICKED_NOTIFICATION_TIME: Swift.String
-  @objc public static var QG_NOTIFICATION_ID: Swift.String {
-    @objc get
-  }
-  @objc public static var QG_NOTIFICATION_CLICKED: Swift.String {
-    @objc get
-  }
+  @objc public static var QG_NOTIFICATION_ID: Swift.String
+  @objc public static var QG_NOTIFICATION_CLICKED: Swift.String
   @objc public static let QG_CAMPAIGN_ID: Swift.String
   @objc public static let QG_KEY: Swift.String
   @objc public static let QG_NOTIF_ID: Swift.String
@@ -678,15 +759,23 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
   @objc public static let QG_EXIT_PUSH_PAYLOAD: Swift.String
   @objc public static let QG_IS_COLLECT_IDFA: Swift.String
   @objc public static let QG_IS_COLLECT_LOCATION: Swift.String
+  @objc public static let QG_DID_MIGRATE_IMAGE_STORAGE: Swift.String
   @objc public static let EVENT_CONTROL_GROUP_RECEIVED: Swift.String
-  @objc public static let EVENT_INAPP_DISPLAYED: Swift.String
-  @objc public static let EVENT_INAPP_TOGGLED: Swift.String
+  @objc public static var EVENT_INAPP_DISPLAYED: Swift.String
+  @objc public static var EVENT_INAPP_TOGGLED: Swift.String
+  @objc public static var EVENT_INAPP_CLICKED: Swift.String
+  @objc public static var EVENT_INAPP_CLOSED: Swift.String
+  @objc public static var KEY_EVENT_NAME: Swift.String
+  @objc public static var KEY_PARAMETERS: Swift.String
+  @objc public static var KEY_VALUE_TO_SUM: Swift.String
+  @objc public static var KEY_VALUE_TO_SUM_CURRENCY: Swift.String
   @objc public static let AIQ_REMOTE_CONFIG_URL: Swift.String
   @objc public static let ENVIRONMENT: Swift.String
   @objc public static let QG_UNIVERSAL_LINK_DOMAINS: Swift.String
   @objc public static let APPIER_APP_DELEGATE_PROXY_ENABLED_INFO_PLIST_KEY: Swift.String
   @objc public static let APPIER_SCENE_DELEGATE_DEEPLINK_HANDLING_ENABLED_INFO_PLIST_KEY: Swift.String
   @objc public static let QG_FAILED_PUSH_EVENT_STACK: Swift.String
+  @objc public static let AIQ_WEBKIT_VERSION: Swift.String
   @objc override dynamic public init()
   @objc deinit
 }
@@ -759,6 +848,10 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
     @objc get
     @objc set
   }
+  @objc public var cstudio: Swift.String? {
+    @objc get
+    @objc set
+  }
   @objc public func clear()
   @objc override dynamic public var description: Swift.String {
     @objc get
@@ -783,6 +876,7 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
   @objc public var user: Swift.String?
   @objc public var personalization: Swift.String?
   @objc public var recommendation: Swift.String?
+  @objc public var cstudio: Swift.String?
   @objc(decodeWithData:error:) public class func decode(from data: Foundation.Data) throws -> Appier.RemoteConfigEndpoints
   @objc public func data() throws -> Foundation.Data
   @objc override dynamic public var description: Swift.String {

@@ -13,9 +13,10 @@
 @interface QGImageManager : NSObject
 
 + (instancetype)instance;
-- (void)downloadImageForURL:(NSString *)urlString;
-- (UIImage *)getImageForURL:(NSString *)urlString;
-- (BOOL)isImageAvailableForURL:(NSString *)urlString;
-- (void)deleteImageForURL:(NSString *)urlString;
-- (void)saveImageToFileManager:(NSData *)data ForURL:(NSString *)url;
+- (void)downloadImageForURL:(NSString *)urlString withIdentifier:(NSString *)identifier;
+- (UIImage *)getImageForURL:(NSString *)urlString withIdentifier:(NSString *)identifier;
+- (BOOL)isImageAvailableForURL:(NSString *)urlString withIdentifier:(NSString *)identifier;
+- (void)deleteImageForURL:(NSString *)urlString withIdentifier:(NSString *)identifier;
+- (void)saveImageToFileManager:(NSData *)data forURL:(NSString *)url withIdentifier:(NSString *)identifier;
+- (void)deleteLegacyImages;
 @end
