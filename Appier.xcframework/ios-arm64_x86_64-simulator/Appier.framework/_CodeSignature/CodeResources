@@ -94,11 +94,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		iythkMrm4veosDHPE8otgL3tzpo=
+		4roQQw12JyARxGvLpKPr3C0W6vw=
 		</data>
 		<key>Modules/Appier.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		XhU2apVyRl1xj0PoCNouoS3voL8=
+		cn/v0ORCmzl8nnjq8KSiO8IrpGU=
 		</data>
 		<key>Modules/Appier.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -114,11 +114,11 @@
 		</data>
 		<key>Modules/Appier.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		Re3hnkXn5bOv4dO3Fk9FNN3W5GM=
+		yy7wk/uBV6U2/c40fy5nftoo5Qw=
 		</data>
 		<key>Modules/Appier.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		XhU2apVyRl1xj0PoCNouoS3voL8=
+		cn/v0ORCmzl8nnjq8KSiO8IrpGU=
 		</data>
 		<key>Modules/Appier.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -134,11 +134,15 @@
 		</data>
 		<key>Modules/Appier.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		Vnf3Nsdfy2vW8cHGkXLy/WC1t9U=
+		P19y8oSanEPeIoZDbVVHJjcqcgI=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
 		/y/Mtir2Ur+DoE9NMpS08hsX/V4=
+		</data>
+		<key>PrivacyInfo.xcprivacy</key>
+		<data>
+		w8jOJHk9Nl+pTNWGOa3S9UXLuls=
 		</data>
 		<key>aideal-click.js</key>
 		<data>
@@ -452,11 +456,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			XhU2apVyRl1xj0PoCNouoS3voL8=
+			cn/v0ORCmzl8nnjq8KSiO8IrpGU=
 			</data>
 			<key>hash2</key>
 			<data>
-			pVPis99BxUc5BydA4LWJPORK+glH/+2Vpv/NjpVo5nY=
+			camltHyzenc4kyBAExMWq9wAZGa/5lPmCFOXAJDDNCI=
 			</data>
 		</dict>
 		<key>Modules/Appier.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -496,22 +500,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Re3hnkXn5bOv4dO3Fk9FNN3W5GM=
+			yy7wk/uBV6U2/c40fy5nftoo5Qw=
 			</data>
 			<key>hash2</key>
 			<data>
-			Y3FQWlU1Twlh2z+h810JKMAMzRZW1XFX86mFt5Rhwd4=
+			qj1QHOSOjVhC5Z9urz2JDgj7N/g9zuBYX0aCqX6+xts=
 			</data>
 		</dict>
 		<key>Modules/Appier.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			XhU2apVyRl1xj0PoCNouoS3voL8=
+			cn/v0ORCmzl8nnjq8KSiO8IrpGU=
 			</data>
 			<key>hash2</key>
 			<data>
-			pVPis99BxUc5BydA4LWJPORK+glH/+2Vpv/NjpVo5nY=
+			camltHyzenc4kyBAExMWq9wAZGa/5lPmCFOXAJDDNCI=
 			</data>
 		</dict>
 		<key>Modules/Appier.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -551,11 +555,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Vnf3Nsdfy2vW8cHGkXLy/WC1t9U=
+			P19y8oSanEPeIoZDbVVHJjcqcgI=
 			</data>
 			<key>hash2</key>
 			<data>
-			/eyvzPilCg0F/0ISZrEpmPdy2iacijRrV8wIb2lfoPg=
+			31ddR4IUKAZ2Nx46nBhcsBqv3bz47M1qLNAAEANr2oc=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -567,6 +571,17 @@
 			<key>hash2</key>
 			<data>
 			ZiekVOD+m65QGtGPe0LujTGph5YaZsZDchS5dLduPes=
+			</data>
+		</dict>
+		<key>PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			w8jOJHk9Nl+pTNWGOa3S9UXLuls=
+			</data>
+			<key>hash2</key>
+			<data>
+			5paLQAiYQ9rAsjUyeSHdV17yINFIW5sdQ98520FsRys=
 			</data>
 		</dict>
 		<key>aideal-click.js</key>
