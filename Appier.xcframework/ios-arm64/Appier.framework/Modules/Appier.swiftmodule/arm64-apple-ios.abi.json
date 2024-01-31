@@ -66728,55 +66728,55 @@
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQLocalStorage+AIQStorage.swift",
       "kind": "BooleanLiteral",
       "offset": 16572,
-      "length": 4,
-      "value": "true"
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQLocalStorage+AIQStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 16622,
+      "offset": 16623,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQLocalStorage+AIQStorage.swift",
       "kind": "StringLiteral",
-      "offset": 16657,
+      "offset": 16658,
       "length": 27,
       "value": "\"isCollectIDFA is disabled\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQLocalStorage+AIQStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 17045,
+      "offset": 17046,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQLocalStorage+AIQStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 17096,
+      "offset": 17097,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQLocalStorage+AIQStorage.swift",
       "kind": "StringLiteral",
-      "offset": 17131,
+      "offset": 17132,
       "length": 31,
       "value": "\"isCollectLocation is disabled\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQLocalStorage+AIQStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 17538,
+      "offset": 17539,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQLocalStorage+AIQStorage.swift",
       "kind": "StringLiteral",
-      "offset": 17844,
+      "offset": 17845,
       "length": 2,
       "value": "\"\""
     },
@@ -68066,7 +68066,7 @@
       "kind": "StringLiteral",
       "offset": 235,
       "length": 8,
-      "value": "\"7.31.0\""
+      "value": "\"7.32.0\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
@@ -81882,7 +81882,7 @@
     {
       "filePath": "\/Users\/distiller\/Library\/Developer\/Xcode\/DerivedData\/Appier-fgtzgdugwcxdprdolssxviymkrdu\/Build\/Intermediates.noindex\/ArchiveIntermediates\/Appier\/IntermediateBuildFilesPath\/Appier.build\/Release-iphoneos\/Appier.build\/DerivedSources\/CoreDataGenerated\/AIQCoreData\/LoggedEventEntity+CoreDataProperties.swift",
       "kind": "StringLiteral",
-      "offset": 384,
+      "offset": 383,
       "length": 19,
       "value": "\"LoggedEventEntity\""
     },
