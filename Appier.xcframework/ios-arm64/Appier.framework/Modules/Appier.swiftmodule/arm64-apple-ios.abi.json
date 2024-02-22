@@ -24260,12 +24260,26 @@
           {
             "kind": "Function",
             "name": "getUserDetails",
-            "printedName": "getUserDetails(from:with:completion:)",
+            "printedName": "getUserDetails(from:with:)",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
               },
               {
                 "kind": "TypeNominal",
@@ -24277,43 +24291,12 @@
                 "kind": "TypeNominal",
                 "name": "AIQDataTrackingConfiguration",
                 "printedName": "Appier.AIQDataTrackingConfiguration",
-                "usr": "c:@M@Appier@objc(cs)AIQDataTrackingConfiguration"
-              },
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "([Swift.String : Any]) -> ()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Dictionary",
-                    "printedName": "[Swift.String : Any]",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ProtocolComposition",
-                        "printedName": "Any"
-                      }
-                    ],
-                    "usr": "s:SD"
-                  }
-                ]
+                "usr": "c:objc(cs)AIQDataTrackingConfiguration"
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@Appier@objc(cs)AIQUtility(cm)getUserDetailsFrom:with:completion:",
-            "mangledName": "$s6Appier10AIQUtilityC14getUserDetails4from4with10completionyAA15AIQLocalStorageC_AA28AIQDataTrackingConfigurationCySDySSypGctFZ",
+            "usr": "c:@M@Appier@objc(cs)AIQUtility(cm)getUserDetailsFrom:with:",
+            "mangledName": "$s6Appier10AIQUtilityC14getUserDetails4from4withSDySSypGAA15AIQLocalStorageC_So28AIQDataTrackingConfigurationCtFZ",
             "moduleName": "Appier",
             "static": true,
             "declAttributes": [
@@ -24429,6 +24412,36 @@
               "Override"
             ],
             "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "clearPIIData",
+            "printedName": "clearPIIData(storage:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AIQLocalStorage",
+                "printedName": "Appier.AIQLocalStorage",
+                "usr": "c:@M@Appier@objc(cs)AIQLocalStorage"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Appier@objc(cs)AIQUtility(cm)clearPIIDataWithStorage:",
+            "mangledName": "$s6Appier10AIQUtilityC12clearPIIData7storageyAA15AIQLocalStorageC_tFZ",
+            "moduleName": "Appier",
+            "static": true,
+            "declAttributes": [
+              "Dynamic",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -29548,638 +29561,6 @@
         "mangledName": "$s6Appier8ConstantC",
         "moduleName": "Appier",
         "objc_name": "QGConstant",
-        "declAttributes": [
-          "AccessControl",
-          "ObjCMembers",
-          "ObjC"
-        ],
-        "superclassUsr": "c:objc(cs)NSObject",
-        "inheritsConvenienceInitializers": true,
-        "superclassNames": [
-          "ObjectiveC.NSObject"
-        ],
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CVarArg",
-            "printedName": "CVarArg",
-            "usr": "s:s7CVarArgP",
-            "mangledName": "$ss7CVarArgP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObservingPublishing",
-            "printedName": "_KeyValueCodingAndObservingPublishing",
-            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
-            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "_KeyValueCodingAndObserving",
-            "printedName": "_KeyValueCodingAndObserving",
-            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
-            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomStringConvertible",
-            "printedName": "CustomStringConvertible",
-            "usr": "s:s23CustomStringConvertibleP",
-            "mangledName": "$ss23CustomStringConvertibleP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "CustomDebugStringConvertible",
-            "printedName": "CustomDebugStringConvertible",
-            "usr": "s:s28CustomDebugStringConvertibleP",
-            "mangledName": "$ss28CustomDebugStringConvertibleP"
-          }
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "AIQDataTrackingConfigurationDelegate",
-        "printedName": "AIQDataTrackingConfigurationDelegate",
-        "children": [
-          {
-            "kind": "Function",
-            "name": "updateUserDetailWhenDataTrackingConfigChanged",
-            "printedName": "updateUserDetailWhenDataTrackingConfigChanged()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@Appier@objc(pl)AIQDataTrackingConfigurationDelegate(im)updateUserDetailWhenDataTrackingConfigChanged",
-            "mangledName": "$s6Appier36AIQDataTrackingConfigurationDelegateP024updateUserDetailWhenDataC13ConfigChangedyyF",
-            "moduleName": "Appier",
-            "genericSig": "<τ_0_0 where τ_0_0 : Appier.AIQDataTrackingConfigurationDelegate>",
-            "sugared_genericSig": "<Self where Self : Appier.AIQDataTrackingConfigurationDelegate>",
-            "protocolReq": true,
-            "declAttributes": [
-              "ObjC"
-            ],
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          }
-        ],
-        "declKind": "Protocol",
-        "usr": "c:@M@Appier@objc(pl)AIQDataTrackingConfigurationDelegate",
-        "mangledName": "$s6Appier36AIQDataTrackingConfigurationDelegateP",
-        "moduleName": "Appier",
-        "genericSig": "<τ_0_0 : AnyObject>",
-        "sugared_genericSig": "<Self : AnyObject>",
-        "declAttributes": [
-          "AccessControl",
-          "ObjC"
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "AIQDataTrackingConfiguration",
-        "printedName": "AIQDataTrackingConfiguration",
-        "children": [
-          {
-            "kind": "Var",
-            "name": "delegate",
-            "printedName": "delegate",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "WeakStorage",
-                "printedName": "Appier.AIQDataTrackingConfigurationDelegate?"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@Appier@objc(cs)AIQDataTrackingConfiguration(py)delegate",
-            "mangledName": "$s6Appier28AIQDataTrackingConfigurationC8delegateAA0bcD8Delegate_pSgvp",
-            "moduleName": "Appier",
-            "declAttributes": [
-              "HasInitialValue",
-              "HasStorage",
-              "ReferenceOwnership",
-              "AccessControl",
-              "ObjC"
-            ],
-            "ownership": 1,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Appier.AIQDataTrackingConfigurationDelegate?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "AIQDataTrackingConfigurationDelegate",
-                        "printedName": "Appier.AIQDataTrackingConfigurationDelegate",
-                        "usr": "c:@M@Appier@objc(pl)AIQDataTrackingConfigurationDelegate"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@Appier@objc(cs)AIQDataTrackingConfiguration(im)delegate",
-                "mangledName": "$s6Appier28AIQDataTrackingConfigurationC8delegateAA0bcD8Delegate_pSgvg",
-                "moduleName": "Appier",
-                "implicit": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Appier.AIQDataTrackingConfigurationDelegate?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "AIQDataTrackingConfigurationDelegate",
-                        "printedName": "Appier.AIQDataTrackingConfigurationDelegate",
-                        "usr": "c:@M@Appier@objc(pl)AIQDataTrackingConfigurationDelegate"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@Appier@objc(cs)AIQDataTrackingConfiguration(im)setDelegate:",
-                "mangledName": "$s6Appier28AIQDataTrackingConfigurationC8delegateAA0bcD8Delegate_pSgvs",
-                "moduleName": "Appier",
-                "implicit": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:6Appier28AIQDataTrackingConfigurationC8delegateAA0bcD8Delegate_pSgvM",
-                "mangledName": "$s6Appier28AIQDataTrackingConfigurationC8delegateAA0bcD8Delegate_pSgvM",
-                "moduleName": "Appier",
-                "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "storage",
-            "printedName": "storage",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "AIQLocalStorage",
-                "printedName": "Appier.AIQLocalStorage",
-                "usr": "c:@M@Appier@objc(cs)AIQLocalStorage"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@Appier@objc(cs)AIQDataTrackingConfiguration(py)storage",
-            "mangledName": "$s6Appier28AIQDataTrackingConfigurationC7storageAA15AIQLocalStorageCvp",
-            "moduleName": "Appier",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl",
-              "ObjC"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "AIQLocalStorage",
-                    "printedName": "Appier.AIQLocalStorage",
-                    "usr": "c:@M@Appier@objc(cs)AIQLocalStorage"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@Appier@objc(cs)AIQDataTrackingConfiguration(im)storage",
-                "mangledName": "$s6Appier28AIQDataTrackingConfigurationC7storageAA15AIQLocalStorageCvg",
-                "moduleName": "Appier",
-                "implicit": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "AIQLocalStorage",
-                    "printedName": "Appier.AIQLocalStorage",
-                    "usr": "c:@M@Appier@objc(cs)AIQLocalStorage"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@Appier@objc(cs)AIQDataTrackingConfiguration(im)setStorage:",
-                "mangledName": "$s6Appier28AIQDataTrackingConfigurationC7storageAA15AIQLocalStorageCvs",
-                "moduleName": "Appier",
-                "implicit": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:6Appier28AIQDataTrackingConfigurationC7storageAA15AIQLocalStorageCvM",
-                "mangledName": "$s6Appier28AIQDataTrackingConfigurationC7storageAA15AIQLocalStorageCvM",
-                "moduleName": "Appier",
-                "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "isCollectIDFA",
-            "printedName": "isCollectIDFA",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@Appier@objc(cs)AIQDataTrackingConfiguration(py)isCollectIDFA",
-            "mangledName": "$s6Appier28AIQDataTrackingConfigurationC13isCollectIDFASbvp",
-            "moduleName": "Appier",
-            "declAttributes": [
-              "AccessControl",
-              "ObjC"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@Appier@objc(cs)AIQDataTrackingConfiguration(im)isCollectIDFA",
-                "mangledName": "$s6Appier28AIQDataTrackingConfigurationC13isCollectIDFASbvg",
-                "moduleName": "Appier",
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@Appier@objc(cs)AIQDataTrackingConfiguration(im)setIsCollectIDFA:",
-                "mangledName": "$s6Appier28AIQDataTrackingConfigurationC13isCollectIDFASbvs",
-                "moduleName": "Appier",
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:6Appier28AIQDataTrackingConfigurationC13isCollectIDFASbvM",
-                "mangledName": "$s6Appier28AIQDataTrackingConfigurationC13isCollectIDFASbvM",
-                "moduleName": "Appier",
-                "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "isCollectLocation",
-            "printedName": "isCollectLocation",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@Appier@objc(cs)AIQDataTrackingConfiguration(py)isCollectLocation",
-            "mangledName": "$s6Appier28AIQDataTrackingConfigurationC17isCollectLocationSbvp",
-            "moduleName": "Appier",
-            "declAttributes": [
-              "AccessControl",
-              "ObjC"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@Appier@objc(cs)AIQDataTrackingConfiguration(im)isCollectLocation",
-                "mangledName": "$s6Appier28AIQDataTrackingConfigurationC17isCollectLocationSbvg",
-                "moduleName": "Appier",
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@Appier@objc(cs)AIQDataTrackingConfiguration(im)setIsCollectLocation:",
-                "mangledName": "$s6Appier28AIQDataTrackingConfigurationC17isCollectLocationSbvs",
-                "moduleName": "Appier",
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:6Appier28AIQDataTrackingConfigurationC17isCollectLocationSbvM",
-                "mangledName": "$s6Appier28AIQDataTrackingConfigurationC17isCollectLocationSbvM",
-                "moduleName": "Appier",
-                "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "AIQDataTrackingConfiguration",
-                "printedName": "Appier.AIQDataTrackingConfiguration",
-                "usr": "c:@M@Appier@objc(cs)AIQDataTrackingConfiguration"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@Appier@objc(cs)AIQDataTrackingConfiguration(im)init",
-            "mangledName": "$s6Appier28AIQDataTrackingConfigurationCACycfc",
-            "moduleName": "Appier",
-            "overriding": true,
-            "objc_name": "init",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "Convenience",
-              "AccessControl",
-              "Override"
-            ],
-            "init_kind": "Convenience"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(isCollectIDFA:isCollectLocation:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "AIQDataTrackingConfiguration",
-                "printedName": "Appier.AIQDataTrackingConfiguration",
-                "usr": "c:@M@Appier@objc(cs)AIQDataTrackingConfiguration"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@Appier@objc(cs)AIQDataTrackingConfiguration(im)initWithIsCollectIDFA:isCollectLocation:",
-            "mangledName": "$s6Appier28AIQDataTrackingConfigurationC13isCollectIDFA0eF8LocationACSb_Sbtcfc",
-            "moduleName": "Appier",
-            "declAttributes": [
-              "Convenience",
-              "AccessControl",
-              "ObjC"
-            ],
-            "init_kind": "Convenience"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(storage:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "AIQDataTrackingConfiguration",
-                "printedName": "Appier.AIQDataTrackingConfiguration",
-                "usr": "c:@M@Appier@objc(cs)AIQDataTrackingConfiguration"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "AIQLocalStorage",
-                "printedName": "Appier.AIQLocalStorage",
-                "usr": "c:@M@Appier@objc(cs)AIQLocalStorage"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@Appier@objc(cs)AIQDataTrackingConfiguration(im)initWithStorage:",
-            "mangledName": "$s6Appier28AIQDataTrackingConfigurationC7storageAcA15AIQLocalStorageC_tcfc",
-            "moduleName": "Appier",
-            "declAttributes": [
-              "AccessControl",
-              "ObjC"
-            ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Var",
-            "name": "description",
-            "printedName": "description",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@Appier@objc(cs)AIQDataTrackingConfiguration(py)description",
-            "mangledName": "$s6Appier28AIQDataTrackingConfigurationC11descriptionSSvp",
-            "moduleName": "Appier",
-            "overriding": true,
-            "objc_name": "description",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "AccessControl",
-              "Override"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@Appier@objc(cs)AIQDataTrackingConfiguration(im)description",
-                "mangledName": "$s6Appier28AIQDataTrackingConfigurationC11descriptionSSvg",
-                "moduleName": "Appier",
-                "overriding": true,
-                "objc_name": "description",
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              }
-            ]
-          }
-        ],
-        "declKind": "Class",
-        "usr": "c:@M@Appier@objc(cs)AIQDataTrackingConfiguration",
-        "mangledName": "$s6Appier28AIQDataTrackingConfigurationC",
-        "moduleName": "Appier",
         "declAttributes": [
           "AccessControl",
           "ObjCMembers",
@@ -36496,51 +35877,35 @@
           {
             "kind": "Function",
             "name": "getGeofenceDetails",
-            "printedName": "getGeofenceDetails(completion:)",
+            "printedName": "getGeofenceDetails()",
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "([Swift.AnyHashable : Any]) -> ()",
+                "name": "Dictionary",
+                "printedName": "[Swift.AnyHashable : Any]",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
+                    "name": "AnyHashable",
+                    "printedName": "Swift.AnyHashable",
+                    "usr": "s:s11AnyHashableV"
                   },
                   {
                     "kind": "TypeNominal",
-                    "name": "Dictionary",
-                    "printedName": "[Swift.AnyHashable : Any]",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "AnyHashable",
-                        "printedName": "Swift.AnyHashable",
-                        "usr": "s:s11AnyHashableV"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ProtocolComposition",
-                        "printedName": "Any"
-                      }
-                    ],
-                    "usr": "s:SD"
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
                   }
-                ]
+                ],
+                "usr": "s:SD"
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@Appier@objc(cs)AIQGeofenceManager(im)getGeofenceDetailsWithCompletion:",
-            "mangledName": "$s6Appier18AIQGeofenceManagerC18getGeofenceDetails10completionyySDys11AnyHashableVypGc_tF",
+            "usr": "c:@M@Appier@objc(cs)AIQGeofenceManager(im)getGeofenceDetails",
+            "mangledName": "$s6Appier18AIQGeofenceManagerC18getGeofenceDetailsSDys11AnyHashableVypGyF",
             "moduleName": "Appier",
             "declAttributes": [
               "AccessControl",
+              "RawDocComment",
               "ObjC"
             ],
             "funcSelfKind": "NonMutating"
@@ -67994,70 +67359,70 @@
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "StringLiteral",
-      "offset": 5354,
+      "offset": 5324,
       "length": 12,
       "value": "\"deviceInfo\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "StringLiteral",
-      "offset": 5408,
+      "offset": 5378,
       "length": 18,
       "value": "\"web_view_version\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "StringLiteral",
-      "offset": 5473,
+      "offset": 5443,
       "length": 12,
       "value": "\"deviceInfo\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "StringLiteral",
-      "offset": 5699,
+      "offset": 5669,
       "length": 55,
       "value": "\"Don't send IDFA if consent is true and optOut is true\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "StringLiteral",
-      "offset": 5794,
+      "offset": 5764,
       "length": 6,
       "value": "\"IDFA\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "BooleanLiteral",
-      "offset": 6178,
+      "offset": 6142,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "StringLiteral",
-      "offset": 6209,
+      "offset": 6173,
       "length": 6,
       "value": "\"locn\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "BooleanLiteral",
-      "offset": 6390,
+      "offset": 6355,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "BooleanLiteral",
-      "offset": 7020,
+      "offset": 7000,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "Array",
-      "offset": 7171,
+      "offset": 7151,
       "length": 556,
       "value": "[\"QGSdk\", \"QGraph\", \"AIQUtility\", \"APRDeviceInfo\", \"DeviceInfo\", \"AIQLocalStorage\", \"RemoteConfigRemoteService\", \"RecommendationRemoteService\", \"AIQRequestManager\", \"AIQUncaughtExceptionHandler\", \"QGInAppManager\", \"QGInboxManager\", \"QGImageManager\", \"AIQLocationManager\", \"AIQGeofenceManager\", \"QGLocalNotificationManager\", \"QGWKWebView\", \"AIQP\", \"AIQP+ReactNative\", \"AIQP+DataFetch\", \"QGNotificationSDK\", \"QGGZIP\", \"QGStringUtil\", \"QGUncaughtExceptionHandler\", \"QGInApp\", \"QGInbox\", \"QGInAppWebViewController\", \"QGInAppDisplayManager\", \"AiDeal\", \"Appier\"]"
     },
@@ -69028,76 +68393,6 @@
       "value": "\"authorizedAlways\""
     },
     {
-      "filePath": "\/Users\/distiller\/project\/QGSdk\/Core\/AIQDataTrackingConfiguration.swift",
-      "kind": "BooleanLiteral",
-      "offset": 786,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/distiller\/project\/QGSdk\/Core\/AIQDataTrackingConfiguration.swift",
-      "kind": "BooleanLiteral",
-      "offset": 811,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/distiller\/project\/QGSdk\/Core\/AIQDataTrackingConfiguration.swift",
-      "kind": "StringLiteral",
-      "offset": 917,
-      "length": 69,
-      "value": "\"AIQDataTrackingConfiguration.\""
-    },
-    {
-      "filePath": "\/Users\/distiller\/project\/QGSdk\/Core\/AIQDataTrackingConfiguration.swift",
-      "kind": "IntegerLiteral",
-      "offset": 980,
-      "length": 4,
-      "value": "1000"
-    },
-    {
-      "filePath": "\/Users\/distiller\/project\/QGSdk\/Core\/AIQDataTrackingConfiguration.swift",
-      "kind": "StringLiteral",
-      "offset": 985,
-      "length": 1,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/distiller\/project\/QGSdk\/Core\/AIQDataTrackingConfiguration.swift",
-      "kind": "StringLiteral",
-      "offset": 1279,
-      "length": 161,
-      "value": "\"<\""
-    },
-    {
-      "filePath": "\/Users\/distiller\/project\/QGSdk\/Core\/AIQDataTrackingConfiguration.swift",
-      "kind": "StringLiteral",
-      "offset": 1305,
-      "length": 1,
-      "value": "\": \""
-    },
-    {
-      "filePath": "\/Users\/distiller\/project\/QGSdk\/Core\/AIQDataTrackingConfiguration.swift",
-      "kind": "StringLiteral",
-      "offset": 1351,
-      "length": 1,
-      "value": "\">\nisCollectIDFA: \""
-    },
-    {
-      "filePath": "\/Users\/distiller\/project\/QGSdk\/Core\/AIQDataTrackingConfiguration.swift",
-      "kind": "StringLiteral",
-      "offset": 1388,
-      "length": 17,
-      "value": "\"\nisCollectLocation: \""
-    },
-    {
-      "filePath": "\/Users\/distiller\/project\/QGSdk\/Core\/AIQDataTrackingConfiguration.swift",
-      "kind": "StringLiteral",
-      "offset": 1432,
-      "length": 196,
-      "value": "\"\""
-    },
-    {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Core\/AIQUAConfiguration.swift",
       "kind": "StringLiteral",
       "offset": 802,
@@ -69436,224 +68731,224 @@
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 1323,
+      "offset": 1294,
       "length": 48,
       "value": "\"Unable to query: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 1370,
+      "offset": 1341,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 1758,
+      "offset": 1729,
       "length": 45,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 1782,
+      "offset": 1753,
       "length": 2,
       "value": "\" >= \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 1802,
+      "offset": 1773,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 2244,
+      "offset": 2186,
       "length": 48,
       "value": "\"Unable to query: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 2291,
+      "offset": 2233,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "IntegerLiteral",
-      "offset": 2495,
+      "offset": 2437,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "BooleanLiteral",
-      "offset": 2743,
+      "offset": 2685,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "IntegerLiteral",
-      "offset": 2862,
+      "offset": 2804,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 2940,
+      "offset": 2882,
       "length": 46,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 2964,
+      "offset": 2906,
       "length": 1,
       "value": "\" < \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 2985,
+      "offset": 2927,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 3272,
+      "offset": 3190,
       "length": 49,
       "value": "\"Unable to delete: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 3320,
+      "offset": 3238,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "IntegerLiteral",
-      "offset": 3523,
+      "offset": 3441,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "IntegerLiteral",
-      "offset": 3614,
+      "offset": 3532,
       "length": 4,
       "value": "1000"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 3773,
+      "offset": 3691,
       "length": 42,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 3797,
+      "offset": 3715,
       "length": 1,
       "value": "\" < \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 3814,
+      "offset": 3732,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 4142,
+      "offset": 4031,
       "length": 49,
       "value": "\"Unable to delete: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 4190,
+      "offset": 4079,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "IntegerLiteral",
-      "offset": 4372,
+      "offset": 4261,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 4815,
+      "offset": 4675,
       "length": 49,
       "value": "\"Unable to delete: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 4863,
+      "offset": 4723,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "BooleanLiteral",
-      "offset": 5049,
+      "offset": 4909,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "BooleanLiteral",
-      "offset": 5481,
+      "offset": 5312,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 5537,
+      "offset": 5368,
       "length": 49,
       "value": "\"Unable to insert: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 5585,
+      "offset": 5416,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "BooleanLiteral",
-      "offset": 5605,
+      "offset": 5436,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "BooleanLiteral",
-      "offset": 5706,
+      "offset": 5537,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "BooleanLiteral",
-      "offset": 5991,
+      "offset": 5798,
       "length": 5,
       "value": "false"
     },
@@ -70157,42 +69452,42 @@
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Geofencing\/AIQGeofenceManager.swift",
       "kind": "StringLiteral",
-      "offset": 3631,
+      "offset": 3475,
       "length": 32,
       "value": "\"Geofence User Details: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Geofencing\/AIQGeofenceManager.swift",
       "kind": "StringLiteral",
-      "offset": 3662,
+      "offset": 3506,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Geofencing\/AIQGeofenceManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 3845,
+      "offset": 3676,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Geofencing\/AIQGeofenceManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 4021,
+      "offset": 3852,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Geofencing\/AIQGeofenceManager.swift",
       "kind": "BooleanLiteral",
-      "offset": 4371,
+      "offset": 4202,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Geofencing\/AIQGeofenceManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 5070,
+      "offset": 4901,
       "length": 1,
       "value": "5"
     },
@@ -70206,126 +69501,126 @@
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Geofencing\/AIQGeofenceManager.swift",
       "kind": "StringLiteral",
-      "offset": 6336,
+      "offset": 6167,
       "length": 59,
       "value": "\"Start removing monitoring geofences: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Geofencing\/AIQGeofenceManager.swift",
       "kind": "StringLiteral",
-      "offset": 6394,
+      "offset": 6225,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Geofencing\/AIQGeofenceManager.swift",
       "kind": "StringLiteral",
-      "offset": 6839,
+      "offset": 6670,
       "length": 49,
       "value": "\"Start adding monitoring geofences: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Geofencing\/AIQGeofenceManager.swift",
       "kind": "StringLiteral",
-      "offset": 6887,
+      "offset": 6718,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Geofencing\/AIQGeofenceManager.swift",
       "kind": "Array",
-      "offset": 7558,
+      "offset": 7389,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Geofencing\/AIQGeofenceManager.swift",
       "kind": "StringLiteral",
-      "offset": 8626,
+      "offset": 8457,
       "length": 3,
       "value": "\"|\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Geofencing\/AIQGeofenceManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 8663,
+      "offset": 8494,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Geofencing\/AIQGeofenceManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 9530,
+      "offset": 9361,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Geofencing\/AIQGeofenceManager.swift",
       "kind": "StringLiteral",
-      "offset": 9555,
+      "offset": 9386,
       "length": 50,
       "value": "\"Did add monitoring geofence: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Geofencing\/AIQGeofenceManager.swift",
       "kind": "StringLiteral",
-      "offset": 9604,
+      "offset": 9435,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Geofencing\/AIQGeofenceManager.swift",
       "kind": "IntegerLiteral",
-      "offset": 9710,
+      "offset": 9541,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Geofencing\/AIQGeofenceManager.swift",
       "kind": "StringLiteral",
-      "offset": 9772,
+      "offset": 9603,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Geofencing\/AIQGeofenceManager.swift",
       "kind": "StringLiteral",
-      "offset": 9951,
+      "offset": 9782,
       "length": 56,
       "value": "\"Failed to add monitoring geofence: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Geofencing\/AIQGeofenceManager.swift",
       "kind": "StringLiteral",
-      "offset": 10006,
+      "offset": 9837,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Geofencing\/AIQGeofenceManager.swift",
       "kind": "StringLiteral",
-      "offset": 10265,
+      "offset": 10096,
       "length": 42,
       "value": "\"Did enter geofence region: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Geofencing\/AIQGeofenceManager.swift",
       "kind": "StringLiteral",
-      "offset": 10306,
+      "offset": 10137,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Geofencing\/AIQGeofenceManager.swift",
       "kind": "StringLiteral",
-      "offset": 10563,
+      "offset": 10394,
       "length": 41,
       "value": "\"Did exit geofence region: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Geofencing\/AIQGeofenceManager.swift",
       "kind": "StringLiteral",
-      "offset": 10603,
+      "offset": 10434,
       "length": 2,
       "value": "\"\""
     },
