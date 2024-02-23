@@ -284,9 +284,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (>= 2.3.26)
+  bundler (>= 2.4.10)
   cocoapods
   fastlane (= 2.210.1)
 
 BUNDLED WITH
-   2.5.5
+   2.4.10
