@@ -6,13 +6,13 @@
 #import "QGInApp.h"
 #import "AIQInAppCondition.h"
 #import "AIQMutableOrderedDictionary.h"
+#import "AIQDataTrackingConfiguration.h"
 #import "SwiftMediator.h"
 
 NS_ASSUME_NONNULL_BEGIN
 @class AIQRecommendationRequest;
 @class AIQRecommendationTagResponse;
 @class AIQRecommendationProductResponse;
-@class AIQDataTrackingConfiguration;
 @protocol AIQEventLoggingProtocol;
 @protocol AIQUserProfileLoggingProtocol;
 
