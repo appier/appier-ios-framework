@@ -319,6 +319,8 @@ SWIFT_PROTOCOL("_TtP6Appier23AIQEventLoggingProtocol_")
 - (void)logEvent:(NSString * _Nonnull)name withValueToSum:(NSNumber * _Nullable)valueToSum withValueToSumCurrency:(NSString * _Nullable)currency;
 - (void)logEvent:(NSString * _Nonnull)name withParameters:(NSDictionary * _Nullable)param withValueToSum:(NSNumber * _Nullable)valueToSum;
 - (void)logEvent:(NSString * _Nonnull)name withParameters:(NSDictionary * _Nullable)param withValueToSum:(NSNumber * _Nullable)valueToSum withValueToSumCurrency:(NSString * _Nullable)currency;
+- (void)setLastClickThroughWithNotificationId:(NSNumber * _Nonnull)notificationId;
+- (void)setLastViewThroughWithNotificationId:(NSNumber * _Nonnull)notificationId;
 @end
 
 
@@ -424,6 +426,8 @@ SWIFT_CLASS("_TtC6Appier25AIQInAppWebViewController")
 @end
 
 @protocol AIQUserProfileLoggingProtocol;
+@protocol AIQRecommendationLoggingProtocol;
+@protocol AIQInAppRecommendationDataProviderProtocol;
 @class AIQConfiguration;
 @class WKWebView;
 @class WKNavigation;
@@ -433,7 +437,7 @@ SWIFT_CLASS("_TtC6Appier25AIQInAppWebViewController")
 
 SWIFT_CLASS("_TtC6Appier36AIQInAppCreativeStudioViewController")
 @interface AIQInAppCreativeStudioViewController : AIQInAppWebViewController
-- (nonnull instancetype)initWithCsPayload:(NSDictionary<NSString *, id> * _Nullable)csPayload notificationId:(NSNumber * _Nonnull)notificationId isShowDismissButton:(BOOL)isShowDismissButton isShowOverlay:(BOOL)isShowOverlay eventLogger:(id <AIQEventLoggingProtocol> _Nonnull)eventLogger userProfileLogger:(id <AIQUserProfileLoggingProtocol> _Nonnull)userProfileLogger config:(AIQConfiguration * _Nonnull)config storage:(AIQLocalStorage * _Nonnull)storage OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithCsPayload:(NSDictionary<NSString *, id> * _Nullable)csPayload notificationId:(NSNumber * _Nonnull)notificationId isShowDismissButton:(BOOL)isShowDismissButton isShowOverlay:(BOOL)isShowOverlay eventLogger:(id <AIQEventLoggingProtocol> _Nonnull)eventLogger userProfileLogger:(id <AIQUserProfileLoggingProtocol> _Nonnull)userProfileLogger recommendationLogger:(id <AIQRecommendationLoggingProtocol> _Nonnull)recommendationLogger recommendationDataProvider:(id <AIQInAppRecommendationDataProviderProtocol> _Nonnull)recommendationDataProvider config:(AIQConfiguration * _Nonnull)config storage:(AIQLocalStorage * _Nonnull)storage OBJC_DESIGNATED_INITIALIZER;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
 - (void)prepareToBeDismissed;
@@ -469,6 +473,13 @@ SWIFT_CLASS("_TtC6Appier27AIQInAppPopUpViewController")
 - (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_PROTOCOL("_TtP6Appier42AIQInAppRecommendationDataProviderProtocol_")
+@protocol AIQInAppRecommendationDataProviderProtocol
+- (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId withQueryParameters:(NSDictionary * _Nonnull)queryParameters withCompletionHandler:(void (^ _Nonnull)(NSDictionary * _Nullable))completionHandler;
+- (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId withProductId:(NSString * _Nonnull)productId withQueryParameters:(NSDictionary * _Nonnull)queryParameters withCompletionHandler:(void (^ _Nonnull)(NSDictionary * _Nullable))completionHandler;
 @end
 
 
@@ -748,6 +759,12 @@ SWIFT_PROTOCOL("_TtP6Appier25AIQLocationUpdateDelegate_")
 - (void)locationUpdatedWith:(NSDictionary * _Nullable)location;
 @end
 
+
+
+SWIFT_PROTOCOL("_TtP6Appier32AIQRecommendationLoggingProtocol_")
+@protocol AIQRecommendationLoggingProtocol
+- (void)logRecommendationClickedWithScenarioId:(NSString * _Nonnull)scenarioId withModelId:(NSInteger)modelId withProductId:(NSString * _Nonnull)productId withRecommendationId:(NSString * _Nonnull)recommendationId;
+@end
 
 @class NSURLResponse;
 
@@ -1201,7 +1218,7 @@ SWIFT_CLASS_NAMED("ConversionItem")
 
 SWIFT_CLASS_NAMED("CoreDataComponent")
 @interface AIQCoreDataComponent : NSObject
-@property (nonatomic, strong) NSManagedObjectContext * _Nonnull managedObjectContext;
+@property (nonatomic, strong) NSManagedObjectContext * _Nullable managedObjectContext;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1399,7 +1416,7 @@ SWIFT_CLASS_NAMED("LoggedEvent")
 
 SWIFT_CLASS_NAMED("LoggedEventDAO")
 @interface AIQLoggedEventDAO : NSObject
-- (nonnull instancetype)initWithManagedObjectContext:(NSManagedObjectContext * _Nonnull)context OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
 - (NSArray<AIQLoggedEvent *> * _Nonnull)getAllWithLimit:(NSInteger)withLimit SWIFT_WARN_UNUSED_RESULT;
 - (NSArray<AIQLoggedEvent *> * _Nonnull)getLoggedEventEarlierBeforeWithTime:(NSInteger)beforeFromNow SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)deleteOverflowed;
@@ -1438,14 +1455,14 @@ SWIFT_CLASS_NAMED("Logger")
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
-+ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
++ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
-+ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
++ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 

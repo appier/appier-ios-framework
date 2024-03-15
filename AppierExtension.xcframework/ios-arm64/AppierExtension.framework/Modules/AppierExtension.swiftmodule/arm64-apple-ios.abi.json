@@ -1142,7 +1142,6 @@
               "HasInitialValue",
               "Final",
               "HasStorage",
-              "AccessControl",
               "ObjC"
             ],
             "isFromExtension": true,
@@ -3206,84 +3205,84 @@
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 324,
+      "offset": 320,
       "length": 10,
       "value": "\"APRDebug\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 339,
+      "offset": 335,
       "length": 5,
       "value": "\"YES\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 1201,
+      "offset": 1197,
       "length": 77,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 1209,
+      "offset": 1205,
       "length": 6,
       "value": "\" Appier [\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 1251,
+      "offset": 1247,
       "length": 1,
       "value": "\"] [\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 1265,
+      "offset": 1261,
       "length": 1,
       "value": "\"] \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 1277,
+      "offset": 1273,
       "length": 1,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 1422,
+      "offset": 1418,
       "length": 7,
       "value": "\"Debug\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 1453,
+      "offset": 1449,
       "length": 6,
       "value": "\"Info\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 1486,
+      "offset": 1482,
       "length": 9,
       "value": "\"Warning\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 1520,
+      "offset": 1516,
       "length": 7,
       "value": "\"Error\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 1656,
+      "offset": 1652,
       "length": 29,
       "value": "\"yyyy-MM-dd HH:mm:ss.SSSSSSZ\""
     },
@@ -3297,42 +3296,42 @@
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 1794,
+      "offset": 1790,
       "length": 4,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 1800,
+      "offset": 1796,
       "length": 7,
       "value": "2"
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 1809,
+      "offset": 1805,
       "length": 5,
       "value": "3"
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 1794,
+      "offset": 1790,
       "length": 4,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 1800,
+      "offset": 1796,
       "length": 7,
       "value": "2"
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 1809,
+      "offset": 1805,
       "length": 5,
       "value": "3"
     },
