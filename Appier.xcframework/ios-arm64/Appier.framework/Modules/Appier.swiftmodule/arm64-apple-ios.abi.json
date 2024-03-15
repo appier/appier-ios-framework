@@ -6279,6 +6279,68 @@
             ],
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setLastClickThrough",
+            "printedName": "setLastClickThrough(notificationId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSNumber",
+                "printedName": "Foundation.NSNumber",
+                "usr": "c:objc(cs)NSNumber"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Appier@objc(pl)AIQEventLoggingProtocol(im)setLastClickThroughWithNotificationId:",
+            "mangledName": "$s6Appier23AIQEventLoggingProtocolP19setLastClickThrough14notificationIdySo8NSNumberC_tF",
+            "moduleName": "Appier",
+            "genericSig": "<τ_0_0 where τ_0_0 : Appier.AIQEventLoggingProtocol>",
+            "sugared_genericSig": "<Self where Self : Appier.AIQEventLoggingProtocol>",
+            "protocolReq": true,
+            "objc_name": "setLastClickThroughWithNotificationId:",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setLastViewThrough",
+            "printedName": "setLastViewThrough(notificationId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSNumber",
+                "printedName": "Foundation.NSNumber",
+                "usr": "c:objc(cs)NSNumber"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Appier@objc(pl)AIQEventLoggingProtocol(im)setLastViewThroughWithNotificationId:",
+            "mangledName": "$s6Appier23AIQEventLoggingProtocolP18setLastViewThrough14notificationIdySo8NSNumberC_tF",
+            "moduleName": "Appier",
+            "genericSig": "<τ_0_0 where τ_0_0 : Appier.AIQEventLoggingProtocol>",
+            "sugared_genericSig": "<Self where Self : Appier.AIQEventLoggingProtocol>",
+            "protocolReq": true,
+            "objc_name": "setLastViewThroughWithNotificationId:",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Protocol",
@@ -6520,7 +6582,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(csPayload:notificationId:isShowDismissButton:isShowOverlay:eventLogger:userProfileLogger:config:storage:)",
+            "printedName": "init(csPayload:notificationId:isShowDismissButton:isShowOverlay:eventLogger:userProfileLogger:recommendationLogger:recommendationDataProvider:config:storage:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -6587,6 +6649,18 @@
               },
               {
                 "kind": "TypeNominal",
+                "name": "AIQRecommendationLoggingProtocol",
+                "printedName": "Appier.AIQRecommendationLoggingProtocol",
+                "usr": "c:@M@Appier@objc(pl)AIQRecommendationLoggingProtocol"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AIQInAppRecommendationDataProviderProtocol",
+                "printedName": "Appier.AIQInAppRecommendationDataProviderProtocol",
+                "usr": "c:@M@Appier@objc(pl)AIQInAppRecommendationDataProviderProtocol"
+              },
+              {
+                "kind": "TypeNominal",
                 "name": "AIQUAConfiguration",
                 "printedName": "Appier.AIQUAConfiguration",
                 "usr": "c:@M@Appier@objc(cs)AIQConfiguration"
@@ -6599,8 +6673,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "c:@M@Appier@objc(cs)AIQInAppCreativeStudioViewController(im)initWithCsPayload:notificationId:isShowDismissButton:isShowOverlay:eventLogger:userProfileLogger:config:storage:",
-            "mangledName": "$s6Appier36AIQInAppCreativeStudioViewControllerC9csPayload14notificationId19isShowDismissButton0lM7Overlay11eventLogger011userProfileR06config7storageACSDySSypGSg_So8NSNumberCS2bAA23AIQEventLoggingProtocol_pAA07AIQUsertyZ0_pAA18AIQUAConfigurationCAA15AIQLocalStorageCtcfc",
+            "usr": "c:@M@Appier@objc(cs)AIQInAppCreativeStudioViewController(im)initWithCsPayload:notificationId:isShowDismissButton:isShowOverlay:eventLogger:userProfileLogger:recommendationLogger:recommendationDataProvider:config:storage:",
+            "mangledName": "$s6Appier36AIQInAppCreativeStudioViewControllerC9csPayload14notificationId19isShowDismissButton0lM7Overlay11eventLogger011userProfileR0014recommendationR00U12DataProvider6config7storageACSDySSypGSg_So8NSNumberCS2bAA23AIQEventLoggingProtocol_pAA07AIQUserT15LoggingProtocol_pAA32AIQRecommendationLoggingProtocol_pAA0bc14RecommendationvW8Protocol_pAA18AIQUAConfigurationCAA15AIQLocalStorageCtcfc",
             "moduleName": "Appier",
             "declAttributes": [
               "Custom",
@@ -7587,6 +7661,208 @@
             "usr": "s:s8SendableP",
             "mangledName": "$ss8SendableP"
           }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AIQInAppRecommendationDataProviderProtocol",
+        "printedName": "AIQInAppRecommendationDataProviderProtocol",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "getRecommendation",
+            "printedName": "getRecommendation(scenarioId:queryParameters:completionHandler:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.AnyHashable : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AnyHashable",
+                    "printedName": "Swift.AnyHashable",
+                    "usr": "s:s11AnyHashableV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "([Swift.AnyHashable : Any]?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.AnyHashable : Any]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[Swift.AnyHashable : Any]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "AnyHashable",
+                            "printedName": "Swift.AnyHashable",
+                            "usr": "s:s11AnyHashableV"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ProtocolComposition",
+                            "printedName": "Any"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Appier@objc(pl)AIQInAppRecommendationDataProviderProtocol(im)getRecommendationWithScenarioId:withQueryParameters:withCompletionHandler:",
+            "mangledName": "$s6Appier42AIQInAppRecommendationDataProviderProtocolP03getD010scenarioId15queryParameters17completionHandlerySS_SDys11AnyHashableVypGyAJSgctF",
+            "moduleName": "Appier",
+            "genericSig": "<τ_0_0 where τ_0_0 : Appier.AIQInAppRecommendationDataProviderProtocol>",
+            "sugared_genericSig": "<Self where Self : Appier.AIQInAppRecommendationDataProviderProtocol>",
+            "protocolReq": true,
+            "objc_name": "getRecommendationWithScenarioId:withQueryParameters:withCompletionHandler:",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getRecommendation",
+            "printedName": "getRecommendation(scenarioId:productId:queryParameters:completionHandler:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.AnyHashable : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AnyHashable",
+                    "printedName": "Swift.AnyHashable",
+                    "usr": "s:s11AnyHashableV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "([Swift.AnyHashable : Any]?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[Swift.AnyHashable : Any]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[Swift.AnyHashable : Any]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "AnyHashable",
+                            "printedName": "Swift.AnyHashable",
+                            "usr": "s:s11AnyHashableV"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ProtocolComposition",
+                            "printedName": "Any"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Appier@objc(pl)AIQInAppRecommendationDataProviderProtocol(im)getRecommendationWithScenarioId:withProductId:withQueryParameters:withCompletionHandler:",
+            "mangledName": "$s6Appier42AIQInAppRecommendationDataProviderProtocolP03getD010scenarioId07productJ015queryParameters17completionHandlerySS_SSSDys11AnyHashableVypGyAKSgctF",
+            "moduleName": "Appier",
+            "genericSig": "<τ_0_0 where τ_0_0 : Appier.AIQInAppRecommendationDataProviderProtocol>",
+            "sugared_genericSig": "<Self where Self : Appier.AIQInAppRecommendationDataProviderProtocol>",
+            "protocolReq": true,
+            "objc_name": "getRecommendationWithScenarioId:withProductId:withQueryParameters:withCompletionHandler:",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@Appier@objc(pl)AIQInAppRecommendationDataProviderProtocol",
+        "mangledName": "$s6Appier42AIQInAppRecommendationDataProviderProtocolP",
+        "moduleName": "Appier",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
         ]
       },
       {
@@ -15774,6 +16050,72 @@
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
           }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AIQRecommendationLoggingProtocol",
+        "printedName": "AIQRecommendationLoggingProtocol",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "logRecommendationClicked",
+            "printedName": "logRecommendationClicked(scenarioId:modelId:productId:recommendationId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Appier@objc(pl)AIQRecommendationLoggingProtocol(im)logRecommendationClickedWithScenarioId:withModelId:withProductId:withRecommendationId:",
+            "mangledName": "$s6Appier32AIQRecommendationLoggingProtocolP24logRecommendationClicked10scenarioId05modelI007productI0014recommendationI0ySS_SiS2StF",
+            "moduleName": "Appier",
+            "genericSig": "<τ_0_0 where τ_0_0 : Appier.AIQRecommendationLoggingProtocol>",
+            "sugared_genericSig": "<Self where Self : Appier.AIQRecommendationLoggingProtocol>",
+            "protocolReq": true,
+            "objc_name": "logRecommendationClickedWithScenarioId:withModelId:withProductId:withRecommendationId:",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@Appier@objc(pl)AIQRecommendationLoggingProtocol",
+        "mangledName": "$s6Appier32AIQRecommendationLoggingProtocolP",
+        "moduleName": "Appier",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
         ]
       },
       {
@@ -32661,14 +33003,22 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "NSManagedObjectContext",
-                "printedName": "CoreData.NSManagedObjectContext",
-                "usr": "c:objc(cs)NSManagedObjectContext"
+                "name": "Optional",
+                "printedName": "CoreData.NSManagedObjectContext?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSManagedObjectContext",
+                    "printedName": "CoreData.NSManagedObjectContext",
+                    "usr": "c:objc(cs)NSManagedObjectContext"
+                  }
+                ],
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Var",
             "usr": "c:@M@Appier@objc(cs)AIQCoreDataComponent(py)managedObjectContext",
-            "mangledName": "$s6Appier17CoreDataComponentC20managedObjectContextSo09NSManagedfG0Cvp",
+            "mangledName": "$s6Appier17CoreDataComponentC20managedObjectContextSo09NSManagedfG0CSgvp",
             "moduleName": "Appier",
             "declAttributes": [
               "Lazy",
@@ -32683,14 +33033,22 @@
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "NSManagedObjectContext",
-                    "printedName": "CoreData.NSManagedObjectContext",
-                    "usr": "c:objc(cs)NSManagedObjectContext"
+                    "name": "Optional",
+                    "printedName": "CoreData.NSManagedObjectContext?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NSManagedObjectContext",
+                        "printedName": "CoreData.NSManagedObjectContext",
+                        "usr": "c:objc(cs)NSManagedObjectContext"
+                      }
+                    ],
+                    "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
                 "usr": "c:@M@Appier@objc(cs)AIQCoreDataComponent(im)managedObjectContext",
-                "mangledName": "$s6Appier17CoreDataComponentC20managedObjectContextSo09NSManagedfG0Cvg",
+                "mangledName": "$s6Appier17CoreDataComponentC20managedObjectContextSo09NSManagedfG0CSgvg",
                 "moduleName": "Appier",
                 "implicit": true,
                 "declAttributes": [
@@ -32710,14 +33068,22 @@
                   },
                   {
                     "kind": "TypeNominal",
-                    "name": "NSManagedObjectContext",
-                    "printedName": "CoreData.NSManagedObjectContext",
-                    "usr": "c:objc(cs)NSManagedObjectContext"
+                    "name": "Optional",
+                    "printedName": "CoreData.NSManagedObjectContext?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NSManagedObjectContext",
+                        "printedName": "CoreData.NSManagedObjectContext",
+                        "usr": "c:objc(cs)NSManagedObjectContext"
+                      }
+                    ],
+                    "usr": "s:Sq"
                   }
                 ],
                 "declKind": "Accessor",
                 "usr": "c:@M@Appier@objc(cs)AIQCoreDataComponent(im)setManagedObjectContext:",
-                "mangledName": "$s6Appier17CoreDataComponentC20managedObjectContextSo09NSManagedfG0Cvs",
+                "mangledName": "$s6Appier17CoreDataComponentC20managedObjectContextSo09NSManagedfG0CSgvs",
                 "moduleName": "Appier",
                 "implicit": true,
                 "declAttributes": [
@@ -32737,8 +33103,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:6Appier17CoreDataComponentC20managedObjectContextSo09NSManagedfG0CvM",
-                "mangledName": "$s6Appier17CoreDataComponentC20managedObjectContextSo09NSManagedfG0CvM",
+                "usr": "s:6Appier17CoreDataComponentC20managedObjectContextSo09NSManagedfG0CSgvM",
+                "mangledName": "$s6Appier17CoreDataComponentC20managedObjectContextSo09NSManagedfG0CSgvM",
                 "moduleName": "Appier",
                 "implicit": true,
                 "accessorKind": "_modify"
@@ -33179,14 +33545,22 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "NSManagedObjectContext",
-                "printedName": "CoreData.NSManagedObjectContext",
-                "usr": "c:objc(cs)NSManagedObjectContext"
+                "name": "Optional",
+                "printedName": "CoreData.NSManagedObjectContext?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSManagedObjectContext",
+                    "printedName": "CoreData.NSManagedObjectContext",
+                    "usr": "c:objc(cs)NSManagedObjectContext"
+                  }
+                ],
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Constructor",
             "usr": "c:@M@Appier@objc(cs)AIQLoggedEventDAO(im)initWithManagedObjectContext:",
-            "mangledName": "$s6Appier14LoggedEventDAOC7contextACSo22NSManagedObjectContextC_tcfc",
+            "mangledName": "$s6Appier14LoggedEventDAOC7contextACSo22NSManagedObjectContextCSg_tcfc",
             "moduleName": "Appier",
             "objc_name": "initWithManagedObjectContext:",
             "declAttributes": [
@@ -49345,7 +49719,7 @@
           {
             "kind": "Function",
             "name": "handleUrl",
-            "printedName": "handleUrl(_:eventLogger:)",
+            "printedName": "handleUrl(_:eventLogger:userProfileLogger:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -49360,15 +49734,20 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "QGSdk",
-                "printedName": "Appier.QGSdk",
-                "hasDefaultArg": true,
-                "usr": "c:objc(cs)QGSdk"
+                "name": "AIQEventLoggingProtocol",
+                "printedName": "Appier.AIQEventLoggingProtocol",
+                "usr": "c:@M@Appier@objc(pl)AIQEventLoggingProtocol"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AIQUserProfileLoggingProtocol",
+                "printedName": "Appier.AIQUserProfileLoggingProtocol",
+                "usr": "c:@M@Appier@objc(pl)AIQUserProfileLoggingProtocol"
               }
             ],
             "declKind": "Func",
-            "usr": "s:6Appier14LINEUrlHandlerC9handleUrl_11eventLoggery10Foundation3URLV_So5QGSdkCtFZ",
-            "mangledName": "$s6Appier14LINEUrlHandlerC9handleUrl_11eventLoggery10Foundation3URLV_So5QGSdkCtFZ",
+            "usr": "s:6Appier14LINEUrlHandlerC9handleUrl_11eventLogger011userProfileG0y10Foundation3URLV_AA23AIQEventLoggingProtocol_pAA07AIQUserimN0_ptFZ",
+            "mangledName": "$s6Appier14LINEUrlHandlerC9handleUrl_11eventLogger011userProfileG0y10Foundation3URLV_AA23AIQEventLoggingProtocol_pAA07AIQUserimN0_ptFZ",
             "moduleName": "Appier",
             "static": true,
             "declAttributes": [
@@ -49382,7 +49761,7 @@
           {
             "kind": "Function",
             "name": "handleUserActivity",
-            "printedName": "handleUserActivity(_:eventLogger:)",
+            "printedName": "handleUserActivity(_:eventLogger:userProfileLogger:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -49397,15 +49776,20 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "QGSdk",
-                "printedName": "Appier.QGSdk",
-                "hasDefaultArg": true,
-                "usr": "c:objc(cs)QGSdk"
+                "name": "AIQEventLoggingProtocol",
+                "printedName": "Appier.AIQEventLoggingProtocol",
+                "usr": "c:@M@Appier@objc(pl)AIQEventLoggingProtocol"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AIQUserProfileLoggingProtocol",
+                "printedName": "Appier.AIQUserProfileLoggingProtocol",
+                "usr": "c:@M@Appier@objc(pl)AIQUserProfileLoggingProtocol"
               }
             ],
             "declKind": "Func",
-            "usr": "s:6Appier14LINEUrlHandlerC18handleUserActivity_11eventLoggerySo06NSUserF0C_So5QGSdkCtFZ",
-            "mangledName": "$s6Appier14LINEUrlHandlerC18handleUserActivity_11eventLoggerySo06NSUserF0C_So5QGSdkCtFZ",
+            "usr": "s:6Appier14LINEUrlHandlerC18handleUserActivity_11eventLogger011userProfileH0ySo06NSUserF0C_AA23AIQEventLoggingProtocol_pAA07AIQUserjmN0_ptFZ",
+            "mangledName": "$s6Appier14LINEUrlHandlerC18handleUserActivity_11eventLogger011userProfileH0ySo06NSUserF0C_AA23AIQEventLoggingProtocol_pAA07AIQUserjmN0_ptFZ",
             "moduleName": "Appier",
             "static": true,
             "declAttributes": [
@@ -49513,7 +49897,7 @@
           {
             "kind": "Function",
             "name": "handleUrl",
-            "printedName": "handleUrl(_:eventLogger:)",
+            "printedName": "handleUrl(_:eventLogger:userProfileLogger:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -49528,14 +49912,20 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "QGSdk",
-                "printedName": "Appier.QGSdk",
-                "usr": "c:objc(cs)QGSdk"
+                "name": "AIQEventLoggingProtocol",
+                "printedName": "Appier.AIQEventLoggingProtocol",
+                "usr": "c:@M@Appier@objc(pl)AIQEventLoggingProtocol"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AIQUserProfileLoggingProtocol",
+                "printedName": "Appier.AIQUserProfileLoggingProtocol",
+                "usr": "c:@M@Appier@objc(pl)AIQUserProfileLoggingProtocol"
               }
             ],
             "declKind": "Func",
-            "usr": "s:6Appier28ThirdPartyUrlHandlerProtocolP06handleD0_11eventLoggery10Foundation3URLV_So5QGSdkCtFZ",
-            "mangledName": "$s6Appier28ThirdPartyUrlHandlerProtocolP06handleD0_11eventLoggery10Foundation3URLV_So5QGSdkCtFZ",
+            "usr": "s:6Appier28ThirdPartyUrlHandlerProtocolP06handleD0_11eventLogger011userProfileI0y10Foundation3URLV_AA015AIQEventLoggingF0_pAA07AIQUserkoF0_ptFZ",
+            "mangledName": "$s6Appier28ThirdPartyUrlHandlerProtocolP06handleD0_11eventLogger011userProfileI0y10Foundation3URLV_AA015AIQEventLoggingF0_pAA07AIQUserkoF0_ptFZ",
             "moduleName": "Appier",
             "genericSig": "<τ_0_0 where τ_0_0 : Appier.ThirdPartyUrlHandlerProtocol>",
             "sugared_genericSig": "<Self where Self : Appier.ThirdPartyUrlHandlerProtocol>",
@@ -49547,7 +49937,7 @@
           {
             "kind": "Function",
             "name": "handleUserActivity",
-            "printedName": "handleUserActivity(_:eventLogger:)",
+            "printedName": "handleUserActivity(_:eventLogger:userProfileLogger:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -49562,14 +49952,20 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "QGSdk",
-                "printedName": "Appier.QGSdk",
-                "usr": "c:objc(cs)QGSdk"
+                "name": "AIQEventLoggingProtocol",
+                "printedName": "Appier.AIQEventLoggingProtocol",
+                "usr": "c:@M@Appier@objc(pl)AIQEventLoggingProtocol"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AIQUserProfileLoggingProtocol",
+                "printedName": "Appier.AIQUserProfileLoggingProtocol",
+                "usr": "c:@M@Appier@objc(pl)AIQUserProfileLoggingProtocol"
               }
             ],
             "declKind": "Func",
-            "usr": "s:6Appier28ThirdPartyUrlHandlerProtocolP18handleUserActivity_11eventLoggerySo06NSUserI0C_So5QGSdkCtFZ",
-            "mangledName": "$s6Appier28ThirdPartyUrlHandlerProtocolP18handleUserActivity_11eventLoggerySo06NSUserI0C_So5QGSdkCtFZ",
+            "usr": "s:6Appier28ThirdPartyUrlHandlerProtocolP18handleUserActivity_11eventLogger011userProfileK0ySo06NSUserI0C_AA015AIQEventLoggingF0_pAA07AIQUsermpF0_ptFZ",
+            "mangledName": "$s6Appier28ThirdPartyUrlHandlerProtocolP18handleUserActivity_11eventLogger011userProfileK0ySo06NSUserI0C_AA015AIQEventLoggingF0_pAA07AIQUsermpF0_ptFZ",
             "moduleName": "Appier",
             "genericSig": "<τ_0_0 where τ_0_0 : Appier.ThirdPartyUrlHandlerProtocol>",
             "sugared_genericSig": "<Self where Self : Appier.ThirdPartyUrlHandlerProtocol>",
@@ -51799,7 +52195,6 @@
               "HasInitialValue",
               "Final",
               "HasStorage",
-              "AccessControl",
               "ObjC"
             ],
             "isFromExtension": true,
@@ -51855,7 +52250,6 @@
               "HasInitialValue",
               "Final",
               "HasStorage",
-              "AccessControl",
               "ObjC"
             ],
             "isFromExtension": true,
@@ -59379,21 +59773,21 @@
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Campaign Models\/CampaignConfiguration.swift",
       "kind": "Array",
-      "offset": 1174,
+      "offset": 1140,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Campaign Models\/CampaignConfiguration.swift",
       "kind": "IntegerLiteral",
-      "offset": 2589,
+      "offset": 2555,
       "length": 2,
       "value": "-1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Campaign Models\/CampaignConfiguration.swift",
       "kind": "IntegerLiteral",
-      "offset": 2663,
+      "offset": 2629,
       "length": 1,
       "value": "0"
     },
@@ -59946,21 +60340,21 @@
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/CrashLogUploader.swift",
       "kind": "StringLiteral",
-      "offset": 4221,
+      "offset": 4214,
       "length": 14,
       "value": "\"qg_crash_log\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/CrashLogUploader.swift",
       "kind": "StringLiteral",
-      "offset": 4275,
+      "offset": 4268,
       "length": 37,
       "value": "\"https:\/\/api.rollbar.com\/api\/1\/item\/\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/CrashLogUploader.swift",
       "kind": "StringLiteral",
-      "offset": 4397,
+      "offset": 4390,
       "length": 34,
       "value": "\"f986280d47424a78b18ad31332801cfa\""
     },
@@ -60625,196 +61019,196 @@
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Main\/Coordinator.swift",
       "kind": "StringLiteral",
-      "offset": 3968,
+      "offset": 3916,
       "length": 76,
       "value": "\"Started page session \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Main\/Coordinator.swift",
       "kind": "StringLiteral",
-      "offset": 4043,
+      "offset": 3991,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Main\/Coordinator.swift",
       "kind": "StringLiteral",
-      "offset": 4152,
+      "offset": 4100,
       "length": 37,
       "value": "\"User timeout, clearing user session\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Main\/Coordinator.swift",
       "kind": "StringLiteral",
-      "offset": 4364,
+      "offset": 4312,
       "length": 41,
       "value": "\"Session timeout, resetting user session\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Main\/Coordinator.swift",
       "kind": "StringLiteral",
-      "offset": 4532,
+      "offset": 4480,
       "length": 25,
       "value": "\"Missing logging context\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Main\/Coordinator.swift",
       "kind": "StringLiteral",
-      "offset": 4688,
+      "offset": 4636,
       "length": 42,
       "value": "\"View controller was released from memory\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Main\/Coordinator.swift",
       "kind": "IntegerLiteral",
-      "offset": 5692,
+      "offset": 5640,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Main\/Coordinator.swift",
       "kind": "IntegerLiteral",
-      "offset": 5696,
+      "offset": 5644,
       "length": 2,
       "value": "20"
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Main\/Coordinator.swift",
       "kind": "StringLiteral",
-      "offset": 7110,
+      "offset": 7058,
       "length": 60,
       "value": "\"There's already a logging context for this view controller\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Main\/Coordinator.swift",
       "kind": "BooleanLiteral",
-      "offset": 8557,
+      "offset": 8505,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Main\/Coordinator.swift",
       "kind": "StringLiteral",
-      "offset": 8854,
+      "offset": 8802,
       "length": 96,
       "value": "\"Campaign element #\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Main\/Coordinator.swift",
       "kind": "StringLiteral",
-      "offset": 8931,
+      "offset": 8879,
       "length": 2,
       "value": "\" is already active\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Main\/Coordinator.swift",
       "kind": "Array",
-      "offset": 9269,
+      "offset": 9217,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Main\/Coordinator.swift",
       "kind": "StringLiteral",
-      "offset": 9426,
+      "offset": 9374,
       "length": 24,
       "value": "\"Campaigns data fetched\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Main\/Coordinator.swift",
       "kind": "IntegerLiteral",
-      "offset": 9932,
+      "offset": 9880,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Main\/Coordinator.swift",
       "kind": "BooleanLiteral",
-      "offset": 9984,
+      "offset": 9932,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Main\/Coordinator.swift",
       "kind": "StringLiteral",
-      "offset": 10988,
+      "offset": 10936,
       "length": 46,
       "value": "\"Missing campaign information in notification\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Main\/Coordinator.swift",
       "kind": "StringLiteral",
-      "offset": 11086,
+      "offset": 11034,
       "length": 84,
       "value": "\"Received campaign element #\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Main\/Coordinator.swift",
       "kind": "StringLiteral",
-      "offset": 11169,
+      "offset": 11117,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Main\/Coordinator.swift",
       "kind": "StringLiteral",
-      "offset": 11346,
+      "offset": 11294,
       "length": 112,
       "value": "\"Page idle timeout, ignoring received campaign element #\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Main\/Coordinator.swift",
       "kind": "StringLiteral",
-      "offset": 11457,
+      "offset": 11405,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Main\/Coordinator.swift",
       "kind": "StringLiteral",
-      "offset": 11553,
+      "offset": 11501,
       "length": 111,
       "value": "\"Campaign element #\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Main\/Coordinator.swift",
       "kind": "StringLiteral",
-      "offset": 11630,
+      "offset": 11578,
       "length": 2,
       "value": "\" is already running or terminated\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Main\/Coordinator.swift",
       "kind": "StringLiteral",
-      "offset": 11786,
+      "offset": 11734,
       "length": 131,
       "value": "\"Campaign element #\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Main\/Coordinator.swift",
       "kind": "StringLiteral",
-      "offset": 11860,
+      "offset": 11808,
       "length": 4,
       "value": "\" will be terminated because page history is not eligible\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Main\/Coordinator.swift",
       "kind": "StringLiteral",
-      "offset": 12359,
+      "offset": 12307,
       "length": 101,
       "value": "\"Missing data for received campaign element #\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Main\/Coordinator.swift",
       "kind": "StringLiteral",
-      "offset": 12459,
+      "offset": 12407,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Main\/Coordinator.swift",
       "kind": "StringLiteral",
-      "offset": 12555,
+      "offset": 12503,
       "length": 59,
       "value": "\"Missing session's sid, unable to send save_campaign event\""
     },
@@ -61899,14 +62293,14 @@
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Presentation\/BadgePositioningContext.swift",
       "kind": "IntegerLiteral",
-      "offset": 2165,
+      "offset": 2009,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Presentation\/BadgePositioningContext.swift",
       "kind": "IntegerLiteral",
-      "offset": 2228,
+      "offset": 2072,
       "length": 1,
       "value": "0"
     },
@@ -62375,14 +62769,14 @@
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Presentation\/ModalWebViewPresenter.swift",
       "kind": "BooleanLiteral",
-      "offset": 1461,
+      "offset": 1454,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/Presentation\/ModalWebViewPresenter.swift",
       "kind": "BooleanLiteral",
-      "offset": 2834,
+      "offset": 2827,
       "length": 4,
       "value": "true"
     },
@@ -63208,140 +63602,140 @@
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/CampaignEvent.swift",
       "kind": "StringLiteral",
-      "offset": 478,
+      "offset": 286,
       "length": 16,
       "value": "\"show_offerview\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/CampaignEvent.swift",
       "kind": "StringLiteral",
-      "offset": 517,
+      "offset": 325,
       "length": 18,
       "value": "\"show_presentview\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/CampaignEvent.swift",
       "kind": "StringLiteral",
-      "offset": 556,
+      "offset": 364,
       "length": 13,
       "value": "\"click_offer\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/CampaignEvent.swift",
       "kind": "StringLiteral",
-      "offset": 596,
+      "offset": 404,
       "length": 17,
       "value": "\"click_offer_btn\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/CampaignEvent.swift",
       "kind": "StringLiteral",
-      "offset": 641,
+      "offset": 449,
       "length": 19,
       "value": "\"click_present_btn\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/CampaignEvent.swift",
       "kind": "StringLiteral",
-      "offset": 687,
+      "offset": 495,
       "length": 14,
       "value": "\"click_filter\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/CampaignEvent.swift",
       "kind": "StringLiteral",
-      "offset": 728,
+      "offset": 536,
       "length": 13,
       "value": "\"click_close\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/CampaignEvent.swift",
       "kind": "StringLiteral",
-      "offset": 762,
+      "offset": 570,
       "length": 13,
       "value": "\"click_badge\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/CampaignEvent.swift",
       "kind": "StringLiteral",
-      "offset": 478,
+      "offset": 286,
       "length": 16,
       "value": "\"show_offerview\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/CampaignEvent.swift",
       "kind": "StringLiteral",
-      "offset": 517,
+      "offset": 325,
       "length": 18,
       "value": "\"show_presentview\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/CampaignEvent.swift",
       "kind": "StringLiteral",
-      "offset": 556,
+      "offset": 364,
       "length": 13,
       "value": "\"click_offer\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/CampaignEvent.swift",
       "kind": "StringLiteral",
-      "offset": 596,
+      "offset": 404,
       "length": 17,
       "value": "\"click_offer_btn\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/CampaignEvent.swift",
       "kind": "StringLiteral",
-      "offset": 641,
+      "offset": 449,
       "length": 19,
       "value": "\"click_present_btn\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/CampaignEvent.swift",
       "kind": "StringLiteral",
-      "offset": 687,
+      "offset": 495,
       "length": 14,
       "value": "\"click_filter\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/CampaignEvent.swift",
       "kind": "StringLiteral",
-      "offset": 728,
+      "offset": 536,
       "length": 13,
       "value": "\"click_close\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/CampaignEvent.swift",
       "kind": "StringLiteral",
-      "offset": 762,
+      "offset": 570,
       "length": 13,
       "value": "\"click_badge\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/CampaignEvent.swift",
       "kind": "StringLiteral",
-      "offset": 872,
+      "offset": 680,
       "length": 13,
       "value": "\"campaign_id\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/CampaignEvent.swift",
       "kind": "StringLiteral",
-      "offset": 915,
+      "offset": 723,
       "length": 12,
       "value": "\"element_id\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/CampaignEvent.swift",
       "kind": "StringLiteral",
-      "offset": 872,
+      "offset": 680,
       "length": 13,
       "value": "\"campaign_id\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/CampaignEvent.swift",
       "kind": "StringLiteral",
-      "offset": 915,
+      "offset": 723,
       "length": 12,
       "value": "\"element_id\""
     },
@@ -63530,252 +63924,252 @@
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "BooleanLiteral",
-      "offset": 2831,
+      "offset": 2926,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "BooleanLiteral",
-      "offset": 2856,
+      "offset": 2951,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "BooleanLiteral",
-      "offset": 3212,
+      "offset": 3307,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "BooleanLiteral",
-      "offset": 3237,
+      "offset": 3332,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 4001,
+      "offset": 4096,
       "length": 92,
       "value": "\"Rejected attempt to send \"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 4077,
+      "offset": 4172,
       "length": 1,
       "value": "\"\" socket event\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 4416,
+      "offset": 4511,
       "length": 92,
       "value": "\"Rejected attempt to send \"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 4492,
+      "offset": 4587,
       "length": 1,
       "value": "\"\" socket event\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "Array",
-      "offset": 4956,
+      "offset": 5051,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "BooleanLiteral",
-      "offset": 6164,
+      "offset": 6259,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 6750,
+      "offset": 6845,
       "length": 45,
       "value": "\"APRRealTimeNetworkingDidConnectNotification\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 6866,
+      "offset": 6961,
       "length": 48,
       "value": "\"APRRealTimeNetworkingDidDisconnectNotification\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 6984,
+      "offset": 7079,
       "length": 47,
       "value": "\"APRRealTimeNetworkingDidReconnectNotification\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 7104,
+      "offset": 7199,
       "length": 50,
       "value": "\"APRRealTimeNetworkingPageInitializedNotification\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 7228,
+      "offset": 7323,
       "length": 51,
       "value": "\"APRRealTimeNetworkingCampaignReceivedNotification\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 7342,
+      "offset": 7437,
       "length": 40,
       "value": "\"APRRealTimeNetworkingErrorNotification\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "Array",
-      "offset": 7450,
+      "offset": 7545,
       "length": 62,
       "value": "[\"campaign_receive\", \"save_campaign\", \"user_behavior\"]"
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 7744,
+      "offset": 7839,
       "length": 6,
       "value": "\"init\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 7791,
+      "offset": 7886,
       "length": 18,
       "value": "\"campaign_receive\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 7834,
+      "offset": 7929,
       "length": 15,
       "value": "\"save_campaign\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 7875,
+      "offset": 7970,
       "length": 16,
       "value": "\"campaign_event\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 7916,
+      "offset": 8011,
       "length": 15,
       "value": "\"user_behavior\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 7954,
+      "offset": 8049,
       "length": 12,
       "value": "\"conversion\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 7994,
+      "offset": 8089,
       "length": 19,
       "value": "\"cart_button_click\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 7744,
+      "offset": 7839,
       "length": 6,
       "value": "\"init\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 7791,
+      "offset": 7886,
       "length": 18,
       "value": "\"campaign_receive\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 7834,
+      "offset": 7929,
       "length": 15,
       "value": "\"save_campaign\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 7875,
+      "offset": 7970,
       "length": 16,
       "value": "\"campaign_event\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 7916,
+      "offset": 8011,
       "length": 15,
       "value": "\"user_behavior\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 7954,
+      "offset": 8049,
       "length": 12,
       "value": "\"conversion\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 7994,
+      "offset": 8089,
       "length": 19,
       "value": "\"cart_button_click\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 8078,
+      "offset": 8173,
       "length": 17,
       "value": "\"ReceiveCampaign\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 8078,
+      "offset": 8173,
       "length": 17,
       "value": "\"ReceiveCampaign\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 8163,
+      "offset": 8258,
       "length": 44,
       "value": "\"APRRealTimeNetworkingPageInitResponseEvent\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 8242,
+      "offset": 8337,
       "length": 31,
       "value": "\"APRRealTimeNetworkingCampaign\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/AiDealSdk\/WebSocket\/RealTimeNetworking.swift",
       "kind": "StringLiteral",
-      "offset": 8304,
+      "offset": 8399,
       "length": 28,
       "value": "\"APRRealTimeNetworkingError\""
     },
@@ -64824,360 +65218,710 @@
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 169,
+      "length": 16,
+      "value": "\"AppierSdkRecId\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 224,
+      "length": 21,
+      "value": "\"AppierSdkScenarioId\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 281,
+      "length": 18,
+      "value": "\"AppierSdkModelId\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 337,
+      "length": 20,
+      "value": "\"AppierSdkProductId\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 704,
+      "offset": 1090,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 358,
+      "offset": 744,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 1245,
+      "offset": 1787,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 1845,
+      "offset": 2505,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 1888,
+      "offset": 2548,
       "length": 23,
       "value": "\"inapp_creative_studio\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 2053,
+      "offset": 2713,
       "length": 36,
       "value": "\"inapp_creative_studio_close_button\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 2673,
+      "offset": 3333,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 3151,
+      "offset": 3811,
       "length": 3,
       "value": "0.2"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 3185,
+      "offset": 3845,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 3218,
+      "offset": 3878,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 3517,
+      "offset": 4177,
       "length": 46,
       "value": "\"Invalid URL: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 3562,
+      "offset": 4222,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 3918,
+      "offset": 4305,
+      "length": 13,
+      "value": "\"about:blank\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 4346,
+      "length": 17,
+      "value": "\"skip blank page\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "BooleanLiteral",
+      "offset": 4568,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 4673,
+      "length": 63,
+      "value": "\"creative studio navigation: \""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 4727,
+      "length": 1,
+      "value": "\", \""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 4735,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 4812,
+      "length": 74,
+      "value": "\"creative studio navigation (redirect): \""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 4877,
+      "length": 1,
+      "value": "\", \""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 4885,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 5119,
+      "length": 26,
+      "value": "\"open url: \""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 5144,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 5286,
+      "length": 74,
+      "value": "\"creative studio navigation (subframe): \""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 5351,
+      "length": 1,
+      "value": "\", \""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 5359,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 5673,
       "length": 7,
       "value": "\"aiqua\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4014,
+      "offset": 5769,
       "length": 9,
       "value": "\"command\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4086,
+      "offset": 5841,
       "length": 23,
       "value": "\"giosgInteractionEvent\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4143,
+      "offset": 5898,
       "length": 7,
       "value": "\"event\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4202,
+      "offset": 5957,
       "length": 6,
       "value": "\"type\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4342,
+      "offset": 6097,
       "length": 27,
       "value": "\"interactiondesigner:start\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4544,
+      "offset": 6299,
       "length": 27,
       "value": "\"interactiondesigner:click\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "Array",
-      "offset": 4604,
+      "offset": 6359,
       "length": 38,
       "value": "[\"opentab\", \"redirect\", \"get\", \"post\"]"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4682,
+      "offset": 6437,
       "length": 12,
       "value": "\"urlActions\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 4776,
+      "offset": 6531,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4928,
+      "offset": 6683,
       "length": 6,
       "value": "\"type\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4994,
+      "offset": 6749,
       "length": 11,
       "value": "\"targetUrl\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 5193,
+      "offset": 6948,
       "length": 21,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 5212,
+      "offset": 6967,
       "length": 1,
       "value": "\"\/\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 5449,
-      "length": 44,
-      "value": "\"interactiondesigner:click: \""
+      "offset": 7205,
+      "length": 56,
+      "value": "\"giosg click: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 5484,
+      "offset": 7226,
       "length": 1,
-      "value": "\": \""
+      "value": "\", \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 5492,
-      "length": 2,
-      "value": "\"\""
+      "offset": 7234,
+      "length": 1,
+      "value": "\", \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 5681,
+      "offset": 7244,
       "length": 14,
       "value": "\"elementLabel\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 5711,
+      "offset": 7260,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 6060,
+      "offset": 7449,
+      "length": 14,
+      "value": "\"elementLabel\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 7479,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 7624,
       "length": 26,
       "value": "\"interactiondesigner:exit\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 6180,
+      "offset": 7744,
       "length": 30,
       "value": "\"interactiondesigner:formdata\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 6341,
+      "offset": 7905,
       "length": 10,
       "value": "\"leadType\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 6355,
+      "offset": 7919,
       "length": 16,
       "value": "\"creativeStudio\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 6520,
+      "offset": 8084,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 6759,
+      "offset": 8323,
       "length": 13,
       "value": "\"en_US_POSIX\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 6834,
+      "offset": 8398,
       "length": 5,
       "value": "\"GMT\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 6880,
+      "offset": 8444,
       "length": 27,
       "value": "\"yyyy-MM-dd'T'HH:mm:ss.SSS\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 6986,
+      "offset": 8550,
       "length": 3,
       "value": "\"Z\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 7447,
+      "offset": 8848,
+      "length": 29,
+      "value": "\"getRecommendationByScenario\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 8915,
+      "length": 11,
+      "value": "\"promiseId\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 8973,
+      "length": 9,
+      "value": "\"options\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 9042,
+      "length": 12,
+      "value": "\"scenarioId\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 9435,
+      "length": 7,
+      "value": "\"items\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 9480,
+      "length": 7,
+      "value": "\"recId\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 9530,
+      "length": 12,
+      "value": "\"scenarioId\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 9582,
+      "length": 9,
+      "value": "\"modelId\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "IntegerLiteral",
+      "offset": 9884,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 9934,
+      "length": 99,
+      "value": "\"self.resolve(\"\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 9962,
+      "length": 1,
+      "value": "\"\", [\"\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 9978,
+      "length": 1,
+      "value": "\"\", \"\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 9992,
+      "length": 1,
+      "value": "\"\", \"\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 10011,
+      "length": 1,
+      "value": "\"\", \"\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 10027,
+      "length": 1,
+      "value": "\"\"]);\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 10090,
+      "length": 38,
+      "value": "\"error: \""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 10127,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 10283,
+      "length": 17,
+      "value": "\"giosg_timed_out\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 10640,
       "length": 6,
       "value": "\"-._~\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 7632,
+      "offset": 10825,
       "length": 20,
       "value": "\"giosgInteractionId\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 7703,
+      "offset": 10896,
       "length": 9,
       "value": "\"version\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 7947,
+      "offset": 11140,
       "length": 79,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 7966,
+      "offset": 11159,
       "length": 1,
       "value": "\"\/id\/\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 7991,
+      "offset": 11184,
       "length": 1,
       "value": "\"\/live.js?aiq_v=\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 8025,
+      "offset": 11218,
       "length": 9,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 8121,
-      "length": 645,
-      "value": "\"<!--CreativeStudio-->\n<!DOCTYPE html>\n<html>\n<body>\n    <script>\n        window.onGiosgInteractionEvent = (event) => {\n            return new Promise((resolve, reject) => {\n                var o = {\n                    command: 'giosgInteractionEvent',\n                    event: event\n                };\n                try {\n                    window.webkit.messageHandlers.aiqua.postMessage(o);\n                    resolve(\"Action done\", event);\n                } catch (e) {\n                    reject(e);\n                }\n            });\n        };\n    <\/script>\n    <script src=\"\""
+      "offset": 11314,
+      "length": 4992,
+      "value": "\"<!--CreativeStudio-->\n<!DOCTYPE html>\n<html>\n<body>\n    <script>\n        window.onGiosgInteractionEvent = (event) => {\n            return new Promise((resolve, reject) => {\n                var o = {\n                    command: 'giosgInteractionEvent',\n                    event: event\n                };\n                try {\n                    window.webkit.messageHandlers.aiqua.postMessage(o);\n                    resolve(\"Action done\", event);\n                } catch (e) {\n                    reject(e);\n                }\n            });\n        };\n\n        if (!window.qg) {\n            var self = function() {}\n\n            self.promises = {};\n\n            self.newPromise = function() {\n                const promiseId = performance.now().toString();\n                console.log('promise id:', promiseId);\n                const promise = new Promise((resolve, reject) => {\n                    self.promises[promiseId] = {resolve: resolve, reject: reject};\n                });\n                return {promiseId: promiseId, promise: promise};\n            }\n\n            self.takePromise = function(promiseId) {\n                const promise = self.promises[promiseId];\n                delete self.promises[promiseId];\n                return promise;\n            }\n\n            self.resolve = function(promiseId, result) {\n                console.log('resolve:', promiseId, result)\n                var promise = self.takePromise(promiseId);\n                if (promise) {\n                    promise.resolve(result);\n                }\n            }\n\n            self.reject = function(promiseId, error) {\n                console.log('reject:', promiseId, error)\n                var promise = self.takePromise(promiseId);\n                if (promise) {\n                    promise.reject(error);\n                }\n            }\n\n            self.base64Decode = function(base64Str) {\n                try {\n                    if (typeof TextEncoder !== 'undefined') {\n                        var decoder = new TextDecoder('utf-8');\n                        return decoder.decode(\n                            Uint8Array.from(\n                                window.atob(base64Str),\n                                function(c) {\n                                    return c.codePointAt(0);\n                                }\n                            )\n                        );\n                    } else {\n                        return decodeURIComponent(escape(window.atob(base64Str)));\n                    }\n                } catch (e) {\n                    return window.atob(base64Str);\n                }\n            }\n\n            window.appier = function() {\n                if (!arguments || arguments.length == 0) {\n                    console.log('qg is called but invalid');\n                    return;\n                }\n\n                var method = arguments[0];\n                console.log('qg is called:', method, arguments.length);\n                if (method == 'getRecommendationByScenario') {\n                    if (arguments.length >= 3) {\n                        var options = arguments[1];\n                        var callback = arguments[2];\n                        var {promiseId, promise} = self.newPromise()\n                        promise.then(result => {\n                            var recItems = JSON.parse(self.base64Decode(result[0]));\n                            var recId = result[1];\n                            var scenarioId = result[2];\n                            var modelId = result[3];\n\n                            var items = recItems.map(item => {\n                                if (item.url.indexOf('?') !== -1) {\n                                    item.url += '&';\n                                } else {\n                                    item.url += '?';\n                                }\n                                item.url += '\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 8735,
+      "offset": 15240,
+      "length": 1,
+      "value": "\"=' + encodeURI(recId);\n                                item.url += '&\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 15333,
+      "length": 1,
+      "value": "\"=' + encodeURI(scenarioId);\n                                item.url += '&\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 15428,
+      "length": 1,
+      "value": "\"=' + encodeURI(modelId);\n                                item.url += '&\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 15522,
+      "length": 1,
+      "value": "\"=' + encodeURI(item.productId);\n                                return item;\n                            });\n                            callback(null, items);\n                        }).catch(error => {\n                            callback(error, null);\n                        })\n\n                        var message = {\n                            command: 'getRecommendationByScenario',\n                            promiseId: promiseId,\n                            options: options\n                        };\n                        window.webkit.messageHandlers.aiqua.postMessage(message);\n                    }\n                }\n            }\n\n            window.qg = window.appier;\n        }\n    <\/script>\n    <script src=\"\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 16275,
       "length": 11,
       "value": "\"\"><\/script>\n<\/body>\n<\/html>\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 8974,
+      "offset": 16522,
       "length": 26,
       "value": "\"missing_cstudio_endpoint\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "BooleanLiteral",
+      "offset": 17055,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "IntegerLiteral",
+      "offset": 17547,
+      "length": 2,
+      "value": "-1"
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "IntegerLiteral",
+      "offset": 17572,
+      "length": 2,
+      "value": "-1"
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 9462,
-      "length": 17,
-      "value": "\"giosg_timed_out\""
+      "offset": 17619,
+      "length": 77,
+      "value": "\"log recommendation click: \""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 17658,
+      "length": 1,
+      "value": "\", \""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 17668,
+      "length": 1,
+      "value": "\", \""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 17683,
+      "length": 1,
+      "value": "\", \""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "StringLiteral",
+      "offset": 17695,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
+      "kind": "BooleanLiteral",
+      "offset": 18142,
+      "length": 4,
+      "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
@@ -65560,259 +66304,259 @@
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 3341,
+      "offset": 3351,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 3609,
+      "offset": 3619,
       "length": 4,
       "value": "0.82"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 3721,
+      "offset": 3731,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 3796,
+      "offset": 3806,
       "length": 7,
       "value": "\"aiqua\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 3968,
+      "offset": 3978,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 4030,
+      "offset": 4040,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 4167,
+      "offset": 4177,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 4245,
+      "offset": 4255,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 4657,
+      "offset": 4667,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 4714,
+      "offset": 4724,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 5090,
+      "offset": 5100,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 5147,
+      "offset": 5157,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 5176,
+      "offset": 5186,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 5231,
+      "offset": 5241,
       "length": 21,
       "value": "\"navigator.userAgent\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 5398,
+      "offset": 5408,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 5931,
+      "offset": 5941,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 6372,
+      "offset": 6382,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 6812,
+      "offset": 6822,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 6869,
+      "offset": 6879,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 7238,
+      "offset": 7248,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 7457,
+      "offset": 7467,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 7497,
+      "offset": 7507,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 7503,
+      "offset": 7513,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 7996,
+      "offset": 8006,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 8487,
+      "offset": 8497,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 8935,
+      "offset": 8945,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 9387,
+      "offset": 9397,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 9508,
+      "offset": 9518,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 10530,
+      "offset": 10540,
       "length": 45,
       "value": "\"onWindowResize('NULL', \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 10562,
+      "offset": 10572,
       "length": 1,
       "value": "\", \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 10573,
+      "offset": 10583,
       "length": 1,
       "value": "\")\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 11254,
+      "offset": 11264,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 11350,
+      "offset": 11360,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 11977,
+      "offset": 11987,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 12263,
+      "offset": 12273,
       "length": 36,
       "value": "\"AppleWebKit\\\/(\\d+\\.\\d+\\.\\d+)\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 12556,
+      "offset": 12566,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 12789,
+      "offset": 12799,
       "length": 1,
       "value": "0"
     },
@@ -65826,154 +66570,154 @@
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 13102,
+      "offset": 13112,
       "length": 7,
       "value": "\"aiqua\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 13198,
+      "offset": 13208,
       "length": 9,
       "value": "\"command\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 13270,
+      "offset": 13280,
       "length": 6,
       "value": "\"data\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 13309,
+      "offset": 13319,
       "length": 6,
       "value": "\"data\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 13429,
+      "offset": 13439,
       "length": 7,
       "value": "\"close\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 13450,
+      "offset": 13460,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 13492,
+      "offset": 13502,
       "length": 16,
       "value": "\"closePermanent\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 13522,
+      "offset": 13532,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 13700,
+      "offset": 13710,
       "length": 11,
       "value": "\"eventName\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 13775,
+      "offset": 13785,
       "length": 20,
       "value": "\"LogEvent: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 13794,
+      "offset": 13804,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 13898,
+      "offset": 13908,
       "length": 10,
       "value": "\"deeplink\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 13995,
+      "offset": 14005,
       "length": 7,
       "value": "\"close\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 14057,
+      "offset": 14067,
       "length": 21,
       "value": "\"actionButtonClicked\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 14115,
+      "offset": 14125,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 14146,
+      "offset": 14156,
       "length": 7,
       "value": "\"index\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 14166,
+      "offset": 14176,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 14247,
+      "offset": 14257,
       "length": 5,
       "value": "\"url\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 14475,
+      "offset": 14485,
       "length": 35,
       "value": "\"Received Message: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 14509,
+      "offset": 14519,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 14729,
+      "offset": 14739,
       "length": 57,
       "value": "\"document.documentElement.style.webkitUserSelect='none';\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 14842,
+      "offset": 14852,
       "length": 59,
       "value": "\"document.documentElement.style.webkitTouchCallout='none';\""
     },
@@ -66092,56 +66836,56 @@
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQLocalStorage+AIQStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 16572,
+      "offset": 16570,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQLocalStorage+AIQStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 16623,
+      "offset": 16621,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQLocalStorage+AIQStorage.swift",
       "kind": "StringLiteral",
-      "offset": 16658,
+      "offset": 16656,
       "length": 27,
       "value": "\"isCollectIDFA is disabled\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQLocalStorage+AIQStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 17046,
+      "offset": 17044,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQLocalStorage+AIQStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 17097,
+      "offset": 17095,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQLocalStorage+AIQStorage.swift",
       "kind": "StringLiteral",
-      "offset": 17132,
+      "offset": 17130,
       "length": 31,
       "value": "\"isCollectLocation is disabled\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQLocalStorage+AIQStorage.swift",
       "kind": "BooleanLiteral",
-      "offset": 17539,
+      "offset": 17537,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQLocalStorage+AIQStorage.swift",
       "kind": "StringLiteral",
-      "offset": 17845,
+      "offset": 17843,
       "length": 2,
       "value": "\"\""
     },
@@ -66848,121 +67592,135 @@
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 574,
+      "offset": 547,
       "length": 4,
       "value": "\"ns\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 612,
+      "offset": 585,
       "length": 3,
       "value": "\"d\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 648,
+      "offset": 621,
       "length": 3,
       "value": "\"e\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 678,
+      "offset": 651,
       "length": 9,
       "value": "\"Unknown\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 873,
+      "offset": 846,
       "length": 3,
       "value": "\"d\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 915,
+      "offset": 888,
       "length": 4,
       "value": "\"nd\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 955,
+      "offset": 928,
       "length": 3,
       "value": "\"a\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 985,
+      "offset": 958,
       "length": 9,
       "value": "\"Unknown\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 1301,
+      "offset": 1274,
       "length": 5,
       "value": "\"ncs\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 1392,
+      "offset": 1365,
       "length": 5,
       "value": "\"lss\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 1475,
+      "offset": 1448,
       "length": 5,
       "value": "\"cps\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 1555,
+      "offset": 1528,
       "length": 4,
       "value": "\"ss\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 1632,
+      "offset": 1605,
       "length": 4,
       "value": "\"as\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 1709,
+      "offset": 1682,
       "length": 4,
       "value": "\"bs\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 1786,
+      "offset": 1759,
       "length": 12,
       "value": "\"authStatus\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility+Internal.swift",
       "kind": "IntegerLiteral",
-      "offset": 2030,
+      "offset": 2003,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility+Internal.swift",
       "kind": "StringLiteral",
-      "offset": 2043,
+      "offset": 2016,
       "length": 4,
       "value": "\"nt\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility+Internal.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2860,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility+Internal.swift",
+      "kind": "StringLiteral",
+      "offset": 2889,
+      "length": 6,
+      "value": "\"locn\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
@@ -67394,35 +68152,21 @@
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "BooleanLiteral",
-      "offset": 6142,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
-      "kind": "StringLiteral",
-      "offset": 6173,
-      "length": 6,
-      "value": "\"locn\""
-    },
-    {
-      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
-      "kind": "BooleanLiteral",
-      "offset": 6355,
+      "offset": 5966,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "BooleanLiteral",
-      "offset": 7000,
+      "offset": 6802,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQUtility.swift",
       "kind": "Array",
-      "offset": 7151,
+      "offset": 6953,
       "length": 556,
       "value": "[\"QGSdk\", \"QGraph\", \"AIQUtility\", \"APRDeviceInfo\", \"DeviceInfo\", \"AIQLocalStorage\", \"RemoteConfigRemoteService\", \"RecommendationRemoteService\", \"AIQRequestManager\", \"AIQUncaughtExceptionHandler\", \"QGInAppManager\", \"QGInboxManager\", \"QGImageManager\", \"AIQLocationManager\", \"AIQGeofenceManager\", \"QGLocalNotificationManager\", \"QGWKWebView\", \"AIQP\", \"AIQP+ReactNative\", \"AIQP+DataFetch\", \"QGNotificationSDK\", \"QGGZIP\", \"QGStringUtil\", \"QGUncaughtExceptionHandler\", \"QGInApp\", \"QGInbox\", \"QGInAppWebViewController\", \"QGInAppDisplayManager\", \"AiDeal\", \"Appier\"]"
     },
@@ -67431,7 +68175,7 @@
       "kind": "StringLiteral",
       "offset": 235,
       "length": 8,
-      "value": "\"7.32.1\""
+      "value": "\"7.32.2\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
@@ -68199,196 +68943,196 @@
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 8529,
-      "length": 17,
-      "value": "\"qg_line_clicked\""
+      "offset": 8527,
+      "length": 15,
+      "value": "\"qg_line_click\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 8576,
+      "offset": 8572,
       "length": 16,
       "value": "\"geofence_enter\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 8621,
+      "offset": 8617,
       "length": 15,
       "value": "\"geofence_exit\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 8668,
+      "offset": 8664,
       "length": 18,
       "value": "\"geofence_updated\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 8725,
+      "offset": 8721,
       "length": 26,
       "value": "\"geofence_register_failed\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 8813,
+      "offset": 8809,
       "length": 20,
       "value": "\"qg_inapp_displayed\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 8857,
+      "offset": 8853,
       "length": 18,
       "value": "\"qg_inapp_toggled\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 8899,
+      "offset": 8895,
       "length": 18,
       "value": "\"qg_inapp_clicked\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 8940,
+      "offset": 8936,
       "length": 17,
       "value": "\"qg_inapp_closed\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 8981,
+      "offset": 8977,
       "length": 19,
       "value": "\"qg_inapp_lead_gen\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 9023,
+      "offset": 9019,
       "length": 17,
       "value": "\"qg_inapp_failed\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 9100,
+      "offset": 9096,
       "length": 29,
       "value": "\"appier_endpoint_user_server\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 9151,
+      "offset": 9147,
       "length": 23,
       "value": "\"appier_endpoint_dback\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 9205,
+      "offset": 9201,
       "length": 32,
       "value": "\"appier_endpoint_recommendation\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 9269,
+      "offset": 9265,
       "length": 33,
       "value": "\"appier_endpoint_personalization\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 9326,
+      "offset": 9322,
       "length": 25,
       "value": "\"appier_endpoint_cstudio\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 9410,
+      "offset": 9406,
       "length": 15,
       "value": "\"aiq_geofences\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 9449,
+      "offset": 9445,
       "length": 24,
       "value": "\"aiq_geofencing_capable\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 9497,
+      "offset": 9493,
       "length": 22,
       "value": "\"aiq_geofence_enabled\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 9545,
+      "offset": 9541,
       "length": 11,
       "value": "\"available\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 9579,
+      "offset": 9575,
       "length": 8,
       "value": "\"denied\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 9614,
+      "offset": 9610,
       "length": 12,
       "value": "\"restricted\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 9689,
+      "offset": 9685,
       "length": 15,
       "value": "\"notDetermined\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 9727,
+      "offset": 9723,
       "length": 8,
       "value": "\"denied\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 9762,
+      "offset": 9758,
       "length": 12,
       "value": "\"restricted\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 9801,
+      "offset": 9797,
       "length": 12,
       "value": "\"authorized\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 9849,
+      "offset": 9845,
       "length": 21,
       "value": "\"authorizedWhenInUse\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 9903,
+      "offset": 9899,
       "length": 18,
       "value": "\"authorizedAlways\""
     },
@@ -68570,63 +69314,63 @@
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/CoreDataComponent.swift",
       "kind": "IntegerLiteral",
-      "offset": 404,
+      "offset": 434,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/CoreDataComponent.swift",
       "kind": "StringLiteral",
-      "offset": 646,
+      "offset": 685,
       "length": 6,
       "value": "\"momd\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/CoreDataComponent.swift",
       "kind": "StringLiteral",
-      "offset": 678,
+      "offset": 725,
       "length": 33,
       "value": "\"Error loading model from bundle\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/CoreDataComponent.swift",
       "kind": "StringLiteral",
-      "offset": 988,
+      "offset": 1060,
       "length": 42,
       "value": "\"Error initializing mom from: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/CoreDataComponent.swift",
       "kind": "StringLiteral",
-      "offset": 1029,
+      "offset": 1101,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/CoreDataComponent.swift",
       "kind": "StringLiteral",
-      "offset": 1633,
+      "offset": 1854,
       "length": 21,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/CoreDataComponent.swift",
       "kind": "StringLiteral",
-      "offset": 1646,
+      "offset": 1867,
       "length": 1,
       "value": "\".sqlite\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/CoreDataComponent.swift",
       "kind": "StringLiteral",
-      "offset": 1840,
+      "offset": 2061,
       "length": 48,
       "value": "\"Unresolved error \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/CoreDataComponent.swift",
       "kind": "StringLiteral",
-      "offset": 1887,
+      "offset": 2108,
       "length": 2,
       "value": "\"\""
     },
@@ -68689,266 +69433,266 @@
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "IntegerLiteral",
-      "offset": 278,
+      "offset": 279,
       "length": 4,
       "value": "1000"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "IntegerLiteral",
-      "offset": 285,
+      "offset": 286,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "IntegerLiteral",
-      "offset": 290,
+      "offset": 291,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "IntegerLiteral",
-      "offset": 295,
+      "offset": 296,
       "length": 2,
       "value": "24"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 325,
+      "offset": 326,
       "length": 19,
       "value": "\"LoggedEventEntity\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "BooleanLiteral",
-      "offset": 834,
+      "offset": 897,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 1294,
+      "offset": 1352,
       "length": 48,
       "value": "\"Unable to query: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 1341,
+      "offset": 1399,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 1729,
+      "offset": 1848,
       "length": 45,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 1753,
+      "offset": 1872,
       "length": 2,
       "value": "\" >= \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 1773,
+      "offset": 1892,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 2186,
+      "offset": 2300,
       "length": 48,
       "value": "\"Unable to query: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 2233,
+      "offset": 2347,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "IntegerLiteral",
-      "offset": 2437,
+      "offset": 2553,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "BooleanLiteral",
-      "offset": 2685,
+      "offset": 2862,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "IntegerLiteral",
-      "offset": 2804,
+      "offset": 2976,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 2882,
+      "offset": 3054,
       "length": 46,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 2906,
+      "offset": 3078,
       "length": 1,
       "value": "\" < \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 2927,
+      "offset": 3099,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 3190,
+      "offset": 3352,
       "length": 49,
       "value": "\"Unable to delete: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 3238,
+      "offset": 3400,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "IntegerLiteral",
-      "offset": 3441,
+      "offset": 3605,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "IntegerLiteral",
-      "offset": 3532,
+      "offset": 3757,
       "length": 4,
       "value": "1000"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 3691,
+      "offset": 3916,
       "length": 42,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 3715,
+      "offset": 3940,
       "length": 1,
       "value": "\" < \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 3732,
+      "offset": 3957,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 4031,
+      "offset": 4241,
       "length": 49,
       "value": "\"Unable to delete: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 4079,
+      "offset": 4289,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "IntegerLiteral",
-      "offset": 4261,
+      "offset": 4473,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 4675,
+      "offset": 4933,
       "length": 49,
       "value": "\"Unable to delete: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 4723,
+      "offset": 4981,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "BooleanLiteral",
-      "offset": 4909,
+      "offset": 5169,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "BooleanLiteral",
-      "offset": 5312,
+      "offset": 5622,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 5368,
+      "offset": 5678,
       "length": 49,
       "value": "\"Unable to insert: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "StringLiteral",
-      "offset": 5416,
+      "offset": 5726,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "BooleanLiteral",
-      "offset": 5436,
+      "offset": 5746,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "BooleanLiteral",
-      "offset": 5537,
+      "offset": 5847,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/DB\/LoggedEvent\/LoggedEventDAO.swift",
       "kind": "BooleanLiteral",
-      "offset": 5798,
+      "offset": 6163,
       "length": 5,
       "value": "false"
     },
@@ -69389,7 +70133,7 @@
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Geofencing\/AIQGeofence.swift",
       "kind": "BooleanLiteral",
-      "offset": 1153,
+      "offset": 1146,
       "length": 5,
       "value": "false"
     },
@@ -69942,7 +70686,7 @@
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/InAppCampaign\/InAppBadgeSetting.swift",
       "kind": "BooleanLiteral",
-      "offset": 966,
+      "offset": 953,
       "length": 5,
       "value": "false"
     },
@@ -69956,56 +70700,56 @@
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/InAppCampaign\/InAppBadgeSetting.swift",
       "kind": "IntegerLiteral",
-      "offset": 1137,
+      "offset": 1124,
       "length": 8,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/InAppCampaign\/InAppBadgeSetting.swift",
       "kind": "StringLiteral",
-      "offset": 1326,
+      "offset": 1313,
       "length": 9,
       "value": "\"topLeft\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/InAppCampaign\/InAppBadgeSetting.swift",
       "kind": "StringLiteral",
-      "offset": 1362,
+      "offset": 1349,
       "length": 10,
       "value": "\"topRight\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/InAppCampaign\/InAppBadgeSetting.swift",
       "kind": "StringLiteral",
-      "offset": 1546,
+      "offset": 1533,
       "length": 30,
       "value": "\"Unexpected align: '\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/InAppCampaign\/InAppBadgeSetting.swift",
       "kind": "StringLiteral",
-      "offset": 1574,
+      "offset": 1561,
       "length": 3,
       "value": "\"'\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/InAppCampaign\/InAppBadgeSetting.swift",
       "kind": "StringLiteral",
-      "offset": 1776,
+      "offset": 1763,
       "length": 9,
       "value": "\"topLeft\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/InAppCampaign\/InAppBadgeSetting.swift",
       "kind": "StringLiteral",
-      "offset": 1834,
+      "offset": 1821,
       "length": 10,
       "value": "\"topRight\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/InAppCampaign\/InAppBadgeSetting.swift",
       "kind": "IntegerLiteral",
-      "offset": 1137,
+      "offset": 1124,
       "length": 8,
       "value": "1"
     },
@@ -70145,7 +70889,7 @@
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/InAppCampaign\/InAppMatchCondition.swift",
       "kind": "BooleanLiteral",
-      "offset": 3440,
+      "offset": 3425,
       "length": 5,
       "value": "false"
     },
@@ -70159,126 +70903,126 @@
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/InAppCampaign\/InAppMatchCondition.swift",
       "kind": "StringLiteral",
-      "offset": 3588,
+      "offset": 3573,
       "length": 8,
       "value": "\"equals\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/InAppCampaign\/InAppMatchCondition.swift",
       "kind": "StringLiteral",
-      "offset": 3612,
+      "offset": 3597,
       "length": 3,
       "value": "\"=\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/InAppCampaign\/InAppMatchCondition.swift",
       "kind": "StringLiteral",
-      "offset": 3634,
+      "offset": 3619,
       "length": 4,
       "value": "\"!=\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/InAppCampaign\/InAppMatchCondition.swift",
       "kind": "StringLiteral",
-      "offset": 3658,
+      "offset": 3643,
       "length": 10,
       "value": "\"contains\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/InAppCampaign\/InAppMatchCondition.swift",
       "kind": "StringLiteral",
-      "offset": 3690,
+      "offset": 3675,
       "length": 3,
       "value": "\">\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/InAppCampaign\/InAppMatchCondition.swift",
       "kind": "StringLiteral",
-      "offset": 3722,
+      "offset": 3707,
       "length": 4,
       "value": "\">=\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/InAppCampaign\/InAppMatchCondition.swift",
       "kind": "StringLiteral",
-      "offset": 3745,
+      "offset": 3730,
       "length": 3,
       "value": "\"<\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/InAppCampaign\/InAppMatchCondition.swift",
       "kind": "StringLiteral",
-      "offset": 3774,
+      "offset": 3759,
       "length": 4,
       "value": "\"<=\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/InAppCampaign\/InAppMatchCondition.swift",
       "kind": "StringLiteral",
-      "offset": 3797,
+      "offset": 3782,
       "length": 8,
       "value": "\"exists\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/InAppCampaign\/InAppMatchCondition.swift",
       "kind": "StringLiteral",
-      "offset": 3588,
+      "offset": 3573,
       "length": 8,
       "value": "\"equals\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/InAppCampaign\/InAppMatchCondition.swift",
       "kind": "StringLiteral",
-      "offset": 3612,
+      "offset": 3597,
       "length": 3,
       "value": "\"=\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/InAppCampaign\/InAppMatchCondition.swift",
       "kind": "StringLiteral",
-      "offset": 3634,
+      "offset": 3619,
       "length": 4,
       "value": "\"!=\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/InAppCampaign\/InAppMatchCondition.swift",
       "kind": "StringLiteral",
-      "offset": 3658,
+      "offset": 3643,
       "length": 10,
       "value": "\"contains\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/InAppCampaign\/InAppMatchCondition.swift",
       "kind": "StringLiteral",
-      "offset": 3690,
+      "offset": 3675,
       "length": 3,
       "value": "\">\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/InAppCampaign\/InAppMatchCondition.swift",
       "kind": "StringLiteral",
-      "offset": 3722,
+      "offset": 3707,
       "length": 4,
       "value": "\">=\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/InAppCampaign\/InAppMatchCondition.swift",
       "kind": "StringLiteral",
-      "offset": 3745,
+      "offset": 3730,
       "length": 3,
       "value": "\"<\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/InAppCampaign\/InAppMatchCondition.swift",
       "kind": "StringLiteral",
-      "offset": 3774,
+      "offset": 3759,
       "length": 4,
       "value": "\"<=\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/InAppCampaign\/InAppMatchCondition.swift",
       "kind": "StringLiteral",
-      "offset": 3797,
+      "offset": 3782,
       "length": 8,
       "value": "\"exists\""
     },
@@ -71398,287 +72142,287 @@
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "IntegerLiteral",
-      "offset": 3170,
+      "offset": 3171,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 3385,
+      "offset": 3386,
       "length": 62,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 3393,
+      "offset": 3394,
       "length": 9,
       "value": "\" exception encoding recommandation api data: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 3446,
+      "offset": 3447,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 3501,
+      "offset": 3502,
       "length": 102,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 3509,
+      "offset": 3510,
       "length": 9,
       "value": "\" exception encoding recommandation api data: invalud JSONObject. Key: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 3585,
+      "offset": 3586,
       "length": 1,
       "value": "\". Value: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 3602,
+      "offset": 3603,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "IntegerLiteral",
-      "offset": 3948,
+      "offset": 3949,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 3977,
+      "offset": 3978,
       "length": 5,
       "value": "\"GET\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 4156,
+      "offset": 4157,
       "length": 44,
       "value": "\"Failed to request recommendation: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 4199,
+      "offset": 4200,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 4326,
+      "offset": 4327,
       "length": 28,
       "value": "\"No data for recommendation\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 4551,
+      "offset": 4552,
       "length": 15,
       "value": "\"Unknown error\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "IntegerLiteral",
-      "offset": 4701,
+      "offset": 4702,
       "length": 3,
       "value": "200"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 4965,
+      "offset": 4966,
       "length": 35,
       "value": "\"JSONSerialization error: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 4999,
+      "offset": 5000,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "IntegerLiteral",
-      "offset": 5583,
+      "offset": 5584,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 5614,
+      "offset": 5615,
       "length": 5,
       "value": "\"GET\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 5801,
+      "offset": 5802,
       "length": 44,
       "value": "\"Failed to request recommendation: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 5844,
+      "offset": 5845,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 5981,
+      "offset": 5982,
       "length": 28,
       "value": "\"No data for recommendation\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 6216,
+      "offset": 6217,
       "length": 15,
       "value": "\"Unknown error\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "IntegerLiteral",
-      "offset": 6374,
+      "offset": 6375,
       "length": 3,
       "value": "200"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 6688,
+      "offset": 6689,
       "length": 35,
       "value": "\"JSONSerialization error: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 6722,
+      "offset": 6723,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "IntegerLiteral",
-      "offset": 7392,
+      "offset": 7393,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 7423,
+      "offset": 7424,
       "length": 5,
       "value": "\"GET\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 7610,
+      "offset": 7611,
       "length": 44,
       "value": "\"Failed to request recommendation: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 7653,
+      "offset": 7654,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 7790,
+      "offset": 7791,
       "length": 28,
       "value": "\"No data for recommendation\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 8025,
+      "offset": 8026,
       "length": 15,
       "value": "\"Unknown error\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "IntegerLiteral",
-      "offset": 8183,
+      "offset": 8184,
       "length": 3,
       "value": "200"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 8751,
+      "offset": 8752,
       "length": 35,
       "value": "\"JSONSerialization error: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 8785,
+      "offset": 8786,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 9298,
+      "offset": 9299,
       "length": 5,
       "value": "\"pid\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 9337,
+      "offset": 9338,
       "length": 12,
       "value": "\"product_id\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 9376,
+      "offset": 9377,
       "length": 5,
       "value": "\"pid\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 9417,
+      "offset": 9418,
       "length": 5,
       "value": "\"num\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 9445,
+      "offset": 9446,
       "length": 11,
       "value": "\"num_items\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/RecommendationRemoteService.swift",
       "kind": "StringLiteral",
-      "offset": 9483,
+      "offset": 9484,
       "length": 5,
       "value": "\"num\""
     },
@@ -72497,28 +73241,28 @@
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/Response\/RecommendationProductItem.swift",
       "kind": "StringLiteral",
-      "offset": 1245,
+      "offset": 1241,
       "length": 13,
       "value": "\"description\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/Response\/RecommendationProductItem.swift",
       "kind": "StringLiteral",
-      "offset": 1280,
+      "offset": 1276,
       "length": 12,
       "value": "\"image_link\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/Response\/RecommendationProductItem.swift",
       "kind": "StringLiteral",
-      "offset": 1245,
+      "offset": 1241,
       "length": 13,
       "value": "\"description\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/RecommendationService\/Response\/RecommendationProductItem.swift",
       "kind": "StringLiteral",
-      "offset": 1280,
+      "offset": 1276,
       "length": 12,
       "value": "\"image_link\""
     },
@@ -72777,219 +73521,275 @@
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "Dictionary",
-      "offset": 354,
+      "offset": 356,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 971,
+      "offset": 979,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 1002,
+      "offset": 1010,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 2159,
+      "offset": 2292,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 2340,
+      "offset": 2575,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 2792,
+      "offset": 3159,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 3132,
+      "offset": 3511,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "StringLiteral",
-      "offset": 3237,
+      "offset": 3616,
       "length": 9,
       "value": "\"_lnchid\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "StringLiteral",
-      "offset": 3261,
+      "offset": 3640,
       "length": 8,
       "value": "\"_lnuid\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "StringLiteral",
-      "offset": 3391,
+      "offset": 3770,
       "length": 17,
       "value": "\"line_channel_id\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "StringLiteral",
-      "offset": 3434,
+      "offset": 3813,
       "length": 10,
       "value": "\"line_uid\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "StringLiteral",
-      "offset": 3478,
+      "offset": 3857,
       "length": 19,
       "value": "\"line_not_follower\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "StringLiteral",
-      "offset": 3529,
+      "offset": 3908,
       "length": 17,
       "value": "\"qg_not_follower\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "StringLiteral",
-      "offset": 3813,
+      "offset": 4192,
       "length": 9,
       "value": "\"_lnchid\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "StringLiteral",
-      "offset": 3874,
+      "offset": 4253,
       "length": 8,
       "value": "\"_lnuid\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "StringLiteral",
-      "offset": 3928,
+      "offset": 4307,
       "length": 26,
       "value": "\"aiq_id_line_not_follower\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "StringLiteral",
-      "offset": 3979,
+      "offset": 4358,
       "length": 6,
       "value": "\"true\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 4030,
+      "offset": 4409,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "StringLiteral",
-      "offset": 4066,
+      "offset": 4445,
       "length": 7,
       "value": "\"false\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 4118,
+      "offset": 4497,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "StringLiteral",
-      "offset": 4147,
+      "offset": 4526,
       "length": 17,
       "value": "\"qg_not_follower\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "StringLiteral",
-      "offset": 4189,
+      "offset": 4568,
       "length": 6,
       "value": "\"true\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 4238,
+      "offset": 4617,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "StringLiteral",
-      "offset": 4274,
+      "offset": 4653,
       "length": 7,
       "value": "\"false\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 4324,
+      "offset": 4703,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "StringLiteral",
-      "offset": 4353,
+      "offset": 4732,
       "length": 12,
       "value": "\"aiqua_attr\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "StringLiteral",
-      "offset": 4511,
+      "offset": 4904,
       "length": 3,
       "value": "\".\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 4542,
+      "offset": 4938,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
-      "kind": "BooleanLiteral",
-      "offset": 4579,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 4602,
+      "offset": 4984,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
       "kind": "StringLiteral",
-      "offset": 4608,
+      "offset": 4990,
       "length": 7,
       "value": "\"click\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
+      "kind": "StringLiteral",
+      "offset": 5043,
+      "length": 67,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
+      "kind": "StringLiteral",
+      "offset": 5051,
+      "length": 1,
+      "value": "\" : \""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
+      "kind": "StringLiteral",
+      "offset": 5071,
+      "length": 1,
+      "value": "\".\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
+      "kind": "StringLiteral",
+      "offset": 5084,
+      "length": 1,
+      "value": "\" : Missing notificationID\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
+      "kind": "BooleanLiteral",
+      "offset": 5177,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
+      "kind": "StringLiteral",
+      "offset": 5359,
+      "length": 67,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
+      "kind": "StringLiteral",
+      "offset": 5367,
+      "length": 1,
+      "value": "\" : \""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
+      "kind": "StringLiteral",
+      "offset": 5387,
+      "length": 1,
+      "value": "\".\""
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/Service\/ThirdPartyUrlHandlerService\/LINEUrlHandler.swift",
+      "kind": "StringLiteral",
+      "offset": 5400,
+      "length": 1,
+      "value": "\" : Missing notificationID\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/SocketIO\/Ack\/SocketAckEmitter.swift",
@@ -78363,84 +79163,84 @@
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 324,
+      "offset": 320,
       "length": 10,
       "value": "\"APRDebug\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 339,
+      "offset": 335,
       "length": 5,
       "value": "\"YES\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 1201,
+      "offset": 1197,
       "length": 77,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 1209,
+      "offset": 1205,
       "length": 6,
       "value": "\" Appier [\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 1251,
+      "offset": 1247,
       "length": 1,
       "value": "\"] [\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 1265,
+      "offset": 1261,
       "length": 1,
       "value": "\"] \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 1277,
+      "offset": 1273,
       "length": 1,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 1422,
+      "offset": 1418,
       "length": 7,
       "value": "\"Debug\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 1453,
+      "offset": 1449,
       "length": 6,
       "value": "\"Info\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 1486,
+      "offset": 1482,
       "length": 9,
       "value": "\"Warning\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 1520,
+      "offset": 1516,
       "length": 7,
       "value": "\"Error\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 1656,
+      "offset": 1652,
       "length": 29,
       "value": "\"yyyy-MM-dd HH:mm:ss.SSSSSSZ\""
     },
@@ -78454,42 +79254,42 @@
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 1794,
+      "offset": 1790,
       "length": 4,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 1800,
+      "offset": 1796,
       "length": 7,
       "value": "2"
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 1809,
+      "offset": 1805,
       "length": 5,
       "value": "3"
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 1794,
+      "offset": 1790,
       "length": 4,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 1800,
+      "offset": 1796,
       "length": 7,
       "value": "2"
     },
     {
       "filePath": "\/Users\/distiller\/project\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 1809,
+      "offset": 1805,
       "length": 5,
       "value": "3"
     },

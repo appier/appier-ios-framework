@@ -181,6 +181,8 @@ extension Appier.Logger {
   @objc(logEvent:withValueToSum:withValueToSumCurrency:) func logEvent(_ name: Swift.String, valueToSum: Foundation.NSNumber?, currency: Swift.String?)
   @objc(logEvent:withParameters:withValueToSum:) func logEvent(_ name: Swift.String, parameters param: [Swift.AnyHashable : Any]?, valueToSum: Foundation.NSNumber?)
   @objc(logEvent:withParameters:withValueToSum:withValueToSumCurrency:) func logEvent(_ name: Swift.String, parameters param: [Swift.AnyHashable : Any]?, valueToSum: Foundation.NSNumber?, currency: Swift.String?)
+  @objc(setLastClickThroughWithNotificationId:) func setLastClickThrough(notificationId: Foundation.NSNumber)
+  @objc(setLastViewThroughWithNotificationId:) func setLastViewThrough(notificationId: Foundation.NSNumber)
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class AIQInAppCloseButton : UIKit.UIButton {
   @objc @_Concurrency.MainActor(unsafe) required public init(bgColor: UIKit.UIColor, crossColor: UIKit.UIColor, isDisplayShadow: Swift.Bool)
@@ -188,7 +190,7 @@ extension Appier.Logger {
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class AIQInAppCreativeStudioViewController : Appier.AIQInAppWebViewController {
-  @objc @_Concurrency.MainActor(unsafe) public init(csPayload: [Swift.String : Any]?, notificationId: Foundation.NSNumber, isShowDismissButton: Swift.Bool, isShowOverlay: Swift.Bool, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol, config: Appier.AIQUAConfiguration, storage: Appier.AIQLocalStorage)
+  @objc @_Concurrency.MainActor(unsafe) public init(csPayload: [Swift.String : Any]?, notificationId: Foundation.NSNumber, isShowDismissButton: Swift.Bool, isShowOverlay: Swift.Bool, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol, recommendationLogger: any Appier.AIQRecommendationLoggingProtocol, recommendationDataProvider: any Appier.AIQInAppRecommendationDataProviderProtocol, config: Appier.AIQUAConfiguration, storage: Appier.AIQLocalStorage)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
   @objc @_Concurrency.MainActor(unsafe) public func prepareToBeDismissed()
@@ -211,6 +213,10 @@ extension Appier.Logger {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
   @objc deinit
+}
+@objc public protocol AIQInAppRecommendationDataProviderProtocol {
+  @objc(getRecommendationWithScenarioId:withQueryParameters:withCompletionHandler:) func getRecommendation(scenarioId: Swift.String, queryParameters: [Swift.AnyHashable : Any], completionHandler: @escaping ([Swift.AnyHashable : Any]?) -> Swift.Void)
+  @objc(getRecommendationWithScenarioId:withProductId:withQueryParameters:withCompletionHandler:) func getRecommendation(scenarioId: Swift.String, productId: Swift.String, queryParameters: [Swift.AnyHashable : Any], completionHandler: @escaping ([Swift.AnyHashable : Any]?) -> Swift.Void)
 }
 @objc public protocol AIQInAppWebDelegate {
   @objc func inAppWebViewDismiss(isPermanentClose: Swift.Bool, webView: Appier.AIQInAppWebViewController)
@@ -533,6 +539,9 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
   @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, monitoringDidFailFor region: CoreLocation.CLRegion?, withError error: any Swift.Error)
   @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didEnterRegion region: CoreLocation.CLRegion)
   @objc dynamic public func locationManager(_ manager: CoreLocation.CLLocationManager, didExitRegion region: CoreLocation.CLRegion)
+}
+@objc public protocol AIQRecommendationLoggingProtocol {
+  @objc(logRecommendationClickedWithScenarioId:withModelId:withProductId:withRecommendationId:) func logRecommendationClicked(scenarioId: Swift.String, modelId: Swift.Int, productId: Swift.String, recommendationId: Swift.String)
 }
 @objc @objcMembers public class AIQRequestManager : ObjectiveC.NSObject {
   @objc public init(with config: Appier.AIQUAConfiguration)
@@ -869,7 +878,7 @@ extension Appier.AIQUtility {
   required public init(from decoder: any Swift.Decoder) throws
 }
 @_inheritsConvenienceInitializers @objc(AIQCoreDataComponent) @objcMembers public class CoreDataComponent : ObjectiveC.NSObject {
-  @objc public var managedObjectContext: CoreData.NSManagedObjectContext {
+  @objc public var managedObjectContext: CoreData.NSManagedObjectContext? {
     @objc get
     @objc set
   }
@@ -884,7 +893,7 @@ extension Appier.AIQUtility {
 }
 public let maxRowCount: Swift.Int
 @objc(AIQLoggedEventDAO) @objcMembers public class LoggedEventDAO : ObjectiveC.NSObject {
-  @objc(initWithManagedObjectContext:) public init(context: CoreData.NSManagedObjectContext)
+  @objc(initWithManagedObjectContext:) public init(context: CoreData.NSManagedObjectContext?)
   @objc public func getAll(withLimit: Swift.Int = maxRowCount) -> [Appier.LoggedEvent]
   @objc(getLoggedEventEarlierBeforeWithTime:) public func getLoggedEventEarlierBeforeWithTime(beforeFromNow: Swift.Int) -> [Appier.LoggedEvent]
   @objc @discardableResult
@@ -1440,14 +1449,14 @@ extension Appier.RemoteConfigRemoteService : Appier.RemoteConfigService {
 }
 extension Appier.LINEUrlHandler : Appier.ThirdPartyUrlHandlerProtocol {
   @objc public static func isEnable() -> Swift.Bool
-  @objc public static func handleUrl(_ url: Foundation.URL, eventLogger: Appier.QGSdk = QGSdk.getSharedInstance())
-  @objc public static func handleUserActivity(_ userActivity: Foundation.NSUserActivity, eventLogger: Appier.QGSdk = QGSdk.getSharedInstance())
+  @objc public static func handleUrl(_ url: Foundation.URL, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol)
+  @objc public static func handleUserActivity(_ userActivity: Foundation.NSUserActivity, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol)
   @objc public static func modifyUrlIfNeeded(_ url: Foundation.URL) -> Foundation.URL?
 }
 public protocol ThirdPartyUrlHandlerProtocol {
   static func isEnable() -> Swift.Bool
-  static func handleUrl(_ url: Foundation.URL, eventLogger: Appier.QGSdk)
-  static func handleUserActivity(_ userActivity: Foundation.NSUserActivity, eventLogger: Appier.QGSdk)
+  static func handleUrl(_ url: Foundation.URL, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol)
+  static func handleUserActivity(_ userActivity: Foundation.NSUserActivity, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol)
   static func modifyUrlIfNeeded(_ url: Foundation.URL) -> Foundation.URL?
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class ThirdPartyUrlHandlerService : ObjectiveC.NSObject {

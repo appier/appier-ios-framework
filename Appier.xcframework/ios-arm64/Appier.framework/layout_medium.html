@@ -99,7 +99,7 @@
       }
       const text = document.getElementById("com.appier.aiqua.demoapp:id/inapp_message");
       const button = document.getElementById("com.appier.aiqua.demoapp:id/button-area");
-      const vmin = Math.round(Math.min(height, width) / 100)
+      const vmin = (Math.min(height, width) / 100).toFixed(2);
       const margin = 2 * vmin;
       const maxHeight = 80 * vmin;
       const newHeight = height - text.offsetHeight - button.offsetHeight - margin * 2;
