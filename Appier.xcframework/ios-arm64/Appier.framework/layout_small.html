@@ -99,6 +99,27 @@
 </head>
 <body>
   <script>
+    // See MT-4314 for detail
+    function base64Decode(base64Str) {
+      try {
+        if (typeof TextEncoder !== 'undefined') {
+          var decoder = new TextDecoder('utf-8');
+          return decoder.decode(
+            Uint8Array.from(
+              window.atob(base64Str),
+              function(c) {
+                return c.codePointAt(0);
+              }
+            )
+          );
+        } else {
+          return decodeURIComponent(escape(window.atob(base64Str)));
+        }
+      } catch (e) {
+        return window.atob(base64Str);
+      }
+    }
+
     function setUpCreative(creativeString, hasCloseButton, platform) {
       if (window.document.readyState === 'complete') {
         if (platform === "android") {
@@ -108,7 +129,8 @@
         }
       }
 
-      var creative = JSON.parse(creativeString);
+      var decodedCreative = base64Decode(creativeString);
+      var creative = JSON.parse(decodedCreative);
 
       // Set background (required)
       document.getElementById("com.appier.aiqua.demoapp:id/background").addEventListener('click', function(e) {
@@ -125,12 +147,12 @@
       // Set title (required)
       var title = document.getElementById("com.appier.aiqua.demoapp:id/inapp_small_title");
       title.style.background = creative.fb_push_card.hero.background.rgbaHex;
-      title.innerHTML = creative.fb_push_card.hero.content.text;
+      title.textContent = creative.fb_push_card.hero.content.textV2 ?? creative.fb_push_card.hero.content.text;
 
       // Set text (required)
       var text = document.getElementById("com.appier.aiqua.demoapp:id/inapp_message");
       text.style.background = creative.fb_push_card.body.background.rgbaHex;
-      text.innerHTML = creative.fb_push_card.body.content.text;
+      text.textContent = creative.fb_push_card.body.content.textV2 ?? creative.fb_push_card.body.content.text;
 
       // Set action buttons (required)
       setUpActionButtons(creative.fb_push_card.actions, platform);
@@ -173,7 +195,7 @@
 
     function setUpButton(button, id, index, platform) {
       document.getElementById(id).style.background = button.backgroundColor;
-      document.getElementById(id).innerHTML = button.content.text;
+      document.getElementById(id).textContent = button.content.textV2 ?? button.content.text;
       document.getElementById(id).addEventListener('click', function(e) {
         if (platform === "android") {
           Android.onActionButtonClicked(index);
