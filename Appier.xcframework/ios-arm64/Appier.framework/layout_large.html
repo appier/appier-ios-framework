@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -91,6 +92,27 @@
       document.getElementById("com.appier.aiqua.demoapp:id/inapp_large_image").style.height = `${newHeight}px`;
     }
 
+    // See MT-4314 for detail
+    function base64Decode(base64Str) {
+      try {
+        if (typeof TextEncoder !== 'undefined') {
+          var decoder = new TextDecoder('utf-8');
+          return decoder.decode(
+            Uint8Array.from(
+              window.atob(base64Str),
+              function(c) {
+                return c.codePointAt(0);
+              }
+            )
+          );
+        } else {
+          return decodeURIComponent(escape(window.atob(base64Str)));
+        }
+      } catch (e) {
+        return window.atob(base64Str);
+      }
+    }
+
     function setUpCreative(creativeString, hasCloseButton, platform) {
       if (platform === 'android') {
         window.addEventListener('resize', onWindowResize, false);
@@ -98,7 +120,8 @@
         window.addEventListener('orientationchange', onWindowResize, false);
       }
 
-      var creative = JSON.parse(creativeString);
+      var decodedCreative = base64Decode(creativeString);
+      var creative = JSON.parse(decodedCreative);
 
       // Set background (required)
       document.getElementById("com.appier.aiqua.demoapp:id/background").addEventListener('click', function(e) {
@@ -183,7 +206,7 @@
 
     function setUpButton(button, id, index, platform) {
       document.getElementById(id).style.background = button.backgroundColor;
-      document.getElementById(id).innerHTML = button.content.text;
+      document.getElementById(id).textContent = button.content.textV2 ?? button.content.text;
       document.getElementById(id).addEventListener('click', function(e) {
         if (platform === "android") {
           Android.onActionButtonClicked(index);
