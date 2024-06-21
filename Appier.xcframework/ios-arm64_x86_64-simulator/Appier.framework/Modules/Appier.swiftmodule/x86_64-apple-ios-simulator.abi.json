@@ -1250,6 +1250,43 @@
           },
           {
             "kind": "Var",
+            "name": "detailSearch",
+            "printedName": "detailSearch",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Appier.AIDPageType.Type) -> Appier.AIDPageType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AIDPageType",
+                    "printedName": "Appier.AIDPageType",
+                    "usr": "s:6Appier11AIDPageTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Appier.AIDPageType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AIDPageType",
+                        "printedName": "Appier.AIDPageType",
+                        "usr": "s:6Appier11AIDPageTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:6Appier11AIDPageTypeO12detailSearchyA2CmF",
+            "mangledName": "$s6Appier11AIDPageTypeO12detailSearchyA2CmF",
+            "moduleName": "Appier"
+          },
+          {
+            "kind": "Var",
             "name": "item",
             "printedName": "item",
             "children": [
@@ -1283,6 +1320,43 @@
             "declKind": "EnumElement",
             "usr": "s:6Appier11AIDPageTypeO4itemyA2CmF",
             "mangledName": "$s6Appier11AIDPageTypeO4itemyA2CmF",
+            "moduleName": "Appier"
+          },
+          {
+            "kind": "Var",
+            "name": "itemGroup",
+            "printedName": "itemGroup",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Appier.AIDPageType.Type) -> Appier.AIDPageType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AIDPageType",
+                    "printedName": "Appier.AIDPageType",
+                    "usr": "s:6Appier11AIDPageTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "Appier.AIDPageType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AIDPageType",
+                        "printedName": "Appier.AIDPageType",
+                        "usr": "s:6Appier11AIDPageTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:6Appier11AIDPageTypeO9itemGroupyA2CmF",
+            "mangledName": "$s6Appier11AIDPageTypeO9itemGroupyA2CmF",
             "moduleName": "Appier"
           },
           {
@@ -80435,7 +80509,7 @@
       "kind": "StringLiteral",
       "offset": 279,
       "length": 14,
-      "value": "\"7.33.0-dev.1\""
+      "value": "\"7.33.0-dev.2\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
