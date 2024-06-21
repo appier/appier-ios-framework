@@ -1,6 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
-// swift-module-flags: -target x86_64-apple-ios9.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name Appier
+// swift-compiler-version: Apple Swift version 5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)
+// swift-module-flags: -target x86_64-apple-ios9.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Appier
+// swift-module-flags-ignorable: -enable-bare-slash-regex
 import AdSupport
 import AppTrackingTransparency
 @_exported import Appier
@@ -17,66 +18,17 @@ import Swift
 import SwiftUI
 import SystemConfiguration
 import UIKit
-import UserNotifications
 import WebKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 import os
 import zlib
-extension Appier.AIDPageAttributes.Builder {
-  public func pageType(_ pageType: Appier.AIDPageType) -> Self
-  public func pageTypes(_ pageTypes: Swift.Set<Appier.AIDPageType>) -> Self
-  @nonobjc public func itemPrice(_ itemPrice: Swift.Double) -> Self
-  @nonobjc public func cartPrice(_ cartPrice: Swift.Double) -> Self
-}
-@objc @_hasMissingDesignatedInitializers @objcMembers public class AIDPageAttributes : ObjectiveC.NSObject, Swift.Decodable {
-  final public let pageTypes: Swift.Set<Appier.AIDPageType>?
-  @objc final public let url: Swift.String?
-  final public let loggedIn: Swift.Bool?
-  final public let itemPrice: Swift.Double?
-  final public let cartPrice: Swift.Double?
-  @objc @available(swift, obsoleted: 1.0)
-  public var pageTypesString: [Swift.String]? {
-    @objc get
-  }
-  @objc @available(swift, obsoleted: 1.0)
-  public var loggedInNumber: Foundation.NSNumber? {
-    @objc get
-  }
-  @objc @available(swift, obsoleted: 1.0)
-  public var itemPriceNumber: Foundation.NSNumber? {
-    @objc get
-  }
-  @objc @available(swift, obsoleted: 1.0)
-  public var cartPriceNumber: Foundation.NSNumber? {
-    @objc get
-  }
-  @_inheritsConvenienceInitializers @objcMembers @objc(AIDPageAttributesBuilder) public class Builder : ObjectiveC.NSObject {
-    @objc public func url(_ url: Swift.String) -> Self
-    @objc public func build() -> Appier.AIDPageAttributes
-    @objc @available(swift, obsoleted: 1.0)
-    public func pageType(_ pageType: Swift.String) -> Self
-    @objc @available(swift, obsoleted: 1.0)
-    public func pageTypes(_ pageTypes: [Swift.String]) -> Self
-    @objc public func loggedIn(_ loggedIn: Swift.Bool) -> Self
-    @objc @available(swift, obsoleted: 1.0)
-    public func itemPriceNumber(_ itemPrice: Foundation.NSNumber) -> Self
-    @objc @available(swift, obsoleted: 1.0)
-    public func cartPriceNumber(_ cartPrice: Foundation.NSNumber) -> Self
-    @objc override dynamic public init()
-    @objc deinit
-  }
-  @objc deinit
-  required public init(from decoder: any Swift.Decoder) throws
-}
-public enum AIDPageType {
+public enum PageType {
   case top
   case category
   case search
-  case detailSearch
   case item
-  case itemGroup
   case cart
   case cartForm
   case conversion
@@ -86,21 +38,18 @@ public enum AIDPageType {
   case registration
   case custom(Swift.String)
 }
-extension Appier.AIDPageType : Swift.RawRepresentable {
+extension Appier.PageType : Swift.RawRepresentable {
   public var rawValue: Swift.String {
-    get
-  }
-  public var objcString: Swift.String {
     get
   }
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
 }
-extension Appier.AIDPageType : Swift.Codable, Swift.Hashable {
+extension Appier.PageType : Swift.Codable, Swift.Hashable {
 }
-extension Appier.AIDPageType : Swift.CaseIterable {
-  public static var allCases: [Appier.AIDPageType]
-  public typealias AllCases = [Appier.AIDPageType]
+extension Appier.PageType : Swift.CaseIterable {
+  public static var allCases: [Appier.PageType]
+  public typealias AllCases = [Appier.PageType]
 }
 public struct BadgeConfiguration {
   public var allowsDisplay: Swift.Bool
@@ -118,63 +67,40 @@ public enum BadgeDisplayArea {
   case custom(CoreFoundation.CGRect)
 }
 public enum BadgePositionOverride {
-  case _none
+  case none
   case offset(dx: CoreFoundation.CGFloat, dy: CoreFoundation.CGFloat)
   case custom(CoreFoundation.CGPoint)
   case bottomLeftCorner
   case bottomRightCorner
 }
-@objc @objcMembers public class AIDAction : ObjectiveC.NSObject {
+@objc(AIDAction) @objcMembers public class Action : ObjectiveC.NSObject {
   @objc final public let rawValue: Swift.String
   @objc required public init(rawValue: Swift.String)
   @objc deinit
 }
-extension Appier.AIDAction : Swift.RawRepresentable {
-  @objc public static let didRedeemCoupon: Appier.AIDAction
-  @objc public static let didAddToCart: Appier.AIDAction
+extension Appier.Action : Swift.RawRepresentable {
+  @objc public static let didRedeemCoupon: Appier.Action
+  @objc public static let didAddToCart: Appier.Action
   public typealias RawValue = Swift.String
 }
-@objc @objcMembers final public class AIDConversion : ObjectiveC.NSObject, Swift.Codable {
-  @objc final public let identifier: Swift.String
-  @objc final public var name: Swift.String?
-  @objc final public var totalQuantity: Swift.Int
-  @objc final public var totalPrice: Swift.Double
-  @objc final public var couponCodes: [Swift.String]
-  @objc final public var items: [Appier.AIDConversionItem]
-  @objc @available(*, deprecated, renamed: "identifier")
-  final public var conversionId: Swift.String {
-    @objc get
-  }
-  @objc @available(*, deprecated, renamed: "name")
-  final public var conversionName: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc @available(*, deprecated, renamed: "numberOfItems")
-  final public var totalItems: Swift.Int {
-    @objc get
-    @objc set
-  }
-  @objc public init(identifier: Swift.String)
+@_hasMissingDesignatedInitializers @objc(AIDAiDeal) @objcMembers final public class AiDeal : ObjectiveC.NSObject {
+  @objc final public var configuration: Appier.AiDealConfiguration
+  @objc final public func configure(apiKey: Swift.String)
+  @objc(startLoggingWithViewController:) final public func startLogging(_ viewController: UIKit.UIViewController)
+  @objc(startLoggingWithViewController:scrollView:attributes:) final public func startLogging(_ viewController: UIKit.UIViewController, scrollView: UIKit.UIScrollView?, attributes: [Appier.Page.AttributeName : Any])
+  @objc(startLoggingWithViewController:attributes:) final public func startLogging(_ viewController: UIKit.UIViewController, attributes: [Appier.Page.AttributeName : Any])
+  @objc(startLoggingWithViewController:scrollView:) final public func startLogging(_ viewController: UIKit.UIViewController, scrollView: UIKit.UIScrollView?)
+  @objc(startLoggingWithViewController:webView:) final public func startLogging(_ viewController: UIKit.UIViewController, webView: WebKit.WKWebView)
+  @objc final public func stopLogging()
+  @objc(logConversion:) final public func log(_ conversion: Appier.Conversion)
+  @objc(logAction:) final public func log(_ action: Appier.Action)
+  @objc(setDataCollection:) final public func setDataCollection(_ enabled: Swift.Bool)
+  @objc(openURL:) final public func open(_ url: Foundation.URL)
+  @objc(viewWillTransitionWithTransitionCoordinator:) final public func viewWillTransition(with coordinator: any UIKit.UIViewControllerTransitionCoordinator)
+  @objc public static let shared: Appier.AiDeal
+  @objc public static let offerButtonTappedNotification: Foundation.Notification.Name
+  @objc public static let configurationDidChangeNotification: Foundation.Notification.Name
   @objc deinit
-  final public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
-}
-@objc @objcMembers final public class AIDConversionItem : ObjectiveC.NSObject, Swift.Codable {
-  @objc final public let identifier: Swift.String
-  @objc final public var name: Swift.String?
-  @objc final public var url: Foundation.URL?
-  @objc final public var price: Swift.Double
-  @objc final public var quantity: Swift.Int
-  @objc @available(*, deprecated, renamed: "quantity")
-  final public var count: Swift.Int {
-    @objc get
-    @objc set
-  }
-  @objc public init(identifier: Swift.String)
-  @objc deinit
-  final public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
 }
 @_inheritsConvenienceInitializers @objc(AIDConfiguration) @objcMembers public class AiDealConfiguration : ObjectiveC.NSObject {
   public var badge: Appier.BadgeConfiguration {
@@ -194,55 +120,50 @@ extension Appier.AIDAction : Swift.RawRepresentable {
   @objc override dynamic public init()
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc(AIDAiDeal) @objcMembers final public class AiDealSDK : ObjectiveC.NSObject {
-  @objc final public var configuration: Appier.AiDealConfiguration
-  @objc final public func configureWithCachedData()
-  @objc final public func configure(apiKey: Swift.String?, apiHost: Swift.String?, socketHost: Swift.String?)
-  @objc(startLoggingWithViewController:) final public func startLogging(_ viewController: UIKit.UIViewController)
-  @objc(startLoggingWithViewController:scrollView:attributes:) final public func startLogging(_ viewController: UIKit.UIViewController, scrollView: UIKit.UIScrollView?, attributes: Appier.AIDPageAttributes?)
-  @objc(startLoggingWithViewController:attributes:) final public func startLogging(_ viewController: UIKit.UIViewController, attributes: Appier.AIDPageAttributes?)
-  @objc(startLoggingWithViewController:scrollView:) final public func startLogging(_ viewController: UIKit.UIViewController, scrollView: UIKit.UIScrollView?)
-  @objc(startLoggingWithViewController:webView:) final public func startLogging(_ viewController: UIKit.UIViewController, webView: WebKit.WKWebView)
-  @objc final public func stopLogging()
-  @objc(logConversion:) final public func log(_ conversion: Appier.AIDConversion)
-  @objc(logAction:) final public func log(_ action: Appier.AIDAction)
-  @objc(setDataCollection:) final public func setDataCollection(_ enabled: Swift.Bool)
-  @objc(openURL:) final public func open(_ url: Foundation.URL)
-  @objc(viewWillTransitionWithTransitionCoordinator:) final public func viewWillTransition(with coordinator: any UIKit.UIViewControllerTransitionCoordinator)
-  @objc final public func clearStorage()
-  @objc public static let shared: Appier.AiDealSDK
-  @objc public static let offerButtonTappedNotification: Foundation.Notification.Name
-  @objc public static let configurationDidChangeNotification: Foundation.Notification.Name
+@objc(AIDConversion) @objcMembers final public class Conversion : ObjectiveC.NSObject, Swift.Codable {
+  @objc final public let identifier: Swift.String
+  @objc final public var name: Swift.String?
+  @objc final public var totalQuantity: Swift.Int
+  @objc final public var totalPrice: Swift.Double
+  @objc final public var couponCodes: [Swift.String]
+  @objc final public var items: [Appier.ConversionItem]
+  @objc @available(*, deprecated, renamed: "identifier")
+  final public var conversionId: Swift.String {
+    @objc get
+  }
+  @objc @available(*, deprecated, renamed: "name")
+  final public var conversionName: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc @available(*, deprecated, renamed: "numberOfItems")
+  final public var totalItems: Swift.Int {
+    @objc get
+    @objc set
+  }
+  @objc public init(identifier: Swift.String)
   @objc deinit
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
-@objc @_inheritsConvenienceInitializers @objcMembers final public class Aiqua : ObjectiveC.NSObject {
-  @objc @available(iOS 10.0, *)
-  final public func setCarouselNotificationCategory(nextButtonTitle: Swift.String?, openAppButtonTitle: Swift.String?)
-  @objc @available(iOS 10.0, *)
-  final public func getSliderPushActionCategory(nextButtonTitle: Swift.String, openAppButtonTitle: Swift.String) -> UserNotifications.UNNotificationCategory
-  @objc final public func setUniversalLinkDomains(_ domains: [Swift.String])
-  @objc final public func enableInAppCampaigns()
-  @objc final public func disableInAppCampaigns()
-  @objc final public func hideInAppCampaigns()
-  @objc final public func getRecommendation(scenarioId: Swift.String, queryParameters: [Swift.String : Any]?, completionHandler: @escaping (Any?) -> Swift.Void)
-  @objc final public func getRecommendation(scenarioId: Swift.String, productId: Swift.String, queryParameters: [Swift.String : Any]?, completionHandler: @escaping (Any?) -> Swift.Void)
-  @objc final public func getRecommendationTags(request: Appier.RecommendationRequest, completionHandler: @escaping (Appier.RecommendationTagResponse?) -> Swift.Void)
-  @objc final public func getRecommendationProducts(request: Appier.RecommendationRequest, completionHandler: @escaping (Appier.RecommendationProductResponse?) -> Swift.Void)
-  @objc final public func logRecommendationClicked(scenarioId: Swift.String, modelId: Swift.Int, productId: Swift.String, recommendationId: Swift.String)
-  @objc final public func fetchInboxMessages(completionHandler: @escaping (Swift.Bool, (any Swift.Error)?) -> Swift.Void)
-  @objc(getInboxesWithStatusRead:unread:deleted:) final public func getInboxesWithStatus(read: Swift.Bool, unread: Swift.Bool, deleted: Swift.Bool) -> [Appier.QGInbox]
-  @objc final public func updateInboxRecordLimit(_ limit: Appier.QGInboxLimit)
-  @objc final public func fetchStoredPushNotifications() -> [Any]
-  @objc final public func deleteStoredPushNotifications()
-  @objc final public func deleteNotification(at index: Swift.UInt)
-  @objc final public func enablePushNotificationStorage()
-  @objc final public func setPushNotificationStorageLimit(_ limit: Swift.Int)
-  @objc final public func handleOpenURL(_ url: Foundation.URL)
-  @objc final public func handleUserActivity(_ userActivity: Foundation.NSUserActivity)
-  @objc(handleScriptMessageOfWebview:userContentController:didReceiveScriptMessage:) final public func handleScriptMessage(webView: WebKit.WKWebView, userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
-  @objc override dynamic public init()
+@objc(AIDConversionItem) @objcMembers final public class ConversionItem : ObjectiveC.NSObject, Swift.Codable {
+  @objc final public let identifier: Swift.String
+  @objc final public var name: Swift.String?
+  @objc final public var url: Foundation.URL?
+  @objc final public var price: Swift.Double
+  @objc final public var quantity: Swift.Int
+  @objc @available(*, deprecated, renamed: "quantity")
+  final public var count: Swift.Int {
+    @objc get
+    @objc set
+  }
+  @objc public init(identifier: Swift.String)
   @objc deinit
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
+@available(*, deprecated, renamed: "ConversionItem")
+public typealias AIDConversionItem = Appier.ConversionItem
 @_inheritsConvenienceInitializers @objc public class AppierResources : ObjectiveC.NSObject {
   @objc public class var bundle: Foundation.Bundle {
     @objc get
@@ -250,82 +171,8 @@ extension Appier.AIDAction : Swift.RawRepresentable {
   @objc override dynamic public init()
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @objcMembers final public class AppierSDK : ObjectiveC.NSObject {
-  @objc public static let CONFIG_APP_ID: Swift.String
-  @objc public static let CONFIG_APP_GROUP_ID: Swift.String
-  @objc public static let CONFIG_IS_DEV_PROFILE: Swift.String
-  @objc public static func initialize(configuration: [Swift.String : Swift.String])
-  @objc public static var Aiqua: Appier.Aiqua {
-    @objc get
-  }
-  @objc public static var AiDeal: Appier.AiDeal {
-    @objc get
-  }
-  @objc public static var Rmn: Appier.Rmn? {
-    @objc get
-  }
-  @objc(renewAppierId:) public static func renewAppierId(asyncResult: Appier.AsyncResult<Swift.AnyObject>?)
-  @objc public static func getAppierId() -> Swift.String?
-  @objc public static var dataTrackingConfig: Appier.AIQDataTrackingConfiguration {
-    @objc get
-    @objc set
-  }
-  @objc public static func setIdfaConsent(_ idfaConsent: Swift.Bool)
-  @objc(setCustomKey:withValue:) public static func setCustomKey(_ key: Swift.String, value: Any?)
-  @objc public static func setUserId(_ userId: Swift.String?)
-  @objc public static func setName(_ name: Swift.String?)
-  @objc public static func setFirstName(_ name: Swift.String?)
-  @objc public static func setLastName(_ name: Swift.String?)
-  @objc public static func setCity(_ city: Swift.String?)
-  @objc public static func setEmail(_ email: Swift.String?)
-  @objc public static func setPhoneNumber(_ phoneNo: Swift.String?)
-  @objc public static func setDayOfBirth(_ day: Foundation.NSNumber)
-  @objc public static func setMonthOfBirth(_ month: Foundation.NSNumber)
-  @objc public static func setYearOfBirth(_ year: Foundation.NSNumber)
-  @objc public static var flushInterval: Swift.UInt {
-    @objc get
-    @objc set
-  }
-  @objc public static func flush()
-  @objc public static func logEvent(_ name: Swift.String)
-  @objc(logEvent:withParameters:) public static func logEvent(_ name: Swift.String, parameters param: [Swift.AnyHashable : Any]?)
-  @objc(logEvent:withValueToSum:) public static func logEvent(_ name: Swift.String, valueToSum: Foundation.NSNumber?)
-  @objc(logEvent:withValueToSum:currency:) public static func logEvent(_ name: Swift.String, valueToSum: Foundation.NSNumber?, currency: Swift.String?)
-  @objc(logEvent:withParameters:valueToSum:) public static func logEvent(_ name: Swift.String, parameters param: [Swift.AnyHashable : Any]?, valueToSum: Foundation.NSNumber?)
-  @objc(logEvent:withParameters:valueToSum:currency:) public static func logEvent(_ name: Swift.String, parameters param: [Swift.AnyHashable : Any]?, valueToSum: Foundation.NSNumber?, currency: Swift.String?)
-  @objc public static func setAttributionWindow(_ seconds: Swift.Int)
-  @objc public static func setClickAttributionWindow(_ seconds: Swift.Int)
-  @objc public static func application(_ application: UIKit.UIApplication, didFinishLaunchingWithOptions launchOptions: [UIKit.UIApplication.LaunchOptionsKey : Any])
-  @objc public static func application(_ application: UIKit.UIApplication, didReceiveRemoteNotification userInfo: [Swift.AnyHashable : Any])
-  @objc public static func application(_ application: UIKit.UIApplication, didReceiveRemoteNotification userInfo: [Swift.AnyHashable : Any], fetchCompletionHandler: @escaping (UIKit.UIBackgroundFetchResult) -> Swift.Void)
-  @objc @available(iOS 10.0, *)
-  public static func userNotificationCenter(_ center: UserNotifications.UNUserNotificationCenter, didReceiveNotificationResponse response: UserNotifications.UNNotificationResponse)
-  @objc @available(iOS 10.0, *)
-  public static func userNotificationCenter(_ center: UserNotifications.UNUserNotificationCenter, willPresent notification: UserNotifications.UNNotification)
-  @objc public static func setAPNSToken(_ token: Foundation.Data)
-  @objc public static func setFCMToken(_ token: Swift.String?)
-  @objc public static func isAppierPush(_ userInfo: [Swift.AnyHashable : Any]?) -> Swift.Bool
-  @objc override dynamic public init()
-  @objc deinit
-}
-@objc @_hasMissingDesignatedInitializers @objcMembers final public class AiDeal : ObjectiveC.NSObject {
-  @objc(startLoggingWithViewController:scrollView:attributes:) final public func startLogging(_ viewController: UIKit.UIViewController, scrollView: UIKit.UIScrollView?, attributes: Appier.AIDPageAttributes)
-  @objc(startLoggingWithViewController:attributes:) final public func startLogging(_ viewController: UIKit.UIViewController, attributes: Appier.AIDPageAttributes)
-  @objc(startLoggingWithViewController:webView:) final public func startLogging(_ viewController: UIKit.UIViewController, webView: WebKit.WKWebView)
-  @objc final public func stopLogging()
-  @objc(logAction:) final public func log(_ action: Appier.AIDAction)
-  @objc(setDataCollection:) final public func setDataCollection(_ enabled: Swift.Bool)
-  @objc deinit
-}
-extension Appier.Logger {
-  public static let appier: Appier.Logger
-}
 extension Appier.Logger {
   @objc(aiquaNotificationLogger) public static let aiquaNotification: Appier.Logger
-}
-@objc public protocol AIQEventAttributionProtocol {
-  @objc(setLastClickThroughWithNotificationId:) func setLastClickThrough(notificationId: Foundation.NSNumber)
-  @objc(setLastViewThroughWithNotificationId:) func setLastViewThrough(notificationId: Foundation.NSNumber)
 }
 @objc public protocol AIQEventLoggingProtocol {
   @objc func logEvent(_ name: Swift.String)
@@ -334,8 +181,8 @@ extension Appier.Logger {
   @objc(logEvent:withValueToSum:withValueToSumCurrency:) func logEvent(_ name: Swift.String, valueToSum: Foundation.NSNumber?, currency: Swift.String?)
   @objc(logEvent:withParameters:withValueToSum:) func logEvent(_ name: Swift.String, parameters param: [Swift.AnyHashable : Any]?, valueToSum: Foundation.NSNumber?)
   @objc(logEvent:withParameters:withValueToSum:withValueToSumCurrency:) func logEvent(_ name: Swift.String, parameters param: [Swift.AnyHashable : Any]?, valueToSum: Foundation.NSNumber?, currency: Swift.String?)
-  @objc func setAttributionWindow(_ seconds: Swift.Int)
-  @objc func setClickAttributionWindow(_ seconds: Swift.Int)
+  @objc(setLastClickThroughWithNotificationId:) func setLastClickThrough(notificationId: Foundation.NSNumber)
+  @objc(setLastViewThroughWithNotificationId:) func setLastViewThrough(notificationId: Foundation.NSNumber)
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class AIQInAppCloseButton : UIKit.UIButton {
   @objc @_Concurrency.MainActor(unsafe) required public init(bgColor: UIKit.UIColor, crossColor: UIKit.UIColor, isDisplayShadow: Swift.Bool)
@@ -343,7 +190,7 @@ extension Appier.Logger {
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class AIQInAppCreativeStudioViewController : Appier.AIQInAppWebViewController {
-  @objc @_Concurrency.MainActor(unsafe) public init(csPayload: [Swift.String : Any]?, notificationId: Foundation.NSNumber, isShowDismissButton: Swift.Bool, isShowOverlay: Swift.Bool, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol, recommendationLogger: any Appier.AIQRecommendationLoggingProtocol, recommendationDataProvider: any Appier.InAppRecommendationDataProviderProtocol, config: Appier.AIQUAConfiguration, storage: Appier.AIQLocalStorage)
+  @objc @_Concurrency.MainActor(unsafe) public init(csPayload: [Swift.String : Any]?, notificationId: Foundation.NSNumber, isShowDismissButton: Swift.Bool, isShowOverlay: Swift.Bool, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol, recommendationLogger: any Appier.AIQRecommendationLoggingProtocol, recommendationDataProvider: any Appier.AIQInAppRecommendationDataProviderProtocol, config: Appier.AIQUAConfiguration, storage: Appier.AIQLocalStorage)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
   @objc @_Concurrency.MainActor(unsafe) public func prepareToBeDismissed()
@@ -366,6 +213,10 @@ extension Appier.Logger {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
   @objc deinit
+}
+@objc public protocol AIQInAppRecommendationDataProviderProtocol {
+  @objc(getRecommendationWithScenarioId:withQueryParameters:withCompletionHandler:) func getRecommendation(scenarioId: Swift.String, queryParameters: [Swift.AnyHashable : Any], completionHandler: @escaping ([Swift.AnyHashable : Any]?) -> Swift.Void)
+  @objc(getRecommendationWithScenarioId:withProductId:withQueryParameters:withCompletionHandler:) func getRecommendation(scenarioId: Swift.String, productId: Swift.String, queryParameters: [Swift.AnyHashable : Any], completionHandler: @escaping ([Swift.AnyHashable : Any]?) -> Swift.Void)
 }
 @objc public protocol AIQInAppWebDelegate {
   @objc func inAppWebViewDismiss(isPermanentClose: Swift.Bool, webView: Appier.AIQInAppWebViewController)
@@ -582,18 +433,6 @@ extension Appier.AIQLocalStorage : Appier.AIQStorage {
     @objc get
     @objc set
   }
-  @objc dynamic public var crashRecord: [Swift.String : Swift.String]? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var airisCrashRecord: [Swift.String : Swift.String]? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var airisCrashCount: Swift.Int {
-    @objc get
-    @objc set
-  }
   @objc dynamic public var savedPushNotifications: [[Swift.AnyHashable : Any]]? {
     @objc get
     @objc set
@@ -637,34 +476,6 @@ extension Appier.AIQLocalStorage : Appier.AIQStorage {
     @objc get
     @objc set
   }
-  @objc dynamic public var rmnMarketPlaceId: Swift.Int {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var rmnApi: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var rmnEvent: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var analyticsAirisApi: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var analyticsAirisDomain: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var analyticsAirisAggregation: Swift.Int {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var analyticsRollbarApi: Swift.String? {
-    @objc get
-    @objc set
-  }
   @objc dynamic public var failedPushEventStack: [[Swift.AnyHashable : Any]]? {
     @objc get
     @objc set
@@ -689,18 +500,10 @@ extension Appier.AIQLocalStorage : Appier.AIQStorage {
     @objc get
     @objc set
   }
-  @objc dynamic public var sessionCount: Swift.Int {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var lastTrackSessionTime: Swift.Int {
-    @objc get
-    @objc set
-  }
 }
 extension Appier.AIQLocalStorage {
   @objc dynamic public func synchronizeOnFirstLaunch(suiteName: Swift.String?)
-  @objc(setAppID:groupName:devProfile:frameworkType:version:) dynamic public func set(appID: Swift.String, groupName: Swift.String, devProfile: Swift.Bool, frameworkType: Swift.String?, version: Swift.String?)
+  @objc(setAppID:groupName:devProfile:frameworkType:version:) dynamic public func set(appID: Swift.String, groupName: Swift.String, devProfile: Swift.Bool, frameworkType: Swift.String, version: Swift.String)
   @objc dynamic public func createAndSaveNewAppierId()
   @objc dynamic public func cleanAttribution()
   @objc dynamic public func shouldUserDetailsBeSent() -> Swift.Bool
@@ -833,15 +636,6 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
   @objc var hasInApp: Swift.Bool { get }
   @objc var inAppFirstAppLaunchedMatched: Swift.Bool { get set }
   @objc var crashLogKey: [Swift.String]? { get set }
-  @objc var crashRecord: [Swift.String : Swift.String]? { get set }
-  @objc var airisCrashRecord: [Swift.String : Swift.String]? { get set }
-  @objc var airisCrashCount: Swift.Int { get set }
-  @objc var analyticsAirisApi: Swift.String? { get set }
-  @objc var analyticsAirisDomain: Swift.String? { get set }
-  @objc var analyticsAirisAggregation: Swift.Int { get set }
-  @objc var analyticsRollbarApi: Swift.String? { get set }
-  @objc var sessionCount: Swift.Int { get set }
-  @objc var lastTrackSessionTime: Swift.Int { get set }
   @objc var savedPushNotifications: [[Swift.AnyHashable : Any]]? { get set }
   @objc var hasSavedPushNotifications: Swift.Bool { get }
   @objc var savedPushNotificationLimit: Foundation.NSNumber { get set }
@@ -853,9 +647,6 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
   @objc var endpointRecommendation: Swift.String? { get set }
   @objc var endpointPersonalization: Swift.String? { get set }
   @objc var endpointCStudio: Swift.String? { get set }
-  @objc var rmnMarketPlaceId: Swift.Int { get set }
-  @objc var rmnApi: Swift.String? { get set }
-  @objc var rmnEvent: Swift.String? { get set }
   @objc var failedPushEventStack: [[Swift.AnyHashable : Any]]? { get set }
   @objc var exitPushPayload: Foundation.Data? { get set }
   @objc var isCollectIDFA: Swift.Bool { get set }
@@ -977,9 +768,6 @@ extension Appier.AIQUtility {
   @objc public static let QG_ADS_TRACKING_STATUS: Swift.String
   @objc public static let QG_OPTOUT_STATUS: Swift.String
   @objc public static let QG_CRASH_LOG_KEY: Swift.String
-  @objc public static let QG_CRASH_RECORD_KEY: Swift.String
-  @objc public static let QG_AIRIS_CRASH_RECORD_KEY: Swift.String
-  @objc public static let QG_AIRIS_CRASH_COUNT_KEY: Swift.String
   @objc public static let QG_SAVED_PUSH_NOTIFICATION: Swift.String
   @objc public static let QG_SAVED_PUSH_NOTIFICATION_LIMIT: Swift.String
   @objc public static let QG_SAVE_PUSH_NOTIFICATION_ENABLED: Swift.String
@@ -997,7 +785,6 @@ extension Appier.AIQUtility {
   @objc public static let QG_IS_COLLECT_IDFA: Swift.String
   @objc public static let QG_IS_COLLECT_LOCATION: Swift.String
   @objc public static let QG_DID_MIGRATE_IMAGE_STORAGE: Swift.String
-  @objc public static let AIQ_IMMEDIATE_CAMPAIGN: Swift.String
   @objc public static let EVENT_CONTROL_GROUP_RECEIVED: Swift.String
   @objc public static var EVENT_INAPP_DISPLAYED: Swift.String
   @objc public static var EVENT_INAPP_TOGGLED: Swift.String
@@ -1014,8 +801,6 @@ extension Appier.AIQUtility {
   @objc public static let APPIER_SCENE_DELEGATE_DEEPLINK_HANDLING_ENABLED_INFO_PLIST_KEY: Swift.String
   @objc public static let QG_FAILED_PUSH_EVENT_STACK: Swift.String
   @objc public static let AIQ_WEBKIT_VERSION: Swift.String
-  @objc public static let KEY_SESSION_COUNT: Swift.String
-  @objc public static let KEY_LAST_TRACK_SESSION_TIME: Swift.String
   @objc override dynamic public init()
   @objc deinit
 }
@@ -1024,14 +809,6 @@ extension Appier.AIQUtility {
   @objc final public let storage: Appier.AIQLocalStorage
   @objc public var remoteConfigEndpoint: Swift.String
   @objc public var endpoint: Appier.EndpointConfiguration {
-    @objc get
-    @objc set
-  }
-  @objc public var rmnConfig: Appier.RmnConfiguration {
-    @objc get
-    @objc set
-  }
-  @objc public var analyticsConfig: Appier.AnalyticsConfiguration {
     @objc get
     @objc set
   }
@@ -1044,55 +821,8 @@ extension Appier.AIQUtility {
   @objc public var isNewUser: Swift.Bool {
     @objc get
   }
-  @objc public var sessionCount: Swift.Int {
-    @objc get
-    @objc set
-  }
-  @objc public var lastTrackSessionTime: Swift.Int {
-    @objc get
-    @objc set
-  }
   @objc override convenience dynamic public init()
   @objc public init(storage: Appier.AIQLocalStorage)
-  @objc deinit
-}
-@_inheritsConvenienceInitializers @objcMembers @objc(AIQAnalyticsConfig) public class AnalyticsConfig : Appier.AIQObject, Swift.Codable {
-  @objc public var airis: Appier.AnalyticsConfig.AirisConfig
-  @objc public var rollbar: Appier.AnalyticsConfig.RollbarConfig
-  @objc(decodeWithData:error:) public class func decode(from data: Foundation.Data) throws -> Appier.AnalyticsConfig
-  @objc public func data() throws -> Foundation.Data
-  @objc @_inheritsConvenienceInitializers public class AirisConfig : Appier.AIQObject, Swift.Codable {
-    @objc public var api: Swift.String?
-    @objc public var domain: Swift.String?
-    @objc public var aggregation: Swift.Int
-    @objc override dynamic public init()
-    @objc deinit
-    public func encode(to encoder: any Swift.Encoder) throws
-    required public init(from decoder: any Swift.Decoder) throws
-  }
-  @objc @_inheritsConvenienceInitializers public class RollbarConfig : Appier.AIQObject, Swift.Codable {
-    @objc public var api: Swift.String?
-    @objc override dynamic public init()
-    @objc deinit
-    public func encode(to encoder: any Swift.Encoder) throws
-    required public init(from decoder: any Swift.Decoder) throws
-  }
-  @objc override dynamic public init()
-  @objc deinit
-  public func encode(to encoder: any Swift.Encoder) throws
-  required public init(from decoder: any Swift.Decoder) throws
-}
-@objc @_inheritsConvenienceInitializers @objcMembers public class AnalyticsConfiguration : Appier.AIQObject {
-  @objc public var airis: Appier.AnalyticsConfig.AirisConfig {
-    @objc get
-    @objc set
-  }
-  @objc public var rollbar: Appier.AnalyticsConfig.RollbarConfig {
-    @objc get
-    @objc set
-  }
-  @objc public func clear()
-  @objc override dynamic public init()
   @objc deinit
 }
 @objc(AIQDataPointsResponse) @objcMembers public class DataPointsResponse : ObjectiveC.NSObject, Swift.Codable {
@@ -1135,11 +865,8 @@ extension Appier.AIQUtility {
 @objc(AIQEventLogger) public protocol EventLogger {
   @objc func logError(missingEndpoint: Swift.String, api: Swift.String)
 }
-@_inheritsConvenienceInitializers @objcMembers @objc(AIQRemoteConfig) public class RemoteConfig : Appier.AIQObject, Swift.Codable {
+@_inheritsConvenienceInitializers @objcMembers @objc(AIQRemoteConfig) public class RemoteConfig : ObjectiveC.NSObject, Swift.Codable {
   @objc public var endpoints: Appier.RemoteConfigEndpoints?
-  @objc public var aiDeal: Appier.RemoteConfigAideal?
-  @objc public var retailMediaNetwork: Appier.RmnConfig?
-  @objc public var analytics: Appier.AnalyticsConfig?
   @objc(decodeWithData:error:) public class func decode(from data: Foundation.Data) throws -> Appier.RemoteConfig
   @objc public func data() throws -> Foundation.Data
   @objc override dynamic public init()
@@ -1147,13 +874,7 @@ extension Appier.AIQUtility {
   public func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
 }
-@objc @_inheritsConvenienceInitializers public class RemoteConfigAideal : Appier.AIQObject, Swift.Codable {
-  @objc override dynamic public init()
-  @objc deinit
-  public func encode(to encoder: any Swift.Encoder) throws
-  required public init(from decoder: any Swift.Decoder) throws
-}
-@_inheritsConvenienceInitializers @objcMembers @objc(AIQRemoteConfigEndpoints) public class RemoteConfigEndpoints : Appier.AIQObject, Swift.Codable {
+@_inheritsConvenienceInitializers @objcMembers @objc(AIQRemoteConfigEndpoints) public class RemoteConfigEndpoints : ObjectiveC.NSObject, Swift.Codable {
   @objc public var dback: Swift.String?
   @objc public var user: Swift.String?
   @objc public var personalization: Swift.String?
@@ -1161,38 +882,13 @@ extension Appier.AIQUtility {
   @objc public var cstudio: Swift.String?
   @objc(decodeWithData:error:) public class func decode(from data: Foundation.Data) throws -> Appier.RemoteConfigEndpoints
   @objc public func data() throws -> Foundation.Data
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
   @objc override dynamic public init()
   @objc deinit
   public func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
-}
-@_inheritsConvenienceInitializers @objcMembers @objc(AIQRmnConfig) public class RmnConfig : Appier.AIQObject, Swift.Codable {
-  @objc public var marketPlaceId: Swift.Int
-  @objc public var api: Swift.String?
-  @objc public var event: Swift.String?
-  @objc(decodeWithData:error:) public class func decode(from data: Foundation.Data) throws -> Appier.RmnConfig
-  @objc public func data() throws -> Foundation.Data
-  @objc override dynamic public init()
-  @objc deinit
-  public func encode(to encoder: any Swift.Encoder) throws
-  required public init(from decoder: any Swift.Decoder) throws
-}
-@objc @_inheritsConvenienceInitializers @objcMembers public class RmnConfiguration : Appier.AIQObject {
-  @objc public var marketPlaceId: Swift.Int {
-    @objc get
-    @objc set
-  }
-  @objc public var api: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc public var event: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc public func clear()
-  @objc override dynamic public init()
-  @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(AIQCoreDataComponent) @objcMembers public class CoreDataComponent : ObjectiveC.NSObject {
   @objc public var managedObjectContext: CoreData.NSManagedObjectContext? {
@@ -1232,9 +928,6 @@ public let maxRowCount: Swift.Int
 }
 extension Appier.Logger {
   @objc(aiquaLogger) public static let aiqua: Appier.Logger
-}
-extension Appier.Logger {
-  @objc(rmnLogger) public static let rmn: Appier.Logger
 }
 @propertyWrapper public struct Default<Provider> : Swift.Codable where Provider : Appier.DefaultValueProvider {
   public var wrappedValue: Provider.Value
@@ -1489,10 +1182,6 @@ extension Appier.InAppRemoteService : Appier.InAppService {
   typealias InboxCampaigns = [[Swift.String : Any]]
   typealias Geofencing = [Swift.String : Any]
   @objc(fetchInAppCampaignsWithShouldFetchInapp:shouldFetchGeofence:completionHandler:) func fetchInAppCampaigns(shouldFetchInapp: Swift.Bool, shouldFetchGeofence: Swift.Bool, completionHandler: @escaping (Self.PopupCampaigns?, Self.InboxCampaigns?, Self.Geofencing?, (any Swift.Error)?) -> Swift.Void)
-}
-@objc(AIQInAppRecommendationDataProviderProtocol) public protocol InAppRecommendationDataProviderProtocol {
-  @objc(getRecommendationWithScenarioId:withQueryParameters:withCompletionHandler:) func getRecommendation(scenarioId: Swift.String, queryParameters: [Swift.AnyHashable : Any], completionHandler: @escaping ([Swift.AnyHashable : Any]?) -> Swift.Void)
-  @objc(getRecommendationWithScenarioId:withProductId:withQueryParameters:withCompletionHandler:) func getRecommendation(scenarioId: Swift.String, productId: Swift.String, queryParameters: [Swift.AnyHashable : Any], completionHandler: @escaping ([Swift.AnyHashable : Any]?) -> Swift.Void)
 }
 @objc public protocol QGWKScriptMessageHandler {
   @objc func userContentController(_ userContentController: WebKit.WKUserContentController, didReceiveScriptMessage message: WebKit.WKScriptMessage)
@@ -1773,14 +1462,14 @@ extension Appier.RemoteConfigRemoteService : Appier.RemoteConfigService {
 }
 extension Appier.LINEUrlHandler : Appier.ThirdPartyUrlHandlerProtocol {
   @objc public static func isEnable() -> Swift.Bool
-  @objc public static func handleUrl(_ url: Foundation.URL, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol, eventAttribution: any Appier.AIQEventAttributionProtocol)
-  @objc public static func handleUserActivity(_ userActivity: Foundation.NSUserActivity, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol, eventAttribution: any Appier.AIQEventAttributionProtocol)
+  @objc public static func handleUrl(_ url: Foundation.URL, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol)
+  @objc public static func handleUserActivity(_ userActivity: Foundation.NSUserActivity, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol)
   @objc public static func modifyUrlIfNeeded(_ url: Foundation.URL) -> Foundation.URL?
 }
 public protocol ThirdPartyUrlHandlerProtocol {
   static func isEnable() -> Swift.Bool
-  static func handleUrl(_ url: Foundation.URL, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol, eventAttribution: any Appier.AIQEventAttributionProtocol)
-  static func handleUserActivity(_ userActivity: Foundation.NSUserActivity, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol, eventAttribution: any Appier.AIQEventAttributionProtocol)
+  static func handleUrl(_ url: Foundation.URL, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol)
+  static func handleUserActivity(_ userActivity: Foundation.NSUserActivity, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol)
   static func modifyUrlIfNeeded(_ url: Foundation.URL) -> Foundation.URL?
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class ThirdPartyUrlHandlerService : ObjectiveC.NSObject {
@@ -1795,119 +1484,8 @@ public protocol ThirdPartyUrlHandlerProtocol {
   @objc override dynamic public init()
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @objcMembers public class Rmn : ObjectiveC.NSObject {
-  @objc public func searchProductAds(keyword: Swift.String, placementId: Swift.Int, maxAmount: Swift.Int, products: [Appier.RmnProduct], asyncResult: Appier.AsyncResult<Appier.RmnProductsResult>)
-  @objc public func logProductAdsImpression(productAds: [Appier.RmnProductAd], placementId: Swift.Int, sponsoredType: Appier.RmnSponsoredType, requestId: Swift.String)
-  @objc public func logProductAdClicked(productAd: Appier.RmnProductAd, placementId: Swift.Int, sponsoredType: Appier.RmnSponsoredType, requestId: Swift.String)
-  @objc public func logProductAdAddedToWishlist(productAd: Appier.RmnProductAd, placementId: Swift.Int, sponsoredType: Appier.RmnSponsoredType, requestId: Swift.String)
-  @objc public func logProductAdAddedToCart(productAd: Appier.RmnProductAd, placementId: Swift.Int, sponsoredType: Appier.RmnSponsoredType, requestId: Swift.String)
-  @objc public func logProductSales(sales: [Appier.RmnSale])
-  @objc public func logProductSales(orderId: Swift.String?, sales: [Appier.RmnSale])
-  @objc public func logProductsImpression(products: [Appier.RmnProduct])
-  @objc public func logProductAddedToWishlist(product: Appier.RmnProduct)
-  @objc public func logProductAddedToCart(product: Appier.RmnProduct)
-  @objc public func logProductSearched(keyword: Swift.String, productIds: [Swift.String])
-  @objc public func logSearchedProductClicked(keyword: Swift.String, productId: Swift.String)
-  @objc override dynamic public init()
-  @objc deinit
-}
-@objc public enum RmnSponsoredType : Swift.Int {
-  case search
-  public init?(rawValue: Swift.Int)
-  public typealias RawValue = Swift.Int
-  public var rawValue: Swift.Int {
-    get
-  }
-}
-public typealias RmnProductsResult = Appier.RmnPostAdsResponse
-@objc @objcMembers public class RmnPostAdsResponse : Appier.AIQObject, Swift.Decodable {
-  @objc public var productsPlacements: [Appier.RmnProductAdsPlacement]
-  @objc public var requestId: Swift.String?
-  @objc public var responseId: Swift.String?
-  required public init(from decoder: any Swift.Decoder) throws
-  @objc deinit
-}
-public typealias RmnProductsWithDetailsResult = Appier.RmnPostSearchProductsResponse
-@objc @_inheritsConvenienceInitializers @objcMembers public class RmnPostSearchProductsResponse : Appier.AIQObject, Swift.Decodable {
-  @objc public var placements: [Appier.RmnProductDetailsPlacement]
-  @objc public var requestId: Swift.String?
-  @objc override dynamic public init()
-  @objc deinit
-  required public init(from decoder: any Swift.Decoder) throws
-}
-@objc @_inheritsConvenienceInitializers @objcMembers public class RmnProduct : Appier.AIQObject {
-  @objc public static let MAX_SUB_CATEGORIES_SIZE: Swift.Int
-  @objc public var productId: Swift.String?
-  @objc public var name: Swift.String?
-  @objc public var brand: Swift.String?
-  @objc public var category: Swift.String?
-  @objc public var subCategories: [Swift.String]?
-  @objc public var price: Swift.Float
-  @objc public var salePrice: Swift.Float
-  @objc public var currency: Swift.String?
-  @objc public var productLink: Swift.String?
-  @objc public var productImage: Swift.String?
-  @objc public var extras: [Swift.String : Any]?
-  @objc override dynamic public init()
-  @objc deinit
-}
-@objc @_inheritsConvenienceInitializers @objcMembers public class RmnProductAd : Appier.AIQObject, Swift.Decodable {
-  @objc public var advertiserId: Swift.String?
-  @objc public var campaignId: Swift.Int
-  @objc public var adId: Swift.String?
-  @objc public var productId: Swift.String?
-  @objc public var position: Swift.Int
-  @objc override dynamic public init()
-  @objc deinit
-  required public init(from decoder: any Swift.Decoder) throws
-}
-@objc @_inheritsConvenienceInitializers @objcMembers public class RmnProductAdsPlacement : Appier.AIQObject, Swift.Decodable {
-  @objc public var placementId: Swift.Int
-  @objc public var ads: [Appier.RmnProductAd]
-  @objc override dynamic public init()
-  @objc deinit
-  required public init(from decoder: any Swift.Decoder) throws
-}
-@objc @_hasMissingDesignatedInitializers @objcMembers public class RmnProductDetailsAd : Appier.RmnProductAd {
-  @objc public var brand: Swift.String?
-  @objc public var categoryL1: Swift.String?
-  @objc public var categoryL2: Swift.String?
-  @objc public var categoryL3: Swift.String?
-  @objc public var imageLink: Swift.String?
-  @objc public var link: Swift.String?
-  @objc public var price: Swift.String?
-  @objc public var salePrice: Swift.String?
-  @objc public var title: Swift.String?
-  @objc deinit
-}
-@objc @_inheritsConvenienceInitializers @objcMembers public class RmnProductDetailsPlacement : Appier.AIQObject, Swift.Decodable {
-  @objc public var ads: [Appier.RmnProductDetailsAd]
-  @objc override dynamic public init()
-  @objc deinit
-  required public init(from decoder: any Swift.Decoder) throws
-}
-@objc @_inheritsConvenienceInitializers @objcMembers public class RmnRedirect : Appier.AIQObject, Swift.Decodable {
-  @objc public var type: Swift.String?
-  @objc public var url: Swift.String?
-  @objc override dynamic public init()
-  @objc deinit
-  required public init(from decoder: any Swift.Decoder) throws
-}
-@objc @_inheritsConvenienceInitializers @objcMembers public class RmnSale : Appier.AIQObject {
-  @objc public static func fromProductAd(productAd: Appier.RmnProductAd, category: Swift.String, quantity: Swift.Int, unitPrice: Swift.Float, currency: Swift.String) -> Appier.RmnSale
-  @objc public static func fromProduct(product: Appier.RmnProduct, quantity: Swift.Int, unitPrice: Swift.Float) -> Appier.RmnSale
-  @objc public var advertiserId: Swift.String?
-  @objc public var productId: Swift.String?
-  @objc public var brand: Swift.String?
-  @objc public var category: Swift.String?
-  @objc public var currency: Swift.String?
-  @objc public var quantity: Swift.Int
-  @objc public var unitPrice: Swift.Float
-  @objc override dynamic public init()
-  @objc deinit
-}
 @_inheritsConvenienceInitializers @objc(APRApp) @objcMembers public class AppierApp : ObjectiveC.NSObject {
-  @objc public var aiDeal: Appier.AiDealSDK {
+  @objc public var aiDeal: Appier.AiDeal {
     @objc get
   }
   @objc public var aiqua: Appier.QGSdk {
@@ -2040,9 +1618,6 @@ extension Appier.InAppBadgeAlignment : Swift.RawRepresentable {}
 extension Appier.InAppMatchOperator : Swift.Equatable {}
 extension Appier.InAppMatchOperator : Swift.Hashable {}
 extension Appier.InAppMatchOperator : Swift.RawRepresentable {}
-extension Appier.RmnSponsoredType : Swift.Equatable {}
-extension Appier.RmnSponsoredType : Swift.Hashable {}
-extension Appier.RmnSponsoredType : Swift.RawRepresentable {}
 extension Appier.LogType : Swift.Equatable {}
 extension Appier.LogType : Swift.Hashable {}
 extension Appier.LogType : Swift.RawRepresentable {}
