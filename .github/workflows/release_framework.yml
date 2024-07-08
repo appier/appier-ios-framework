@@ -41,7 +41,7 @@ jobs:
           
   release_success_message:
     needs: [release_framework]
-    if: ${{ always() && !contains(needs.*.result, 'failure') && !contains(needs.*.result, 'canceled') }}
+    if: ${{ always() && !contains(needs.*.result, 'failure') && !contains(needs.*.result, 'cancelled') }}
     uses: appier/appier-ios/.github/workflows/Send_message_to_slack.yml@master
     secrets: inherit
     with:
