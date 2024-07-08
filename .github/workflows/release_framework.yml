@@ -1,0 +1,36 @@
+name: Release framework
+
+on:
+  pull_request:
+    types:
+      - closed
+        
+jobs:
+  release_framework:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+    
+    - name: Setup gem
+      uses: appier/appier-ios/.github/actions/install_gem_dependencies@master
+
+    - name: Github release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      run: |
+        bundle exec fastlane release
+        
+    - name: Deploy pods framework
+      run: |
+        bundle exec fastlane pods_framework
+        
+    - name: Deploy pods extension framework
+      run: |
+        bundle exec fastlane pods_extension_framework
+
+    - name: Enable Build app with release framework workflow
+      run: |
+        curl -X POST \
+          -H "Authorization: token ${{ secrets.GH_TOKEN }}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          "https://api.github.com/repos/appier/appier-ios-automation-test-app/actions/workflows/build_app_from_release_sources.yml/enable"
