@@ -39,10 +39,19 @@ jobs:
           -H "Accept: application/vnd.github.v3+json" \
           "https://api.github.com/repos/appier/appier-ios-automation-test-app/actions/workflows/build_app_from_release_sources.yml/enable"
           
+  release_success_message:
+    needs: [release_framework]
+    if: ${{ always() && !contains(needs.*.result, 'failure') && !contains(needs.*.result, 'canceled') }}
+    uses: appier/appier-ios/.github/workflows/Send_message_to_slack.yml@master
+    secrets: inherit
+    with:
+      notify_user_group: '${{ secrets.SLACK_IOS_USER_GROUP }}'
+      message: ":party-greengoodgood: Release framework Success !!"
+          
   release_fail_message:
     needs: [release_framework]
     if: ${{ always() && contains(needs.*.result, 'failure') }}
-    uses: appier/appier-ios-githubactions-test/.github/workflows/Send_message_to_slack.yml@master
+    uses: appier/appier-ios/.github/workflows/Send_message_to_slack.yml@master
     secrets: inherit
     with:
       notify_user_group: '${{ secrets.SLACK_IOS_USER_GROUP }}'
