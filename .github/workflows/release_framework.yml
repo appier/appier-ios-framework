@@ -21,10 +21,14 @@ jobs:
         bundle exec fastlane release
         
     - name: Deploy pods framework
+      env:
+        COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
       run: |
         bundle exec fastlane pods_framework
         
     - name: Deploy pods extension framework
+      env:
+        COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
       run: |
         bundle exec fastlane pods_extension_framework
 
