@@ -38,7 +38,7 @@ jobs:
   release_fail_message:
     needs: [release_framework]
     if: ${{ always() && contains(needs.*.result, 'failure') }}
-    uses: appier/appier-ios-githubactions-test/.github/workflows/Send_message_to_slack.yml
+    uses: appier/appier-ios-githubactions-test/.github/workflows/Send_message_to_slack.yml@master
     secrets: inherit
     with:
       notify_user_group: '${{ secrets.SLACK_IOS_USER_GROUP }}'
