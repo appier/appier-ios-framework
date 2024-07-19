@@ -40,6 +40,7 @@ typedef NS_ENUM(NSInteger, InAppPersistency) {
 
 @interface QGInApp: NSObject<NSCoding>
 @property (nonatomic) NSNumber *notificationId;
+@property (nonatomic) NSNumber *messageNo;
 @property (nonatomic) InAppType type;
 @property (nonatomic) NSString *icon;          //bubble button image
 @property (nonatomic) NSString *gravity;       //top or bottom
