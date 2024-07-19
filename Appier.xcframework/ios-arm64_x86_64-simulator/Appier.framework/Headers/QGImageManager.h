@@ -14,6 +14,8 @@
 
 + (instancetype)instance;
 - (void)downloadImageForURL:(NSString *)urlString withIdentifier:(NSString *)identifier;
+- (BOOL)isAnimatedImageFile:(NSData *)data;
+- (NSData *)getImageDataForURL:(NSString *)urlString withIdentifier:(NSString *)identifier;
 - (UIImage *)getImageForURL:(NSString *)urlString withIdentifier:(NSString *)identifier;
 - (BOOL)isImageAvailableForURL:(NSString *)urlString withIdentifier:(NSString *)identifier;
 - (void)deleteImageForURL:(NSString *)urlString withIdentifier:(NSString *)identifier;
