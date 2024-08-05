@@ -8,6 +8,8 @@
 #import "AIQMutableOrderedDictionary.h"
 #import "AIQDataTrackingConfiguration.h"
 #import "SwiftMediator.h"
+#import "AppierError.h"
+#import "AsyncResult.h"
 
 @class AIQRecommendationRequest;
 @class AIQRecommendationTagResponse;
@@ -16,12 +18,13 @@
 @protocol AIQUserProfileLoggingProtocol;
 @protocol AIQRecommendationLoggingProtocol;
 @protocol AIQInAppRecommendationDataProviderProtocol;
+@protocol AIQEventAttributionProtocol;
 
 /// This is the JavaScript to be injected into custom web view, in order to track custom events and attributes
-extern NSString * const QGWKWebViewUserScript;
+extern NSString * _Nonnull QGWKWebViewUserScript;
 
 NS_ASSUME_NONNULL_BEGIN
-@interface QGSdk : NSObject <AIQEventLoggingProtocol, AIQUserProfileLoggingProtocol, AIQRecommendationLoggingProtocol, AIQInAppRecommendationDataProviderProtocol>
+@interface QGSdk : NSObject <AIQEventLoggingProtocol, AIQUserProfileLoggingProtocol, AIQRecommendationLoggingProtocol, AIQInAppRecommendationDataProviderProtocol, AIQEventAttributionProtocol>
 
 /*!
  @abstract
@@ -213,34 +216,34 @@ NS_ASSUME_NONNULL_BEGIN
  @discussion
  you can identify your user with user_id while creating segment on app.qgraph.io
  */
-- (void)setUserId:(NSString *)userId;
+- (void)setUserId:(nullable NSString *)userId;
 
 /*! @abstract Set the name of the user */
-- (void)setName:(NSString *)name;
+- (void)setName:(nullable NSString *)name;
 
 /*! @abstract Set the first name of the user */
-- (void)setFirstName:(NSString *)name;
+- (void)setFirstName:(nullable NSString *)name;
 
 /*! @abstract Set the last name of the user */
-- (void)setLastName:(NSString *)name;
+- (void)setLastName:(nullable NSString *)name;
 
 /*! @abstract Set the city of the user */
-- (void)setCity:(NSString *)city;
+- (void)setCity:(nullable NSString *)city;
 
 /*! @abstract Set the email id of the user */
-- (void)setEmail:(NSString *)email;
+- (void)setEmail:(nullable NSString *)email;
 
 /*! @abstract Set the phone number of the user */
-- (void)setPhoneNumber:(NSString *)phoneNo;
+- (void)setPhoneNumber:(nullable NSString *)phoneNo;
 
 /*! @abstract Set the day of DOB of the user */
-- (void)setDayOfBirth:(NSNumber *)day;
+- (void)setDayOfBirth:(nullable NSNumber *)day;
 
 /*! @abstract Set the month of DOB of the user */
-- (void)setMonthOfBirth:(NSNumber *)month;
+- (void)setMonthOfBirth:(nullable NSNumber *)month;
 
 /*! @abstract Set the year of DOB of the user */
-- (void)setYearOfBirth:(NSNumber *)year;
+- (void)setYearOfBirth:(nullable NSNumber *)year;
 
 /*!
  @abstract
@@ -850,6 +853,9 @@ BOOL isAppierPush = [[QGSdk getSharedInstance] isAppierPush:@{@"example": @"exam
 
 /// This is a handler of AIQUA-related WKWebView script message for the implementation of custom web view, to track custom events and attributes in such web view
 - (void)handleScriptMessageOfWebView:(WKWebView *)webView userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message;
+- (void)handleScriptMessageOfWebView:(WKWebView *)webView userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message processEventParameters:(BOOL)processEventParameters;
+- (void)didReceiveAidealExternalCampaign:(NSDictionary *)campaign;
+- (void)onStart:(NSString *)appId withAppGroup:(NSString * _Nullable)appGroup setDevProfile:(BOOL)devProfile shouldFetchRemoteConfig:(BOOL)shouldFetchRemoteConfig frameworkType:(NSString * _Nullable)type frameworkVersion:(NSString * _Nullable)version;
 
 @end
 NS_ASSUME_NONNULL_END

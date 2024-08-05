@@ -3,6 +3,14 @@
 FOUNDATION_EXPORT double AppierVersionNumber;
 FOUNDATION_EXPORT const unsigned char AppierVersionString[];
 
+#import <AppTrackingTransparency/AppTrackingTransparency.h>
+#import <CoreData/CoreData.h>
+#import <CoreLocation/CoreLocation.h>
+
+// Appier public headers
+#import <Appier/AppierError.h>
+#import <Appier/AsyncResult.h>
+
 // AiDeal public headers
 #import <Appier/AIDNotification.h>
 #import <Appier/AIDPage.h>
