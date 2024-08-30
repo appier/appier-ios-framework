@@ -48,7 +48,6 @@ jobs:
     secrets: inherit
     with:
       is_success: "true"
-      notify_user_group: '${{ secrets.SLACK_IOS_USER_GROUP }}'
 
   release_fail_message:
     needs: [release_framework]
@@ -57,4 +56,3 @@ jobs:
     secrets: inherit
     with:
       is_success: "false"
-      notify_user_group: '${{ secrets.SLACK_IOS_USER_GROUP }}'

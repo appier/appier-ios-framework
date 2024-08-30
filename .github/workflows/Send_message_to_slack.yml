@@ -7,9 +7,6 @@ on:
         type: string
         required: true
 
-      notify_user_group:
-        type: string
-
 jobs:
   send_message:
     runs-on: ubuntu-latest
@@ -30,11 +27,7 @@ jobs:
           echo ATTACHMENT_COLOR="#e23636" >> $GITHUB_OUTPUT
         fi
 
-        if [[ "${{ inputs.notify_user_group }}" != "" ]]; then
-          echo TITLE="<!subteam^${{ inputs.notify_user_group }}>\n:apple2: ${REPO}" >> $GITHUB_OUTPUT
-        else
-          echo TITLE=":apple2: ${REPO}" >> $GITHUB_OUTPUT
-        fi
+        echo TITLE="<!subteam^S042H1N39E3>\n:apple2: ${REPO}" >> $GITHUB_OUTPUT
 
         echo WORKFLOW="${{ github.workflow }}" >> $GITHUB_OUTPUT
 
@@ -103,7 +96,7 @@ jobs:
       id: slack
       uses: slackapi/slack-github-action@v1.26.0
       with:
-        channel-id: "${{ vars.NOTIFY_SLACK_CHANNEL_ID }}"
+        channel-id: "C079HHPRMGC"
         payload: "${{ env.PAYLOAD }}"
       env:
         SLACK_BOT_TOKEN: '${{ secrets.SLACK_BOT_OAUTH_TOKEN }}'
