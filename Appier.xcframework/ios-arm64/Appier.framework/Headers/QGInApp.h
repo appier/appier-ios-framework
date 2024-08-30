@@ -81,5 +81,6 @@ typedef NS_ENUM(NSInteger, InAppPersistency) {
 
 + (BOOL)isValidInApp:(QGInApp *)qgInApp WithDate:(NSDate *)now;
 + (BOOL)isExpiredInApp:(QGInApp *)qgInApp;
+- (void)downloadIconResourcesWithCompletionHandler:(void(^)(BOOL))completionHandler;
 - (NSString *)fbImageUrl;
 @end
