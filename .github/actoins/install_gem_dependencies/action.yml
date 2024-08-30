@@ -1,0 +1,40 @@
+name: Install gem dependencies
+
+inputs:
+  gemfile_hash:
+    description: "The hash of Gemfile"
+    type: string
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.0.0'  # Adjust to match the Ruby version specified in your Gemfile
+        
+    - name: Cache node modules
+      uses: actions/cache@v3
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ inputs.gemfile_hash }}
+        restore-keys: ${{ runner.os }}-gems-
+    
+    - name: Set Bundler cache directory
+      run: |
+        cd '${{ inputs.gemfile_path }}'
+        bundle config set --local path 'vendor/bundle'
+      shell: bash
+    
+    - name: Installing Gem dependencies
+      run: |
+        cd '${{ inputs.gemfile_path }}'
+        bundle check || bundle install
+      shell: bash
+
+    - name: Install Bundler
+      run: |
+        gem install bundler
+        bundle install --jobs 4 --retry 3
+      shell: bash

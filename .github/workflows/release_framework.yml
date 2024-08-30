@@ -12,7 +12,9 @@ jobs:
     steps:
     
     - name: Setup gem
-      uses: appier/appier-ios/.github/actions/install_gem_dependencies@master
+      uses: ./.github/actions/install_gem_dependencies
+      with:
+        gemfile_hash: ${{ hashFiles('**/Gemfile.lock') }}
 
     - name: Github release
       env:
@@ -42,7 +44,7 @@ jobs:
   release_success_message:
     needs: [release_framework]
     if: ${{ always() && !contains(needs.*.result, 'failure') && !contains(needs.*.result, 'cancelled') }}
-    uses: appier/appier-ios/.github/workflows/Send_message_to_slack.yml@master
+    uses: ./.github/workflows/Send_message_to_slack.yml
     secrets: inherit
     with:
       is_success: "true"
@@ -51,7 +53,7 @@ jobs:
   release_fail_message:
     needs: [release_framework]
     if: ${{ always() && contains(needs.*.result, 'failure') }}
-    uses: appier/appier-ios/.github/workflows/Send_message_to_slack.yml@master
+    uses: ./.github/workflows/Send_message_to_slack.yml
     secrets: inherit
     with:
       is_success: "false"
