@@ -10,7 +10,10 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-    
+
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
     - name: Setup gem
       uses: appier/appier-ios-framework/.github/actions/install_gem_dependencies@master
       with:
