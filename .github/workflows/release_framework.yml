@@ -12,7 +12,7 @@ jobs:
     steps:
     
     - name: Setup gem
-      uses: ./.github/actions/install_gem_dependencies
+      uses: appier/appier-ios-framework/.github/actions/install_gem_dependencies@master
       with:
         gemfile_hash: ${{ hashFiles('**/Gemfile.lock') }}
 
