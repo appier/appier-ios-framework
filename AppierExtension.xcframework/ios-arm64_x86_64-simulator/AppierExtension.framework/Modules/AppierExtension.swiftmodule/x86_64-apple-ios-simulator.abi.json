@@ -13,13 +13,6 @@
       },
       {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "AppierExtension"
-      },
-      {
-        "kind": "Import",
         "name": "AdSupport",
         "printedName": "AdSupport",
         "declKind": "Import",
@@ -2924,77 +2917,77 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGNotificationSdk\/Extensions\/Logger+AIQUANotification.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGNotificationSdk\/Extensions\/Logger+AIQUANotification.swift",
       "kind": "StringLiteral",
       "offset": 128,
       "length": 20,
       "value": "\"AIQUA Notification\""
     },
     {
-      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/DeviceInfo.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/DeviceInfo.swift",
       "kind": "StringLiteral",
       "offset": 153,
       "length": 9,
       "value": "\"Unknown\""
     },
     {
-      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/LogMessage.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/LogMessage.swift",
       "kind": "StringLiteral",
       "offset": 712,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
       "offset": 1652,
       "length": 29,
       "value": "\"yyyy-MM-dd HH:mm:ss.SSSSSSZ\""
     },
     {
-      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
       "offset": 189,
       "length": 6,
       "value": "\"AppierExtension.Logger\""
     },
     {
-      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
       "offset": 1790,
       "length": 4,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
       "offset": 1796,
       "length": 7,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
       "offset": 1805,
       "length": 5,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
       "offset": 1790,
       "length": 4,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
       "offset": 1796,
       "length": 7,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
       "offset": 1805,
       "length": 5,
