@@ -45,14 +45,14 @@ jobs:
     uses: appier/appier-ios/.github/workflows/Send_message_to_slack.yml@master
     secrets: inherit
     with:
+      is_success: "true"
       notify_user_group: '${{ secrets.SLACK_IOS_USER_GROUP }}'
-      message: ":party-greengoodgood: Release framework Success !!"
-          
+
   release_fail_message:
     needs: [release_framework]
     if: ${{ always() && contains(needs.*.result, 'failure') }}
     uses: appier/appier-ios/.github/workflows/Send_message_to_slack.yml@master
     secrets: inherit
     with:
+      is_success: "false"
       notify_user_group: '${{ secrets.SLACK_IOS_USER_GROUP }}'
-      message: ":alert_party: Release framework fail !!"
