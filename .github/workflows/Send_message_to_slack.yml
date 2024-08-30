@@ -1,0 +1,109 @@
+name: Send message to slack
+
+on:
+  workflow_call:
+    inputs:
+      is_success:
+        type: string
+        required: true
+
+      notify_user_group:
+        type: string
+
+jobs:
+  send_message:
+    runs-on: ubuntu-latest
+    environment: ENV
+    steps:
+
+    - id: messages
+      run: |
+        if [ -n "${{ github.event.pull_request.head.repo.full_name }}" ]; then
+          REPO="<${{ github.server_url }}/${{ github.repository }}|${{ github.event.pull_request.head.repo.full_name }}>"
+        else
+          REPO="<${{ github.server_url }}/${{ github.repository }}|${{ github.repository }}>"
+        fi
+
+        if [[ ${{ inputs.is_success }} == "true" ]]; then
+          echo ATTACHMENT_COLOR="#36a64f" >> $GITHUB_OUTPUT
+        else
+          echo ATTACHMENT_COLOR="#e23636" >> $GITHUB_OUTPUT
+        fi
+
+        if [[ "${{ inputs.notify_user_group }}" != "" ]]; then
+          echo TITLE="<!subteam^${{ inputs.notify_user_group }}>\n:apple2: ${REPO}" >> $GITHUB_OUTPUT
+        else
+          echo TITLE=":apple2: ${REPO}" >> $GITHUB_OUTPUT
+        fi
+
+        echo WORKFLOW="${{ github.workflow }}" >> $GITHUB_OUTPUT
+
+        echo PR="${{ github.event.pull_request.title }}" >> $GITHUB_OUTPUT
+
+        echo RUN="<https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|#${{ github.run_id }}>" >> $GITHUB_OUTPUT
+
+    - id: payload
+      run: |
+        # Initialize the original payload string with placeholders
+        payload='{
+          "blocks": [
+            {
+              "type": "section",
+              "text": {
+                "type": "mrkdwn",
+                "text": "${{ steps.messages.outputs.TITLE }}"
+              }
+            }
+          ],
+          "attachments": [
+            {
+              "color": "${{ steps.messages.outputs.ATTACHMENT_COLOR }}",
+              "blocks": [
+                ##PLACEHOLDER##
+              ]
+            }
+          ]
+        }'
+
+        # Function to add a section block if an input is provided
+        add_section() {
+          local input_value="$1"
+          local input_label="$2"
+
+          if [ -n "$input_value" ]; then
+            new_section='{
+              "type": "section",
+              "text": {
+                "type": "mrkdwn",
+                "text": "*'"${input_label}"'*\n'"${input_value}"'"
+              }
+            },'
+            # Append the new section to the payload
+            payload=${payload/'##PLACEHOLDER##'/$new_section##PLACEHOLDER##}
+          fi
+        }
+
+        # Add sections based on inputs
+        add_section "${{ steps.messages.outputs.WORKFLOW }}" "Workflow"
+        add_section "${{ steps.messages.outputs.PR }}" "PR"
+        add_section "${{ steps.messages.outputs.RUN }}" "Run"
+
+        # Remove any remaining placeholder
+        payload=${payload/',##PLACEHOLDER##'/}
+        payload=${payload/'##PLACEHOLDER##'/}
+
+        # Output the final payload
+        echo "${payload}"
+
+        echo "PAYLOAD<<EOF" >> "$GITHUB_ENV"
+        echo "${payload}" >> "$GITHUB_ENV"
+        echo "EOF" >> "$GITHUB_ENV"
+
+    - name: Send GitHub Action trigger data to Slack workflow
+      id: slack
+      uses: slackapi/slack-github-action@v1.26.0
+      with:
+        channel-id: "${{ vars.NOTIFY_SLACK_CHANNEL_ID }}"
+        payload: "${{ env.PAYLOAD }}"
+      env:
+        SLACK_BOT_TOKEN: '${{ secrets.SLACK_BOT_OAUTH_TOKEN }}'
