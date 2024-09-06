@@ -12,8 +12,8 @@ runs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '3.0.0'  # Adjust to match the Ruby version specified in your Gemfile
-        
+        ruby-version: '3.1.0'  # Adjust to match the Ruby version specified in your Gemfile
+
     - name: Cache node modules
       uses: actions/cache@v3
       with:
