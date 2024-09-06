@@ -188,342 +188,13 @@ extension Appier.Logger {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
   @objc deinit
 }
-@objc @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class AIQInAppCreativeStudioViewController : Appier.AIQInAppWebViewController {
-  @objc @_Concurrency.MainActor(unsafe) public init(csPayload: [Swift.String : Any]?, notificationId: Foundation.NSNumber, messageNo: Foundation.NSNumber, isShowDismissButton: Swift.Bool, isShowOverlay: Swift.Bool, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol, recommendationLogger: any Appier.AIQRecommendationLoggingProtocol, recommendationDataProvider: any Appier.AIQInAppRecommendationDataProviderProtocol, config: Appier.AIQUAConfiguration, storage: Appier.AIQLocalStorage)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
-  @objc @_Concurrency.MainActor(unsafe) public func prepareToBeDismissed()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
-  @objc deinit
-}
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class AIQInAppCrossMarkView : UIKit.UIView {
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func draw(_ rect: CoreFoundation.CGRect)
-  @objc deinit
-}
-@objc @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class AIQInAppCustomWebViewController : Appier.AIQInAppWebViewController {
-  @objc @_Concurrency.MainActor(unsafe) public init(htmlString: Swift.String, notificationId: Foundation.NSNumber, messageNo: Foundation.NSNumber, isShowDismissButton: Swift.Bool, isShowOverlay: Swift.Bool, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol, storage: Appier.AIQLocalStorage)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
-  @objc deinit
-}
-@objc @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class AIQInAppPopUpViewController : Appier.AIQInAppWebViewController {
-  @objc @_Concurrency.MainActor(unsafe) public init(htmlString: Swift.String, payload: [Swift.String : Any], notificationId: Foundation.NSNumber, messageNo: Foundation.NSNumber, isShowDismissButton: Swift.Bool, isShowOverlay: Swift.Bool, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol, storage: Appier.AIQLocalStorage)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
   @objc deinit
 }
 @objc public protocol AIQInAppRecommendationDataProviderProtocol {
   @objc(getRecommendationWithScenarioId:withQueryParameters:withCompletionHandler:) func getRecommendation(scenarioId: Swift.String, queryParameters: [Swift.AnyHashable : Any], completionHandler: @escaping ([Swift.AnyHashable : Any]?) -> Swift.Void)
   @objc(getRecommendationWithScenarioId:withProductId:withQueryParameters:withCompletionHandler:) func getRecommendation(scenarioId: Swift.String, productId: Swift.String, queryParameters: [Swift.AnyHashable : Any], completionHandler: @escaping ([Swift.AnyHashable : Any]?) -> Swift.Void)
-}
-@objc public protocol AIQInAppWebDelegate {
-  @objc func inAppWebViewDismiss(isPermanentClose: Swift.Bool, webView: Appier.AIQInAppWebViewController)
-  @objc func inAppWebViewDeepLink(with inAppWebView: Appier.AIQInAppWebViewController)
-}
-@objc @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class AIQInAppWebViewController : UIKit.UIViewController {
-  @objc @_Concurrency.MainActor(unsafe) public var notificationId: Foundation.NSNumber?
-  @objc @_Concurrency.MainActor(unsafe) public var messageNo: Foundation.NSNumber?
-  @objc @_Concurrency.MainActor(unsafe) weak public var delegate: (any Appier.AIQInAppWebDelegate)?
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public var supportedInterfaceOrientations: UIKit.UIInterfaceOrientationMask {
-    @objc get
-  }
-  @_Concurrency.MainActor(unsafe) @objc dynamic public init()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
-  @objc @_Concurrency.MainActor(unsafe) public func setMainWindowSupportedOrientationMask(_ orientationMask: UIKit.UIInterfaceOrientationMask)
-  @objc @_Concurrency.MainActor(unsafe) public func inAppWebViewResize()
-  @objc deinit
-}
-extension Appier.AIQInAppWebViewController : WebKit.WKScriptMessageHandler {
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
-}
-extension Appier.AIQInAppWebViewController : WebKit.WKNavigationDelegate {
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
-  @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
-}
-@objc @_inheritsConvenienceInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class AIQInAppWebViewPresenter : UIKit.UIViewController {
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public var supportedInterfaceOrientations: UIKit.UIInterfaceOrientationMask {
-    @objc get
-  }
-  @objc @_Concurrency.MainActor(unsafe) public func setMainWindowSupportedOrientationMask(_ orientationMask: UIKit.UIInterfaceOrientationMask)
-  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
-  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
-  @objc deinit
-}
-extension Appier.AIQLocalStorage : Appier.AIQStorage {
-  @objc dynamic public func clean()
-  @objc dynamic public var isDevProfile: Swift.Bool {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var appID: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var hasAppID: Swift.Bool {
-    @objc get
-  }
-  @objc dynamic public var appSecret: Swift.String {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var appVersion: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var deviceToken: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var crossPlatformFrameworkSdkType: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var crossPlatformFrameworkSdkVersion: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var appierID: Foundation.NSNumber? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var hasAppierID: Swift.Bool {
-    @objc get
-  }
-  @objc dynamic public var appierIdCreateTime: Foundation.Date? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var hasAppierIdCreateTime: Swift.Bool {
-    @objc get
-  }
-  @objc dynamic public var universalLinkDomains: [Swift.String]? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var isRichPushSupported: Swift.Bool {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var lastViewThroughTime: Foundation.Date? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var lastClickedNotificationTime: Foundation.Date? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var lastClickedNotificationID: Foundation.NSNumber? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var lastViewThroughNotificationID: Foundation.NSNumber? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var viewThroughAttributionWindow: Foundation.NSNumber? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var hasViewThroughAttributionWindow: Swift.Bool {
-    @objc get
-  }
-  @objc dynamic public var clickAttributionWindow: Foundation.NSNumber? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var lastLocation: [Swift.String : [Foundation.NSNumber]]? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var sdkVersionKey: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var hasSdkVersionKey: Swift.Bool {
-    @objc get
-  }
-  @objc dynamic public var shouldSendIDFAWithConsent: Swift.Bool {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var userDetailsLastSentTime: Foundation.Date? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var hasUserDetailsLastSentTime: Swift.Bool {
-    @objc get
-  }
-  @objc dynamic public var optoutStatus: Foundation.NSNumber? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var hasOptoutStatus: Swift.Bool {
-    @objc get
-  }
-  @available(iOS 14.0, *)
-  @objc dynamic public var adsTrackingStatus: AppTrackingTransparency.ATTrackingManager.AuthorizationStatus {
-    @objc get
-    @objc set
-  }
-  @available(iOS 14.0, *)
-  @objc dynamic public var hasAdsTrackingStatus: Swift.Bool {
-    @objc get
-  }
-  @objc dynamic public var personalizationConfig: [Swift.AnyHashable : Any]? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var hasPersonalizationConfig: Swift.Bool {
-    @objc get
-  }
-  @objc dynamic public var isPersonalizationDisabled: Swift.Bool {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var isPersonalizationDisabledStatusNotConfigured: Swift.Bool {
-    @objc get
-  }
-  @objc dynamic public var geofences: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var isGeofenceCapable: Swift.Bool {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var inbox: [Swift.AnyHashable : Any]? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var hasInbox: Swift.Bool {
-    @objc get
-  }
-  @objc dynamic public var inboxLimit: Swift.Int {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var hasInboxLimit: Swift.Bool {
-    @objc get
-  }
-  @objc dynamic public var isNotFirstAppBackground: Swift.Bool {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var isForceTouchCapabilityEnabled: Swift.Bool {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var inAppDisabledStatus: Swift.Bool {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var inApp: Appier.AIQMutableOrderedDictionary? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var hasInApp: Swift.Bool {
-    @objc get
-  }
-  @objc dynamic public var inAppFirstAppLaunchedMatched: Swift.Bool {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var crashLogKey: [Swift.String]? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var savedPushNotifications: [[Swift.AnyHashable : Any]]? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var hasSavedPushNotifications: Swift.Bool {
-    @objc get
-  }
-  @objc dynamic public var savedPushNotificationLimit: Foundation.NSNumber {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var isSavedPushNotificationEnabled: Swift.Bool {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var richPushDeeplink: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var isFirstAppLaunch: Swift.Bool {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var endpointUserServer: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var endpointDback: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var endpointRecommendation: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var endpointPersonalization: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var endpointCStudio: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var failedPushEventStack: [[Swift.AnyHashable : Any]]? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var exitPushPayload: Foundation.Data? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var isCollectIDFA: Swift.Bool {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var isCollectLocation: Swift.Bool {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var didMigrateImageStorage: Swift.Bool {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var webkitVersion: Swift.String {
-    @objc get
-    @objc set
-  }
-}
-extension Appier.AIQLocalStorage {
-  @objc dynamic public func synchronizeOnFirstLaunch(suiteName: Swift.String?)
-  @objc(setAppID:groupName:devProfile:frameworkType:version:) dynamic public func set(appID: Swift.String, groupName: Swift.String, devProfile: Swift.Bool, frameworkType: Swift.String?, version: Swift.String?)
-  @objc dynamic public func createAndSaveNewAppierId()
-  @objc dynamic public func cleanAttribution()
-  @objc dynamic public func shouldUserDetailsBeSent() -> Swift.Bool
-  @objc dynamic public func getFailedPushEventLogs() -> [[Swift.AnyHashable : Any]]
-  @objc dynamic public func clearFailedPushEventLogs()
-  @objc dynamic public func isNewUser() -> Swift.Bool
-  @objc dynamic public func handleDeepLink(_ url: Foundation.URL)
-  @objc dynamic public func isClickThroughAttribution() -> Swift.Bool
-  @objc dynamic public func setClickThroughFor(notificationId: Foundation.NSNumber)
-  @objc dynamic public func isViewThroughAttribution() -> Swift.Bool
-  @objc dynamic public func setViewThroughFor(notificationId: Foundation.NSNumber)
-}
-@_inheritsConvenienceInitializers @objc public class AIQLocalStorage : ObjectiveC.NSObject {
-  @objc override dynamic public var description: Swift.String {
-    @objc get
-  }
-  @objc public static var shared: Appier.AIQLocalStorage
-  @objc override convenience dynamic public init()
-  @objc public init(suiteName: Swift.String?)
-  @objc deinit
 }
 @objc public protocol AIQLocationUpdateDelegate {
   @objc(locationUpdatedWith:) func locationUpdated(location: [Swift.AnyHashable : Any]?)
@@ -652,7 +323,6 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
   @objc var isCollectIDFA: Swift.Bool { get set }
   @objc var isCollectLocation: Swift.Bool { get set }
   @objc var didMigrateImageStorage: Swift.Bool { get set }
-  @objc var webkitVersion: Swift.String { get set }
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class AIQUncaughtExceptionHandler : ObjectiveC.NSObject {
   @objc public class func uploadCrashLog(_ postData: Foundation.Data, completionHandler: @escaping (Foundation.URLResponse?, (any Swift.Error)?) -> Swift.Void)
@@ -834,7 +504,7 @@ extension Appier.AIQUtility {
   public func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
 }
-@objc @_inheritsConvenienceInitializers @objcMembers public class EndpointConfiguration : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers @objcMembers public class EndpointConfiguration : ObjectiveC.NSObject, Appier.AIQInAppCSEndpointConfigurationProtocol {
   @objc public var userServer: Swift.String? {
     @objc get
     @objc set
@@ -1182,6 +852,356 @@ extension Appier.InAppRemoteService : Appier.InAppService {
   typealias InboxCampaigns = [[Swift.String : Any]]
   typealias Geofencing = [Swift.String : Any]
   @objc(fetchInAppCampaignsWithShouldFetchInapp:shouldFetchGeofence:completionHandler:) func fetchInAppCampaigns(shouldFetchInapp: Swift.Bool, shouldFetchGeofence: Swift.Bool, completionHandler: @escaping (Self.PopupCampaigns?, Self.InboxCampaigns?, Self.Geofencing?, (any Swift.Error)?) -> Swift.Void)
+}
+@objc @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class AIQInAppCustomWebViewController : Appier.AIQInAppWebViewController {
+  @objc @_Concurrency.MainActor(unsafe) public init(htmlString: Swift.String, notificationId: Foundation.NSNumber, messageNo: Foundation.NSNumber, isShowDismissButton: Swift.Bool, isShowOverlay: Swift.Bool, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol, storage: any Appier.AIQInAppWebViewStorageProtocol)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class AIQInAppPopUpViewController : Appier.AIQInAppWebViewController {
+  @objc @_Concurrency.MainActor(unsafe) public init(htmlString: Swift.String, payload: [Swift.String : Any], notificationId: Foundation.NSNumber, messageNo: Foundation.NSNumber, isShowDismissButton: Swift.Bool, isShowOverlay: Swift.Bool, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol, storage: any Appier.AIQInAppWebViewStorageProtocol)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+  @objc deinit
+}
+@objc public protocol AIQInAppWebDelegate {
+  @objc func inAppWebViewDismiss(isPermanentClose: Swift.Bool, webView: Appier.AIQInAppWebViewController)
+  @objc func inAppWebViewDeepLink(with inAppWebView: Appier.AIQInAppWebViewController)
+}
+@objc @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class AIQInAppWebViewController : UIKit.UIViewController {
+  @objc @_Concurrency.MainActor(unsafe) public var notificationId: Foundation.NSNumber?
+  @objc @_Concurrency.MainActor(unsafe) public var messageNo: Foundation.NSNumber?
+  @objc @_Concurrency.MainActor(unsafe) weak public var delegate: (any Appier.AIQInAppWebDelegate)?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var supportedInterfaceOrientations: UIKit.UIInterfaceOrientationMask {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc dynamic public init()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @objc deinit
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidDisappear(_ animated: Swift.Bool)
+  @objc @_Concurrency.MainActor(unsafe) public func setMainWindowSupportedOrientationMask(_ orientationMask: UIKit.UIInterfaceOrientationMask)
+  @objc @_Concurrency.MainActor(unsafe) public func inAppWebViewResize()
+}
+extension Appier.AIQInAppWebViewController : WebKit.WKScriptMessageHandler {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
+}
+extension Appier.AIQInAppWebViewController : WebKit.WKNavigationDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
+}
+@objc @_inheritsConvenienceInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class AIQInAppWebViewPresenter : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var supportedInterfaceOrientations: UIKit.UIInterfaceOrientationMask {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) public func setMainWindowSupportedOrientationMask(_ orientationMask: UIKit.UIInterfaceOrientationMask)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc public protocol AIQInAppWebViewStorageProtocol {
+  @objc var webkitVersion: Swift.String { get set }
+  @objc func setClickThroughFor(notificationId: Foundation.NSNumber)
+  @objc func handleDeepLink(_ url: Foundation.URL)
+}
+@objc public protocol AIQInAppCSEndpointConfigurationProtocol {
+  @objc var cstudio: Swift.String? { get }
+}
+@objc @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class AIQInAppCreativeStudioViewController : Appier.AIQInAppWebViewController {
+  @objc @_Concurrency.MainActor(unsafe) public init(csPayload: [Swift.String : Any]?, notificationId: Foundation.NSNumber, messageNo: Foundation.NSNumber, isShowDismissButton: Swift.Bool, isShowOverlay: Swift.Bool, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol, recommendationLogger: any Appier.AIQRecommendationLoggingProtocol, recommendationDataProvider: any Appier.AIQInAppRecommendationDataProviderProtocol, endpoint: any Appier.AIQInAppCSEndpointConfigurationProtocol, storage: any Appier.AIQInAppWebViewStorageProtocol)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillTransition(to size: CoreFoundation.CGSize, with coordinator: any UIKit.UIViewControllerTransitionCoordinator)
+  @objc @_Concurrency.MainActor(unsafe) public func prepareToBeDismissed()
+  @objc deinit
+}
+extension Appier.AIQInAppCreativeStudioViewController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
+}
+extension Appier.AIQInAppCreativeStudioViewController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
+}
+extension Appier.SwiftMediator {
+  @objc dynamic public func presentCreativeStudio(with creativeStudioVC: Appier.AIQInAppCreativeStudioViewController)
+  @objc dynamic public func dismissCreativeStudio()
+}
+extension Appier.AIQLocalStorage : Appier.AIQInAppWebViewStorageProtocol {
+  @objc dynamic public var webkitVersion: Swift.String {
+    @objc get
+    @objc set
+  }
+}
+extension Appier.AIQLocalStorage : Appier.AIQStorage {
+  @objc dynamic public func clean()
+  @objc dynamic public var isDevProfile: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var appID: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasAppID: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var appSecret: Swift.String {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var appVersion: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var deviceToken: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var crossPlatformFrameworkSdkType: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var crossPlatformFrameworkSdkVersion: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var appierID: Foundation.NSNumber? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasAppierID: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var appierIdCreateTime: Foundation.Date? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasAppierIdCreateTime: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var universalLinkDomains: [Swift.String]? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var isRichPushSupported: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var lastViewThroughTime: Foundation.Date? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var lastClickedNotificationTime: Foundation.Date? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var lastClickedNotificationID: Foundation.NSNumber? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var lastViewThroughNotificationID: Foundation.NSNumber? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var viewThroughAttributionWindow: Foundation.NSNumber? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasViewThroughAttributionWindow: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var clickAttributionWindow: Foundation.NSNumber? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var lastLocation: [Swift.String : [Foundation.NSNumber]]? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var sdkVersionKey: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasSdkVersionKey: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var shouldSendIDFAWithConsent: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var userDetailsLastSentTime: Foundation.Date? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasUserDetailsLastSentTime: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var optoutStatus: Foundation.NSNumber? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasOptoutStatus: Swift.Bool {
+    @objc get
+  }
+  @available(iOS 14.0, *)
+  @objc dynamic public var adsTrackingStatus: AppTrackingTransparency.ATTrackingManager.AuthorizationStatus {
+    @objc get
+    @objc set
+  }
+  @available(iOS 14.0, *)
+  @objc dynamic public var hasAdsTrackingStatus: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var personalizationConfig: [Swift.AnyHashable : Any]? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasPersonalizationConfig: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var isPersonalizationDisabled: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var isPersonalizationDisabledStatusNotConfigured: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var geofences: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var isGeofenceCapable: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var inbox: [Swift.AnyHashable : Any]? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasInbox: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var inboxLimit: Swift.Int {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasInboxLimit: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var isNotFirstAppBackground: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var isForceTouchCapabilityEnabled: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var inAppDisabledStatus: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var inApp: Appier.AIQMutableOrderedDictionary? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasInApp: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var inAppFirstAppLaunchedMatched: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var crashLogKey: [Swift.String]? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var savedPushNotifications: [[Swift.AnyHashable : Any]]? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var hasSavedPushNotifications: Swift.Bool {
+    @objc get
+  }
+  @objc dynamic public var savedPushNotificationLimit: Foundation.NSNumber {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var isSavedPushNotificationEnabled: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var richPushDeeplink: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var isFirstAppLaunch: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var endpointUserServer: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var endpointDback: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var endpointRecommendation: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var endpointPersonalization: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var endpointCStudio: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var failedPushEventStack: [[Swift.AnyHashable : Any]]? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var exitPushPayload: Foundation.Data? {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var isCollectIDFA: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var isCollectLocation: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc dynamic public var didMigrateImageStorage: Swift.Bool {
+    @objc get
+    @objc set
+  }
+}
+extension Appier.AIQLocalStorage {
+  @objc dynamic public func synchronizeOnFirstLaunch(suiteName: Swift.String?)
+  @objc(setAppID:groupName:devProfile:frameworkType:version:) dynamic public func set(appID: Swift.String, groupName: Swift.String, devProfile: Swift.Bool, frameworkType: Swift.String?, version: Swift.String?)
+  @objc dynamic public func createAndSaveNewAppierId()
+  @objc dynamic public func cleanAttribution()
+  @objc dynamic public func shouldUserDetailsBeSent() -> Swift.Bool
+  @objc dynamic public func getFailedPushEventLogs() -> [[Swift.AnyHashable : Any]]
+  @objc dynamic public func clearFailedPushEventLogs()
+  @objc dynamic public func isNewUser() -> Swift.Bool
+  @objc dynamic public func handleDeepLink(_ url: Foundation.URL)
+  @objc dynamic public func isClickThroughAttribution() -> Swift.Bool
+  @objc dynamic public func setClickThroughFor(notificationId: Foundation.NSNumber)
+  @objc dynamic public func isViewThroughAttribution() -> Swift.Bool
+  @objc dynamic public func setViewThroughFor(notificationId: Foundation.NSNumber)
+}
+@_inheritsConvenienceInitializers @objc public class AIQLocalStorage : ObjectiveC.NSObject {
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
+  @objc public static var shared: Appier.AIQLocalStorage
+  @objc override convenience dynamic public init()
+  @objc public init(suiteName: Swift.String?)
+  @objc deinit
 }
 @objc public protocol QGWKScriptMessageHandler {
   @objc func userContentController(_ userContentController: WebKit.WKUserContentController, didReceiveScriptMessage message: WebKit.WKScriptMessage)
