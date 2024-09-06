@@ -96,7 +96,7 @@ jobs:
       id: slack
       uses: slackapi/slack-github-action@v1.26.0
       with:
-        channel-id: "C079HHPRMGC"
+        channel-id: "${{ vars.NOTIFY_SLACK_CHANNEL_ID }}"
         payload: "${{ env.PAYLOAD }}"
       env:
         SLACK_BOT_TOKEN: '${{ secrets.SLACK_BOT_OAUTH_TOKEN }}'
