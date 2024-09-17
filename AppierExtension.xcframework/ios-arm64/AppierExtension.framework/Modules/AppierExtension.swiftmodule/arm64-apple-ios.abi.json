@@ -1,9 +1,16 @@
 {
   "ABIRoot": {
     "kind": "Root",
-    "name": "TopLevel",
-    "printedName": "TopLevel",
+    "name": "AppierExtension",
+    "printedName": "AppierExtension",
     "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppierExtension"
+      },
       {
         "kind": "Import",
         "name": "Foundation",
@@ -698,6 +705,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -901,6 +922,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -961,6 +996,13 @@
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppierExtension"
+      },
+      {
+        "kind": "Import",
+        "name": "os",
+        "printedName": "os",
         "declKind": "Import",
         "moduleName": "AppierExtension"
       },
@@ -1192,6 +1234,20 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -1539,6 +1595,20 @@
         ],
         "enumRawTypeName": "Int",
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -1898,6 +1968,22 @@
         "moduleName": "AppierExtension",
         "declAttributes": [
           "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
         ]
       },
       {
@@ -2000,6 +2086,20 @@
         ],
         "isExternal": true,
         "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
           {
             "kind": "Conformance",
             "name": "Decodable",
@@ -2693,6 +2793,20 @@
         "conformances": [
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -2856,6 +2970,20 @@
           },
           {
             "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -2917,79 +3045,240 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGNotificationSdk\/Extensions\/Logger+AIQUANotification.swift",
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGNotificationSdk\/Extensions\/Logger+AIQUANotification.swift",
       "kind": "StringLiteral",
-      "offset": 128,
+      "offset": 132,
       "length": 20,
       "value": "\"AIQUA Notification\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/DeviceInfo.swift",
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/DeviceInfo.swift",
       "kind": "StringLiteral",
       "offset": 153,
       "length": 9,
       "value": "\"Unknown\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/LogMessage.swift",
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/FrameworkInfo.swift",
       "kind": "StringLiteral",
-      "offset": 712,
+      "offset": 198,
+      "length": 17,
+      "value": "\"CFBundleVersion\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/FrameworkInfo.swift",
+      "kind": "StringLiteral",
+      "offset": 231,
+      "length": 9,
+      "value": "\"Unknown\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/FrameworkInfo.swift",
+      "kind": "StringLiteral",
+      "offset": 347,
+      "length": 28,
+      "value": "\"CFBundleShortVersionString\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/FrameworkInfo.swift",
+      "kind": "StringLiteral",
+      "offset": 391,
+      "length": 9,
+      "value": "\"Unknown\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/LogMessage.swift",
+      "kind": "StringLiteral",
+      "offset": 740,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/LogMessage.swift",
+      "kind": "IntegerLiteral",
+      "offset": 859,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/LogMessage.swift",
       "kind": "StringLiteral",
-      "offset": 1652,
+      "offset": 1356,
+      "length": 12,
+      "value": "\"[REDACTED]\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/LogMessage.swift",
+      "kind": "StringLiteral",
+      "offset": 1410,
+      "length": 20,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/LogMessage.swift",
+      "kind": "StringLiteral",
+      "offset": 1423,
+      "length": 5,
+      "value": "\"nil\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/LogMessage.swift",
+      "kind": "StringLiteral",
+      "offset": 1429,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "kind": "BooleanLiteral",
+      "offset": 309,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "kind": "StringLiteral",
+      "offset": 1052,
+      "length": 8,
+      "value": "\"Appier\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "kind": "StringLiteral",
+      "offset": 1251,
+      "length": 12,
+      "value": "\"%{public}@\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "kind": "StringLiteral",
+      "offset": 1290,
+      "length": 8,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "kind": "StringLiteral",
+      "offset": 1297,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "kind": "StringLiteral",
+      "offset": 1335,
+      "length": 4,
+      "value": "\"%@\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "kind": "StringLiteral",
+      "offset": 1911,
+      "length": 77,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "kind": "StringLiteral",
+      "offset": 1919,
+      "length": 6,
+      "value": "\" Appier [\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "kind": "StringLiteral",
+      "offset": 1961,
+      "length": 1,
+      "value": "\"] [\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "kind": "StringLiteral",
+      "offset": 1975,
+      "length": 1,
+      "value": "\"] \""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "kind": "StringLiteral",
+      "offset": 1987,
+      "length": 1,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "kind": "StringLiteral",
+      "offset": 2146,
+      "length": 7,
+      "value": "\"Debug\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "kind": "StringLiteral",
+      "offset": 2181,
+      "length": 6,
+      "value": "\"Info\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "kind": "StringLiteral",
+      "offset": 2218,
+      "length": 9,
+      "value": "\"Warning\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "kind": "StringLiteral",
+      "offset": 2256,
+      "length": 7,
+      "value": "\"Error\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "kind": "StringLiteral",
+      "offset": 2408,
       "length": 29,
       "value": "\"yyyy-MM-dd HH:mm:ss.SSSSSSZ\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
-      "kind": "StringLiteral",
-      "offset": 189,
-      "length": 6,
-      "value": "\"AppierExtension.Logger\""
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 1790,
+      "offset": 2554,
       "length": 4,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 1796,
+      "offset": 2560,
       "length": 7,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 1805,
+      "offset": 2569,
       "length": 5,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 1790,
+      "offset": 2554,
       "length": 4,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 1796,
+      "offset": 2560,
       "length": 7,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 1805,
+      "offset": 2569,
       "length": 5,
       "value": "3"
     }

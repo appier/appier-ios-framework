@@ -22,7 +22,8 @@
 - (instancetype)init __attribute__((unavailable));
 - (instancetype)initWithImageManager:(QGImageManager *)imageManager config:(AIQConfiguration *)config storage:(AIQLocalStorage *)storage;
 - (void)createInAppFor:(QGInApp *)qginApp eventName:(NSString *)eventName;
-- (void)renewDisplayingInApp:(QGInApp *)qgInApp eventName:(NSString *)eventName;
-- (void)removeAllInAppViews;
+- (void)simplyRemoveAllInAppViews;
+- (void)removeAllInAppViewsAndClearCurrentInApp;
 - (void)renderInAppWebViewCampaigns:(QGInApp *)qgInApp;
+- (void)setInAppCampaignVisible:(BOOL)isVisible;
 @end
