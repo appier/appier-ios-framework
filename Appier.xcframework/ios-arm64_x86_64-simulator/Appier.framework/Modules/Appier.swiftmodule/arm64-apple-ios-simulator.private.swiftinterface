@@ -324,6 +324,31 @@ extension Appier.AIDAction : Swift.RawRepresentable {
 extension Appier.Logger {
   public static let appier: Appier.Logger
 }
+@objc @_inheritsConvenienceInitializers @objcMembers public class DataCollector : ObjectiveC.NSObject {
+  @objc public func getIdfa() -> Swift.String?
+  @objc public func collectIdfa(ignoreCooldown: Swift.Bool)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class DeepLinkTracker : ObjectiveC.NSObject {
+  @objc public func handleAppLaunched()
+  @objc public func handleDeepLink(_ url: Foundation.URL?)
+  @objc public func handleUserActivity(_ userActivity: Foundation.NSUserActivity?)
+  @objc public func getAttributionPayload() -> [Swift.String : Swift.AnyHashable]?
+  public func getDeepLinkRecords() -> [Appier.DeepLinkTracker.DeepLinkRecord]
+  @objc public func clearDeepLinkRecords()
+  @_hasMissingDesignatedInitializers public class DeepLinkRecord : Swift.Codable {
+    public var timestamp: Swift.Int
+    public var parameters: [Swift.String : Swift.String]
+    public var url: Swift.String
+    public var attributionWindow: Swift.Int
+    @objc deinit
+    public func encode(to encoder: any Swift.Encoder) throws
+    required public init(from decoder: any Swift.Decoder) throws
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
 @objc @_inheritsConvenienceInitializers @objcMembers public class EventParametersProcessor : ObjectiveC.NSObject {
   @objc public static func register(processor: Appier.EventParametersProcessor)
   @objc public static func unregister(processor: Appier.EventParametersProcessor)
@@ -501,7 +526,6 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
   @objc var isCollectIDFA: Swift.Bool { get set }
   @objc var isCollectLocation: Swift.Bool { get set }
   @objc var didMigrateImageStorage: Swift.Bool { get set }
-  @objc var webkitVersion: Swift.String { get set }
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class AIQUncaughtExceptionHandler : ObjectiveC.NSObject {
   @objc public class func uploadCrashLog(_ postData: Foundation.Data, completionHandler: @escaping (Foundation.URLResponse?, (any Swift.Error)?) -> Swift.Void)
@@ -639,6 +663,8 @@ extension Appier.AIQUtility {
   @objc public static let QG_IS_COLLECT_LOCATION: Swift.String
   @objc public static let QG_DID_MIGRATE_IMAGE_STORAGE: Swift.String
   @objc public static let DATA_COLLECTOR_DEFAULT_BATCH_INTERVAL: Swift.Int
+  @objc public static let DATA_COLLECTOR_DEFAULT_TRACK_INSTALL_REFERRER: Swift.Bool
+  @objc public static let DATA_COLLECTOR_DEFAULT_APPEND_ADVERTISING_ID: Swift.Bool
   @objc public static let CONFIG_FRAMEWORK_TYPE: Swift.String
   @objc public static let CONFIG_FRAMEWORK_VERSION: Swift.String
   @objc public static let CONFIG_FETCH_REMOTE_CONFIG: Swift.String
@@ -649,9 +675,6 @@ extension Appier.AIQUtility {
   @objc public static var EVENT_INAPP_CLICKED: Swift.String
   @objc public static var EVENT_INAPP_CLOSED: Swift.String
   @objc public static var EVENT_INAPP_FAILED: Swift.String
-  @objc public static var EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_ICON: Swift.String
-  @objc public static var EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_IMAGE: Swift.String
-  @objc public static var EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_PAYLOAD: Swift.String
   @objc public static var KEY_EVENT_NAME: Swift.String
   @objc public static var KEY_PARAMETERS: Swift.String
   @objc public static var KEY_VALUE_TO_SUM: Swift.String
@@ -666,6 +689,11 @@ extension Appier.AIQUtility {
   @objc public static let AIQ_WEBKIT_VERSION: Swift.String
   @objc public static let KEY_SESSION_COUNT: Swift.String
   @objc public static let KEY_LAST_TRACK_SESSION_TIME: Swift.String
+  @objc public static let KEY_APP_LAUNCH_TIME: Swift.String
+  @objc public static let KEY_DEEP_LINK_UTMS: Swift.String
+  @objc public static let KEY_ADS: Swift.String
+  @objc public static let DEEP_LINK_ATTRIBUTION_PARAMS: [Swift.String]
+  @objc public static let DEEP_LINK_ATTRIBUTION_ADS_PARAMS: [Swift.String]
   @objc public static let WEBVIEW_USER_SCRIPT_NAME: Swift.String
   @objc public static let WEBVIEW_USER_SCRIPT: Swift.String
   @objc override dynamic public init()
@@ -756,6 +784,18 @@ extension Appier.AIQUtility {
     @objc get
     @objc set
   }
+  @objc public var deepLinkAttributionWindow: Swift.Int {
+    @objc get
+    @objc set
+  }
+  @objc public var trackInstallReferrer: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc public var appendAdvertisingId: Swift.Bool {
+    @objc get
+    @objc set
+  }
   @objc override dynamic public init()
   @objc deinit
 }
@@ -818,14 +858,16 @@ extension Appier.AIQUtility {
   public func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
 }
-@_inheritsConvenienceInitializers @objcMembers @objc(AIQRemoteConfigDataCollector) public class RemoteConfigDataCollector : Appier.AIQObject, Swift.Codable {
+@objcMembers @objc(AIQRemoteConfigDataCollector) public class RemoteConfigDataCollector : Appier.AIQObject, Swift.Codable {
   @objc public var batchInterval: Swift.Int
+  @objc public var deepLinkAttributionWindow: Swift.Int
+  @objc public var trackInstallReferrer: Swift.Bool
+  @objc public var appendAdvertisingId: Swift.Bool
   @objc(decodeWithData:error:) public class func decode(from data: Foundation.Data) throws -> Appier.RemoteConfigDataCollector
   @objc public func data() throws -> Foundation.Data
-  @objc override dynamic public init()
+  required public init(from decoder: any Swift.Decoder) throws
   @objc deinit
   public func encode(to encoder: any Swift.Encoder) throws
-  required public init(from decoder: any Swift.Decoder) throws
 }
 @_inheritsConvenienceInitializers @objcMembers @objc(AIQRemoteConfigEndpoints) public class RemoteConfigEndpoints : Appier.AIQObject, Swift.Codable {
   @objc public var dback: Swift.String?
@@ -1170,7 +1212,7 @@ extension Appier.InAppRemoteService : Appier.InAppService {
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor @preconcurrency public class AIQInAppPopUpViewController : Appier.AIQInAppWebViewController {
-  @objc @_Concurrency.MainActor @preconcurrency public init(htmlString: Swift.String, payload: [Swift.String : Any], notificationId: Foundation.NSNumber, messageNo: Foundation.NSNumber, creativeType: Appier.InAppCreativeType, imageData: Foundation.Data?, imageFallbackUrl: Swift.String, isShowDismissButton: Swift.Bool, isShowOverlay: Swift.Bool, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol, storage: Appier.AIQLocalStorage)
+  @objc @_Concurrency.MainActor @preconcurrency public init(htmlString: Swift.String, payload: [Swift.String : Any], notificationId: Foundation.NSNumber, messageNo: Foundation.NSNumber, isShowDismissButton: Swift.Bool, isShowOverlay: Swift.Bool, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol, storage: Appier.AIQLocalStorage)
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func viewDidLoad()
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
   @objc deinit
@@ -1533,6 +1575,10 @@ extension Appier.AIQLocalStorage : Appier.AIQStorage {
     @objc get
     @objc set
   }
+  public var appLaunchedTime: Swift.Int {
+    get
+    set
+  }
   @objc dynamic public var sessionCount: Swift.Int {
     @objc get
     @objc set
@@ -1542,6 +1588,22 @@ extension Appier.AIQLocalStorage : Appier.AIQStorage {
     @objc set
   }
   public var dataCollectorBatchInterval: Swift.Int {
+    get
+    set
+  }
+  public var deepLinkAttributionWindow: Swift.Int {
+    get
+    set
+  }
+  public var trackInstallReferrer: Swift.Bool {
+    get
+    set
+  }
+  public var appendAdvertisingId: Swift.Bool {
+    get
+    set
+  }
+  public var deepLinkRecords: Foundation.Data? {
     get
     set
   }

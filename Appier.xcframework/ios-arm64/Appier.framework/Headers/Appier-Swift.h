@@ -543,12 +543,6 @@ SWIFT_CLASS("_TtC6Appier36AIQInAppCreativeStudioViewController")
 
 
 
-@class WKUserContentController;
-@class WKScriptMessage;
-
-@interface AIQInAppCreativeStudioViewController (SWIFT_EXTENSION(Appier))
-- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
-@end
 
 @class WKWebView;
 @class WKNavigation;
@@ -559,6 +553,12 @@ SWIFT_CLASS("_TtC6Appier36AIQInAppCreativeStudioViewController")
 - (void)webView:(WKWebView * _Nonnull)webView decidePolicyForNavigationAction:(WKNavigationAction * _Nonnull)navigationAction decisionHandler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
 @end
 
+@class WKUserContentController;
+@class WKScriptMessage;
+
+@interface AIQInAppCreativeStudioViewController (SWIFT_EXTENSION(Appier))
+- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
+@end
 
 
 SWIFT_CLASS("_TtC6Appier21AIQInAppCrossMarkView")
@@ -577,12 +577,10 @@ SWIFT_CLASS("_TtC6Appier31AIQInAppCustomWebViewController")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-enum InAppCreativeType : NSInteger;
-@class NSData;
 
 SWIFT_CLASS("_TtC6Appier27AIQInAppPopUpViewController")
 @interface AIQInAppPopUpViewController : AIQInAppWebViewController
-- (nonnull instancetype)initWithHtmlString:(NSString * _Nonnull)htmlString payload:(NSDictionary<NSString *, id> * _Nonnull)payload notificationId:(NSNumber * _Nonnull)notificationId messageNo:(NSNumber * _Nonnull)messageNo creativeType:(enum InAppCreativeType)creativeType imageData:(NSData * _Nullable)imageData imageFallbackUrl:(NSString * _Nonnull)imageFallbackUrl isShowDismissButton:(BOOL)isShowDismissButton isShowOverlay:(BOOL)isShowOverlay eventLogger:(id <AIQEventLoggingProtocol> _Nonnull)eventLogger userProfileLogger:(id <AIQUserProfileLoggingProtocol> _Nonnull)userProfileLogger storage:(AIQLocalStorage * _Nonnull)storage OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithHtmlString:(NSString * _Nonnull)htmlString payload:(NSDictionary<NSString *, id> * _Nonnull)payload notificationId:(NSNumber * _Nonnull)notificationId messageNo:(NSNumber * _Nonnull)messageNo isShowDismissButton:(BOOL)isShowDismissButton isShowOverlay:(BOOL)isShowOverlay eventLogger:(id <AIQEventLoggingProtocol> _Nonnull)eventLogger userProfileLogger:(id <AIQUserProfileLoggingProtocol> _Nonnull)userProfileLogger storage:(AIQLocalStorage * _Nonnull)storage OBJC_DESIGNATED_INITIALIZER;
 - (void)viewDidLoad;
 - (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -694,6 +692,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) AIQLocalStorage * _Non
 
 @class NSDate;
 @class AIQMutableOrderedDictionary;
+@class NSData;
 
 SWIFT_PROTOCOL("_TtP6Appier10AIQStorage_")
 @protocol AIQStorage
@@ -803,7 +802,6 @@ SWIFT_PROTOCOL("_TtP6Appier10AIQStorage_")
 @property (nonatomic) BOOL isCollectIDFA;
 @property (nonatomic) BOOL isCollectLocation;
 @property (nonatomic) BOOL didMigrateImageStorage;
-@property (nonatomic, copy) NSString * _Nonnull webkitVersion;
 @end
 
 
@@ -1011,6 +1009,7 @@ SWIFT_PROTOCOL("_TtP6Appier29AIQUserProfileLoggingProtocol_")
 @end
 
 @class NSURLSession;
+enum InAppCreativeType : NSInteger;
 @class AIQDataTrackingConfiguration;
 
 SWIFT_CLASS("_TtC6Appier10AIQUtility")
@@ -1431,6 +1430,10 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 + (NSString * _Nonnull)QG_DID_MIGRATE_IMAGE_STORAGE SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSInteger DATA_COLLECTOR_DEFAULT_BATCH_INTERVAL;)
 + (NSInteger)DATA_COLLECTOR_DEFAULT_BATCH_INTERVAL SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL DATA_COLLECTOR_DEFAULT_TRACK_INSTALL_REFERRER;)
++ (BOOL)DATA_COLLECTOR_DEFAULT_TRACK_INSTALL_REFERRER SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL DATA_COLLECTOR_DEFAULT_APPEND_ADVERTISING_ID;)
++ (BOOL)DATA_COLLECTOR_DEFAULT_APPEND_ADVERTISING_ID SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull CONFIG_FRAMEWORK_TYPE;)
 + (NSString * _Nonnull)CONFIG_FRAMEWORK_TYPE SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull CONFIG_FRAMEWORK_VERSION;)
@@ -1456,15 +1459,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull EVEN
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull EVENT_INAPP_FAILED;)
 + (NSString * _Nonnull)EVENT_INAPP_FAILED SWIFT_WARN_UNUSED_RESULT;
 + (void)setEVENT_INAPP_FAILED:(NSString * _Nonnull)value;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_ICON;)
-+ (NSString * _Nonnull)EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_ICON SWIFT_WARN_UNUSED_RESULT;
-+ (void)setEVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_ICON:(NSString * _Nonnull)value;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_IMAGE;)
-+ (NSString * _Nonnull)EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_IMAGE SWIFT_WARN_UNUSED_RESULT;
-+ (void)setEVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_IMAGE:(NSString * _Nonnull)value;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_PAYLOAD;)
-+ (NSString * _Nonnull)EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_PAYLOAD SWIFT_WARN_UNUSED_RESULT;
-+ (void)setEVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_PAYLOAD:(NSString * _Nonnull)value;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull KEY_EVENT_NAME;)
 + (NSString * _Nonnull)KEY_EVENT_NAME SWIFT_WARN_UNUSED_RESULT;
 + (void)setKEY_EVENT_NAME:(NSString * _Nonnull)value;
@@ -1498,6 +1492,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 + (NSString * _Nonnull)KEY_SESSION_COUNT SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull KEY_LAST_TRACK_SESSION_TIME;)
 + (NSString * _Nonnull)KEY_LAST_TRACK_SESSION_TIME SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull KEY_APP_LAUNCH_TIME;)
++ (NSString * _Nonnull)KEY_APP_LAUNCH_TIME SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull KEY_DEEP_LINK_UTMS;)
++ (NSString * _Nonnull)KEY_DEEP_LINK_UTMS SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull KEY_ADS;)
++ (NSString * _Nonnull)KEY_ADS SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSArray<NSString *> * _Nonnull DEEP_LINK_ATTRIBUTION_PARAMS;)
++ (NSArray<NSString *> * _Nonnull)DEEP_LINK_ATTRIBUTION_PARAMS SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSArray<NSString *> * _Nonnull DEEP_LINK_ATTRIBUTION_ADS_PARAMS;)
++ (NSArray<NSString *> * _Nonnull)DEEP_LINK_ATTRIBUTION_ADS_PARAMS SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull WEBVIEW_USER_SCRIPT_NAME;)
 + (NSString * _Nonnull)WEBVIEW_USER_SCRIPT_NAME SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull WEBVIEW_USER_SCRIPT;)
@@ -1535,9 +1539,20 @@ SWIFT_PROTOCOL_NAMED("DataCollectionService")
 
 
 
+SWIFT_CLASS("_TtC6Appier13DataCollector")
+@interface DataCollector : NSObject
+- (NSString * _Nullable)getIdfa SWIFT_WARN_UNUSED_RESULT;
+- (void)collectIdfaWithIgnoreCooldown:(BOOL)ignoreCooldown;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC6Appier26DataCollectorConfiguration")
 @interface DataCollectorConfiguration : AIQObject
 @property (nonatomic) NSInteger batchInterval;
+@property (nonatomic) NSInteger deepLinkAttributionWindow;
+@property (nonatomic) BOOL trackInstallReferrer;
+@property (nonatomic) BOOL appendAdvertisingId;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -1555,6 +1570,17 @@ typedef SWIFT_ENUM_NAMED(NSInteger, QGDATATYPE, "DataType", open) {
   QGDATATYPE_EVENTS SWIFT_COMPILE_NAME("events") = 1,
   QGDATATYPE_USERDETAILS SWIFT_COMPILE_NAME("userDetails") = 2,
 };
+
+
+SWIFT_CLASS("_TtC6Appier15DeepLinkTracker")
+@interface DeepLinkTracker : NSObject
+- (void)handleAppLaunched;
+- (void)handleDeepLink:(NSURL * _Nullable)url;
+- (void)handleUserActivity:(NSUserActivity * _Nullable)userActivity;
+- (NSDictionary<NSString *, NSObject *> * _Nullable)getAttributionPayload SWIFT_WARN_UNUSED_RESULT;
+- (void)clearDeepLinkRecords;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
 
 
 SWIFT_CLASS_NAMED("DeviceInfo")
@@ -2063,9 +2089,13 @@ SWIFT_CLASS("_TtC6Appier18RemoteConfigAideal")
 SWIFT_CLASS_NAMED("RemoteConfigDataCollector")
 @interface AIQRemoteConfigDataCollector : AIQObject
 @property (nonatomic) NSInteger batchInterval;
+@property (nonatomic) NSInteger deepLinkAttributionWindow;
+@property (nonatomic) BOOL trackInstallReferrer;
+@property (nonatomic) BOOL appendAdvertisingId;
 + (AIQRemoteConfigDataCollector * _Nullable)decodeWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 

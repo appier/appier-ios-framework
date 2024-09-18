@@ -10385,6 +10385,971 @@
         "moduleName": "Appier"
       },
       {
+        "kind": "TypeDecl",
+        "name": "DataCollector",
+        "printedName": "DataCollector",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "getIdfa",
+            "printedName": "getIdfa()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Appier@objc(cs)DataCollector(im)getIdfa",
+            "mangledName": "$s6Appier13DataCollectorC7getIdfaSSSgyF",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "collectIdfa",
+            "printedName": "collectIdfa(ignoreCooldown:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Appier@objc(cs)DataCollector(im)collectIdfaWithIgnoreCooldown:",
+            "mangledName": "$s6Appier13DataCollectorC11collectIdfa14ignoreCooldownySb_tF",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DataCollector",
+                "printedName": "Appier.DataCollector",
+                "usr": "c:@M@Appier@objc(cs)DataCollector"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@Appier@objc(cs)DataCollector(im)init",
+            "mangledName": "$s6Appier13DataCollectorCACycfc",
+            "moduleName": "Appier",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@Appier@objc(cs)DataCollector",
+        "mangledName": "$s6Appier13DataCollectorC",
+        "moduleName": "Appier",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Appier"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "DeepLinkTracker",
+        "printedName": "DeepLinkTracker",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "handleAppLaunched",
+            "printedName": "handleAppLaunched()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Appier@objc(cs)DeepLinkTracker(im)handleAppLaunched",
+            "mangledName": "$s6Appier15DeepLinkTrackerC17handleAppLaunchedyyF",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "handleDeepLink",
+            "printedName": "handleDeepLink(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.URL?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "URL",
+                    "printedName": "Foundation.URL",
+                    "usr": "s:10Foundation3URLV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Appier@objc(cs)DeepLinkTracker(im)handleDeepLink:",
+            "mangledName": "$s6Appier15DeepLinkTrackerC06handlebC0yy10Foundation3URLVSgF",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "handleUserActivity",
+            "printedName": "handleUserActivity(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.NSUserActivity?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSUserActivity",
+                    "printedName": "Foundation.NSUserActivity",
+                    "usr": "c:objc(cs)NSUserActivity"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Appier@objc(cs)DeepLinkTracker(im)handleUserActivity:",
+            "mangledName": "$s6Appier15DeepLinkTrackerC18handleUserActivityyySo06NSUserG0CSgF",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getAttributionPayload",
+            "printedName": "getAttributionPayload()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : Swift.AnyHashable]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Swift.AnyHashable]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AnyHashable",
+                        "printedName": "Swift.AnyHashable",
+                        "usr": "s:s11AnyHashableV"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Appier@objc(cs)DeepLinkTracker(im)getAttributionPayload",
+            "mangledName": "$s6Appier15DeepLinkTrackerC21getAttributionPayloadSDySSs11AnyHashableVGSgyF",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getDeepLinkRecords",
+            "printedName": "getDeepLinkRecords()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Appier.DeepLinkTracker.DeepLinkRecord]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DeepLinkRecord",
+                    "printedName": "Appier.DeepLinkTracker.DeepLinkRecord",
+                    "usr": "s:6Appier15DeepLinkTrackerC0bC6RecordC"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:6Appier15DeepLinkTrackerC03getbC7RecordsSayAC0bC6RecordCGyF",
+            "mangledName": "$s6Appier15DeepLinkTrackerC03getbC7RecordsSayAC0bC6RecordCGyF",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "clearDeepLinkRecords",
+            "printedName": "clearDeepLinkRecords()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Appier@objc(cs)DeepLinkTracker(im)clearDeepLinkRecords",
+            "mangledName": "$s6Appier15DeepLinkTrackerC05clearbC7RecordsyyF",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "TypeDecl",
+            "name": "DeepLinkRecord",
+            "printedName": "DeepLinkRecord",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "timestamp",
+                "printedName": "timestamp",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:6Appier15DeepLinkTrackerC0bC6RecordC9timestampSivp",
+                "mangledName": "$s6Appier15DeepLinkTrackerC0bC6RecordC9timestampSivp",
+                "moduleName": "Appier",
+                "declAttributes": [
+                  "HasInitialValue",
+                  "HasStorage",
+                  "AccessControl"
+                ],
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:6Appier15DeepLinkTrackerC0bC6RecordC9timestampSivg",
+                    "mangledName": "$s6Appier15DeepLinkTrackerC0bC6RecordC9timestampSivg",
+                    "moduleName": "Appier",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Set",
+                    "printedName": "Set()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:6Appier15DeepLinkTrackerC0bC6RecordC9timestampSivs",
+                    "mangledName": "$s6Appier15DeepLinkTrackerC0bC6RecordC9timestampSivs",
+                    "moduleName": "Appier",
+                    "implicit": true,
+                    "accessorKind": "set"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Modify",
+                    "printedName": "Modify()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:6Appier15DeepLinkTrackerC0bC6RecordC9timestampSivM",
+                    "mangledName": "$s6Appier15DeepLinkTrackerC0bC6RecordC9timestampSivM",
+                    "moduleName": "Appier",
+                    "implicit": true,
+                    "accessorKind": "_modify"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "parameters",
+                "printedName": "parameters",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:6Appier15DeepLinkTrackerC0bC6RecordC10parametersSDyS2SGvp",
+                "mangledName": "$s6Appier15DeepLinkTrackerC0bC6RecordC10parametersSDyS2SGvp",
+                "moduleName": "Appier",
+                "declAttributes": [
+                  "HasInitialValue",
+                  "HasStorage",
+                  "AccessControl"
+                ],
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[Swift.String : Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:6Appier15DeepLinkTrackerC0bC6RecordC10parametersSDyS2SGvg",
+                    "mangledName": "$s6Appier15DeepLinkTrackerC0bC6RecordC10parametersSDyS2SGvg",
+                    "moduleName": "Appier",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Set",
+                    "printedName": "Set()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Dictionary",
+                        "printedName": "[Swift.String : Swift.String]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:SD"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:6Appier15DeepLinkTrackerC0bC6RecordC10parametersSDyS2SGvs",
+                    "mangledName": "$s6Appier15DeepLinkTrackerC0bC6RecordC10parametersSDyS2SGvs",
+                    "moduleName": "Appier",
+                    "implicit": true,
+                    "accessorKind": "set"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Modify",
+                    "printedName": "Modify()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:6Appier15DeepLinkTrackerC0bC6RecordC10parametersSDyS2SGvM",
+                    "mangledName": "$s6Appier15DeepLinkTrackerC0bC6RecordC10parametersSDyS2SGvM",
+                    "moduleName": "Appier",
+                    "implicit": true,
+                    "accessorKind": "_modify"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "url",
+                "printedName": "url",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:6Appier15DeepLinkTrackerC0bC6RecordC3urlSSvp",
+                "mangledName": "$s6Appier15DeepLinkTrackerC0bC6RecordC3urlSSvp",
+                "moduleName": "Appier",
+                "declAttributes": [
+                  "HasInitialValue",
+                  "HasStorage",
+                  "AccessControl"
+                ],
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:6Appier15DeepLinkTrackerC0bC6RecordC3urlSSvg",
+                    "mangledName": "$s6Appier15DeepLinkTrackerC0bC6RecordC3urlSSvg",
+                    "moduleName": "Appier",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Set",
+                    "printedName": "Set()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:6Appier15DeepLinkTrackerC0bC6RecordC3urlSSvs",
+                    "mangledName": "$s6Appier15DeepLinkTrackerC0bC6RecordC3urlSSvs",
+                    "moduleName": "Appier",
+                    "implicit": true,
+                    "accessorKind": "set"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Modify",
+                    "printedName": "Modify()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:6Appier15DeepLinkTrackerC0bC6RecordC3urlSSvM",
+                    "mangledName": "$s6Appier15DeepLinkTrackerC0bC6RecordC3urlSSvM",
+                    "moduleName": "Appier",
+                    "implicit": true,
+                    "accessorKind": "_modify"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "attributionWindow",
+                "printedName": "attributionWindow",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:6Appier15DeepLinkTrackerC0bC6RecordC17attributionWindowSivp",
+                "mangledName": "$s6Appier15DeepLinkTrackerC0bC6RecordC17attributionWindowSivp",
+                "moduleName": "Appier",
+                "declAttributes": [
+                  "HasInitialValue",
+                  "HasStorage",
+                  "AccessControl"
+                ],
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:6Appier15DeepLinkTrackerC0bC6RecordC17attributionWindowSivg",
+                    "mangledName": "$s6Appier15DeepLinkTrackerC0bC6RecordC17attributionWindowSivg",
+                    "moduleName": "Appier",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Set",
+                    "printedName": "Set()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:6Appier15DeepLinkTrackerC0bC6RecordC17attributionWindowSivs",
+                    "mangledName": "$s6Appier15DeepLinkTrackerC0bC6RecordC17attributionWindowSivs",
+                    "moduleName": "Appier",
+                    "implicit": true,
+                    "accessorKind": "set"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Modify",
+                    "printedName": "Modify()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:6Appier15DeepLinkTrackerC0bC6RecordC17attributionWindowSivM",
+                    "mangledName": "$s6Appier15DeepLinkTrackerC0bC6RecordC17attributionWindowSivM",
+                    "moduleName": "Appier",
+                    "implicit": true,
+                    "accessorKind": "_modify"
+                  }
+                ]
+              },
+              {
+                "kind": "Constructor",
+                "name": "init",
+                "printedName": "init(from:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "DeepLinkRecord",
+                    "printedName": "Appier.DeepLinkTracker.DeepLinkRecord",
+                    "usr": "s:6Appier15DeepLinkTrackerC0bC6RecordC"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Decoder",
+                    "printedName": "any Swift.Decoder",
+                    "usr": "s:s7DecoderP"
+                  }
+                ],
+                "declKind": "Constructor",
+                "usr": "s:6Appier15DeepLinkTrackerC0bC6RecordC4fromAEs7Decoder_p_tKcfc",
+                "mangledName": "$s6Appier15DeepLinkTrackerC0bC6RecordC4fromAEs7Decoder_p_tKcfc",
+                "moduleName": "Appier",
+                "implicit": true,
+                "declAttributes": [
+                  "Required"
+                ],
+                "throwing": true,
+                "init_kind": "Designated"
+              },
+              {
+                "kind": "Function",
+                "name": "encode",
+                "printedName": "encode(to:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Encoder",
+                    "printedName": "any Swift.Encoder",
+                    "usr": "s:s7EncoderP"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:6Appier15DeepLinkTrackerC0bC6RecordC6encode2toys7Encoder_p_tKF",
+                "mangledName": "$s6Appier15DeepLinkTrackerC0bC6RecordC6encode2toys7Encoder_p_tKF",
+                "moduleName": "Appier",
+                "implicit": true,
+                "throwing": true,
+                "funcSelfKind": "NonMutating"
+              }
+            ],
+            "declKind": "Class",
+            "usr": "s:6Appier15DeepLinkTrackerC0bC6RecordC",
+            "mangledName": "$s6Appier15DeepLinkTrackerC0bC6RecordC",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "hasMissingDesignatedInitializers": true,
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Decodable",
+                "printedName": "Decodable",
+                "usr": "s:Se",
+                "mangledName": "$sSe"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Encodable",
+                "printedName": "Encodable",
+                "usr": "s:SE",
+                "mangledName": "$sSE"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DeepLinkTracker",
+                "printedName": "Appier.DeepLinkTracker",
+                "usr": "c:@M@Appier@objc(cs)DeepLinkTracker"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@Appier@objc(cs)DeepLinkTracker(im)init",
+            "mangledName": "$s6Appier15DeepLinkTrackerCACycfc",
+            "moduleName": "Appier",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@Appier@objc(cs)DeepLinkTracker",
+        "mangledName": "$s6Appier15DeepLinkTrackerC",
+        "moduleName": "Appier",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Appier"
+      },
+      {
         "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
@@ -21002,84 +21967,6 @@
                 "accessorKind": "set"
               }
             ]
-          },
-          {
-            "kind": "Var",
-            "name": "webkitVersion",
-            "printedName": "webkitVersion",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@Appier@objc(pl)AIQStorage(py)webkitVersion",
-            "mangledName": "$s6Appier10AIQStorageP13webkitVersionSSvp",
-            "moduleName": "Appier",
-            "protocolReq": true,
-            "declAttributes": [
-              "ObjC"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@Appier@objc(pl)AIQStorage(im)webkitVersion",
-                "mangledName": "$s6Appier10AIQStorageP13webkitVersionSSvg",
-                "moduleName": "Appier",
-                "genericSig": "<τ_0_0 where τ_0_0 : Appier.AIQStorage>",
-                "sugared_genericSig": "<Self where Self : Appier.AIQStorage>",
-                "protocolReq": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "reqNewWitnessTableEntry": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@Appier@objc(pl)AIQStorage(im)setWebkitVersion:",
-                "mangledName": "$s6Appier10AIQStorageP13webkitVersionSSvs",
-                "moduleName": "Appier",
-                "genericSig": "<τ_0_0 where τ_0_0 : Appier.AIQStorage>",
-                "sugared_genericSig": "<Self where Self : Appier.AIQStorage>",
-                "protocolReq": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "reqNewWitnessTableEntry": true,
-                "accessorKind": "set"
-              }
-            ]
           }
         ],
         "declKind": "Protocol",
@@ -27117,6 +28004,112 @@
           },
           {
             "kind": "Var",
+            "name": "DATA_COLLECTOR_DEFAULT_TRACK_INSTALL_REFERRER",
+            "printedName": "DATA_COLLECTOR_DEFAULT_TRACK_INSTALL_REFERRER",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Appier@objc(cs)QGConstant(cpy)DATA_COLLECTOR_DEFAULT_TRACK_INSTALL_REFERRER",
+            "mangledName": "$s6Appier8ConstantC45DATA_COLLECTOR_DEFAULT_TRACK_INSTALL_REFERRERSbvpZ",
+            "moduleName": "Appier",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)QGConstant(cm)DATA_COLLECTOR_DEFAULT_TRACK_INSTALL_REFERRER",
+                "mangledName": "$s6Appier8ConstantC45DATA_COLLECTOR_DEFAULT_TRACK_INSTALL_REFERRERSbvgZ",
+                "moduleName": "Appier",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "DATA_COLLECTOR_DEFAULT_APPEND_ADVERTISING_ID",
+            "printedName": "DATA_COLLECTOR_DEFAULT_APPEND_ADVERTISING_ID",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Appier@objc(cs)QGConstant(cpy)DATA_COLLECTOR_DEFAULT_APPEND_ADVERTISING_ID",
+            "mangledName": "$s6Appier8ConstantC44DATA_COLLECTOR_DEFAULT_APPEND_ADVERTISING_IDSbvpZ",
+            "moduleName": "Appier",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)QGConstant(cm)DATA_COLLECTOR_DEFAULT_APPEND_ADVERTISING_ID",
+                "mangledName": "$s6Appier8ConstantC44DATA_COLLECTOR_DEFAULT_APPEND_ADVERTISING_IDSbvgZ",
+                "moduleName": "Appier",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "CONFIG_FRAMEWORK_TYPE",
             "printedName": "CONFIG_FRAMEWORK_TYPE",
             "children": [
@@ -27886,315 +28879,6 @@
                 "declKind": "Accessor",
                 "usr": "s:6Appier8ConstantC18EVENT_INAPP_FAILEDSSvMZ",
                 "mangledName": "$s6Appier8ConstantC18EVENT_INAPP_FAILEDSSvMZ",
-                "moduleName": "Appier",
-                "static": true,
-                "implicit": true,
-                "declAttributes": [
-                  "Final"
-                ],
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_ICON",
-            "printedName": "EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_ICON",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@Appier@objc(cs)QGConstant(cpy)EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_ICON",
-            "mangledName": "$s6Appier8ConstantC46EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_ICONSSvpZ",
-            "moduleName": "Appier",
-            "static": true,
-            "declAttributes": [
-              "HasInitialValue",
-              "Final",
-              "HasStorage",
-              "AccessControl",
-              "ObjC"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@Appier@objc(cs)QGConstant(cm)EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_ICON",
-                "mangledName": "$s6Appier8ConstantC46EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_ICONSSvgZ",
-                "moduleName": "Appier",
-                "static": true,
-                "implicit": true,
-                "declAttributes": [
-                  "Final",
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@Appier@objc(cs)QGConstant(cm)setEVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_ICON:",
-                "mangledName": "$s6Appier8ConstantC46EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_ICONSSvsZ",
-                "moduleName": "Appier",
-                "static": true,
-                "implicit": true,
-                "declAttributes": [
-                  "Final",
-                  "ObjC"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:6Appier8ConstantC46EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_ICONSSvMZ",
-                "mangledName": "$s6Appier8ConstantC46EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_ICONSSvMZ",
-                "moduleName": "Appier",
-                "static": true,
-                "implicit": true,
-                "declAttributes": [
-                  "Final"
-                ],
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_IMAGE",
-            "printedName": "EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_IMAGE",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@Appier@objc(cs)QGConstant(cpy)EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_IMAGE",
-            "mangledName": "$s6Appier8ConstantC47EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_IMAGESSvpZ",
-            "moduleName": "Appier",
-            "static": true,
-            "declAttributes": [
-              "HasInitialValue",
-              "Final",
-              "HasStorage",
-              "AccessControl",
-              "ObjC"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@Appier@objc(cs)QGConstant(cm)EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_IMAGE",
-                "mangledName": "$s6Appier8ConstantC47EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_IMAGESSvgZ",
-                "moduleName": "Appier",
-                "static": true,
-                "implicit": true,
-                "declAttributes": [
-                  "Final",
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@Appier@objc(cs)QGConstant(cm)setEVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_IMAGE:",
-                "mangledName": "$s6Appier8ConstantC47EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_IMAGESSvsZ",
-                "moduleName": "Appier",
-                "static": true,
-                "implicit": true,
-                "declAttributes": [
-                  "Final",
-                  "ObjC"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:6Appier8ConstantC47EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_IMAGESSvMZ",
-                "mangledName": "$s6Appier8ConstantC47EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_IMAGESSvMZ",
-                "moduleName": "Appier",
-                "static": true,
-                "implicit": true,
-                "declAttributes": [
-                  "Final"
-                ],
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_PAYLOAD",
-            "printedName": "EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_PAYLOAD",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@Appier@objc(cs)QGConstant(cpy)EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_PAYLOAD",
-            "mangledName": "$s6Appier8ConstantC49EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_PAYLOADSSvpZ",
-            "moduleName": "Appier",
-            "static": true,
-            "declAttributes": [
-              "HasInitialValue",
-              "Final",
-              "HasStorage",
-              "AccessControl",
-              "ObjC"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@Appier@objc(cs)QGConstant(cm)EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_PAYLOAD",
-                "mangledName": "$s6Appier8ConstantC49EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_PAYLOADSSvgZ",
-                "moduleName": "Appier",
-                "static": true,
-                "implicit": true,
-                "declAttributes": [
-                  "Final",
-                  "ObjC"
-                ],
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@Appier@objc(cs)QGConstant(cm)setEVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_PAYLOAD:",
-                "mangledName": "$s6Appier8ConstantC49EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_PAYLOADSSvsZ",
-                "moduleName": "Appier",
-                "static": true,
-                "implicit": true,
-                "declAttributes": [
-                  "Final",
-                  "ObjC"
-                ],
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:6Appier8ConstantC49EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_PAYLOADSSvMZ",
-                "mangledName": "$s6Appier8ConstantC49EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_PAYLOADSSvMZ",
                 "moduleName": "Appier",
                 "static": true,
                 "implicit": true,
@@ -29186,6 +29870,303 @@
                 "declKind": "Accessor",
                 "usr": "c:@M@Appier@objc(cs)QGConstant(cm)KEY_LAST_TRACK_SESSION_TIME",
                 "mangledName": "$s6Appier8ConstantC27KEY_LAST_TRACK_SESSION_TIMESSvgZ",
+                "moduleName": "Appier",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "KEY_APP_LAUNCH_TIME",
+            "printedName": "KEY_APP_LAUNCH_TIME",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Appier@objc(cs)QGConstant(cpy)KEY_APP_LAUNCH_TIME",
+            "mangledName": "$s6Appier8ConstantC19KEY_APP_LAUNCH_TIMESSvpZ",
+            "moduleName": "Appier",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)QGConstant(cm)KEY_APP_LAUNCH_TIME",
+                "mangledName": "$s6Appier8ConstantC19KEY_APP_LAUNCH_TIMESSvgZ",
+                "moduleName": "Appier",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "KEY_DEEP_LINK_UTMS",
+            "printedName": "KEY_DEEP_LINK_UTMS",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Appier@objc(cs)QGConstant(cpy)KEY_DEEP_LINK_UTMS",
+            "mangledName": "$s6Appier8ConstantC18KEY_DEEP_LINK_UTMSSSvpZ",
+            "moduleName": "Appier",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)QGConstant(cm)KEY_DEEP_LINK_UTMS",
+                "mangledName": "$s6Appier8ConstantC18KEY_DEEP_LINK_UTMSSSvgZ",
+                "moduleName": "Appier",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "KEY_ADS",
+            "printedName": "KEY_ADS",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Appier@objc(cs)QGConstant(cpy)KEY_ADS",
+            "mangledName": "$s6Appier8ConstantC7KEY_ADSSSvpZ",
+            "moduleName": "Appier",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)QGConstant(cm)KEY_ADS",
+                "mangledName": "$s6Appier8ConstantC7KEY_ADSSSvgZ",
+                "moduleName": "Appier",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "DEEP_LINK_ATTRIBUTION_PARAMS",
+            "printedName": "DEEP_LINK_ATTRIBUTION_PARAMS",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Appier@objc(cs)QGConstant(cpy)DEEP_LINK_ATTRIBUTION_PARAMS",
+            "mangledName": "$s6Appier8ConstantC28DEEP_LINK_ATTRIBUTION_PARAMSSaySSGvpZ",
+            "moduleName": "Appier",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)QGConstant(cm)DEEP_LINK_ATTRIBUTION_PARAMS",
+                "mangledName": "$s6Appier8ConstantC28DEEP_LINK_ATTRIBUTION_PARAMSSaySSGvgZ",
+                "moduleName": "Appier",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "DEEP_LINK_ATTRIBUTION_ADS_PARAMS",
+            "printedName": "DEEP_LINK_ATTRIBUTION_ADS_PARAMS",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Appier@objc(cs)QGConstant(cpy)DEEP_LINK_ATTRIBUTION_ADS_PARAMS",
+            "mangledName": "$s6Appier8ConstantC32DEEP_LINK_ATTRIBUTION_ADS_PARAMSSaySSGvpZ",
+            "moduleName": "Appier",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.String]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)QGConstant(cm)DEEP_LINK_ATTRIBUTION_ADS_PARAMS",
+                "mangledName": "$s6Appier8ConstantC32DEEP_LINK_ATTRIBUTION_ADS_PARAMSSaySSGvgZ",
                 "moduleName": "Appier",
                 "static": true,
                 "implicit": true,
@@ -32128,6 +33109,285 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "deepLinkAttributionWindow",
+            "printedName": "deepLinkAttributionWindow",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Appier@objc(cs)DataCollectorConfiguration(py)deepLinkAttributionWindow",
+            "mangledName": "$s6Appier26DataCollectorConfigurationC25deepLinkAttributionWindowSivp",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)DataCollectorConfiguration(im)deepLinkAttributionWindow",
+                "mangledName": "$s6Appier26DataCollectorConfigurationC25deepLinkAttributionWindowSivg",
+                "moduleName": "Appier",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)DataCollectorConfiguration(im)setDeepLinkAttributionWindow:",
+                "mangledName": "$s6Appier26DataCollectorConfigurationC25deepLinkAttributionWindowSivs",
+                "moduleName": "Appier",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6Appier26DataCollectorConfigurationC25deepLinkAttributionWindowSivM",
+                "mangledName": "$s6Appier26DataCollectorConfigurationC25deepLinkAttributionWindowSivM",
+                "moduleName": "Appier",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "trackInstallReferrer",
+            "printedName": "trackInstallReferrer",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Appier@objc(cs)DataCollectorConfiguration(py)trackInstallReferrer",
+            "mangledName": "$s6Appier26DataCollectorConfigurationC20trackInstallReferrerSbvp",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)DataCollectorConfiguration(im)trackInstallReferrer",
+                "mangledName": "$s6Appier26DataCollectorConfigurationC20trackInstallReferrerSbvg",
+                "moduleName": "Appier",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)DataCollectorConfiguration(im)setTrackInstallReferrer:",
+                "mangledName": "$s6Appier26DataCollectorConfigurationC20trackInstallReferrerSbvs",
+                "moduleName": "Appier",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6Appier26DataCollectorConfigurationC20trackInstallReferrerSbvM",
+                "mangledName": "$s6Appier26DataCollectorConfigurationC20trackInstallReferrerSbvM",
+                "moduleName": "Appier",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "appendAdvertisingId",
+            "printedName": "appendAdvertisingId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Appier@objc(cs)DataCollectorConfiguration(py)appendAdvertisingId",
+            "mangledName": "$s6Appier26DataCollectorConfigurationC19appendAdvertisingIdSbvp",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)DataCollectorConfiguration(im)appendAdvertisingId",
+                "mangledName": "$s6Appier26DataCollectorConfigurationC19appendAdvertisingIdSbvg",
+                "moduleName": "Appier",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)DataCollectorConfiguration(im)setAppendAdvertisingId:",
+                "mangledName": "$s6Appier26DataCollectorConfigurationC19appendAdvertisingIdSbvs",
+                "moduleName": "Appier",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6Appier26DataCollectorConfigurationC19appendAdvertisingIdSbvM",
+                "mangledName": "$s6Appier26DataCollectorConfigurationC19appendAdvertisingIdSbvM",
+                "moduleName": "Appier",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init()",
@@ -34562,7 +35822,6 @@
             "mangledName": "$s6Appier25RemoteConfigDataCollectorC13batchIntervalSivp",
             "moduleName": "Appier",
             "declAttributes": [
-              "HasInitialValue",
               "HasStorage",
               "AccessControl",
               "ObjC"
@@ -34639,6 +35898,282 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "deepLinkAttributionWindow",
+            "printedName": "deepLinkAttributionWindow",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Appier@objc(cs)AIQRemoteConfigDataCollector(py)deepLinkAttributionWindow",
+            "mangledName": "$s6Appier25RemoteConfigDataCollectorC25deepLinkAttributionWindowSivp",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)AIQRemoteConfigDataCollector(im)deepLinkAttributionWindow",
+                "mangledName": "$s6Appier25RemoteConfigDataCollectorC25deepLinkAttributionWindowSivg",
+                "moduleName": "Appier",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)AIQRemoteConfigDataCollector(im)setDeepLinkAttributionWindow:",
+                "mangledName": "$s6Appier25RemoteConfigDataCollectorC25deepLinkAttributionWindowSivs",
+                "moduleName": "Appier",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6Appier25RemoteConfigDataCollectorC25deepLinkAttributionWindowSivM",
+                "mangledName": "$s6Appier25RemoteConfigDataCollectorC25deepLinkAttributionWindowSivM",
+                "moduleName": "Appier",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "trackInstallReferrer",
+            "printedName": "trackInstallReferrer",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Appier@objc(cs)AIQRemoteConfigDataCollector(py)trackInstallReferrer",
+            "mangledName": "$s6Appier25RemoteConfigDataCollectorC20trackInstallReferrerSbvp",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)AIQRemoteConfigDataCollector(im)trackInstallReferrer",
+                "mangledName": "$s6Appier25RemoteConfigDataCollectorC20trackInstallReferrerSbvg",
+                "moduleName": "Appier",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)AIQRemoteConfigDataCollector(im)setTrackInstallReferrer:",
+                "mangledName": "$s6Appier25RemoteConfigDataCollectorC20trackInstallReferrerSbvs",
+                "moduleName": "Appier",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6Appier25RemoteConfigDataCollectorC20trackInstallReferrerSbvM",
+                "mangledName": "$s6Appier25RemoteConfigDataCollectorC20trackInstallReferrerSbvM",
+                "moduleName": "Appier",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "appendAdvertisingId",
+            "printedName": "appendAdvertisingId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Appier@objc(cs)AIQRemoteConfigDataCollector(py)appendAdvertisingId",
+            "mangledName": "$s6Appier25RemoteConfigDataCollectorC19appendAdvertisingIdSbvp",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)AIQRemoteConfigDataCollector(im)appendAdvertisingId",
+                "mangledName": "$s6Appier25RemoteConfigDataCollectorC19appendAdvertisingIdSbvg",
+                "moduleName": "Appier",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)AIQRemoteConfigDataCollector(im)setAppendAdvertisingId:",
+                "mangledName": "$s6Appier25RemoteConfigDataCollectorC19appendAdvertisingIdSbvs",
+                "moduleName": "Appier",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6Appier25RemoteConfigDataCollectorC19appendAdvertisingIdSbvM",
+                "mangledName": "$s6Appier25RemoteConfigDataCollectorC19appendAdvertisingIdSbvM",
+                "moduleName": "Appier",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
             "kind": "Function",
             "name": "decode",
             "printedName": "decode(from:)",
@@ -34695,6 +36230,35 @@
           {
             "kind": "Constructor",
             "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RemoteConfigDataCollector",
+                "printedName": "Appier.RemoteConfigDataCollector",
+                "usr": "c:@M@Appier@objc(cs)AIQRemoteConfigDataCollector"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "any Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:6Appier25RemoteConfigDataCollectorC4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s6Appier25RemoteConfigDataCollectorC4fromACs7Decoder_p_tKcfc",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "Required",
+              "AccessControl"
+            ],
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
             "printedName": "init()",
             "children": [
               {
@@ -34716,35 +36280,6 @@
               "ObjC",
               "Override"
             ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(from:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "RemoteConfigDataCollector",
-                "printedName": "Appier.RemoteConfigDataCollector",
-                "usr": "c:@M@Appier@objc(cs)AIQRemoteConfigDataCollector"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Decoder",
-                "printedName": "any Swift.Decoder",
-                "usr": "s:s7DecoderP"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:6Appier25RemoteConfigDataCollectorC4fromACs7Decoder_p_tKcfc",
-            "mangledName": "$s6Appier25RemoteConfigDataCollectorC4fromACs7Decoder_p_tKcfc",
-            "moduleName": "Appier",
-            "implicit": true,
-            "declAttributes": [
-              "Required"
-            ],
-            "throwing": true,
             "init_kind": "Designated"
           },
           {
@@ -34784,7 +36319,6 @@
           "ObjCMembers"
         ],
         "superclassUsr": "c:@M@Appier@objc(cs)AIQObject",
-        "inheritsConvenienceInitializers": true,
         "superclassNames": [
           "Appier.AIQObject",
           "ObjectiveC.NSObject"
@@ -44785,7 +46319,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(htmlString:payload:notificationId:messageNo:creativeType:imageData:imageFallbackUrl:isShowDismissButton:isShowOverlay:eventLogger:userProfileLogger:storage:)",
+            "printedName": "init(htmlString:payload:notificationId:messageNo:isShowDismissButton:isShowOverlay:eventLogger:userProfileLogger:storage:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -44832,32 +46366,6 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "InAppCreativeType",
-                "printedName": "Appier.InAppCreativeType",
-                "usr": "c:@M@Appier@E@InAppCreativeType"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Foundation.Data?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Data",
-                    "printedName": "Foundation.Data",
-                    "usr": "s:10Foundation4DataV"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
                 "name": "Bool",
                 "printedName": "Swift.Bool",
                 "usr": "s:Sb"
@@ -44888,8 +46396,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "c:@M@Appier@objc(cs)AIQInAppPopUpViewController(im)initWithHtmlString:payload:notificationId:messageNo:creativeType:imageData:imageFallbackUrl:isShowDismissButton:isShowOverlay:eventLogger:userProfileLogger:storage:",
-            "mangledName": "$s6Appier27AIQInAppPopUpViewControllerC10htmlString7payload14notificationId9messageNo12creativeType9imageData0Q11FallbackUrl19isShowDismissButton0uV7Overlay11eventLogger17userProfileLogger7storageACSS_SDySSypGSo8NSNumberCArA02Inc8CreativeP0O10Foundation0R0VSgSSS2bAA23AIQEventLoggingProtocol_pAA29AIQUserProfileLoggingProtocol_pAA15AIQLocalStorageCtcfc",
+            "usr": "c:@M@Appier@objc(cs)AIQInAppPopUpViewController(im)initWithHtmlString:payload:notificationId:messageNo:isShowDismissButton:isShowOverlay:eventLogger:userProfileLogger:storage:",
+            "mangledName": "$s6Appier27AIQInAppPopUpViewControllerC10htmlString7payload14notificationId9messageNo19isShowDismissButton0oP7Overlay11eventLogger011userProfileU07storageACSS_SDySSypGSo8NSNumberCAOS2bAA23AIQEventLoggingProtocol_pAA07AIQUserW15LoggingProtocol_pAA15AIQLocalStorageCtcfc",
             "moduleName": "Appier",
             "declAttributes": [
               "Preconcurrency",
@@ -54438,6 +55946,91 @@
           },
           {
             "kind": "Var",
+            "name": "appLaunchedTime",
+            "printedName": "appLaunchedTime",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6Appier15AIQLocalStorageC15appLaunchedTimeSivp",
+            "mangledName": "$s6Appier15AIQLocalStorageC15appLaunchedTimeSivp",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6Appier15AIQLocalStorageC15appLaunchedTimeSivg",
+                "mangledName": "$s6Appier15AIQLocalStorageC15appLaunchedTimeSivg",
+                "moduleName": "Appier",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6Appier15AIQLocalStorageC15appLaunchedTimeSivs",
+                "mangledName": "$s6Appier15AIQLocalStorageC15appLaunchedTimeSivs",
+                "moduleName": "Appier",
+                "isFromExtension": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6Appier15AIQLocalStorageC15appLaunchedTimeSivM",
+                "mangledName": "$s6Appier15AIQLocalStorageC15appLaunchedTimeSivM",
+                "moduleName": "Appier",
+                "implicit": true,
+                "isFromExtension": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "sessionCount",
             "printedName": "sessionCount",
             "children": [
@@ -54672,6 +56265,370 @@
                 "declKind": "Accessor",
                 "usr": "s:6Appier15AIQLocalStorageC26dataCollectorBatchIntervalSivM",
                 "mangledName": "$s6Appier15AIQLocalStorageC26dataCollectorBatchIntervalSivM",
+                "moduleName": "Appier",
+                "implicit": true,
+                "isFromExtension": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "deepLinkAttributionWindow",
+            "printedName": "deepLinkAttributionWindow",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6Appier15AIQLocalStorageC25deepLinkAttributionWindowSivp",
+            "mangledName": "$s6Appier15AIQLocalStorageC25deepLinkAttributionWindowSivp",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6Appier15AIQLocalStorageC25deepLinkAttributionWindowSivg",
+                "mangledName": "$s6Appier15AIQLocalStorageC25deepLinkAttributionWindowSivg",
+                "moduleName": "Appier",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6Appier15AIQLocalStorageC25deepLinkAttributionWindowSivs",
+                "mangledName": "$s6Appier15AIQLocalStorageC25deepLinkAttributionWindowSivs",
+                "moduleName": "Appier",
+                "isFromExtension": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6Appier15AIQLocalStorageC25deepLinkAttributionWindowSivM",
+                "mangledName": "$s6Appier15AIQLocalStorageC25deepLinkAttributionWindowSivM",
+                "moduleName": "Appier",
+                "implicit": true,
+                "isFromExtension": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "trackInstallReferrer",
+            "printedName": "trackInstallReferrer",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6Appier15AIQLocalStorageC20trackInstallReferrerSbvp",
+            "mangledName": "$s6Appier15AIQLocalStorageC20trackInstallReferrerSbvp",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6Appier15AIQLocalStorageC20trackInstallReferrerSbvg",
+                "mangledName": "$s6Appier15AIQLocalStorageC20trackInstallReferrerSbvg",
+                "moduleName": "Appier",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6Appier15AIQLocalStorageC20trackInstallReferrerSbvs",
+                "mangledName": "$s6Appier15AIQLocalStorageC20trackInstallReferrerSbvs",
+                "moduleName": "Appier",
+                "isFromExtension": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6Appier15AIQLocalStorageC20trackInstallReferrerSbvM",
+                "mangledName": "$s6Appier15AIQLocalStorageC20trackInstallReferrerSbvM",
+                "moduleName": "Appier",
+                "implicit": true,
+                "isFromExtension": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "appendAdvertisingId",
+            "printedName": "appendAdvertisingId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6Appier15AIQLocalStorageC19appendAdvertisingIdSbvp",
+            "mangledName": "$s6Appier15AIQLocalStorageC19appendAdvertisingIdSbvp",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6Appier15AIQLocalStorageC19appendAdvertisingIdSbvg",
+                "mangledName": "$s6Appier15AIQLocalStorageC19appendAdvertisingIdSbvg",
+                "moduleName": "Appier",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6Appier15AIQLocalStorageC19appendAdvertisingIdSbvs",
+                "mangledName": "$s6Appier15AIQLocalStorageC19appendAdvertisingIdSbvs",
+                "moduleName": "Appier",
+                "isFromExtension": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6Appier15AIQLocalStorageC19appendAdvertisingIdSbvM",
+                "mangledName": "$s6Appier15AIQLocalStorageC19appendAdvertisingIdSbvM",
+                "moduleName": "Appier",
+                "implicit": true,
+                "isFromExtension": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "deepLinkRecords",
+            "printedName": "deepLinkRecords",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Data?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Data",
+                    "printedName": "Foundation.Data",
+                    "usr": "s:10Foundation4DataV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6Appier15AIQLocalStorageC15deepLinkRecords10Foundation4DataVSgvp",
+            "mangledName": "$s6Appier15AIQLocalStorageC15deepLinkRecords10Foundation4DataVSgvp",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.Data?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Data",
+                        "printedName": "Foundation.Data",
+                        "usr": "s:10Foundation4DataV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6Appier15AIQLocalStorageC15deepLinkRecords10Foundation4DataVSgvg",
+                "mangledName": "$s6Appier15AIQLocalStorageC15deepLinkRecords10Foundation4DataVSgvg",
+                "moduleName": "Appier",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.Data?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Data",
+                        "printedName": "Foundation.Data",
+                        "usr": "s:10Foundation4DataV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6Appier15AIQLocalStorageC15deepLinkRecords10Foundation4DataVSgvs",
+                "mangledName": "$s6Appier15AIQLocalStorageC15deepLinkRecords10Foundation4DataVSgvs",
+                "moduleName": "Appier",
+                "isFromExtension": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6Appier15AIQLocalStorageC15deepLinkRecords10Foundation4DataVSgvM",
+                "mangledName": "$s6Appier15AIQLocalStorageC15deepLinkRecords10Foundation4DataVSgvM",
                 "moduleName": "Appier",
                 "implicit": true,
                 "isFromExtension": true,
@@ -89097,6 +91054,265 @@
       "value": "\"Appier\""
     },
     {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DataCollector.swift",
+      "kind": "IntegerLiteral",
+      "offset": 122,
+      "length": 4,
+      "value": "5000"
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DataCollector.swift",
+      "kind": "StringLiteral",
+      "offset": 164,
+      "length": 38,
+      "value": "\"00000000-0000-0000-0000-000000000000\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DataCollector.swift",
+      "kind": "IntegerLiteral",
+      "offset": 287,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DataCollector.swift",
+      "kind": "IntegerLiteral",
+      "offset": 530,
+      "length": 4,
+      "value": "1000"
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DataCollector.swift",
+      "kind": "StringLiteral",
+      "offset": 649,
+      "length": 31,
+      "value": "\"collect idfa but is cool down\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DataCollector.swift",
+      "kind": "IntegerLiteral",
+      "offset": 799,
+      "length": 4,
+      "value": "1000"
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 127,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 175,
+      "length": 3,
+      "value": "200"
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 218,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 324,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "StringLiteral",
+      "offset": 371,
+      "length": 17,
+      "value": "\"DeepLinkTracker\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "StringLiteral",
+      "offset": 820,
+      "length": 29,
+      "value": "\"handle deep link but no url\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 916,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1307,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "StringLiteral",
+      "offset": 1549,
+      "length": 3,
+      "value": "\",\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1748,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "StringLiteral",
+      "offset": 4388,
+      "length": 42,
+      "value": "\"add deep link record but invalid: \""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "StringLiteral",
+      "offset": 4429,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "StringLiteral",
+      "offset": 4490,
+      "length": 36,
+      "value": "\"start add deep link record: \""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "StringLiteral",
+      "offset": 4525,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 4631,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "BooleanLiteral",
+      "offset": 4712,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "StringLiteral",
+      "offset": 4747,
+      "length": 37,
+      "value": "\"finish add deep link record: \""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "StringLiteral",
+      "offset": 4783,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "StringLiteral",
+      "offset": 5403,
+      "length": 52,
+      "value": "\"deep link record: \""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "StringLiteral",
+      "offset": 5454,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "StringLiteral",
+      "offset": 5669,
+      "length": 37,
+      "value": "\"update deep records failed \""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "StringLiteral",
+      "offset": 5705,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6307,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6392,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6448,
+      "length": 4,
+      "value": "1000"
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6841,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "StringLiteral",
+      "offset": 6945,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6992,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "IntegerLiteral",
+      "offset": 7524,
+      "length": 4,
+      "value": "1000"
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "BooleanLiteral",
+      "offset": 7666,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/DeepLinkTracker.swift",
+      "kind": "StringLiteral",
+      "offset": 7930,
+      "length": 3,
+      "value": "\",\""
+    },
+    {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/AppierSdk\/Internal\/data\/SessionTracker.swift",
       "kind": "IntegerLiteral",
       "offset": 402,
@@ -90869,689 +93085,738 @@
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
+      "kind": "BooleanLiteral",
+      "offset": 5614,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
+      "kind": "BooleanLiteral",
+      "offset": 5689,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 5591,
+      "offset": 5742,
       "length": 27,
       "value": "\"com.appier.framework_type\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 5668,
+      "offset": 5819,
       "length": 30,
       "value": "\"com.appier.framework_version\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 5750,
+      "offset": 5901,
       "length": 32,
       "value": "\"com.appier.fetch_remote_config\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 5936,
+      "offset": 6087,
       "length": 17,
       "value": "\"aiq_cg_received\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 7464,
+      "offset": 7232,
       "length": 66,
       "value": "\"https:\/\/appier-app-link-tester-cxvcdcmecq-de.a.run.app\/singapore\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 7567,
+      "offset": 7335,
       "length": 12,
       "value": "\"production\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 7642,
+      "offset": 7410,
       "length": 27,
       "value": "\"qg_universal_link_domains\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 7744,
+      "offset": 7512,
       "length": 31,
       "value": "\"AppierAppDelegateProxyEnabled\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 7863,
+      "offset": 7631,
       "length": 44,
       "value": "\"AppierSceneDelegateDeeplinkHandlingEnabled\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 7959,
+      "offset": 7727,
       "length": 32,
       "value": "\"appier_failed_push_event_stack\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 8035,
+      "offset": 7803,
       "length": 20,
       "value": "\"aiq_webkit_version\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 8099,
+      "offset": 7867,
       "length": 22,
       "value": "\"appier_session_count\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 8174,
+      "offset": 7942,
       "length": 32,
       "value": "\"appier_last_track_session_time\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 8257,
+      "offset": 8019,
+      "length": 24,
+      "value": "\"appier_app_launch_time\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
+      "kind": "StringLiteral",
+      "offset": 8087,
+      "length": 16,
+      "value": "\"deep_link_utms\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
+      "kind": "StringLiteral",
+      "offset": 8136,
+      "length": 5,
+      "value": "\"ads\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
+      "kind": "StringLiteral",
+      "offset": 8578,
       "length": 14,
       "value": "\"aiqMobileSdk\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 8316,
+      "offset": 8637,
       "length": 3698,
       "value": "\"    var \""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 8359,
+      "offset": 8680,
       "length": 1,
       "value": "\" = {\n        promises: {},\n        logEvent: function (e) {\n            try {\n                var s = JSON.parse(e);\n                s.command = 'event', window.webkit.messageHandlers.aiqua.postMessage(s);\n            } catch (e) {\n\n            }\n        },\n        setCustomKey: function (e) {\n            try {\n                var s = JSON.parse(e);\n                s.command = 'profile', window.webkit.messageHandlers.aiqua.postMessage(s);\n            } catch (e) {\n\n            }\n        },\n        getVersion: function () {\n            var e = this;\n            return new Promise(function (s, r) {\n                var t = e.generateUUID();\n                e.promises[t] = {\n                    resolve: s,\n                    reject: r\n                };\n                var o = {\n                    command: 'sdkVersion',\n                    promiseId: t\n                };\n                try {\n                    window.webkit.messageHandlers.aiqua.postMessage(o);\n                } catch (e) {\n\n                }\n            })\n        },\n        getRecommendationByScenario: function (o) {\n            var e = this;\n            var j = JSON.parse(o);\n            return new Promise(function (s, r) {\n                var t = e.generateUUID();\n                e.promises[t] = {\n                    resolve: s,\n                    reject: r\n                };\n                var o = {\n                    command: 'getRecommendation',\n                    promiseId: t,\n                    scenarioId: j.scenarioId,\n                    productId: j.productId,\n                    query: {\n                        filter: j.filter,\n                        num: j.num,\n                        user_id: j.user_id\n                    }\n                };\n                try {\n                    window.webkit.messageHandlers.aiqua.postMessage(o);\n                } catch (e) {\n\n                }\n            })\n        },\n        generateUUID: function () {\n            var e = (new Date).getTime();\n            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(\/[xy]\/g, function (s) {\n                var r = (e + 16 * Math.random()) % 16 | 0;\n                return e = Math.floor(e \/ 16), ('x' == s ? r : 3 & r | 8).toString(16);\n            })\n        },\n        resolvePromise: function (data) {\n            var decodedData = this.base64Decode(data);\n            var transferData = JSON.parse(decodedData);\n            var e = transferData['e'];\n            var s = transferData['s'];\n            var r = transferData['r'];\n            r ? this.promises[e].reject(s) : this.promises[e].resolve(s), delete this.promises[e];\n        },\n        base64Decode: function (base64Str) {\n            try {\n                if (typeof TextEncoder !== 'undefined') {\n                    var d = new TextDecoder('utf-8');\n                    return d.decode(Uint8Array.from(window.atob(base64Str), function (c) {\n                        return c.codePointAt(0);\n                    }));\n                } else {\n                    return decodeURIComponent(escape(window.atob(base64Str)));\n                }\n            } catch (e) {\n                return window.atob(base64Str);\n            }\n        }\n    };\n\n    window.\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 11975,
+      "offset": 12296,
       "length": 1,
       "value": "\" = \""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 12005,
+      "offset": 12326,
       "length": 1,
       "value": "\";\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 12091,
+      "offset": 12412,
       "length": 11,
       "value": "\"undefined\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 12152,
+      "offset": 12473,
       "length": 5,
       "value": "\"url\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 12190,
+      "offset": 12511,
       "length": 16,
       "value": "\"notificationId\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 12252,
+      "offset": 12573,
       "length": 10,
       "value": "\"latitude\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 12309,
+      "offset": 12630,
       "length": 11,
       "value": "\"longitude\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 12371,
+      "offset": 12692,
       "length": 10,
       "value": "\"altitude\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 12466,
+      "offset": 12787,
       "length": 10,
       "value": "\"accuracy\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 12521,
+      "offset": 12842,
       "length": 7,
       "value": "\"speed\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 12614,
+      "offset": 12935,
       "length": 17,
       "value": "\"geofence_config\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 12660,
+      "offset": 12981,
       "length": 13,
       "value": "\"geofence_id\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 12704,
+      "offset": 13025,
       "length": 15,
       "value": "\"geofence_name\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 12754,
+      "offset": 13075,
       "length": 19,
       "value": "\"geofence_latitude\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 12809,
+      "offset": 13130,
       "length": 20,
       "value": "\"geofence_longitude\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 12862,
+      "offset": 13183,
       "length": 17,
       "value": "\"geofence_radius\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 12903,
+      "offset": 13224,
       "length": 7,
       "value": "\"error\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 12957,
+      "offset": 13278,
       "length": 33,
       "value": "\"device_location_service_enabled\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 13032,
+      "offset": 13353,
       "length": 27,
       "value": "\"background_refresh_status\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 13105,
+      "offset": 13426,
       "length": 31,
       "value": "\"location_monitoring_available\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 13186,
+      "offset": 13507,
       "length": 36,
       "value": "\"user_location_authorization_status\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 13256,
+      "offset": 13577,
       "length": 18,
       "value": "\"precise_location\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 13302,
+      "offset": 13623,
       "length": 11,
       "value": "\"timestamp\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 13341,
+      "offset": 13662,
       "length": 11,
       "value": "\"eventName\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 13381,
+      "offset": 13702,
       "length": 12,
       "value": "\"parameters\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 13422,
+      "offset": 13743,
       "length": 5,
       "value": "\"vts\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 13464,
+      "offset": 13785,
       "length": 9,
       "value": "\"vtsCurr\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 13508,
+      "offset": 13829,
       "length": 18,
       "value": "\"callToActionText\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 13565,
+      "offset": 13886,
       "length": 22,
       "value": "\"qg_lead_gen_datetime\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 13633,
+      "offset": 13954,
       "length": 29,
       "value": "\"qg_lead_gen_notification_id\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 13687,
+      "offset": 14008,
       "length": 8,
       "value": "\"reason\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 13724,
+      "offset": 14045,
       "length": 12,
       "value": "\"giosgJsUrl\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 13791,
+      "offset": 14095,
+      "length": 24,
+      "value": "\"last_app_launched_time\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
+      "kind": "StringLiteral",
+      "offset": 14153,
+      "length": 17,
+      "value": "\"deepLinkRecords\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
+      "kind": "StringLiteral",
+      "offset": 14225,
       "length": 14,
       "value": "\"utm_campaign\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 13831,
+      "offset": 14265,
       "length": 13,
       "value": "\"utm_content\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 13869,
+      "offset": 14303,
       "length": 12,
       "value": "\"utm_medium\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 13906,
+      "offset": 14340,
       "length": 12,
       "value": "\"utm_source\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 13941,
+      "offset": 14375,
       "length": 10,
       "value": "\"utm_term\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 14039,
+      "offset": 14407,
+      "length": 5,
+      "value": "\"asi\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
+      "kind": "StringLiteral",
+      "offset": 14443,
+      "length": 15,
+      "value": "\"asi_timestamp\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
+      "kind": "StringLiteral",
+      "offset": 14494,
+      "length": 20,
+      "value": "\"attribution_window\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
+      "kind": "StringLiteral",
+      "offset": 14811,
       "length": 22,
       "value": "\"notification_clicked\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 14089,
+      "offset": 14861,
       "length": 15,
       "value": "\"qg_line_click\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 14136,
+      "offset": 14908,
       "length": 16,
       "value": "\"geofence_enter\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 14183,
+      "offset": 14955,
       "length": 15,
       "value": "\"geofence_exit\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 14232,
+      "offset": 15004,
       "length": 18,
       "value": "\"geofence_updated\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 14291,
+      "offset": 15063,
       "length": 26,
       "value": "\"geofence_register_failed\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 14356,
+      "offset": 15128,
       "length": 24,
       "value": "\"aiq_immediate_campaign\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 14471,
+      "offset": 15180,
+      "length": 26,
+      "value": "\"aiq_deep_link_redirected\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
+      "kind": "StringLiteral",
+      "offset": 15270,
       "length": 20,
       "value": "\"qg_inapp_displayed\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 14517,
+      "offset": 15316,
       "length": 18,
       "value": "\"qg_inapp_toggled\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 14561,
+      "offset": 15360,
       "length": 18,
       "value": "\"qg_inapp_clicked\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 14604,
+      "offset": 15403,
       "length": 17,
       "value": "\"qg_inapp_closed\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 14647,
+      "offset": 15446,
       "length": 19,
       "value": "\"qg_inapp_lead_gen\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 14691,
+      "offset": 15490,
       "length": 17,
       "value": "\"qg_inapp_failed\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 14798,
-      "length": 26,
-      "value": "\"invalid_campaign_payload\""
-    },
-    {
-      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
-      "kind": "StringLiteral",
-      "offset": 14867,
-      "length": 28,
-      "value": "\"display_campaign_exception\""
-    },
-    {
-      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
-      "kind": "StringLiteral",
-      "offset": 14936,
-      "length": 26,
-      "value": "\"setup_campaign_exception\""
-    },
-    {
-      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
-      "kind": "StringLiteral",
-      "offset": 15000,
-      "length": 23,
-      "value": "\"invalid_campaign_icon\""
-    },
-    {
-      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
-      "kind": "StringLiteral",
-      "offset": 15062,
-      "length": 24,
-      "value": "\"invalid_campaign_image\""
-    },
-    {
-      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
-      "kind": "StringLiteral",
-      "offset": 15118,
-      "length": 17,
-      "value": "\"giosg_timed_out\""
-    },
-    {
-      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
-      "kind": "StringLiteral",
-      "offset": 15176,
-      "length": 26,
-      "value": "\"missing_cstudio_endpoint\""
-    },
-    {
-      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
-      "kind": "StringLiteral",
-      "offset": 15264,
+      "offset": 15569,
       "length": 29,
       "value": "\"appier_endpoint_user_server\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15317,
+      "offset": 15622,
       "length": 23,
       "value": "\"appier_endpoint_dback\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15373,
+      "offset": 15678,
       "length": 32,
       "value": "\"appier_endpoint_recommendation\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15439,
+      "offset": 15744,
       "length": 33,
       "value": "\"appier_endpoint_personalization\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15498,
+      "offset": 15803,
       "length": 25,
       "value": "\"appier_endpoint_cstudio\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15589,
+      "offset": 15894,
       "length": 35,
       "value": "\"appier_rmn_config_market_place_id\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15646,
+      "offset": 15951,
       "length": 23,
       "value": "\"appier_rmn_config_api\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15693,
+      "offset": 15998,
       "length": 25,
       "value": "\"appier_rmn_config_event\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15779,
+      "offset": 16084,
       "length": 35,
       "value": "\"appier_analytics_config_airis_api\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15844,
+      "offset": 16149,
       "length": 38,
       "value": "\"appier_analytics_config_airis_domain\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15917,
+      "offset": 16222,
       "length": 43,
       "value": "\"appier_analytics_config_airis_aggregation\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15989,
+      "offset": 16294,
       "length": 37,
       "value": "\"appier_analytics_config_rollbar_api\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16087,
+      "offset": 16392,
       "length": 15,
       "value": "\"aiq_geofences\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16128,
+      "offset": 16433,
       "length": 24,
       "value": "\"aiq_geofencing_capable\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16178,
+      "offset": 16483,
       "length": 22,
       "value": "\"aiq_geofence_enabled\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16228,
+      "offset": 16533,
       "length": 11,
       "value": "\"available\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16264,
+      "offset": 16569,
       "length": 8,
       "value": "\"denied\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16301,
+      "offset": 16606,
       "length": 12,
       "value": "\"restricted\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16378,
+      "offset": 16683,
       "length": 15,
       "value": "\"notDetermined\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16418,
+      "offset": 16723,
       "length": 8,
       "value": "\"denied\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16455,
+      "offset": 16760,
       "length": 12,
       "value": "\"restricted\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16496,
+      "offset": 16801,
       "length": 12,
       "value": "\"authorized\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16546,
+      "offset": 16851,
       "length": 21,
       "value": "\"authorizedWhenInUse\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16602,
+      "offset": 16907,
       "length": 18,
       "value": "\"authorizedAlways\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16690,
+      "offset": 16995,
       "length": 15,
       "value": "\"batchInterval\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
+      "kind": "StringLiteral",
+      "offset": 17054,
+      "length": 27,
+      "value": "\"deepLinkAttributionWindow\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
+      "kind": "StringLiteral",
+      "offset": 17120,
+      "length": 22,
+      "value": "\"trackInstallReferrer\""
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Constant.swift",
+      "kind": "StringLiteral",
+      "offset": 17180,
+      "length": 21,
+      "value": "\"appendAdvertisingId\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Core\/AIQUAConfiguration.swift",
@@ -91563,21 +93828,21 @@
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Core\/AIQUAConfiguration.swift",
       "kind": "IntegerLiteral",
-      "offset": 2311,
+      "offset": 2553,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Core\/AIQUAConfiguration.swift",
       "kind": "IntegerLiteral",
-      "offset": 2421,
+      "offset": 2663,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Core\/AIQUAConfiguration.swift",
       "kind": "IntegerLiteral",
-      "offset": 2549,
+      "offset": 2791,
       "length": 1,
       "value": "0"
     },
@@ -91615,6 +93880,27 @@
       "offset": 167,
       "length": 1,
       "value": "0"
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Core\/DataCollectorConfiguration.swift",
+      "kind": "IntegerLiteral",
+      "offset": 290,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Core\/DataCollectorConfiguration.swift",
+      "kind": "BooleanLiteral",
+      "offset": 433,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Core\/DataCollectorConfiguration.swift",
+      "kind": "BooleanLiteral",
+      "offset": 568,
+      "length": 4,
+      "value": "true"
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/Core\/EndpointConfiguration.swift",
@@ -93459,52 +95745,45 @@
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/InAppWebViewController\/AIQInAppPopUpViewController.swift",
-      "kind": "StringLiteral",
-      "offset": 227,
-      "length": 2,
-      "value": "\"\""
+      "kind": "BooleanLiteral",
+      "offset": 4130,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/InAppWebViewController\/AIQInAppPopUpViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4656,
+      "offset": 4497,
       "length": 91,
       "value": "\"setUpCreative('\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/InAppWebViewController\/AIQInAppPopUpViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4694,
+      "offset": 4535,
       "length": 47,
       "value": "\"', \""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/InAppWebViewController\/AIQInAppPopUpViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4721,
+      "offset": 4562,
       "length": 6,
       "value": "\"true\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/InAppWebViewController\/AIQInAppPopUpViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4730,
+      "offset": 4571,
       "length": 7,
       "value": "\"false\""
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/InAppWebViewController\/AIQInAppPopUpViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4738,
+      "offset": 4579,
       "length": 1,
       "value": "\", 'ios')\""
-    },
-    {
-      "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/InAppWebViewController\/AIQInAppPopUpViewController.swift",
-      "kind": "BooleanLiteral",
-      "offset": 5588,
-      "length": 5,
-      "value": "false"
     },
     {
       "filePath": "\/Users\/machael.chang\/Desktop\/micha\/appier-ios\/QGSdk\/InAppWebViewController\/AIQInAppWebViewController.swift",

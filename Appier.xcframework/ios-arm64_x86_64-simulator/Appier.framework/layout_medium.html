@@ -173,14 +173,7 @@
           window.webkit.messageHandlers.aiqua.postMessage({command:'pageLoaded'});
         }
       });
-      if (platform === "android") {
-        var imageUrl = Android.getImageUrl(creative.fb_push_card.hero.background.url);
-        if (imageUrl) {
-          image.src = imageUrl;
-        } else {
-          throw new Error("invalid_campaign_image");
-        }
-      }
+      image.src = creative.fb_push_card.hero.background.url;
 
       // Set action buttons (optional)
       var buttonArea = document.getElementById("com.appier.aiqua.demoapp:id/button-area");
