@@ -13,7 +13,7 @@
 @interface QGImageManager : NSObject
 
 + (instancetype)instance;
-- (void)downloadImageForURL:(NSString *)urlString withIdentifier:(NSString *)identifier withCompletionHandler:(void(^)(BOOL))completionHandler;
+- (void)downloadImageForURL:(NSString *)urlString withIdentifier:(NSString *)identifier;
 - (BOOL)isAnimatedImageFile:(NSData *)data;
 - (NSData *)getImageDataForURL:(NSString *)urlString withIdentifier:(NSString *)identifier;
 - (UIImage *)getImageForURL:(NSString *)urlString withIdentifier:(NSString *)identifier;
