@@ -7,7 +7,7 @@ on:
         
 jobs:
   release_framework:
-    if: startsWith(github.head_ref, 'release') && github.event.pull_request.merged == true
+    if: (startsWith(github.head_ref, 'release') || startsWith(github.head_ref, 'prerelease')) && github.event.pull_request.merged == true
     runs-on: macos-latest
     steps:
 
@@ -23,8 +23,14 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       run: |
-        bundle exec fastlane release
-        
+        is_prerelease=false
+
+        if [[ "${GITHUB_REF_NAME}" == "prerelease" || "${GITHUB_REF_NAME}" == prerelease* ]]; then
+          is_prerelease=true
+        fi
+
+        bundle exec fastlane release is_prerelease:$is_prerelease
+
     - name: Deploy pods framework
       env:
         COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
@@ -38,6 +44,7 @@ jobs:
         bundle exec fastlane pods_extension_framework
 
     - name: Enable Build app with release framework workflow
+      if: (startsWith(github.head_ref, 'release')
       run: |
         curl -X POST \
           -H "Authorization: token ${{ secrets.GH_TOKEN }}" \
