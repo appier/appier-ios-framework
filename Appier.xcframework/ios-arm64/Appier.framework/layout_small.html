@@ -27,6 +27,7 @@
     .inner {
       position: relative;
       width: 75vmin;
+      max-height: 100%;
       border-radius: 3vmin;
       overflow: hidden;
       display: flex;
@@ -147,12 +148,20 @@
       // Set title (required)
       var title = document.getElementById("com.appier.aiqua.demoapp:id/inapp_small_title");
       title.style.background = creative.fb_push_card.hero.background.rgbaHex;
-      title.textContent = creative.fb_push_card.hero.content.textV2 ?? creative.fb_push_card.hero.content.text;
+      if (creative.fb_push_card.hero.content.textV2) {
+        title.textContent = creative.fb_push_card.hero.content.textV2;
+      } else {
+        title.textContent = creative.fb_push_card.hero.content.text;
+      }
 
       // Set text (required)
       var text = document.getElementById("com.appier.aiqua.demoapp:id/inapp_message");
       text.style.background = creative.fb_push_card.body.background.rgbaHex;
-      text.textContent = creative.fb_push_card.body.content.textV2 ?? creative.fb_push_card.body.content.text;
+      if (creative.fb_push_card.body.content.textV2) {
+        text.textContent = creative.fb_push_card.body.content.textV2;
+      } else {
+        text.textContent = creative.fb_push_card.body.content.text;
+      }
 
       // Set action buttons (required)
       setUpActionButtons(creative.fb_push_card.actions, platform);
@@ -195,7 +204,11 @@
 
     function setUpButton(button, id, index, platform) {
       document.getElementById(id).style.background = button.backgroundColor;
-      document.getElementById(id).textContent = button.content.textV2 ?? button.content.text;
+      if (button.content.textV2) {
+        document.getElementById(id).textContent = button.content.textV2;
+      } else {
+        document.getElementById(id).textContent = button.content.text;
+      }
       document.getElementById(id).addEventListener('click', function(e) {
         if (platform === "android") {
           Android.onActionButtonClicked(index);
