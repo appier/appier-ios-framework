@@ -9,17 +9,19 @@
 #import "AIQDataTrackingConfiguration.h"
 #import "SwiftMediator.h"
 
-NS_ASSUME_NONNULL_BEGIN
 @class AIQRecommendationRequest;
 @class AIQRecommendationTagResponse;
 @class AIQRecommendationProductResponse;
 @protocol AIQEventLoggingProtocol;
 @protocol AIQUserProfileLoggingProtocol;
+@protocol AIQRecommendationLoggingProtocol;
+@protocol AIQInAppRecommendationDataProviderProtocol;
 
 /// This is the JavaScript to be injected into custom web view, in order to track custom events and attributes
 extern NSString * const QGWKWebViewUserScript;
 
-@interface QGSdk : NSObject <AIQEventLoggingProtocol, AIQUserProfileLoggingProtocol>
+NS_ASSUME_NONNULL_BEGIN
+@interface QGSdk : NSObject <AIQEventLoggingProtocol, AIQUserProfileLoggingProtocol, AIQRecommendationLoggingProtocol, AIQInAppRecommendationDataProviderProtocol>
 
 /*!
  @abstract

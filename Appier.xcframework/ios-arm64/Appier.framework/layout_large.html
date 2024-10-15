@@ -79,7 +79,7 @@
       if (width === 0 || height === 0) {
         return;
       }
-      const vmin = Math.round(Math.min(height, width) / 100);
+      const vmin = (Math.min(height, width) / 100).toFixed(2);
       var margin;
       if (height > width) {
         margin = 10 * vmin;
