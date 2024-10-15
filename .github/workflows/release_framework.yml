@@ -46,11 +46,20 @@ jobs:
     - name: Enable Build app with release framework workflow
       if: (startsWith(github.head_ref, 'release')
       run: |
-        curl -X POST \
-          -H "Authorization: token ${{ secrets.GH_TOKEN }}" \
-          -H "Accept: application/vnd.github.v3+json" \
+        curl -X PUT \
+          -H "Accept: application/vnd.github+json" \
+          -H "Authorization: Bearer ${{ secrets.GH_TOKEN }}" \
+          -H "X-GitHub-Api-Version: 2022-11-28" \
           "https://api.github.com/repos/appier/appier-ios-automation-test-app/actions/workflows/build_app_from_release_sources.yml/enable"
-          
+
+    - name: Enable Build demo app workflow
+      run: |
+        curl -X PUT \
+          -H "Accept: application/vnd.github+json" \
+          -H "Authorization: Bearer ${{ secrets.GH_TOKEN }}" \
+          -H "X-GitHub-Api-Version: 2022-11-28" \
+          "https://api.github.com/repos/appier/aiqua-ios-demo/actions/workflows/build_and_upload_demo_app.yml/enable"
+
   release_success_message:
     needs: [release_framework]
     if: ${{ always() && !contains(needs.*.result, 'failure') && !contains(needs.*.result, 'cancelled') && !contains(needs.*.result, 'skipped') }}
