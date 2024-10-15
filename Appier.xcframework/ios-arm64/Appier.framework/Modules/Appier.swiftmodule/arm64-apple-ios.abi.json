@@ -66418,126 +66418,133 @@
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "StringLiteral",
-      "offset": 959,
+      "offset": 1025,
       "length": 14,
       "value": "\"fb_push_card\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "StringLiteral",
-      "offset": 1026,
+      "offset": 1092,
       "length": 9,
       "value": "\"actions\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "StringLiteral",
-      "offset": 1096,
+      "offset": 1162,
       "length": 9,
       "value": "\"actions\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 1657,
+      "offset": 1723,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 1714,
+      "offset": 1780,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 2086,
+      "offset": 2152,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 2143,
+      "offset": 2209,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 2505,
+      "offset": 2571,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 2562,
+      "offset": 2628,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 2930,
+      "offset": 2996,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 2987,
+      "offset": 3053,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 3357,
+      "offset": 3423,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 3414,
+      "offset": 3480,
       "length": 1,
       "value": "0"
+    },
+    {
+      "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3713,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "StringLiteral",
-      "offset": 3928,
+      "offset": 4042,
       "length": 91,
       "value": "\"setUpCreative('\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "StringLiteral",
-      "offset": 3966,
+      "offset": 4080,
       "length": 47,
       "value": "\"', \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "StringLiteral",
-      "offset": 3993,
+      "offset": 4107,
       "length": 6,
       "value": "\"true\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4002,
+      "offset": 4116,
       "length": 7,
       "value": "\"false\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4010,
+      "offset": 4124,
       "length": 1,
       "value": "\", 'ios')\""
     },
@@ -68520,7 +68527,7 @@
       "kind": "StringLiteral",
       "offset": 235,
       "length": 8,
-      "value": "\"7.32.3\""
+      "value": "\"7.32.4\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
