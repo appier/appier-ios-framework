@@ -650,6 +650,9 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
   @objc func setMonthOfBirth(_ month: Foundation.NSNumber?)
   @objc func setYearOfBirth(_ year: Foundation.NSNumber?)
 }
+extension Appier.AIQUtility {
+  @objc dynamic public class func clearPIIData(storage: Appier.AIQLocalStorage)
+}
 @objc(QGDATATYPE) public enum DataType : Swift.Int {
   @objc(QGDATATYPE_PROFILE) case profile = 0
   @objc(QGDATATYPE_EVENTS) case events = 1
@@ -684,7 +687,7 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
   @objc(assertPropertyTypesIn:) public class func assertPropertyTypes(in dict: [Swift.AnyHashable : Any]?) -> Swift.Bool
   @objc public class func isRichPushSupported() -> Swift.Bool
   @objc public class func getInAppCreativeType(fbCreativeDict: [Swift.AnyHashable : Any]) -> Appier.InAppCreativeType
-  @objc public class func getUserDetails(from storage: Appier.AIQLocalStorage, with trackingConfig: Appier.AIQDataTrackingConfiguration, completion: @escaping ([Swift.String : Any]) -> Swift.Void)
+  @objc public class func getUserDetails(from storage: Appier.AIQLocalStorage, with trackingConfig: Appier.AIQDataTrackingConfiguration) -> [Swift.String : Any]
   @objc public class func isSceneDelegateDeeplinkHandlingEnabled(_ infoDictionary: [Swift.String : Any]? = Bundle.main.infoDictionary) -> Swift.Bool
   @objc public class func crashLogConcernKeywords() -> [Swift.String]
   @objc override dynamic public init()
@@ -777,28 +780,6 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
   @objc public static let QG_FAILED_PUSH_EVENT_STACK: Swift.String
   @objc public static let AIQ_WEBKIT_VERSION: Swift.String
   @objc override dynamic public init()
-  @objc deinit
-}
-@objc public protocol AIQDataTrackingConfigurationDelegate {
-  @objc func updateUserDetailWhenDataTrackingConfigChanged()
-}
-@objc @_inheritsConvenienceInitializers @objcMembers public class AIQDataTrackingConfiguration : ObjectiveC.NSObject {
-  @objc weak public var delegate: (any Appier.AIQDataTrackingConfigurationDelegate)?
-  @objc public var storage: Appier.AIQLocalStorage
-  @objc public var isCollectIDFA: Swift.Bool {
-    @objc get
-    @objc set
-  }
-  @objc public var isCollectLocation: Swift.Bool {
-    @objc get
-    @objc set
-  }
-  @objc override convenience dynamic public init()
-  @objc convenience public init(isCollectIDFA: Swift.Bool, isCollectLocation: Swift.Bool)
-  @objc public init(storage: Appier.AIQLocalStorage)
-  @objc override dynamic public var description: Swift.String {
-    @objc get
-  }
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(AIQConfiguration) @objcMembers public class AIQUAConfiguration : ObjectiveC.NSObject {
@@ -1047,7 +1028,7 @@ extension Foundation.URLSessionConfiguration {
   @objc public static let shared: Appier.AIQGeofenceManager
   @objc weak public var delegate: (any Appier.AIQGeofenceManagerDelegate)?
   @objc public init(storage: Appier.AIQLocalStorage)
-  @objc public func getGeofenceDetails(completion: @escaping ([Swift.AnyHashable : Any]) -> Swift.Void)
+  @objc public func getGeofenceDetails() -> [Swift.AnyHashable : Any]
   @objc public func shouldFetchGeofence(completion: @escaping (Swift.Bool) -> Swift.Void)
   @objc public func update(geofencing: [Swift.String : Any])
   @objc deinit

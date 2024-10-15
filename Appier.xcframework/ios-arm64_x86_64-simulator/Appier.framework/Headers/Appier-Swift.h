@@ -307,28 +307,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 #if defined(__OBJC__)
-@protocol AIQDataTrackingConfigurationDelegate;
-@class AIQLocalStorage;
 @class NSString;
-
-SWIFT_CLASS("_TtC6Appier28AIQDataTrackingConfiguration")
-@interface AIQDataTrackingConfiguration : NSObject
-@property (nonatomic, weak) id <AIQDataTrackingConfigurationDelegate> _Nullable delegate;
-@property (nonatomic, strong) AIQLocalStorage * _Nonnull storage;
-@property (nonatomic) BOOL isCollectIDFA;
-@property (nonatomic) BOOL isCollectLocation;
-- (nonnull instancetype)init;
-- (nonnull instancetype)initWithIsCollectIDFA:(BOOL)isCollectIDFA isCollectLocation:(BOOL)isCollectLocation;
-- (nonnull instancetype)initWithStorage:(AIQLocalStorage * _Nonnull)storage OBJC_DESIGNATED_INITIALIZER;
-@property (nonatomic, readonly, copy) NSString * _Nonnull description;
-@end
-
-
-SWIFT_PROTOCOL("_TtP6Appier36AIQDataTrackingConfigurationDelegate_")
-@protocol AIQDataTrackingConfigurationDelegate
-- (void)updateUserDetailWhenDataTrackingConfigChanged;
-@end
-
+@class NSObject;
 @class NSNumber;
 
 SWIFT_PROTOCOL("_TtP6Appier23AIQEventLoggingProtocol_")
@@ -366,6 +346,7 @@ SWIFT_CLASS("_TtC6Appier15AIQGeofenceData")
 @end
 
 @protocol AIQGeofenceManagerDelegate;
+@class AIQLocalStorage;
 
 SWIFT_CLASS("_TtC6Appier18AIQGeofenceManager")
 @interface AIQGeofenceManager : NSObject
@@ -373,7 +354,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIQGeofenceM
 + (AIQGeofenceManager * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, weak) id <AIQGeofenceManagerDelegate> _Nullable delegate;
 - (nonnull instancetype)initWithStorage:(AIQLocalStorage * _Nonnull)storage OBJC_DESIGNATED_INITIALIZER;
-- (void)getGeofenceDetailsWithCompletion:(void (^ _Nonnull)(NSDictionary * _Nonnull))completion;
+/// Get cached geofence related configurations. This method return cached configurations only. If a configuration is not cached, this method will fetch the configuration and cache it asynchronizingly.
+- (NSDictionary * _Nonnull)getGeofenceDetails SWIFT_WARN_UNUSED_RESULT;
 - (void)shouldFetchGeofenceWithCompletion:(void (^ _Nonnull)(BOOL))completion;
 - (void)updateWithGeofencing:(NSDictionary<NSString *, id> * _Nonnull)geofencing;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -841,6 +823,7 @@ SWIFT_PROTOCOL("_TtP6Appier29AIQUserProfileLoggingProtocol_")
 
 @class NSURLSession;
 enum InAppCreativeType : NSInteger;
+@class AIQDataTrackingConfiguration;
 
 SWIFT_CLASS("_TtC6Appier10AIQUtility")
 @interface AIQUtility : NSObject
@@ -860,12 +843,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isRunningTests;
 + (BOOL)assertPropertyTypesIn:(NSDictionary * _Nullable)dict SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)isRichPushSupported SWIFT_WARN_UNUSED_RESULT;
 + (enum InAppCreativeType)getInAppCreativeTypeWithFbCreativeDict:(NSDictionary * _Nonnull)fbCreativeDict SWIFT_WARN_UNUSED_RESULT;
-+ (void)getUserDetailsFrom:(AIQLocalStorage * _Nonnull)storage with:(AIQDataTrackingConfiguration * _Nonnull)trackingConfig completion:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nonnull))completion;
++ (NSDictionary<NSString *, id> * _Nonnull)getUserDetailsFrom:(AIQLocalStorage * _Nonnull)storage with:(AIQDataTrackingConfiguration * _Nonnull)trackingConfig SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)isSceneDelegateDeeplinkHandlingEnabled:(NSDictionary<NSString *, id> * _Nullable)infoDictionary SWIFT_WARN_UNUSED_RESULT;
 + (NSArray<NSString *> * _Nonnull)crashLogConcernKeywords SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+@interface AIQUtility (SWIFT_EXTENSION(Appier))
++ (void)clearPIIDataWithStorage:(AIQLocalStorage * _Nonnull)storage;
+@end
 
 
 /// An object that represents an action to report to the framework.
@@ -1451,14 +1438,14 @@ SWIFT_CLASS_NAMED("Logger")
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
-+ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
++ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
-+ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
++ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -2144,28 +2131,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 #if defined(__OBJC__)
-@protocol AIQDataTrackingConfigurationDelegate;
-@class AIQLocalStorage;
 @class NSString;
-
-SWIFT_CLASS("_TtC6Appier28AIQDataTrackingConfiguration")
-@interface AIQDataTrackingConfiguration : NSObject
-@property (nonatomic, weak) id <AIQDataTrackingConfigurationDelegate> _Nullable delegate;
-@property (nonatomic, strong) AIQLocalStorage * _Nonnull storage;
-@property (nonatomic) BOOL isCollectIDFA;
-@property (nonatomic) BOOL isCollectLocation;
-- (nonnull instancetype)init;
-- (nonnull instancetype)initWithIsCollectIDFA:(BOOL)isCollectIDFA isCollectLocation:(BOOL)isCollectLocation;
-- (nonnull instancetype)initWithStorage:(AIQLocalStorage * _Nonnull)storage OBJC_DESIGNATED_INITIALIZER;
-@property (nonatomic, readonly, copy) NSString * _Nonnull description;
-@end
-
-
-SWIFT_PROTOCOL("_TtP6Appier36AIQDataTrackingConfigurationDelegate_")
-@protocol AIQDataTrackingConfigurationDelegate
-- (void)updateUserDetailWhenDataTrackingConfigChanged;
-@end
-
+@class NSObject;
 @class NSNumber;
 
 SWIFT_PROTOCOL("_TtP6Appier23AIQEventLoggingProtocol_")
@@ -2203,6 +2170,7 @@ SWIFT_CLASS("_TtC6Appier15AIQGeofenceData")
 @end
 
 @protocol AIQGeofenceManagerDelegate;
+@class AIQLocalStorage;
 
 SWIFT_CLASS("_TtC6Appier18AIQGeofenceManager")
 @interface AIQGeofenceManager : NSObject
@@ -2210,7 +2178,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIQGeofenceM
 + (AIQGeofenceManager * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, weak) id <AIQGeofenceManagerDelegate> _Nullable delegate;
 - (nonnull instancetype)initWithStorage:(AIQLocalStorage * _Nonnull)storage OBJC_DESIGNATED_INITIALIZER;
-- (void)getGeofenceDetailsWithCompletion:(void (^ _Nonnull)(NSDictionary * _Nonnull))completion;
+/// Get cached geofence related configurations. This method return cached configurations only. If a configuration is not cached, this method will fetch the configuration and cache it asynchronizingly.
+- (NSDictionary * _Nonnull)getGeofenceDetails SWIFT_WARN_UNUSED_RESULT;
 - (void)shouldFetchGeofenceWithCompletion:(void (^ _Nonnull)(BOOL))completion;
 - (void)updateWithGeofencing:(NSDictionary<NSString *, id> * _Nonnull)geofencing;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -2678,6 +2647,7 @@ SWIFT_PROTOCOL("_TtP6Appier29AIQUserProfileLoggingProtocol_")
 
 @class NSURLSession;
 enum InAppCreativeType : NSInteger;
+@class AIQDataTrackingConfiguration;
 
 SWIFT_CLASS("_TtC6Appier10AIQUtility")
 @interface AIQUtility : NSObject
@@ -2697,12 +2667,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isRunningTests;
 + (BOOL)assertPropertyTypesIn:(NSDictionary * _Nullable)dict SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)isRichPushSupported SWIFT_WARN_UNUSED_RESULT;
 + (enum InAppCreativeType)getInAppCreativeTypeWithFbCreativeDict:(NSDictionary * _Nonnull)fbCreativeDict SWIFT_WARN_UNUSED_RESULT;
-+ (void)getUserDetailsFrom:(AIQLocalStorage * _Nonnull)storage with:(AIQDataTrackingConfiguration * _Nonnull)trackingConfig completion:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nonnull))completion;
++ (NSDictionary<NSString *, id> * _Nonnull)getUserDetailsFrom:(AIQLocalStorage * _Nonnull)storage with:(AIQDataTrackingConfiguration * _Nonnull)trackingConfig SWIFT_WARN_UNUSED_RESULT;
 + (BOOL)isSceneDelegateDeeplinkHandlingEnabled:(NSDictionary<NSString *, id> * _Nullable)infoDictionary SWIFT_WARN_UNUSED_RESULT;
 + (NSArray<NSString *> * _Nonnull)crashLogConcernKeywords SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+@interface AIQUtility (SWIFT_EXTENSION(Appier))
++ (void)clearPIIDataWithStorage:(AIQLocalStorage * _Nonnull)storage;
+@end
 
 
 /// An object that represents an action to report to the framework.
@@ -3288,14 +3262,14 @@ SWIFT_CLASS_NAMED("Logger")
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
-+ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
++ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
-+ (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
++ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
