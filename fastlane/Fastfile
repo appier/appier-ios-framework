@@ -21,11 +21,18 @@ platform :ios do
   desc "Open GitHub pull request"
   lane :pr do |options|
     branch_name = options.fetch(:branch_name, "release")
-    framework_version = get_framework_version
+    is_prerelease = branch_name.include?("-dev")
+    suffixes = branch_name.scan(/(-dev\.\d+)$/)
+    framework_version = "v#{get_framework_version}"
+    if suffixes.any?
+      dev_suffix = suffixes.flatten.first
+      framework_version += dev_suffix
+    end
+    title = (is_prerelease ? "Pre-release" : "Release") + " #{framework_version}"
 
     # Set Podspec version
     version_file = {
-      "version" => "v#{framework_version}"
+      "version" => framework_version
     }
 
     File.write("../version.json", version_file.to_json)
@@ -44,7 +51,7 @@ platform :ios do
 
     git_commit(
       path: path,
-      message: "Release #{framework_version}"
+      message: title
     )
 
     push_to_git_remote(
@@ -62,7 +69,7 @@ platform :ios do
       body: {
         "head": branch_name,
         "base": "master",
-        "title": "Release v#{framework_version}"
+        "title": title
       }
     )
   end
@@ -82,10 +89,11 @@ platform :ios do
   end
 
   desc "Create release on GitHub"
-  lane :release do
+  lane :release do |options|
     framework_version = get_framework_version
     tag = "v#{framework_version}"
     archive_name = "AppierFramework.zip"
+    is_prerelease = options.fetch(:is_prerelease, false)
 
     Dir.chdir("..") do
       sh "zip -r #{archive_name} Appier.xcframework AppierExtension.xcframework"
@@ -98,6 +106,7 @@ platform :ios do
       tag_name: tag,
       description: "For details about this release, see the <a href=\"https://docs.aiqua.appier.com/docs/release-notes-for-ios\">release notes</a>.",
       commitish: "master",
+      is_prerelease: is_prerelease,
       upload_assets: [
         archive_name
       ]
