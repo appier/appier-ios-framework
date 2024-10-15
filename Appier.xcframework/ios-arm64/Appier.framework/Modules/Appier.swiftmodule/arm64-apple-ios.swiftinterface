@@ -225,8 +225,12 @@ extension Appier.Logger {
 @objc @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class AIQInAppWebViewController : UIKit.UIViewController {
   @objc @_Concurrency.MainActor(unsafe) public var notificationId: Foundation.NSNumber?
   @objc @_Concurrency.MainActor(unsafe) weak public var delegate: (any Appier.AIQInAppWebDelegate)?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var supportedInterfaceOrientations: UIKit.UIInterfaceOrientationMask {
+    @objc get
+  }
   @_Concurrency.MainActor(unsafe) @objc dynamic public init()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
+  @objc @_Concurrency.MainActor(unsafe) public func setMainWindowSupportedOrientationMask(_ orientationMask: UIKit.UIInterfaceOrientationMask)
   @objc @_Concurrency.MainActor(unsafe) public func inAppWebViewResize()
   @objc deinit
 }
@@ -236,6 +240,15 @@ extension Appier.AIQInAppWebViewController : WebKit.WKScriptMessageHandler {
 extension Appier.AIQInAppWebViewController : WebKit.WKNavigationDelegate {
   @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
   @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
+}
+@objc @_inheritsConvenienceInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class AIQInAppWebViewPresenter : UIKit.UIViewController {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public var supportedInterfaceOrientations: UIKit.UIInterfaceOrientationMask {
+    @objc get
+  }
+  @objc @_Concurrency.MainActor(unsafe) public func setMainWindowSupportedOrientationMask(_ orientationMask: UIKit.UIInterfaceOrientationMask)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
 }
 extension Appier.AIQLocalStorage : Appier.AIQStorage {
   @objc dynamic public func clean()
