@@ -40,7 +40,6 @@ typedef NS_ENUM(NSInteger, InAppPersistency) {
 
 @interface QGInApp: NSObject<NSCoding>
 @property (nonatomic) NSNumber *notificationId;
-@property (nonatomic) NSNumber *messageNo;
 @property (nonatomic) InAppType type;
 @property (nonatomic) NSString *icon;          //bubble button image
 @property (nonatomic) NSString *gravity;       //top or bottom
@@ -79,11 +78,7 @@ typedef NS_ENUM(NSInteger, InAppPersistency) {
 
 - (id)initWithDictionary:(NSDictionary *)campaign;
 
-+ (BOOL)isValidInApp:(QGInApp *)qgInApp withDate:(NSDate *)now;
-+ (BOOL)isValidFrequencyCapWithInApp:(QGInApp *)qgInApp withDate:(NSDate *)now;
++ (BOOL)isValidInApp:(QGInApp *)qgInApp WithDate:(NSDate *)now;
 + (BOOL)isExpiredInApp:(QGInApp *)qgInApp;
-+ (BOOL)isInvalidCreativeStudio:(QGInApp *)inApp;
-- (void)downloadIconResourcesWithCompletionHandler:(void(^)(BOOL))completionHandler;
-- (void)downloadImageResourcesWithCompletionHandler:(void(^)(BOOL))completionHandler;
 - (NSString *)fbImageUrl;
 @end

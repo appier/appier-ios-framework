@@ -27,7 +27,6 @@
     .inner {
       position: relative;
       width: 80vmin;
-      max-height: 100%;
       border-radius: 3vmin;
       overflow: hidden;
       display: flex;
@@ -45,6 +44,7 @@
       position: relative;
       width: 100%;
       min-height: 6vmin;
+      max-height: 20vmin;
       font-size: 4vmin;
       overflow: scroll;
       padding: 4vmin;
@@ -93,43 +93,17 @@
 </head>
 <body>
   <script>
-    function onWindowResize(event = null, width = window.innerWidth, height = window.innerHeight) {
+    function onWindowResize(event = NULL, width = window.innerWidth, height = window.innerHeight) {
       if (width === 0 || height === 0) {
         return;
       }
       const text = document.getElementById("com.appier.aiqua.demoapp:id/inapp_message");
-      if (width > height) {
-        text.style.maxHeight = "20vmin";
-      } else {
-        text.style.maxHeight = "90vmin";
-      }
       const button = document.getElementById("com.appier.aiqua.demoapp:id/button-area");
-      const vmin = (Math.min(height, width) / 100).toFixed(2);
+      const vmin = Math.round(Math.min(height, width) / 100)
       const margin = 2 * vmin;
       const maxHeight = 80 * vmin;
       const newHeight = height - text.offsetHeight - button.offsetHeight - margin * 2;
       document.getElementById("com.appier.aiqua.demoapp:id/inapp_medium_image").style.height = `${Math.min(maxHeight, newHeight)}px`;
-    }
-
-    // See MT-4314 for detail
-    function base64Decode(base64Str) {
-      try {
-        if (typeof TextEncoder !== 'undefined') {
-          var decoder = new TextDecoder('utf-8');
-          return decoder.decode(
-            Uint8Array.from(
-              window.atob(base64Str),
-              function(c) {
-                return c.codePointAt(0);
-              }
-            )
-          );
-        } else {
-          return decodeURIComponent(escape(window.atob(base64Str)));
-        }
-      } catch (e) {
-        return window.atob(base64Str);
-      }
     }
 
     function setUpCreative(creativeString, hasCloseButton, platform) {
@@ -139,8 +113,7 @@
         window.addEventListener('orientationchange', onWindowResize, false);
       }
 
-      var decodedCreative = base64Decode(creativeString);
-      var creative = JSON.parse(decodedCreative);
+      var creative = JSON.parse(creativeString);
 
       // Set background (required)
       document.getElementById("com.appier.aiqua.demoapp:id/background").addEventListener('click', function(e) {
@@ -157,11 +130,7 @@
       // Set text (optional)
       var text = document.getElementById("com.appier.aiqua.demoapp:id/inapp_message");
       if (creative.fb_push_card.body) {
-        if (creative.fb_push_card.body.content.textV2) {
-          text.textContent = creative.fb_push_card.body.content.textV2;
-        } else {
-          text.textContent = creative.fb_push_card.body.content.text;
-        }
+        text.innerHTML = creative.fb_push_card.body.content.text;
         text.style.visibility = "visible";
       } else {
         text.style.minHeight = "0vmin";
@@ -178,14 +147,7 @@
           window.webkit.messageHandlers.aiqua.postMessage({command:'pageLoaded'});
         }
       });
-      if (platform === "android") {
-        var imageUrl = Android.getImageUrl(creative.fb_push_card.hero.background.url);
-        if (imageUrl) {
-          image.src = imageUrl;
-        } else {
-          throw new Error("invalid_campaign_image");
-        }
-      }
+      image.src = creative.fb_push_card.hero.background.url;
 
       // Set action buttons (optional)
       var buttonArea = document.getElementById("com.appier.aiqua.demoapp:id/button-area");
@@ -236,11 +198,7 @@
 
     function setUpButton(button, id, index, platform) {
       document.getElementById(id).style.background = button.backgroundColor;
-      if (button.content.textV2) {
-        document.getElementById(id).textContent = button.content.textV2;
-      } else {
-        document.getElementById(id).textContent = button.content.text;
-      }
+      document.getElementById(id).innerHTML = button.content.text;
       document.getElementById(id).addEventListener('click', function(e) {
         if (platform === "android") {
           Android.onActionButtonClicked(index);
@@ -253,7 +211,7 @@
 
   <div id="com.appier.aiqua.demoapp:id/background" class="background">
     <div id="com.appier.aiqua.demoapp:id/inner" class="inner">
-      <img id="com.appier.aiqua.demoapp:id/inapp_medium_image" class="image" aria-label="inapp_medium_image" role="inapp_medium_image" alt="inapp_medium_image">
+      <img id="com.appier.aiqua.demoapp:id/inapp_medium_image" class="image" aria-label="inapp_medium_image" role="inapp_medium_image">
       <img id="com.appier.aiqua.demoapp:id/inapp_dismiss_button" class="close-button" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAApCAYAAABDV7v1AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAKqADAAQAAAABAAAAKQAAAACTut/bAAAAHGlET1QAAAACAAAAAAAAABUAAAAoAAAAFQAAABQAAAGYTArerwAAAWRJREFUWAnMl8/RgkAMxe3DGS40wgXq4EQPDgfpwR5swA44eLMBm9nvPT+XgcC6CQuOmcnoZvOSnxn+rIdDojnnjvAK3sBP8O79yTXjx8QW6+VoXsAv8CdcY8xjfrG+q0GJRjX8AU8x6mtDW30qCnOC9xS6BS3rFXqKSCaK8Zrb07oIQnwbdNc9CUe1r3GaQAaK3EaFvvH1FkAJh0H1rUnKAegnC+Xe16SEk+suPML3DhS8u3/Bio+wIIw+gvq+T/ohSv09CIrudYyATfI8d23bxlIX96mjXglbL8Ki8sc3jofMsszRrbDM91ol7GMGCkjVtTluZoFdqyPXBBYBHhhUZm1qzRcQFwmqPQW96miba/ME3Hj5HEAR5XnSbDGI2L6h4f95FoLKIJqkhmBC8YlYv6heU0V+o9fMMyVUWZbD3W254eaVh0jjQfn3IckkrH8MMb6BnTzoeYNiTk6S643sTNA/AAAA//8TFl1XAAABVUlEQVS9l8ERgjAQRe2DGS40kgvUwYkeGA7Sgz3YgB1w8GYDNhP3M4lKgGR3iWYmZkj2//8mAsaTtbanfqgNw2DLslx1zGdo/QmNjLojZiFkXdcL4AywnQdttKAhpIfam1fmNB600BikYFLrgsxiBsUHiZ4CoeVCcOsi2c83pAO9RIoXS9Jwaf0izNpLCGqCgs1LbahWRxBmAep29bFJ5yanabJVVb2faIRL2jcsfOCXaI8VpANtE8LZHCFSSO8LHRMSknYT1MHeveneyNiJPek8z9TfdyEdKOtejZLkWTRRUAc75slSu4xJSF9AEVd1zDHh1TOwR8q7HcsUq29suLCQov61s/Kd3ID99T07hpnqa9pZvA2Sry7hlw0/o4aKCcm4pR79BWPAQt/GcrKtURB2GAcZ7qkLdag32SCkRhSO82xDvaOOvzVnN+Ia85/zpNT8q/4FCoLGMbpXji4AAAAASUVORK5CYII=" aria-label="inapp_dismiss_button" role="inapp_dismiss_button">
       <div id="com.appier.aiqua.demoapp:id/inapp_message" class="text" aria-label="inapp_message" role="inapp_message"></div>
       <div id="com.appier.aiqua.demoapp:id/button-area" class="button-area">

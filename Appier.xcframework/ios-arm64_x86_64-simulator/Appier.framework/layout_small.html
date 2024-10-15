@@ -27,7 +27,6 @@
     .inner {
       position: relative;
       width: 75vmin;
-      max-height: 100%;
       border-radius: 3vmin;
       overflow: hidden;
       display: flex;
@@ -100,27 +99,6 @@
 </head>
 <body>
   <script>
-    // See MT-4314 for detail
-    function base64Decode(base64Str) {
-      try {
-        if (typeof TextEncoder !== 'undefined') {
-          var decoder = new TextDecoder('utf-8');
-          return decoder.decode(
-            Uint8Array.from(
-              window.atob(base64Str),
-              function(c) {
-                return c.codePointAt(0);
-              }
-            )
-          );
-        } else {
-          return decodeURIComponent(escape(window.atob(base64Str)));
-        }
-      } catch (e) {
-        return window.atob(base64Str);
-      }
-    }
-
     function setUpCreative(creativeString, hasCloseButton, platform) {
       if (window.document.readyState === 'complete') {
         if (platform === "android") {
@@ -130,8 +108,7 @@
         }
       }
 
-      var decodedCreative = base64Decode(creativeString);
-      var creative = JSON.parse(decodedCreative);
+      var creative = JSON.parse(creativeString);
 
       // Set background (required)
       document.getElementById("com.appier.aiqua.demoapp:id/background").addEventListener('click', function(e) {
@@ -148,20 +125,12 @@
       // Set title (required)
       var title = document.getElementById("com.appier.aiqua.demoapp:id/inapp_small_title");
       title.style.background = creative.fb_push_card.hero.background.rgbaHex;
-      if (creative.fb_push_card.hero.content.textV2) {
-        title.textContent = creative.fb_push_card.hero.content.textV2;
-      } else {
-        title.textContent = creative.fb_push_card.hero.content.text;
-      }
+      title.innerHTML = creative.fb_push_card.hero.content.text;
 
       // Set text (required)
       var text = document.getElementById("com.appier.aiqua.demoapp:id/inapp_message");
       text.style.background = creative.fb_push_card.body.background.rgbaHex;
-      if (creative.fb_push_card.body.content.textV2) {
-        text.textContent = creative.fb_push_card.body.content.textV2;
-      } else {
-        text.textContent = creative.fb_push_card.body.content.text;
-      }
+      text.innerHTML = creative.fb_push_card.body.content.text;
 
       // Set action buttons (required)
       setUpActionButtons(creative.fb_push_card.actions, platform);
@@ -204,11 +173,7 @@
 
     function setUpButton(button, id, index, platform) {
       document.getElementById(id).style.background = button.backgroundColor;
-      if (button.content.textV2) {
-        document.getElementById(id).textContent = button.content.textV2;
-      } else {
-        document.getElementById(id).textContent = button.content.text;
-      }
+      document.getElementById(id).innerHTML = button.content.text;
       document.getElementById(id).addEventListener('click', function(e) {
         if (platform === "android") {
           Android.onActionButtonClicked(index);
@@ -223,7 +188,7 @@
     <div id="com.appier.aiqua.demoapp:id/inner" class="inner">
       <div id="com.appier.aiqua.demoapp:id/inapp_small_title" class="title" aria-label="inapp_small_title" role="inapp_small_title"></div>
       <div id="com.appier.aiqua.demoapp:id/inapp_message" class="text" aria-label="inapp_message" role="inapp_message"></div>
-      <img id="com.appier.aiqua.demoapp:id/inapp_dismiss_button" class="close-button" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAApCAYAAABDV7v1AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAKqADAAQAAAABAAAAKQAAAACTut/bAAAAHGlET1QAAAACAAAAAAAAABUAAAAoAAAAFQAAABQAAAGYTArerwAAAWRJREFUWAnMl8/RgkAMxe3DGS40wgXq4EQPDgfpwR5swA44eLMBm9nvPT+XgcC6CQuOmcnoZvOSnxn+rIdDojnnjvAK3sBP8O79yTXjx8QW6+VoXsAv8CdcY8xjfrG+q0GJRjX8AU8x6mtDW30qCnOC9xS6BS3rFXqKSCaK8Zrb07oIQnwbdNc9CUe1r3GaQAaK3EaFvvH1FkAJh0H1rUnKAegnC+Xe16SEk+suPML3DhS8u3/Bio+wIIw+gvq+T/ohSv09CIrudYyATfI8d23bxlIX96mjXglbL8Ki8sc3jofMsszRrbDM91ol7GMGCkjVtTluZoFdqyPXBBYBHhhUZm1qzRcQFwmqPQW96miba/ME3Hj5HEAR5XnSbDGI2L6h4f95FoLKIJqkhmBC8YlYv6heU0V+o9fMMyVUWZbD3W254eaVh0jjQfn3IckkrH8MMb6BnTzoeYNiTk6S643sTNA/AAAA//8TFl1XAAABVUlEQVS9l8ERgjAQRe2DGS40kgvUwYkeGA7Sgz3YgB1w8GYDNhP3M4lKgGR3iWYmZkj2//8mAsaTtbanfqgNw2DLslx1zGdo/QmNjLojZiFkXdcL4AywnQdttKAhpIfam1fmNB600BikYFLrgsxiBsUHiZ4CoeVCcOsi2c83pAO9RIoXS9Jwaf0izNpLCGqCgs1LbahWRxBmAep29bFJ5yanabJVVb2faIRL2jcsfOCXaI8VpANtE8LZHCFSSO8LHRMSknYT1MHeveneyNiJPek8z9TfdyEdKOtejZLkWTRRUAc75slSu4xJSF9AEVd1zDHh1TOwR8q7HcsUq29suLCQov61s/Kd3ID99T07hpnqa9pZvA2Sry7hlw0/o4aKCcm4pR79BWPAQt/GcrKtURB2GAcZ7qkLdag32SCkRhSO82xDvaOOvzVnN+Ia85/zpNT8q/4FCoLGMbpXji4AAAAASUVORK5CYII=" aria-label="inapp_dismiss_button" role="inapp_dismiss_button" alt="inapp_dismiss_button">
+      <img id="com.appier.aiqua.demoapp:id/inapp_dismiss_button" class="close-button" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAApCAYAAABDV7v1AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAKqADAAQAAAABAAAAKQAAAACTut/bAAAAHGlET1QAAAACAAAAAAAAABUAAAAoAAAAFQAAABQAAAGYTArerwAAAWRJREFUWAnMl8/RgkAMxe3DGS40wgXq4EQPDgfpwR5swA44eLMBm9nvPT+XgcC6CQuOmcnoZvOSnxn+rIdDojnnjvAK3sBP8O79yTXjx8QW6+VoXsAv8CdcY8xjfrG+q0GJRjX8AU8x6mtDW30qCnOC9xS6BS3rFXqKSCaK8Zrb07oIQnwbdNc9CUe1r3GaQAaK3EaFvvH1FkAJh0H1rUnKAegnC+Xe16SEk+suPML3DhS8u3/Bio+wIIw+gvq+T/ohSv09CIrudYyATfI8d23bxlIX96mjXglbL8Ki8sc3jofMsszRrbDM91ol7GMGCkjVtTluZoFdqyPXBBYBHhhUZm1qzRcQFwmqPQW96miba/ME3Hj5HEAR5XnSbDGI2L6h4f95FoLKIJqkhmBC8YlYv6heU0V+o9fMMyVUWZbD3W254eaVh0jjQfn3IckkrH8MMb6BnTzoeYNiTk6S643sTNA/AAAA//8TFl1XAAABVUlEQVS9l8ERgjAQRe2DGS40kgvUwYkeGA7Sgz3YgB1w8GYDNhP3M4lKgGR3iWYmZkj2//8mAsaTtbanfqgNw2DLslx1zGdo/QmNjLojZiFkXdcL4AywnQdttKAhpIfam1fmNB600BikYFLrgsxiBsUHiZ4CoeVCcOsi2c83pAO9RIoXS9Jwaf0izNpLCGqCgs1LbahWRxBmAep29bFJ5yanabJVVb2faIRL2jcsfOCXaI8VpANtE8LZHCFSSO8LHRMSknYT1MHeveneyNiJPek8z9TfdyEdKOtejZLkWTRRUAc75slSu4xJSF9AEVd1zDHh1TOwR8q7HcsUq29suLCQov61s/Kd3ID99T07hpnqa9pZvA2Sry7hlw0/o4aKCcm4pR79BWPAQt/GcrKtURB2GAcZ7qkLdag32SCkRhSO82xDvaOOvzVnN+Ia85/zpNT8q/4FCoLGMbpXji4AAAAASUVORK5CYII=" aria-label="inapp_dismiss_button" role="inapp_dismiss_button">
       <div id="com.appier.aiqua.demoapp:id/button-area" class="button-area">
         <div id="com.appier.aiqua.demoapp:id/inapp_button_00" class="button" aria-label="inapp_button_00" role="inapp_button_00"></div>
         <div id="com.appier.aiqua.demoapp:id/inapp_button_01" class="button" aria-label="inapp_button_01" role="inapp_button_01"></div>
