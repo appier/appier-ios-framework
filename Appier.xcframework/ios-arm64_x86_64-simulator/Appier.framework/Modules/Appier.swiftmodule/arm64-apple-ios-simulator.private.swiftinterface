@@ -190,7 +190,7 @@ extension Appier.Logger {
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class AIQInAppCreativeStudioViewController : Appier.AIQInAppWebViewController {
-  @objc @_Concurrency.MainActor(unsafe) public init(csPayload: [Swift.String : Any]?, notificationId: Foundation.NSNumber, isShowDismissButton: Swift.Bool, isShowOverlay: Swift.Bool, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol, recommendationLogger: any Appier.AIQRecommendationLoggingProtocol, recommendationDataProvider: any Appier.AIQInAppRecommendationDataProviderProtocol, config: Appier.AIQUAConfiguration, storage: Appier.AIQLocalStorage)
+  @objc @_Concurrency.MainActor(unsafe) public init(csPayload: [Swift.String : Any]?, notificationId: Foundation.NSNumber, messageNo: Foundation.NSNumber, isShowDismissButton: Swift.Bool, isShowOverlay: Swift.Bool, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol, recommendationLogger: any Appier.AIQRecommendationLoggingProtocol, recommendationDataProvider: any Appier.AIQInAppRecommendationDataProviderProtocol, config: Appier.AIQUAConfiguration, storage: Appier.AIQLocalStorage)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
   @objc @_Concurrency.MainActor(unsafe) public func prepareToBeDismissed()
@@ -204,12 +204,12 @@ extension Appier.Logger {
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class AIQInAppCustomWebViewController : Appier.AIQInAppWebViewController {
-  @objc @_Concurrency.MainActor(unsafe) public init(htmlString: Swift.String, notificationId: Foundation.NSNumber, isShowDismissButton: Swift.Bool, isShowOverlay: Swift.Bool, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol, storage: Appier.AIQLocalStorage)
+  @objc @_Concurrency.MainActor(unsafe) public init(htmlString: Swift.String, notificationId: Foundation.NSNumber, messageNo: Foundation.NSNumber, isShowDismissButton: Swift.Bool, isShowOverlay: Swift.Bool, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol, storage: Appier.AIQLocalStorage)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
   @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class AIQInAppPopUpViewController : Appier.AIQInAppWebViewController {
-  @objc @_Concurrency.MainActor(unsafe) public init(htmlString: Swift.String, payload: [Swift.String : Any], notificationId: Foundation.NSNumber, isShowDismissButton: Swift.Bool, isShowOverlay: Swift.Bool, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol, storage: Appier.AIQLocalStorage)
+  @objc @_Concurrency.MainActor(unsafe) public init(htmlString: Swift.String, payload: [Swift.String : Any], notificationId: Foundation.NSNumber, messageNo: Foundation.NSNumber, isShowDismissButton: Swift.Bool, isShowOverlay: Swift.Bool, eventLogger: any Appier.AIQEventLoggingProtocol, userProfileLogger: any Appier.AIQUserProfileLoggingProtocol, storage: Appier.AIQLocalStorage)
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidLoad()
   @_Concurrency.MainActor(unsafe) @objc override dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
   @objc deinit
@@ -224,6 +224,7 @@ extension Appier.Logger {
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class AIQInAppWebViewController : UIKit.UIViewController {
   @objc @_Concurrency.MainActor(unsafe) public var notificationId: Foundation.NSNumber?
+  @objc @_Concurrency.MainActor(unsafe) public var messageNo: Foundation.NSNumber?
   @objc @_Concurrency.MainActor(unsafe) weak public var delegate: (any Appier.AIQInAppWebDelegate)?
   @_Concurrency.MainActor(unsafe) @objc override dynamic public var supportedInterfaceOrientations: UIKit.UIInterfaceOrientationMask {
     @objc get

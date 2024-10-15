@@ -6582,7 +6582,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(csPayload:notificationId:isShowDismissButton:isShowOverlay:eventLogger:userProfileLogger:recommendationLogger:recommendationDataProvider:config:storage:)",
+            "printedName": "init(csPayload:notificationId:messageNo:isShowDismissButton:isShowOverlay:eventLogger:userProfileLogger:recommendationLogger:recommendationDataProvider:config:storage:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -6616,6 +6616,12 @@
                   }
                 ],
                 "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSNumber",
+                "printedName": "Foundation.NSNumber",
+                "usr": "c:objc(cs)NSNumber"
               },
               {
                 "kind": "TypeNominal",
@@ -6673,8 +6679,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "c:@M@Appier@objc(cs)AIQInAppCreativeStudioViewController(im)initWithCsPayload:notificationId:isShowDismissButton:isShowOverlay:eventLogger:userProfileLogger:recommendationLogger:recommendationDataProvider:config:storage:",
-            "mangledName": "$s6Appier36AIQInAppCreativeStudioViewControllerC9csPayload14notificationId19isShowDismissButton0lM7Overlay11eventLogger011userProfileR0014recommendationR00U12DataProvider6config7storageACSDySSypGSg_So8NSNumberCS2bAA23AIQEventLoggingProtocol_pAA07AIQUserT15LoggingProtocol_pAA32AIQRecommendationLoggingProtocol_pAA0bc14RecommendationvW8Protocol_pAA18AIQUAConfigurationCAA15AIQLocalStorageCtcfc",
+            "usr": "c:@M@Appier@objc(cs)AIQInAppCreativeStudioViewController(im)initWithCsPayload:notificationId:messageNo:isShowDismissButton:isShowOverlay:eventLogger:userProfileLogger:recommendationLogger:recommendationDataProvider:config:storage:",
+            "mangledName": "$s6Appier36AIQInAppCreativeStudioViewControllerC9csPayload14notificationId9messageNo19isShowDismissButton0nO7Overlay11eventLogger011userProfileT0014recommendationT00W12DataProvider6config7storageACSDySSypGSg_So8NSNumberCARS2bAA23AIQEventLoggingProtocol_pAA07AIQUserV15LoggingProtocol_pAA32AIQRecommendationLoggingProtocol_pAA0bc14RecommendationxY8Protocol_pAA18AIQUAConfigurationCAA15AIQLocalStorageCtcfc",
             "moduleName": "Appier",
             "declAttributes": [
               "Custom",
@@ -7175,7 +7181,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(htmlString:notificationId:isShowDismissButton:isShowOverlay:eventLogger:userProfileLogger:storage:)",
+            "printedName": "init(htmlString:notificationId:messageNo:isShowDismissButton:isShowOverlay:eventLogger:userProfileLogger:storage:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -7188,6 +7194,12 @@
                 "name": "String",
                 "printedName": "Swift.String",
                 "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSNumber",
+                "printedName": "Foundation.NSNumber",
+                "usr": "c:objc(cs)NSNumber"
               },
               {
                 "kind": "TypeNominal",
@@ -7227,8 +7239,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "c:@M@Appier@objc(cs)AIQInAppCustomWebViewController(im)initWithHtmlString:notificationId:isShowDismissButton:isShowOverlay:eventLogger:userProfileLogger:storage:",
-            "mangledName": "$s6Appier31AIQInAppCustomWebViewControllerC10htmlString14notificationId19isShowDismissButton0lM7Overlay11eventLogger011userProfileR07storageACSS_So8NSNumberCS2bAA23AIQEventLoggingProtocol_pAA07AIQUsertxY0_pAA15AIQLocalStorageCtcfc",
+            "usr": "c:@M@Appier@objc(cs)AIQInAppCustomWebViewController(im)initWithHtmlString:notificationId:messageNo:isShowDismissButton:isShowOverlay:eventLogger:userProfileLogger:storage:",
+            "mangledName": "$s6Appier31AIQInAppCustomWebViewControllerC10htmlString14notificationId9messageNo19isShowDismissButton0nO7Overlay11eventLogger011userProfileT07storageACSS_So8NSNumberCAMS2bAA23AIQEventLoggingProtocol_pAA07AIQUservZ8Protocol_pAA15AIQLocalStorageCtcfc",
             "moduleName": "Appier",
             "declAttributes": [
               "Custom",
@@ -7397,7 +7409,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(htmlString:payload:notificationId:isShowDismissButton:isShowOverlay:eventLogger:userProfileLogger:storage:)",
+            "printedName": "init(htmlString:payload:notificationId:messageNo:isShowDismissButton:isShowOverlay:eventLogger:userProfileLogger:storage:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -7438,6 +7450,12 @@
               },
               {
                 "kind": "TypeNominal",
+                "name": "NSNumber",
+                "printedName": "Foundation.NSNumber",
+                "usr": "c:objc(cs)NSNumber"
+              },
+              {
+                "kind": "TypeNominal",
                 "name": "Bool",
                 "printedName": "Swift.Bool",
                 "usr": "s:Sb"
@@ -7468,8 +7486,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "c:@M@Appier@objc(cs)AIQInAppPopUpViewController(im)initWithHtmlString:payload:notificationId:isShowDismissButton:isShowOverlay:eventLogger:userProfileLogger:storage:",
-            "mangledName": "$s6Appier27AIQInAppPopUpViewControllerC10htmlString7payload14notificationId19isShowDismissButton0mN7Overlay11eventLogger011userProfileS07storageACSS_SDySSypGSo8NSNumberCS2bAA23AIQEventLoggingProtocol_pAA07AIQUseruyZ0_pAA15AIQLocalStorageCtcfc",
+            "usr": "c:@M@Appier@objc(cs)AIQInAppPopUpViewController(im)initWithHtmlString:payload:notificationId:messageNo:isShowDismissButton:isShowOverlay:eventLogger:userProfileLogger:storage:",
+            "mangledName": "$s6Appier27AIQInAppPopUpViewControllerC10htmlString7payload14notificationId9messageNo19isShowDismissButton0oP7Overlay11eventLogger011userProfileU07storageACSS_SDySSypGSo8NSNumberCAOS2bAA23AIQEventLoggingProtocol_pAA07AIQUserW15LoggingProtocol_pAA15AIQLocalStorageCtcfc",
             "moduleName": "Appier",
             "declAttributes": [
               "Custom",
@@ -8079,6 +8097,125 @@
                 "declKind": "Accessor",
                 "usr": "s:6Appier25AIQInAppWebViewControllerC14notificationIdSo8NSNumberCSgvM",
                 "mangledName": "$s6Appier25AIQInAppWebViewControllerC14notificationIdSo8NSNumberCSgvM",
+                "moduleName": "Appier",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "messageNo",
+            "printedName": "messageNo",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.NSNumber?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSNumber",
+                    "printedName": "Foundation.NSNumber",
+                    "usr": "c:objc(cs)NSNumber"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Appier@objc(cs)AIQInAppWebViewController(py)messageNo",
+            "mangledName": "$s6Appier25AIQInAppWebViewControllerC9messageNoSo8NSNumberCSgvp",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "Custom",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.NSNumber?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NSNumber",
+                        "printedName": "Foundation.NSNumber",
+                        "usr": "c:objc(cs)NSNumber"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)AIQInAppWebViewController(im)messageNo",
+                "mangledName": "$s6Appier25AIQInAppWebViewControllerC9messageNoSo8NSNumberCSgvg",
+                "moduleName": "Appier",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.NSNumber?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NSNumber",
+                        "printedName": "Foundation.NSNumber",
+                        "usr": "c:objc(cs)NSNumber"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)AIQInAppWebViewController(im)setMessageNo:",
+                "mangledName": "$s6Appier25AIQInAppWebViewControllerC9messageNoSo8NSNumberCSgvs",
+                "moduleName": "Appier",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6Appier25AIQInAppWebViewControllerC9messageNoSo8NSNumberCSgvM",
+                "mangledName": "$s6Appier25AIQInAppWebViewControllerC9messageNoSo8NSNumberCSgvM",
                 "moduleName": "Appier",
                 "implicit": true,
                 "accessorKind": "_modify"
@@ -65613,665 +65750,665 @@
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 1787,
+      "offset": 1853,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 2505,
+      "offset": 2571,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 2548,
+      "offset": 2614,
       "length": 23,
       "value": "\"inapp_creative_studio\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 2713,
+      "offset": 2779,
       "length": 36,
       "value": "\"inapp_creative_studio_close_button\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 3333,
+      "offset": 3399,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 3811,
+      "offset": 3877,
       "length": 3,
       "value": "0.2"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 3845,
+      "offset": 3911,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 3878,
+      "offset": 3944,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4177,
+      "offset": 4243,
       "length": 46,
       "value": "\"Invalid URL: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4222,
+      "offset": 4288,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4305,
+      "offset": 4371,
       "length": 13,
       "value": "\"about:blank\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4346,
+      "offset": 4412,
       "length": 17,
       "value": "\"skip blank page\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 4568,
+      "offset": 4634,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4673,
+      "offset": 4739,
       "length": 63,
       "value": "\"creative studio navigation: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4727,
+      "offset": 4793,
       "length": 1,
       "value": "\", \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4735,
+      "offset": 4801,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4812,
+      "offset": 4878,
       "length": 74,
       "value": "\"creative studio navigation (redirect): \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4877,
+      "offset": 4943,
       "length": 1,
       "value": "\", \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4885,
+      "offset": 4951,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 5119,
+      "offset": 5185,
       "length": 26,
       "value": "\"open url: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 5144,
+      "offset": 5210,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 5286,
+      "offset": 5352,
       "length": 74,
       "value": "\"creative studio navigation (subframe): \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 5351,
+      "offset": 5417,
       "length": 1,
       "value": "\", \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 5359,
+      "offset": 5425,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 5673,
+      "offset": 5739,
       "length": 7,
       "value": "\"aiqua\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 5769,
+      "offset": 5835,
       "length": 9,
       "value": "\"command\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 5841,
+      "offset": 5907,
       "length": 23,
       "value": "\"giosgInteractionEvent\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 5898,
+      "offset": 5964,
       "length": 7,
       "value": "\"event\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 5957,
+      "offset": 6023,
       "length": 6,
       "value": "\"type\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 6097,
+      "offset": 6163,
       "length": 27,
       "value": "\"interactiondesigner:start\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 6299,
+      "offset": 6365,
       "length": 27,
       "value": "\"interactiondesigner:click\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "Array",
-      "offset": 6359,
+      "offset": 6425,
       "length": 38,
       "value": "[\"opentab\", \"redirect\", \"get\", \"post\"]"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 6437,
+      "offset": 6503,
       "length": 12,
       "value": "\"urlActions\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 6531,
+      "offset": 6597,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 6683,
+      "offset": 6749,
       "length": 6,
       "value": "\"type\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 6749,
+      "offset": 6815,
       "length": 11,
       "value": "\"targetUrl\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 6948,
+      "offset": 7014,
       "length": 21,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 6967,
+      "offset": 7033,
       "length": 1,
       "value": "\"\/\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 7205,
+      "offset": 7271,
       "length": 56,
       "value": "\"giosg click: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 7226,
+      "offset": 7292,
       "length": 1,
       "value": "\", \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 7234,
+      "offset": 7300,
       "length": 1,
       "value": "\", \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 7244,
+      "offset": 7310,
       "length": 14,
       "value": "\"elementLabel\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 7260,
+      "offset": 7326,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 7449,
+      "offset": 7515,
       "length": 14,
       "value": "\"elementLabel\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 7479,
+      "offset": 7545,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 7624,
+      "offset": 7690,
       "length": 26,
       "value": "\"interactiondesigner:exit\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 7744,
+      "offset": 7810,
       "length": 30,
       "value": "\"interactiondesigner:formdata\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 7905,
+      "offset": 7971,
       "length": 10,
       "value": "\"leadType\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 7919,
+      "offset": 7985,
       "length": 16,
       "value": "\"creativeStudio\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 8084,
+      "offset": 8150,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 8323,
+      "offset": 8389,
       "length": 13,
       "value": "\"en_US_POSIX\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 8398,
+      "offset": 8464,
       "length": 5,
       "value": "\"GMT\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 8444,
+      "offset": 8510,
       "length": 27,
       "value": "\"yyyy-MM-dd'T'HH:mm:ss.SSS\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 8550,
+      "offset": 8616,
       "length": 3,
       "value": "\"Z\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 8848,
+      "offset": 8914,
       "length": 29,
       "value": "\"getRecommendationByScenario\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 8915,
+      "offset": 8981,
       "length": 11,
       "value": "\"promiseId\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 8973,
+      "offset": 9039,
       "length": 9,
       "value": "\"options\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 9042,
+      "offset": 9108,
       "length": 12,
       "value": "\"scenarioId\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 9435,
+      "offset": 9501,
       "length": 7,
       "value": "\"items\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 9480,
+      "offset": 9546,
       "length": 7,
       "value": "\"recId\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 9530,
+      "offset": 9596,
       "length": 12,
       "value": "\"scenarioId\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 9582,
+      "offset": 9648,
       "length": 9,
       "value": "\"modelId\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 9884,
+      "offset": 9950,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 9934,
+      "offset": 10000,
       "length": 99,
       "value": "\"self.resolve(\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 9962,
+      "offset": 10028,
       "length": 1,
       "value": "\"\", [\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 9978,
+      "offset": 10044,
       "length": 1,
       "value": "\"\", \"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 9992,
+      "offset": 10058,
       "length": 1,
       "value": "\"\", \"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 10011,
+      "offset": 10077,
       "length": 1,
       "value": "\"\", \"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 10027,
+      "offset": 10093,
       "length": 1,
       "value": "\"\"]);\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 10090,
+      "offset": 10156,
       "length": 38,
       "value": "\"error: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 10127,
+      "offset": 10193,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 10283,
+      "offset": 10349,
       "length": 17,
       "value": "\"giosg_timed_out\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 10640,
+      "offset": 10706,
       "length": 6,
       "value": "\"-._~\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 10825,
+      "offset": 10891,
       "length": 20,
       "value": "\"giosgInteractionId\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 10896,
+      "offset": 10962,
       "length": 9,
       "value": "\"version\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 11140,
+      "offset": 11206,
       "length": 79,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 11159,
+      "offset": 11225,
       "length": 1,
       "value": "\"\/id\/\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 11184,
+      "offset": 11250,
       "length": 1,
       "value": "\"\/live.js?aiq_v=\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 11218,
+      "offset": 11284,
       "length": 9,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 11314,
+      "offset": 11380,
       "length": 4992,
       "value": "\"<!--CreativeStudio-->\n<!DOCTYPE html>\n<html>\n<body>\n    <script>\n        window.onGiosgInteractionEvent = (event) => {\n            return new Promise((resolve, reject) => {\n                var o = {\n                    command: 'giosgInteractionEvent',\n                    event: event\n                };\n                try {\n                    window.webkit.messageHandlers.aiqua.postMessage(o);\n                    resolve(\"Action done\", event);\n                } catch (e) {\n                    reject(e);\n                }\n            });\n        };\n\n        if (!window.qg) {\n            var self = function() {}\n\n            self.promises = {};\n\n            self.newPromise = function() {\n                const promiseId = performance.now().toString();\n                console.log('promise id:', promiseId);\n                const promise = new Promise((resolve, reject) => {\n                    self.promises[promiseId] = {resolve: resolve, reject: reject};\n                });\n                return {promiseId: promiseId, promise: promise};\n            }\n\n            self.takePromise = function(promiseId) {\n                const promise = self.promises[promiseId];\n                delete self.promises[promiseId];\n                return promise;\n            }\n\n            self.resolve = function(promiseId, result) {\n                console.log('resolve:', promiseId, result)\n                var promise = self.takePromise(promiseId);\n                if (promise) {\n                    promise.resolve(result);\n                }\n            }\n\n            self.reject = function(promiseId, error) {\n                console.log('reject:', promiseId, error)\n                var promise = self.takePromise(promiseId);\n                if (promise) {\n                    promise.reject(error);\n                }\n            }\n\n            self.base64Decode = function(base64Str) {\n                try {\n                    if (typeof TextEncoder !== 'undefined') {\n                        var decoder = new TextDecoder('utf-8');\n                        return decoder.decode(\n                            Uint8Array.from(\n                                window.atob(base64Str),\n                                function(c) {\n                                    return c.codePointAt(0);\n                                }\n                            )\n                        );\n                    } else {\n                        return decodeURIComponent(escape(window.atob(base64Str)));\n                    }\n                } catch (e) {\n                    return window.atob(base64Str);\n                }\n            }\n\n            window.appier = function() {\n                if (!arguments || arguments.length == 0) {\n                    console.log('qg is called but invalid');\n                    return;\n                }\n\n                var method = arguments[0];\n                console.log('qg is called:', method, arguments.length);\n                if (method == 'getRecommendationByScenario') {\n                    if (arguments.length >= 3) {\n                        var options = arguments[1];\n                        var callback = arguments[2];\n                        var {promiseId, promise} = self.newPromise()\n                        promise.then(result => {\n                            var recItems = JSON.parse(self.base64Decode(result[0]));\n                            var recId = result[1];\n                            var scenarioId = result[2];\n                            var modelId = result[3];\n\n                            var items = recItems.map(item => {\n                                if (item.url.indexOf('?') !== -1) {\n                                    item.url += '&';\n                                } else {\n                                    item.url += '?';\n                                }\n                                item.url += '\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 15240,
+      "offset": 15306,
       "length": 1,
       "value": "\"=' + encodeURI(recId);\n                                item.url += '&\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 15333,
+      "offset": 15399,
       "length": 1,
       "value": "\"=' + encodeURI(scenarioId);\n                                item.url += '&\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 15428,
+      "offset": 15494,
       "length": 1,
       "value": "\"=' + encodeURI(modelId);\n                                item.url += '&\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 15522,
+      "offset": 15588,
       "length": 1,
       "value": "\"=' + encodeURI(item.productId);\n                                return item;\n                            });\n                            callback(null, items);\n                        }).catch(error => {\n                            callback(error, null);\n                        })\n\n                        var message = {\n                            command: 'getRecommendationByScenario',\n                            promiseId: promiseId,\n                            options: options\n                        };\n                        window.webkit.messageHandlers.aiqua.postMessage(message);\n                    }\n                }\n            }\n\n            window.qg = window.appier;\n        }\n    <\/script>\n    <script src=\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 16275,
+      "offset": 16341,
       "length": 11,
       "value": "\"\"><\/script>\n<\/body>\n<\/html>\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 16522,
+      "offset": 16588,
       "length": 26,
       "value": "\"missing_cstudio_endpoint\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 17055,
+      "offset": 17121,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 17547,
+      "offset": 17613,
       "length": 2,
       "value": "-1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 17572,
+      "offset": 17638,
       "length": 2,
       "value": "-1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 17619,
+      "offset": 17685,
       "length": 77,
       "value": "\"log recommendation click: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 17658,
+      "offset": 17724,
       "length": 1,
       "value": "\", \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 17668,
+      "offset": 17734,
       "length": 1,
       "value": "\", \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 17683,
+      "offset": 17749,
       "length": 1,
       "value": "\", \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "StringLiteral",
-      "offset": 17695,
+      "offset": 17761,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCreativeStudioViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 18142,
+      "offset": 18208,
       "length": 4,
       "value": "true"
     },
@@ -66341,70 +66478,70 @@
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCustomWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 1253,
+      "offset": 1319,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCustomWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 1296,
+      "offset": 1362,
       "length": 14,
       "value": "\"inapp_custom\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCustomWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 1452,
+      "offset": 1518,
       "length": 27,
       "value": "\"inapp_custom_close_button\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCustomWebViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 1836,
+      "offset": 1902,
       "length": 3,
       "value": "0.2"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCustomWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 1883,
+      "offset": 1949,
       "length": 28,
       "value": "\"document.body.scrollHeight\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCustomWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 2128,
+      "offset": 2194,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCustomWebViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 2386,
+      "offset": 2452,
       "length": 3,
       "value": "0.2"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCustomWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 2428,
+      "offset": 2494,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCustomWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 2469,
+      "offset": 2535,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppCustomWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 2718,
+      "offset": 2784,
       "length": 7,
       "value": "\"aiqua\""
     },
@@ -66418,133 +66555,133 @@
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "StringLiteral",
-      "offset": 1025,
+      "offset": 1091,
       "length": 14,
       "value": "\"fb_push_card\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "StringLiteral",
-      "offset": 1092,
+      "offset": 1158,
       "length": 9,
       "value": "\"actions\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "StringLiteral",
-      "offset": 1162,
+      "offset": 1228,
       "length": 9,
       "value": "\"actions\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 1723,
+      "offset": 1789,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 1780,
+      "offset": 1846,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 2152,
+      "offset": 2218,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 2209,
+      "offset": 2275,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 2571,
+      "offset": 2637,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 2628,
+      "offset": 2694,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 2996,
+      "offset": 3062,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 3053,
+      "offset": 3119,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 3423,
+      "offset": 3489,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 3480,
+      "offset": 3546,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 3713,
+      "offset": 3779,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4042,
+      "offset": 4108,
       "length": 91,
       "value": "\"setUpCreative('\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4080,
+      "offset": 4146,
       "length": 47,
       "value": "\"', \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4107,
+      "offset": 4173,
       "length": 6,
       "value": "\"true\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4116,
+      "offset": 4182,
       "length": 7,
       "value": "\"false\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppPopUpViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4124,
+      "offset": 4190,
       "length": 1,
       "value": "\", 'ios')\""
     },
@@ -66656,259 +66793,259 @@
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 3574,
+      "offset": 3668,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 3842,
+      "offset": 3936,
       "length": 4,
       "value": "0.82"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 3954,
+      "offset": 4048,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 4029,
+      "offset": 4123,
       "length": 7,
       "value": "\"aiqua\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 4201,
+      "offset": 4295,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 4263,
+      "offset": 4357,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 4400,
+      "offset": 4494,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 4478,
+      "offset": 4572,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 4890,
+      "offset": 4984,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 4947,
+      "offset": 5041,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 5323,
+      "offset": 5417,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 5380,
+      "offset": 5474,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 5409,
+      "offset": 5503,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 5464,
+      "offset": 5558,
       "length": 21,
       "value": "\"navigator.userAgent\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 5631,
+      "offset": 5725,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 6164,
+      "offset": 6258,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 6605,
+      "offset": 6699,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 7045,
+      "offset": 7139,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 7102,
+      "offset": 7196,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 7471,
+      "offset": 7565,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 7853,
+      "offset": 7947,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 7893,
+      "offset": 7987,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 7899,
+      "offset": 7993,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 8392,
+      "offset": 8486,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 8883,
+      "offset": 8977,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 9331,
+      "offset": 9425,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 9783,
+      "offset": 9877,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 9904,
+      "offset": 9998,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 10926,
+      "offset": 11020,
       "length": 45,
       "value": "\"onWindowResize('NULL', \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 10958,
+      "offset": 11052,
       "length": 1,
       "value": "\", \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 10969,
+      "offset": 11063,
       "length": 1,
       "value": "\")\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 11650,
+      "offset": 11744,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 11746,
+      "offset": 11840,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 12373,
+      "offset": 12467,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 12659,
+      "offset": 12753,
       "length": 36,
       "value": "\"AppleWebKit\\\/(\\d+\\.\\d+\\.\\d+)\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 12952,
+      "offset": 13046,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 13185,
+      "offset": 13279,
       "length": 1,
       "value": "0"
     },
@@ -66922,154 +67059,154 @@
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 13498,
+      "offset": 13592,
       "length": 7,
       "value": "\"aiqua\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 13594,
+      "offset": 13688,
       "length": 9,
       "value": "\"command\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 13666,
+      "offset": 13760,
       "length": 6,
       "value": "\"data\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 13705,
+      "offset": 13799,
       "length": 6,
       "value": "\"data\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 13825,
+      "offset": 13919,
       "length": 7,
       "value": "\"close\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 13846,
+      "offset": 13940,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 13888,
+      "offset": 13982,
       "length": 16,
       "value": "\"closePermanent\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 13918,
+      "offset": 14012,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 14096,
+      "offset": 14190,
       "length": 11,
       "value": "\"eventName\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 14171,
+      "offset": 14265,
       "length": 20,
       "value": "\"LogEvent: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 14190,
+      "offset": 14284,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 14294,
+      "offset": 14388,
       "length": 10,
       "value": "\"deeplink\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 14391,
+      "offset": 14485,
       "length": 7,
       "value": "\"close\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 14453,
+      "offset": 14547,
       "length": 21,
       "value": "\"actionButtonClicked\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 14511,
+      "offset": 14605,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 14542,
+      "offset": 14636,
       "length": 7,
       "value": "\"index\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 14562,
+      "offset": 14656,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 14643,
+      "offset": 14737,
       "length": 5,
       "value": "\"url\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 14871,
+      "offset": 14965,
       "length": 35,
       "value": "\"Received Message: \""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 14905,
+      "offset": 14999,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 15125,
+      "offset": 15219,
       "length": 57,
       "value": "\"document.documentElement.style.webkitUserSelect='none';\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 15238,
+      "offset": 15332,
       "length": 59,
       "value": "\"document.documentElement.style.webkitTouchCallout='none';\""
     },
@@ -68527,7 +68664,7 @@
       "kind": "StringLiteral",
       "offset": 235,
       "length": 8,
-      "value": "\"7.32.4\""
+      "value": "\"7.33.0\""
     },
     {
       "filePath": "\/Users\/distiller\/project\/QGSdk\/Constant.swift",
