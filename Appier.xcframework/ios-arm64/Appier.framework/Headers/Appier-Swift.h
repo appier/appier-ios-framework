@@ -400,6 +400,12 @@ SWIFT_CLASS("_TtC6Appier13AIQGeofencing")
 @property (nonatomic, readonly, copy) NSArray<AIQGeofence *> * _Nullable geofences;
 @end
 
+
+SWIFT_PROTOCOL("_TtP6Appier39AIQInAppCSEndpointConfigurationProtocol_")
+@protocol AIQInAppCSEndpointConfigurationProtocol
+@property (nonatomic, readonly, copy) NSString * _Nullable cstudio;
+@end
+
 @class UIColor;
 @class NSCoder;
 
@@ -423,6 +429,8 @@ SWIFT_CLASS("_TtC6Appier25AIQInAppWebViewController")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (void)viewDidDisappear:(BOOL)animated;
 - (void)setMainWindowSupportedOrientationMask:(UIInterfaceOrientationMask)orientationMask;
 - (void)inAppWebViewResize;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
@@ -431,25 +439,39 @@ SWIFT_CLASS("_TtC6Appier25AIQInAppWebViewController")
 @protocol AIQUserProfileLoggingProtocol;
 @protocol AIQRecommendationLoggingProtocol;
 @protocol AIQInAppRecommendationDataProviderProtocol;
-@class AIQConfiguration;
-@class WKWebView;
-@class WKNavigation;
-@class WKNavigationAction;
-@class WKUserContentController;
-@class WKScriptMessage;
+@protocol AIQInAppWebViewStorageProtocol;
+@protocol UIViewControllerTransitionCoordinator;
 
 SWIFT_CLASS("_TtC6Appier36AIQInAppCreativeStudioViewController")
 @interface AIQInAppCreativeStudioViewController : AIQInAppWebViewController
-- (nonnull instancetype)initWithCsPayload:(NSDictionary<NSString *, id> * _Nullable)csPayload notificationId:(NSNumber * _Nonnull)notificationId messageNo:(NSNumber * _Nonnull)messageNo isShowDismissButton:(BOOL)isShowDismissButton isShowOverlay:(BOOL)isShowOverlay eventLogger:(id <AIQEventLoggingProtocol> _Nonnull)eventLogger userProfileLogger:(id <AIQUserProfileLoggingProtocol> _Nonnull)userProfileLogger recommendationLogger:(id <AIQRecommendationLoggingProtocol> _Nonnull)recommendationLogger recommendationDataProvider:(id <AIQInAppRecommendationDataProviderProtocol> _Nonnull)recommendationDataProvider config:(AIQConfiguration * _Nonnull)config storage:(AIQLocalStorage * _Nonnull)storage OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithCsPayload:(NSDictionary<NSString *, id> * _Nullable)csPayload notificationId:(NSNumber * _Nonnull)notificationId messageNo:(NSNumber * _Nonnull)messageNo isShowDismissButton:(BOOL)isShowDismissButton isShowOverlay:(BOOL)isShowOverlay eventLogger:(id <AIQEventLoggingProtocol> _Nonnull)eventLogger userProfileLogger:(id <AIQUserProfileLoggingProtocol> _Nonnull)userProfileLogger recommendationLogger:(id <AIQRecommendationLoggingProtocol> _Nonnull)recommendationLogger recommendationDataProvider:(id <AIQInAppRecommendationDataProviderProtocol> _Nonnull)recommendationDataProvider endpoint:(id <AIQInAppCSEndpointConfigurationProtocol> _Nonnull)endpoint storage:(id <AIQInAppWebViewStorageProtocol> _Nonnull)storage OBJC_DESIGNATED_INITIALIZER;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator> _Nonnull)coordinator;
 - (void)prepareToBeDismissed;
-- (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
-- (void)webView:(WKWebView * _Nonnull)webView decidePolicyForNavigationAction:(WKNavigationAction * _Nonnull)navigationAction decisionHandler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
-- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+
+
+@class WKUserContentController;
+@class WKScriptMessage;
+
+@interface AIQInAppCreativeStudioViewController (SWIFT_EXTENSION(Appier))
+- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
+@end
+
+@class WKWebView;
+@class WKNavigation;
+@class WKNavigationAction;
+
+@interface AIQInAppCreativeStudioViewController (SWIFT_EXTENSION(Appier))
+- (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
+- (void)webView:(WKWebView * _Nonnull)webView decidePolicyForNavigationAction:(WKNavigationAction * _Nonnull)navigationAction decisionHandler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
+@end
+
+
 
 
 SWIFT_CLASS("_TtC6Appier21AIQInAppCrossMarkView")
@@ -462,7 +484,7 @@ SWIFT_CLASS("_TtC6Appier21AIQInAppCrossMarkView")
 
 SWIFT_CLASS("_TtC6Appier31AIQInAppCustomWebViewController")
 @interface AIQInAppCustomWebViewController : AIQInAppWebViewController
-- (nonnull instancetype)initWithHtmlString:(NSString * _Nonnull)htmlString notificationId:(NSNumber * _Nonnull)notificationId messageNo:(NSNumber * _Nonnull)messageNo isShowDismissButton:(BOOL)isShowDismissButton isShowOverlay:(BOOL)isShowOverlay eventLogger:(id <AIQEventLoggingProtocol> _Nonnull)eventLogger userProfileLogger:(id <AIQUserProfileLoggingProtocol> _Nonnull)userProfileLogger storage:(AIQLocalStorage * _Nonnull)storage OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithHtmlString:(NSString * _Nonnull)htmlString notificationId:(NSNumber * _Nonnull)notificationId messageNo:(NSNumber * _Nonnull)messageNo isShowDismissButton:(BOOL)isShowDismissButton isShowOverlay:(BOOL)isShowOverlay eventLogger:(id <AIQEventLoggingProtocol> _Nonnull)eventLogger userProfileLogger:(id <AIQUserProfileLoggingProtocol> _Nonnull)userProfileLogger storage:(id <AIQInAppWebViewStorageProtocol> _Nonnull)storage OBJC_DESIGNATED_INITIALIZER;
 - (void)viewDidLoad;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
@@ -471,7 +493,7 @@ SWIFT_CLASS("_TtC6Appier31AIQInAppCustomWebViewController")
 
 SWIFT_CLASS("_TtC6Appier27AIQInAppPopUpViewController")
 @interface AIQInAppPopUpViewController : AIQInAppWebViewController
-- (nonnull instancetype)initWithHtmlString:(NSString * _Nonnull)htmlString payload:(NSDictionary<NSString *, id> * _Nonnull)payload notificationId:(NSNumber * _Nonnull)notificationId messageNo:(NSNumber * _Nonnull)messageNo isShowDismissButton:(BOOL)isShowDismissButton isShowOverlay:(BOOL)isShowOverlay eventLogger:(id <AIQEventLoggingProtocol> _Nonnull)eventLogger userProfileLogger:(id <AIQUserProfileLoggingProtocol> _Nonnull)userProfileLogger storage:(AIQLocalStorage * _Nonnull)storage OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithHtmlString:(NSString * _Nonnull)htmlString payload:(NSDictionary<NSString *, id> * _Nonnull)payload notificationId:(NSNumber * _Nonnull)notificationId messageNo:(NSNumber * _Nonnull)messageNo isShowDismissButton:(BOOL)isShowDismissButton isShowOverlay:(BOOL)isShowOverlay eventLogger:(id <AIQEventLoggingProtocol> _Nonnull)eventLogger userProfileLogger:(id <AIQUserProfileLoggingProtocol> _Nonnull)userProfileLogger storage:(id <AIQInAppWebViewStorageProtocol> _Nonnull)storage OBJC_DESIGNATED_INITIALIZER;
 - (void)viewDidLoad;
 - (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -513,6 +535,15 @@ SWIFT_CLASS("_TtC6Appier24AIQInAppWebViewPresenter")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NSURL;
+
+SWIFT_PROTOCOL("_TtP6Appier30AIQInAppWebViewStorageProtocol_")
+@protocol AIQInAppWebViewStorageProtocol
+@property (nonatomic, copy) NSString * _Nonnull webkitVersion;
+- (void)setClickThroughForNotificationId:(NSNumber * _Nonnull)notificationId;
+- (void)handleDeepLink:(NSURL * _Nonnull)url;
+@end
+
 
 SWIFT_CLASS("_TtC6Appier15AIQLocalStorage")
 @interface AIQLocalStorage : NSObject
@@ -526,7 +557,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) AIQLocalStorage * _Non
 
 
 
-@class NSURL;
+@interface AIQLocalStorage (SWIFT_EXTENSION(Appier)) <AIQInAppWebViewStorageProtocol>
+@property (nonatomic, copy) NSString * _Nonnull webkitVersion;
+@end
+
+
 
 @interface AIQLocalStorage (SWIFT_EXTENSION(Appier))
 /// Calling this method will update the UserDefaults and the suiteName if the original suiteName is nil or differs from the new one.
@@ -667,7 +702,6 @@ SWIFT_PROTOCOL("_TtP6Appier10AIQStorage_")
 @property (nonatomic) BOOL isCollectIDFA;
 @property (nonatomic) BOOL isCollectLocation;
 @property (nonatomic) BOOL didMigrateImageStorage;
-@property (nonatomic, copy) NSString * _Nonnull webkitVersion;
 @end
 
 
@@ -737,7 +771,6 @@ SWIFT_PROTOCOL("_TtP6Appier10AIQStorage_")
 @property (nonatomic) BOOL isCollectIDFA;
 @property (nonatomic) BOOL isCollectLocation;
 @property (nonatomic) BOOL didMigrateImageStorage;
-@property (nonatomic, copy) NSString * _Nonnull webkitVersion;
 @end
 
 @protocol AIQLocationUpdateDelegate;
@@ -778,6 +811,7 @@ SWIFT_PROTOCOL("_TtP6Appier32AIQRecommendationLoggingProtocol_")
 - (void)logRecommendationClickedWithScenarioId:(NSString * _Nonnull)scenarioId withModelId:(NSInteger)modelId withProductId:(NSString * _Nonnull)productId withRecommendationId:(NSString * _Nonnull)recommendationId;
 @end
 
+@class AIQConfiguration;
 @class NSURLResponse;
 
 SWIFT_CLASS("_TtC6Appier17AIQRequestManager")
@@ -904,7 +938,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIDAction * 
 @class AIDConfiguration;
 @class UIScrollView;
 @class AIDConversion;
-@protocol UIViewControllerTransitionCoordinator;
 
 SWIFT_CLASS_NAMED("AiDeal")
 @interface AIDAiDeal : NSObject
@@ -1304,7 +1337,7 @@ SWIFT_CLASS_NAMED("DeviceInfo")
 
 
 SWIFT_CLASS("_TtC6Appier21EndpointConfiguration")
-@interface EndpointConfiguration : NSObject
+@interface EndpointConfiguration : NSObject <AIQInAppCSEndpointConfigurationProtocol>
 /// API key: userServerEndpoint
 @property (nonatomic, copy) NSString * _Nullable userServer;
 /// API key: dbackEndpoint
@@ -1790,6 +1823,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) QGSessionDel
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+@interface SwiftMediator (SWIFT_EXTENSION(Appier))
+- (void)presentCreativeStudioWith:(AIQInAppCreativeStudioViewController * _Nonnull)creativeStudioVC;
+- (void)dismissCreativeStudio;
+@end
+
 @class NSUserActivity;
 
 SWIFT_CLASS("_TtC6Appier27ThirdPartyUrlHandlerService")
@@ -1831,6 +1870,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIColor * _N
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) UIFont * _Nonnull qgInAppMessage;)
 + (UIFont * _Nonnull)qgInAppMessage SWIFT_WARN_UNUSED_RESULT;
 @end
+
+
 
 
 
