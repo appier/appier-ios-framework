@@ -22,9 +22,13 @@ platform :ios do
   lane :pr do |options|
     branch_name = options.fetch(:branch_name, "release")
     is_prerelease = branch_name.include?("-dev")
-    prerelease_version = branch_name.match(/(?:release|prerelease)-(v[0-9]+\.[0-9]+\.[0-9]+(?:-dev\.[0-9]+)?)/)[1]
-    framework_version = is_prerelease ? prerelease_version : "v#{get_framework_version}"
-    title = is_prerelease ? "Prerelease v#{framework_version}" : "Release v#{framework_version}"
+    suffixes = branch_name.scan(/(-dev\.\d+)$/)
+    framework_version = "v#{get_framework_version}"
+    if suffixes.any?
+      dev_suffix = suffixes.flatten.first
+      framework_version += dev_suffix
+    end
+    title = (is_prerelease ? "Pre-release" : "Release") + " #{framework_version}"
 
     # Set Podspec version
     version_file = {
@@ -47,7 +51,7 @@ platform :ios do
 
     git_commit(
       path: path,
-      message: "Release #{framework_version}"
+      message: title
     )
 
     push_to_git_remote(
