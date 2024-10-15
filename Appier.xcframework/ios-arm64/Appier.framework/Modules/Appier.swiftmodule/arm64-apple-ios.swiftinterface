@@ -1,7 +1,6 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)
-// swift-module-flags: -target arm64-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Appier
-// swift-module-flags-ignorable: -enable-bare-slash-regex
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name Appier
 import AdSupport
 import AppTrackingTransparency
 @_exported import Appier
@@ -504,7 +503,7 @@ extension Appier.AIQLocalStorage : Appier.AIQStorage {
 }
 extension Appier.AIQLocalStorage {
   @objc dynamic public func synchronizeOnFirstLaunch(suiteName: Swift.String?)
-  @objc(setAppID:groupName:devProfile:frameworkType:version:) dynamic public func set(appID: Swift.String, groupName: Swift.String, devProfile: Swift.Bool, frameworkType: Swift.String, version: Swift.String)
+  @objc(setAppID:groupName:devProfile:frameworkType:version:) dynamic public func set(appID: Swift.String, groupName: Swift.String, devProfile: Swift.Bool, frameworkType: Swift.String?, version: Swift.String?)
   @objc dynamic public func createAndSaveNewAppierId()
   @objc dynamic public func cleanAttribution()
   @objc dynamic public func shouldUserDetailsBeSent() -> Swift.Bool
