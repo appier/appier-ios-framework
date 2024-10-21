@@ -14,7 +14,7 @@
 		</data>
 		<key>ios-arm64/Appier.framework/Appier</key>
 		<data>
-		mrbDWsJ+ENlTF+k1+tt15Eop0S8=
+		bZB1uH1BZGJXhP/aAEGX95XDtVA=
 		</data>
 		<key>ios-arm64/Appier.framework/Assets.car</key>
 		<data>
@@ -221,7 +221,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/Appier.framework/Appier</key>
 		<data>
-		06cJsF6NrFVm6K6qyShCjwAn+Hk=
+		blfy+ideHPYLj+b8l5D3nxQg1fE=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Appier.framework/Assets.car</key>
 		<data>
@@ -467,11 +467,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			mrbDWsJ+ENlTF+k1+tt15Eop0S8=
+			bZB1uH1BZGJXhP/aAEGX95XDtVA=
 			</data>
 			<key>hash2</key>
 			<data>
-			+Uy3XYjOzcUWhpWGB0Y0ijZIFsNiIoCSEa8M+35wN4c=
+			pKzzwrKnw4uPPegwtc72JtZ7RYGTihpwb80i2pT0aF0=
 			</data>
 		</dict>
 		<key>ios-arm64/Appier.framework/Assets.car</key>
@@ -1001,11 +1001,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			06cJsF6NrFVm6K6qyShCjwAn+Hk=
+			blfy+ideHPYLj+b8l5D3nxQg1fE=
 			</data>
 			<key>hash2</key>
 			<data>
-			F5kMF/6bQGJJETWqd/MwwAgGArtVkeSBTY4lKiOZgRY=
+			Iu9aufvZY5izDlE2VgWx8W8h1l9UUJIe1w4bn7kXSF0=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Appier.framework/Assets.car</key>
