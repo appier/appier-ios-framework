@@ -44,7 +44,7 @@ jobs:
         bundle exec fastlane pods_extension_framework
 
     - name: Enable Build app with release framework workflow
-      if: (startsWith(github.head_ref, 'release')
+      if: (startsWith(github.head_ref, 'release'))
       run: |
         curl -X PUT \
           -H "Accept: application/vnd.github+json" \
