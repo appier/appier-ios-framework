@@ -111,6 +111,12 @@ platform :ios do
         archive_name
       ]
     )
+
+    add_git_tag(
+      tag: "#{framework_version}"
+    )
+
+    push_git_tags
   end
 
   private_lane :get_framework_version do
