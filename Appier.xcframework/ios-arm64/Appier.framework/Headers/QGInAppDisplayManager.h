@@ -26,6 +26,6 @@
 - (void)createInAppFor:(QGInApp *)qginApp eventName:(NSString *)eventName param:(NSDictionary *)param;
 - (void)simplyRemoveAllInAppViews;
 - (void)removeAllInAppViewsAndClearCurrentInApp;
-- (void)renderInAppWebViewCampaigns:(QGInApp *)qgInApp;
+- (void)prepareInAppPopupCreative:(QGInApp *)qgInApp;
 - (void)setInAppCampaignVisible:(BOOL)isVisible;
 @end
