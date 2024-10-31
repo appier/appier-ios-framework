@@ -27,6 +27,7 @@ typedef NS_ENUM(NSInteger, InAppPersistency) {
     InAppPersistencyNotPersist = 2
 };
 
+@protocol AIQInAppWebViewControllerDataSource;
 @class AIQInAppCondition;
 @class AIQInAppAdditionalCondition;
 @class AIQInAppBadgeSetting;
@@ -38,7 +39,7 @@ typedef NS_ENUM(NSInteger, InAppPersistency) {
 @end
 
 
-@interface QGInApp: NSObject<NSCoding>
+@interface QGInApp: NSObject<NSCoding, AIQInAppWebViewControllerDataSource>
 @property (nonatomic) NSNumber *notificationId;
 @property (nonatomic) NSNumber *messageNo;
 @property (nonatomic) InAppType type;
