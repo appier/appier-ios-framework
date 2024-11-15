@@ -1957,11 +1957,12 @@ public protocol ThirdPartyUrlHandlerProtocol {
 }
 @objc @_inheritsConvenienceInitializers @objcMembers public class Rmn : ObjectiveC.NSObject {
   @objc public func searchProductAds(keyword: Swift.String, placementId: Swift.Int, maxAmount: Swift.Int, products: [Appier.RmnProduct], asyncResult: Appier.AsyncResult<Appier.RmnProductAdsResult>)
+  @objc public func getProductAds(category: Swift.String, placementId: Swift.Int, maxAmount: Swift.Int, products: [Appier.RmnProduct], asyncResult: Appier.AsyncResult<Appier.RmnProductAdsResult>)
   @objc public func getBannerAds(placementId: Swift.Int, maxAmount: Swift.Int, asyncResult: Appier.AsyncResult<Appier.RmnBannerAdsResult>)
-  @objc public func logProductAdsImpression(productAds: [Appier.RmnProductAd], placementId: Swift.Int, sponsoredType: Appier.RmnSponsoredType, requestId: Swift.String)
-  @objc public func logProductAdClicked(productAd: Appier.RmnProductAd, placementId: Swift.Int, sponsoredType: Appier.RmnSponsoredType, requestId: Swift.String)
-  @objc public func logProductAdAddedToWishlist(productAd: Appier.RmnProductAd, placementId: Swift.Int, sponsoredType: Appier.RmnSponsoredType, requestId: Swift.String)
-  @objc public func logProductAdAddedToCart(productAd: Appier.RmnProductAd, placementId: Swift.Int, sponsoredType: Appier.RmnSponsoredType, requestId: Swift.String)
+  @objc public func logProductAdsImpression(productAds: [Appier.RmnProductAd], placementId: Swift.Int, requestId: Swift.String)
+  @objc public func logProductAdClicked(productAd: Appier.RmnProductAd, placementId: Swift.Int, requestId: Swift.String)
+  @objc public func logProductAdAddedToWishlist(productAd: Appier.RmnProductAd, placementId: Swift.Int, requestId: Swift.String)
+  @objc public func logProductAdAddedToCart(productAd: Appier.RmnProductAd, placementId: Swift.Int, requestId: Swift.String)
   @objc public func logProductSales(sales: [Appier.RmnSale])
   @objc public func logProductSales(orderId: Swift.String?, sales: [Appier.RmnSale])
   @objc public func logProductsImpression(products: [Appier.RmnProduct])
@@ -1971,15 +1972,6 @@ public protocol ThirdPartyUrlHandlerProtocol {
   @objc public func logSearchedProductClicked(keyword: Swift.String, productId: Swift.String)
   @objc override dynamic public init()
   @objc deinit
-}
-@objc public enum RmnSponsoredType : Swift.Int {
-  case search
-  case banner
-  public init?(rawValue: Swift.Int)
-  public typealias RawValue = Swift.Int
-  public var rawValue: Swift.Int {
-    get
-  }
 }
 @objc @objcMembers public class RmnBannerAd : Appier.RmnProductAd {
   @objc public var imageUrl: Swift.String?
@@ -2237,9 +2229,6 @@ extension Appier.InAppBadgeAlignment : Swift.RawRepresentable {}
 extension Appier.InAppMatchOperator : Swift.Equatable {}
 extension Appier.InAppMatchOperator : Swift.Hashable {}
 extension Appier.InAppMatchOperator : Swift.RawRepresentable {}
-extension Appier.RmnSponsoredType : Swift.Equatable {}
-extension Appier.RmnSponsoredType : Swift.Hashable {}
-extension Appier.RmnSponsoredType : Swift.RawRepresentable {}
 extension Appier.LogType : Swift.Equatable {}
 extension Appier.LogType : Swift.Hashable {}
 extension Appier.LogType : Swift.RawRepresentable {}

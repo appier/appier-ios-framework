@@ -538,6 +538,14 @@ SWIFT_CLASS("_TtC6Appier36AIQInAppCreativeStudioViewController")
 
 
 
+
+@class WKUserContentController;
+@class WKScriptMessage;
+
+@interface AIQInAppCreativeStudioViewController (SWIFT_EXTENSION(Appier))
+- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
+@end
+
 @class WKWebView;
 @class WKNavigation;
 @class WKNavigationAction;
@@ -545,14 +553,6 @@ SWIFT_CLASS("_TtC6Appier36AIQInAppCreativeStudioViewController")
 @interface AIQInAppCreativeStudioViewController (SWIFT_EXTENSION(Appier))
 - (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
 - (void)webView:(WKWebView * _Nonnull)webView decidePolicyForNavigationAction:(WKNavigationAction * _Nonnull)navigationAction decisionHandler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
-@end
-
-
-@class WKUserContentController;
-@class WKScriptMessage;
-
-@interface AIQInAppCreativeStudioViewController (SWIFT_EXTENSION(Appier))
-- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
 @end
 
 
@@ -1815,16 +1815,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * 
 @end
 
 
+@interface APRLogger (SWIFT_EXTENSION(Appier))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
++ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
 + (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-@interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
-+ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -2157,7 +2157,6 @@ SWIFT_PROTOCOL_NAMED("RemoteConfigService")
 @class RmnPostProductAdsResponse;
 @class RmnPostBannerAdsResponse;
 @class RmnProductAd;
-enum RmnSponsoredType : NSInteger;
 @class RmnSale;
 
 /// Rmn class for interacting with the API.
@@ -2177,6 +2176,18 @@ SWIFT_CLASS("_TtC6Appier3Rmn")
 /// @param asyncResult An instance of the AsyncResult class handling the asynchronous result of the API call.
 /// It expects a [RmnProductAdsResult] or null based on the API implementation.
 - (void)searchProductAdsWithKeyword:(NSString * _Nonnull)keyword placementId:(NSInteger)placementId maxAmount:(NSInteger)maxAmount products:(NSArray<RmnProduct *> * _Nonnull)products asyncResult:(AsyncResult<RmnPostProductAdsResponse *> * _Nonnull)asyncResult;
+/// Retrieves product ads based on the provided placement, category, and product list.
+/// @param placementId The unique identifier of the placement where product details should be displayed.
+/// @param category The product category, which is a hierarchical string separated by ‘>’.
+/// For example: “Electronics > Mobile > Smartphones”.
+/// @param maxAmount The maximum number of product advertisements to retrieve. The value is only
+/// applicable for values greater than 1. Specifying a value of 0 or a negative number is equivalent to
+/// get ads without the maxAmount option. In this case, all ads for the placement would be returned.
+/// @param products The list of organic products that are the result of the placement search when
+/// using this API to get the product advertisements.
+/// @param asyncResult An instance of the AsyncResult class handling the asynchronous result of the API call.
+/// It expects a [ProductAdsResult] or null based on the API implementation.
+- (void)getProductAdsWithCategory:(NSString * _Nonnull)category placementId:(NSInteger)placementId maxAmount:(NSInteger)maxAmount products:(NSArray<RmnProduct *> * _Nonnull)products asyncResult:(AsyncResult<RmnPostProductAdsResponse *> * _Nonnull)asyncResult;
 /// Retrieve banner advertisements based on the specified criteria.
 /// This function initiates a request to fetch banner advertisements using the provided placement ID and
 /// maximum amount. The results, which include the banner advertisements, are delivered asynchronously
@@ -2193,31 +2204,27 @@ SWIFT_CLASS("_TtC6Appier3Rmn")
 /// were displayed or viewed by the user.
 /// @param productAds The list of product advertisements for which the impression event is being logged.
 /// @param placementId The identifier of the location where the product advertisements impression event occurred.
-/// @param sponsoredType The type of sponsorship for the displayed product advertisements.
 /// @param requestId The unique identifier obtained from the response of the search product advertisements API.
-- (void)logProductAdsImpressionWithProductAds:(NSArray<RmnProductAd *> * _Nonnull)productAds placementId:(NSInteger)placementId sponsoredType:(enum RmnSponsoredType)sponsoredType requestId:(NSString * _Nonnull)requestId;
+- (void)logProductAdsImpressionWithProductAds:(NSArray<RmnProductAd *> * _Nonnull)productAds placementId:(NSInteger)placementId requestId:(NSString * _Nonnull)requestId;
 /// Log a product advertisement clicked event.
 /// This function is used to record a data point indicating that a product associated with a specific advertisement was clicked.
 /// @param productAd The product advertisement for which the click event is being logged.
 /// @param placementId The identifier of the location where the product advertisement click event occurred.
-/// @param sponsoredType The type of sponsorship for the clicked product advertisement.
 /// @param requestId The unique identifier obtained from the response of the search product advertisements API.
-- (void)logProductAdClickedWithProductAd:(RmnProductAd * _Nonnull)productAd placementId:(NSInteger)placementId sponsoredType:(enum RmnSponsoredType)sponsoredType requestId:(NSString * _Nonnull)requestId;
+- (void)logProductAdClickedWithProductAd:(RmnProductAd * _Nonnull)productAd placementId:(NSInteger)placementId requestId:(NSString * _Nonnull)requestId;
 /// Log a product advertisement added to wishlist event.
 /// This function is used to record a data point indicating that a product associated with a specific advertisement was
 /// added to the user’s wishlist.
 /// @param productAd The product advertisement for which the wishlist event is being logged.
 /// @param placementId The identifier of the location where the product advertisement wishlist event occurred.
-/// @param sponsoredType The type of sponsorship for the product advertisement added to the wishlist.
 /// @param requestId The unique identifier obtained from the response of the search product advertisements API.
-- (void)logProductAdAddedToWishlistWithProductAd:(RmnProductAd * _Nonnull)productAd placementId:(NSInteger)placementId sponsoredType:(enum RmnSponsoredType)sponsoredType requestId:(NSString * _Nonnull)requestId;
+- (void)logProductAdAddedToWishlistWithProductAd:(RmnProductAd * _Nonnull)productAd placementId:(NSInteger)placementId requestId:(NSString * _Nonnull)requestId;
 /// Log a product added to cart event.
 /// This function is used to record a data point indicating that a product associated with a specific advertisement was added to the user’s shopping cart.
 /// @param productAd The product for which the cart event is being logged.
 /// @param placementId The identifier of the location where the product cart event occurred.
-/// @param sponsoredType The type of sponsorship for the product added to the cart.
 /// @param requestId The unique identifier obtained from the response of the search products API.
-- (void)logProductAdAddedToCartWithProductAd:(RmnProductAd * _Nonnull)productAd placementId:(NSInteger)placementId sponsoredType:(enum RmnSponsoredType)sponsoredType requestId:(NSString * _Nonnull)requestId;
+- (void)logProductAdAddedToCartWithProductAd:(RmnProductAd * _Nonnull)productAd placementId:(NSInteger)placementId requestId:(NSString * _Nonnull)requestId;
 /// Log product sales events.
 /// This function is used to add data points for product purchases based on a list of sale transactions.
 /// @param sales A list of [Sale] objects representing transaction records for product purchases.
@@ -2409,11 +2416,6 @@ SWIFT_CLASS("_TtC6Appier7RmnSale")
 @property (nonatomic) float unitPrice;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
-
-typedef SWIFT_ENUM(NSInteger, RmnSponsoredType, open) {
-  RmnSponsoredTypeSearch = 0,
-  RmnSponsoredTypeBanner = 1,
-};
 
 @class NSURLSessionDataTask;
 @class NSCachedURLResponse;
@@ -3035,6 +3037,14 @@ SWIFT_CLASS("_TtC6Appier36AIQInAppCreativeStudioViewController")
 
 
 
+
+@class WKUserContentController;
+@class WKScriptMessage;
+
+@interface AIQInAppCreativeStudioViewController (SWIFT_EXTENSION(Appier))
+- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
+@end
+
 @class WKWebView;
 @class WKNavigation;
 @class WKNavigationAction;
@@ -3042,14 +3052,6 @@ SWIFT_CLASS("_TtC6Appier36AIQInAppCreativeStudioViewController")
 @interface AIQInAppCreativeStudioViewController (SWIFT_EXTENSION(Appier))
 - (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
 - (void)webView:(WKWebView * _Nonnull)webView decidePolicyForNavigationAction:(WKNavigationAction * _Nonnull)navigationAction decisionHandler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
-@end
-
-
-@class WKUserContentController;
-@class WKScriptMessage;
-
-@interface AIQInAppCreativeStudioViewController (SWIFT_EXTENSION(Appier))
-- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
 @end
 
 
@@ -4312,16 +4314,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * 
 @end
 
 
+@interface APRLogger (SWIFT_EXTENSION(Appier))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
++ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
+@end
+
+
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
 + (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-@interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
-+ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -4654,7 +4656,6 @@ SWIFT_PROTOCOL_NAMED("RemoteConfigService")
 @class RmnPostProductAdsResponse;
 @class RmnPostBannerAdsResponse;
 @class RmnProductAd;
-enum RmnSponsoredType : NSInteger;
 @class RmnSale;
 
 /// Rmn class for interacting with the API.
@@ -4674,6 +4675,18 @@ SWIFT_CLASS("_TtC6Appier3Rmn")
 /// @param asyncResult An instance of the AsyncResult class handling the asynchronous result of the API call.
 /// It expects a [RmnProductAdsResult] or null based on the API implementation.
 - (void)searchProductAdsWithKeyword:(NSString * _Nonnull)keyword placementId:(NSInteger)placementId maxAmount:(NSInteger)maxAmount products:(NSArray<RmnProduct *> * _Nonnull)products asyncResult:(AsyncResult<RmnPostProductAdsResponse *> * _Nonnull)asyncResult;
+/// Retrieves product ads based on the provided placement, category, and product list.
+/// @param placementId The unique identifier of the placement where product details should be displayed.
+/// @param category The product category, which is a hierarchical string separated by ‘>’.
+/// For example: “Electronics > Mobile > Smartphones”.
+/// @param maxAmount The maximum number of product advertisements to retrieve. The value is only
+/// applicable for values greater than 1. Specifying a value of 0 or a negative number is equivalent to
+/// get ads without the maxAmount option. In this case, all ads for the placement would be returned.
+/// @param products The list of organic products that are the result of the placement search when
+/// using this API to get the product advertisements.
+/// @param asyncResult An instance of the AsyncResult class handling the asynchronous result of the API call.
+/// It expects a [ProductAdsResult] or null based on the API implementation.
+- (void)getProductAdsWithCategory:(NSString * _Nonnull)category placementId:(NSInteger)placementId maxAmount:(NSInteger)maxAmount products:(NSArray<RmnProduct *> * _Nonnull)products asyncResult:(AsyncResult<RmnPostProductAdsResponse *> * _Nonnull)asyncResult;
 /// Retrieve banner advertisements based on the specified criteria.
 /// This function initiates a request to fetch banner advertisements using the provided placement ID and
 /// maximum amount. The results, which include the banner advertisements, are delivered asynchronously
@@ -4690,31 +4703,27 @@ SWIFT_CLASS("_TtC6Appier3Rmn")
 /// were displayed or viewed by the user.
 /// @param productAds The list of product advertisements for which the impression event is being logged.
 /// @param placementId The identifier of the location where the product advertisements impression event occurred.
-/// @param sponsoredType The type of sponsorship for the displayed product advertisements.
 /// @param requestId The unique identifier obtained from the response of the search product advertisements API.
-- (void)logProductAdsImpressionWithProductAds:(NSArray<RmnProductAd *> * _Nonnull)productAds placementId:(NSInteger)placementId sponsoredType:(enum RmnSponsoredType)sponsoredType requestId:(NSString * _Nonnull)requestId;
+- (void)logProductAdsImpressionWithProductAds:(NSArray<RmnProductAd *> * _Nonnull)productAds placementId:(NSInteger)placementId requestId:(NSString * _Nonnull)requestId;
 /// Log a product advertisement clicked event.
 /// This function is used to record a data point indicating that a product associated with a specific advertisement was clicked.
 /// @param productAd The product advertisement for which the click event is being logged.
 /// @param placementId The identifier of the location where the product advertisement click event occurred.
-/// @param sponsoredType The type of sponsorship for the clicked product advertisement.
 /// @param requestId The unique identifier obtained from the response of the search product advertisements API.
-- (void)logProductAdClickedWithProductAd:(RmnProductAd * _Nonnull)productAd placementId:(NSInteger)placementId sponsoredType:(enum RmnSponsoredType)sponsoredType requestId:(NSString * _Nonnull)requestId;
+- (void)logProductAdClickedWithProductAd:(RmnProductAd * _Nonnull)productAd placementId:(NSInteger)placementId requestId:(NSString * _Nonnull)requestId;
 /// Log a product advertisement added to wishlist event.
 /// This function is used to record a data point indicating that a product associated with a specific advertisement was
 /// added to the user’s wishlist.
 /// @param productAd The product advertisement for which the wishlist event is being logged.
 /// @param placementId The identifier of the location where the product advertisement wishlist event occurred.
-/// @param sponsoredType The type of sponsorship for the product advertisement added to the wishlist.
 /// @param requestId The unique identifier obtained from the response of the search product advertisements API.
-- (void)logProductAdAddedToWishlistWithProductAd:(RmnProductAd * _Nonnull)productAd placementId:(NSInteger)placementId sponsoredType:(enum RmnSponsoredType)sponsoredType requestId:(NSString * _Nonnull)requestId;
+- (void)logProductAdAddedToWishlistWithProductAd:(RmnProductAd * _Nonnull)productAd placementId:(NSInteger)placementId requestId:(NSString * _Nonnull)requestId;
 /// Log a product added to cart event.
 /// This function is used to record a data point indicating that a product associated with a specific advertisement was added to the user’s shopping cart.
 /// @param productAd The product for which the cart event is being logged.
 /// @param placementId The identifier of the location where the product cart event occurred.
-/// @param sponsoredType The type of sponsorship for the product added to the cart.
 /// @param requestId The unique identifier obtained from the response of the search products API.
-- (void)logProductAdAddedToCartWithProductAd:(RmnProductAd * _Nonnull)productAd placementId:(NSInteger)placementId sponsoredType:(enum RmnSponsoredType)sponsoredType requestId:(NSString * _Nonnull)requestId;
+- (void)logProductAdAddedToCartWithProductAd:(RmnProductAd * _Nonnull)productAd placementId:(NSInteger)placementId requestId:(NSString * _Nonnull)requestId;
 /// Log product sales events.
 /// This function is used to add data points for product purchases based on a list of sale transactions.
 /// @param sales A list of [Sale] objects representing transaction records for product purchases.
@@ -4906,11 +4915,6 @@ SWIFT_CLASS("_TtC6Appier7RmnSale")
 @property (nonatomic) float unitPrice;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
-
-typedef SWIFT_ENUM(NSInteger, RmnSponsoredType, open) {
-  RmnSponsoredTypeSearch = 0,
-  RmnSponsoredTypeBanner = 1,
-};
 
 @class NSURLSessionDataTask;
 @class NSCachedURLResponse;

@@ -66912,6 +66912,74 @@
           },
           {
             "kind": "Function",
+            "name": "getProductAds",
+            "printedName": "getProductAds(category:placementId:maxAmount:products:asyncResult:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Appier.RmnProduct]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RmnProduct",
+                    "printedName": "Appier.RmnProduct",
+                    "usr": "c:@M@Appier@objc(cs)RmnProduct"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "AsyncResult",
+                "printedName": "Appier.AsyncResult<Appier.RmnPostProductAdsResponse>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RmnPostProductAdsResponse",
+                    "printedName": "Appier.RmnPostProductAdsResponse",
+                    "usr": "c:@M@Appier@objc(cs)RmnPostProductAdsResponse"
+                  }
+                ],
+                "usr": "c:objc(cs)AsyncResult"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Appier@objc(cs)Rmn(im)getProductAdsWithCategory:placementId:maxAmount:products:asyncResult:",
+            "mangledName": "$s6Appier3RmnC13getProductAds8category11placementId9maxAmount8products11asyncResultySS_S2iSayAA0bD0CGSo05AsyncM0CyAA0b4PostdE8ResponseCGtF",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "getBannerAds",
             "printedName": "getBannerAds(placementId:maxAmount:asyncResult:)",
             "children": [
@@ -66961,7 +67029,7 @@
           {
             "kind": "Function",
             "name": "logProductAdsImpression",
-            "printedName": "logProductAdsImpression(productAds:placementId:sponsoredType:requestId:)",
+            "printedName": "logProductAdsImpression(productAds:placementId:requestId:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -66990,20 +67058,14 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "RmnSponsoredType",
-                "printedName": "Appier.RmnSponsoredType",
-                "usr": "c:@M@Appier@E@RmnSponsoredType"
-              },
-              {
-                "kind": "TypeNominal",
                 "name": "String",
                 "printedName": "Swift.String",
                 "usr": "s:SS"
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@Appier@objc(cs)Rmn(im)logProductAdsImpressionWithProductAds:placementId:sponsoredType:requestId:",
-            "mangledName": "$s6Appier3RmnC23logProductAdsImpression07productE011placementId13sponsoredType07requestI0ySayAA0bD2AdCG_SiAA0b9SponsoredK0OSStF",
+            "usr": "c:@M@Appier@objc(cs)Rmn(im)logProductAdsImpressionWithProductAds:placementId:requestId:",
+            "mangledName": "$s6Appier3RmnC23logProductAdsImpression07productE011placementId07requestI0ySayAA0bD2AdCG_SiSStF",
             "moduleName": "Appier",
             "declAttributes": [
               "AccessControl",
@@ -67015,7 +67077,7 @@
           {
             "kind": "Function",
             "name": "logProductAdClicked",
-            "printedName": "logProductAdClicked(productAd:placementId:sponsoredType:requestId:)",
+            "printedName": "logProductAdClicked(productAd:placementId:requestId:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -67036,20 +67098,14 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "RmnSponsoredType",
-                "printedName": "Appier.RmnSponsoredType",
-                "usr": "c:@M@Appier@E@RmnSponsoredType"
-              },
-              {
-                "kind": "TypeNominal",
                 "name": "String",
                 "printedName": "Swift.String",
                 "usr": "s:SS"
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@Appier@objc(cs)Rmn(im)logProductAdClickedWithProductAd:placementId:sponsoredType:requestId:",
-            "mangledName": "$s6Appier3RmnC19logProductAdClicked07productE011placementId13sponsoredType07requestI0yAA0bdE0C_SiAA0b9SponsoredK0OSStF",
+            "usr": "c:@M@Appier@objc(cs)Rmn(im)logProductAdClickedWithProductAd:placementId:requestId:",
+            "mangledName": "$s6Appier3RmnC19logProductAdClicked07productE011placementId07requestI0yAA0bdE0C_SiSStF",
             "moduleName": "Appier",
             "declAttributes": [
               "AccessControl",
@@ -67061,7 +67117,7 @@
           {
             "kind": "Function",
             "name": "logProductAdAddedToWishlist",
-            "printedName": "logProductAdAddedToWishlist(productAd:placementId:sponsoredType:requestId:)",
+            "printedName": "logProductAdAddedToWishlist(productAd:placementId:requestId:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -67082,20 +67138,14 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "RmnSponsoredType",
-                "printedName": "Appier.RmnSponsoredType",
-                "usr": "c:@M@Appier@E@RmnSponsoredType"
-              },
-              {
-                "kind": "TypeNominal",
                 "name": "String",
                 "printedName": "Swift.String",
                 "usr": "s:SS"
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@Appier@objc(cs)Rmn(im)logProductAdAddedToWishlistWithProductAd:placementId:sponsoredType:requestId:",
-            "mangledName": "$s6Appier3RmnC27logProductAdAddedToWishlist07productE011placementId13sponsoredType07requestK0yAA0bdE0C_SiAA0b9SponsoredM0OSStF",
+            "usr": "c:@M@Appier@objc(cs)Rmn(im)logProductAdAddedToWishlistWithProductAd:placementId:requestId:",
+            "mangledName": "$s6Appier3RmnC27logProductAdAddedToWishlist07productE011placementId07requestK0yAA0bdE0C_SiSStF",
             "moduleName": "Appier",
             "declAttributes": [
               "AccessControl",
@@ -67107,7 +67157,7 @@
           {
             "kind": "Function",
             "name": "logProductAdAddedToCart",
-            "printedName": "logProductAdAddedToCart(productAd:placementId:sponsoredType:requestId:)",
+            "printedName": "logProductAdAddedToCart(productAd:placementId:requestId:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -67128,20 +67178,14 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "RmnSponsoredType",
-                "printedName": "Appier.RmnSponsoredType",
-                "usr": "c:@M@Appier@E@RmnSponsoredType"
-              },
-              {
-                "kind": "TypeNominal",
                 "name": "String",
                 "printedName": "Swift.String",
                 "usr": "s:SS"
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@Appier@objc(cs)Rmn(im)logProductAdAddedToCartWithProductAd:placementId:sponsoredType:requestId:",
-            "mangledName": "$s6Appier3RmnC23logProductAdAddedToCart07productE011placementId13sponsoredType07requestK0yAA0bdE0C_SiAA0b9SponsoredM0OSStF",
+            "usr": "c:@M@Appier@objc(cs)Rmn(im)logProductAdAddedToCartWithProductAd:placementId:requestId:",
+            "mangledName": "$s6Appier3RmnC23logProductAdAddedToCart07productE011placementId07requestK0yAA0bdE0C_SiSStF",
             "moduleName": "Appier",
             "declAttributes": [
               "AccessControl",
@@ -67495,214 +67539,6 @@
             "printedName": "CustomDebugStringConvertible",
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
-          }
-        ]
-      },
-      {
-        "kind": "TypeDecl",
-        "name": "RmnSponsoredType",
-        "printedName": "RmnSponsoredType",
-        "children": [
-          {
-            "kind": "Var",
-            "name": "search",
-            "printedName": "search",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(Appier.RmnSponsoredType.Type) -> Appier.RmnSponsoredType",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "RmnSponsoredType",
-                    "printedName": "Appier.RmnSponsoredType",
-                    "usr": "c:@M@Appier@E@RmnSponsoredType"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "Appier.RmnSponsoredType.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "RmnSponsoredType",
-                        "printedName": "Appier.RmnSponsoredType",
-                        "usr": "c:@M@Appier@E@RmnSponsoredType"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "c:@M@Appier@E@RmnSponsoredType@RmnSponsoredTypeSearch",
-            "mangledName": "$s6Appier16RmnSponsoredTypeO6searchyA2CmF",
-            "moduleName": "Appier",
-            "declAttributes": [
-              "ObjC"
-            ],
-            "fixedbinaryorder": 0
-          },
-          {
-            "kind": "Var",
-            "name": "banner",
-            "printedName": "banner",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(Appier.RmnSponsoredType.Type) -> Appier.RmnSponsoredType",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "RmnSponsoredType",
-                    "printedName": "Appier.RmnSponsoredType",
-                    "usr": "c:@M@Appier@E@RmnSponsoredType"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Metatype",
-                    "printedName": "Appier.RmnSponsoredType.Type",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "RmnSponsoredType",
-                        "printedName": "Appier.RmnSponsoredType",
-                        "usr": "c:@M@Appier@E@RmnSponsoredType"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ],
-            "declKind": "EnumElement",
-            "usr": "c:@M@Appier@E@RmnSponsoredType@RmnSponsoredTypeBanner",
-            "mangledName": "$s6Appier16RmnSponsoredTypeO6banneryA2CmF",
-            "moduleName": "Appier",
-            "declAttributes": [
-              "ObjC"
-            ],
-            "fixedbinaryorder": 1
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(rawValue:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Appier.RmnSponsoredType?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "RmnSponsoredType",
-                    "printedName": "Appier.RmnSponsoredType",
-                    "usr": "c:@M@Appier@E@RmnSponsoredType"
-                  }
-                ],
-                "usr": "s:Sq"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "s:6Appier16RmnSponsoredTypeO8rawValueACSgSi_tcfc",
-            "mangledName": "$s6Appier16RmnSponsoredTypeO8rawValueACSgSi_tcfc",
-            "moduleName": "Appier",
-            "implicit": true,
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Var",
-            "name": "rawValue",
-            "printedName": "rawValue",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:6Appier16RmnSponsoredTypeO8rawValueSivp",
-            "mangledName": "$s6Appier16RmnSponsoredTypeO8rawValueSivp",
-            "moduleName": "Appier",
-            "implicit": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:6Appier16RmnSponsoredTypeO8rawValueSivg",
-                "mangledName": "$s6Appier16RmnSponsoredTypeO8rawValueSivg",
-                "moduleName": "Appier",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          }
-        ],
-        "declKind": "Enum",
-        "usr": "c:@M@Appier@E@RmnSponsoredType",
-        "mangledName": "$s6Appier16RmnSponsoredTypeO",
-        "moduleName": "Appier",
-        "declAttributes": [
-          "AccessControl",
-          "ObjC"
-        ],
-        "enumRawTypeName": "Int",
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Equatable",
-            "printedName": "Equatable",
-            "usr": "s:SQ",
-            "mangledName": "$sSQ"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Hashable",
-            "printedName": "Hashable",
-            "usr": "s:SH",
-            "mangledName": "$sSH"
-          },
-          {
-            "kind": "Conformance",
-            "name": "RawRepresentable",
-            "printedName": "RawRepresentable",
-            "children": [
-              {
-                "kind": "TypeWitness",
-                "name": "RawValue",
-                "printedName": "RawValue",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ]
-              }
-            ],
-            "usr": "s:SY",
-            "mangledName": "$sSY"
           }
         ]
       },
@@ -87836,7 +87672,7 @@
       "kind": "StringLiteral",
       "offset": 325,
       "length": 7,
-      "value": "\"8.0.0\""
+      "value": "\"8.0.1\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
@@ -89262,28 +89098,21 @@
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Core\/DataCollectorConfiguration.swift",
       "kind": "IntegerLiteral",
-      "offset": 167,
-      "length": 1,
-      "value": "0"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Core\/DataCollectorConfiguration.swift",
-      "kind": "IntegerLiteral",
-      "offset": 290,
+      "offset": 335,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Core\/DataCollectorConfiguration.swift",
       "kind": "BooleanLiteral",
-      "offset": 433,
+      "offset": 478,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Core\/DataCollectorConfiguration.swift",
       "kind": "BooleanLiteral",
-      "offset": 568,
+      "offset": 613,
       "length": 4,
       "value": "true"
     },
@@ -90578,58 +90407,44 @@
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/RmnSdk\/Internal\/RmnSdk.swift",
       "kind": "IntegerLiteral",
-      "offset": 10266,
+      "offset": 10338,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/RmnSdk\/Internal\/RmnSdk.swift",
       "kind": "StringLiteral",
-      "offset": 10084,
+      "offset": 10156,
       "length": 22,
       "value": "\"Appier.SearchProductAdsResult\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/RmnSdk\/Internal\/RmnSdk.swift",
       "kind": "IntegerLiteral",
-      "offset": 11430,
+      "offset": 11460,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/RmnSdk\/Internal\/RmnSdk.swift",
       "kind": "StringLiteral",
-      "offset": 11250,
+      "offset": 11280,
       "length": 21,
       "value": "\"Appier.SearchBannerAdsResult\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/RmnSdk\/Internal\/RmnSdk.swift",
       "kind": "IntegerLiteral",
-      "offset": 12616,
+      "offset": 12604,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/RmnSdk\/Internal\/RmnSdk.swift",
       "kind": "StringLiteral",
-      "offset": 12416,
+      "offset": 12404,
       "length": 31,
       "value": "\"Appier.SearchProductsWithDetailsResult\""
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/RmnSdk\/Rmn.swift",
-      "kind": "IntegerLiteral",
-      "offset": 12342,
-      "length": 6,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/RmnSdk\/Rmn.swift",
-      "kind": "IntegerLiteral",
-      "offset": 12342,
-      "length": 6,
-      "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/RmnSdk\/RmnWebViewBridge.swift",
@@ -90642,7 +90457,7 @@
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/RmnSdk\/RmnWebViewBridge.swift",
       "kind": "StringLiteral",
       "offset": 160,
-      "length": 1912,
+      "length": 2431,
       "value": "\"    var \""
     },
     {
@@ -90657,33 +90472,33 @@
       "kind": "StringLiteral",
       "offset": 282,
       "length": 2,
-      "value": "\"\";\n        },\n        searchSponsoredProducts: function (promiseId, keyword, placementId, maxAmount, base64ProductsJsonArray) {\n            window.webkit.messageHandlers.rmn.postMessage({\n                command: \"searchSponsoredProducts\",\n                promiseId: promiseId,\n                keyword: keyword,\n                placementId: placementId,\n                maxAmount: maxAmount,\n                base64ProductsJsonArray: base64ProductsJsonArray\n            });\n        },\n        getBanners: function (promiseId, placementId, maxAmount) {\n            window.webkit.messageHandlers.rmn.postMessage({\n                command: \"getBanners\",\n                promiseId: promiseId,\n                placementId: placementId,\n                maxAmount: maxAmount\n            });\n        },\n        logProductAdImpression: function (adId, misc) {\n            window.webkit.messageHandlers.rmn.postMessage({\n                command: \"logProductAdImpression\",\n                adId: adId,\n                misc: misc\n            });\n        },\n        logProductAdClick: function (adId, misc) {\n            window.webkit.messageHandlers.rmn.postMessage({\n                command: \"logProductAdClick\",\n                adId: adId,\n                misc: misc\n            });\n        },\n        logProductAdSales: function (salesJsonArrayString, orderId) {\n            window.webkit.messageHandlers.rmn.postMessage({\n                command: \"logProductAdSales\",\n                salesJsonArrayString: salesJsonArrayString,\n                orderId: orderId\n            });\n        }\n    };\n\n    window.\""
+      "value": "\"\";\n        },\n        searchSponsoredProducts: function (promiseId, keyword, placementId, maxAmount, base64ProductsJsonArray) {\n            window.webkit.messageHandlers.rmn.postMessage({\n                command: \"searchSponsoredProducts\",\n                promiseId: promiseId,\n                keyword: keyword,\n                placementId: placementId,\n                maxAmount: maxAmount,\n                base64ProductsJsonArray: base64ProductsJsonArray\n            });\n        },\n        recommendSponsoredProducts: function (promiseId, category, placementId, maxAmount, base64ProductsJsonArray) {\n            window.webkit.messageHandlers.rmn.postMessage({\n                command: \"recommendSponsoredProducts\",\n                promiseId: promiseId,\n                category: category,\n                placementId: placementId,\n                maxAmount: maxAmount,\n                base64ProductsJsonArray: base64ProductsJsonArray\n            });\n        },\n        getBanners: function (promiseId, placementId, maxAmount) {\n            window.webkit.messageHandlers.rmn.postMessage({\n                command: \"getBanners\",\n                promiseId: promiseId,\n                placementId: placementId,\n                maxAmount: maxAmount\n            });\n        },\n        logProductAdImpression: function (adId, misc) {\n            window.webkit.messageHandlers.rmn.postMessage({\n                command: \"logProductAdImpression\",\n                adId: adId,\n                misc: misc\n            });\n        },\n        logProductAdClick: function (adId, misc) {\n            window.webkit.messageHandlers.rmn.postMessage({\n                command: \"logProductAdClick\",\n                adId: adId,\n                misc: misc\n            });\n        },\n        logProductAdSales: function (salesJsonArrayString, orderId) {\n            window.webkit.messageHandlers.rmn.postMessage({\n                command: \"logProductAdSales\",\n                salesJsonArrayString: salesJsonArrayString,\n                orderId: orderId\n            });\n        }\n    };\n\n    window.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/RmnSdk\/RmnWebViewBridge.swift",
       "kind": "StringLiteral",
-      "offset": 2053,
+      "offset": 2572,
       "length": 1,
       "value": "\" = \""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/RmnSdk\/RmnWebViewBridge.swift",
       "kind": "StringLiteral",
-      "offset": 2063,
+      "offset": 2582,
       "length": 1,
       "value": "\";\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/RmnSdk\/RmnWebViewBridge.swift",
       "kind": "StringLiteral",
-      "offset": 8361,
+      "offset": 10321,
       "length": 20,
       "value": "\"Appier.SearchProductsResult\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/RmnSdk\/RmnWebViewBridge.swift",
       "kind": "StringLiteral",
-      "offset": 10638,
+      "offset": 12598,
       "length": 16,
       "value": "\"Appier.GetBannersResult\""
     },
