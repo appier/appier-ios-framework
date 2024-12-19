@@ -10,6 +10,8 @@
 - (void)inAppViewRemoved;
 - (void)inWebViewPermanentClosed:(NSNumber *)nId;
 - (void)renewInApp:(QGInApp *)inApp;
+
+- (void)didFailToDisplayInAppWithNotificationId:(NSNumber *)notificationId eventName:(NSString *)eventName param:(NSDictionary *)param;
 @end
 
 @interface InAppTapGestureRecognizer : UITapGestureRecognizer
@@ -21,8 +23,9 @@
 @property (nonatomic, strong) UIWindow *overlayWindow;
 - (instancetype)init __attribute__((unavailable));
 - (instancetype)initWithImageManager:(QGImageManager *)imageManager config:(AIQConfiguration *)config storage:(AIQLocalStorage *)storage;
-- (void)createInAppFor:(QGInApp *)qginApp eventName:(NSString *)eventName;
-- (void)renewDisplayingInApp:(QGInApp *)qgInApp eventName:(NSString *)eventName;
-- (void)removeAllInAppViews;
-- (void)renderInAppWebViewCampaigns:(QGInApp *)qgInApp;
+- (void)createInAppFor:(QGInApp *)qginApp eventName:(NSString *)eventName param:(NSDictionary *)param;
+- (void)simplyRemoveAllInAppViews;
+- (void)removeAllInAppViewsAndClearCurrentInApp;
+- (void)prepareInAppPopupCreative:(QGInApp *)qgInApp;
+- (void)setInAppCampaignVisible:(BOOL)isVisible;
 @end
