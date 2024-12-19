@@ -14,9 +14,6 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 import os
-extension AppierExtension.Logger {
-  @objc(aiquaNotificationLogger) public static let aiquaNotification: AppierExtension.Logger
-}
 @_inheritsConvenienceInitializers @objc(APRDeviceInfo) @objcMembers public class DeviceInfo : ObjectiveC.NSObject {
   @objc override dynamic public init()
   @objc deinit
@@ -54,6 +51,9 @@ extension AppierExtension.DeviceInfo {
   }
   @objc override dynamic public init()
   @objc deinit
+}
+extension AppierExtension.Logger {
+  @objc(aiquaNotificationLogger) public static let aiquaNotification: AppierExtension.Logger
 }
 @_hasMissingDesignatedInitializers @objc(APRLogger) public class Logger : ObjectiveC.NSObject {
   @objc final public let category: Swift.String
