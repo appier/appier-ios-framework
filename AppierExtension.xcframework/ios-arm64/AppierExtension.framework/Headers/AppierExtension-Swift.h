@@ -299,16 +299,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 #if defined(__OBJC__)
-@class NSString;
-@class NSObject;
-
-SWIFT_PROTOCOL("_TtP15AppierExtension14AppierDelegate_")
-@protocol AppierDelegate
-- (void)logImmediateEvent:(NSString * _Nonnull)name parameters:(NSDictionary * _Nonnull)param;
-- (NSString * _Nullable)getAppierID SWIFT_WARN_UNUSED_RESULT;
-- (void)receiveExternalCampaign:(NSDictionary<NSString *, id> * _Nonnull)externalCampaign;
-@end
-
 
 SWIFT_CLASS_NAMED("DeviceInfo")
 @interface APRDeviceInfo : NSObject
@@ -316,6 +306,7 @@ SWIFT_CLASS_NAMED("DeviceInfo")
 @end
 
 @class NSNumber;
+@class NSString;
 
 @interface APRDeviceInfo (SWIFT_EXTENSION(AppierExtension))
 + (NSNumber * _Nonnull)optOutSet SWIFT_WARN_UNUSED_RESULT;

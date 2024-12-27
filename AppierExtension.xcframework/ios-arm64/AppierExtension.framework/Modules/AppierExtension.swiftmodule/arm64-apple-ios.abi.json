@@ -952,22 +952,15 @@
       },
       {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "AppierExtension"
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "AppierExtension"
-      },
-      {
-        "kind": "Import",
         "name": "os",
         "printedName": "os",
+        "declKind": "Import",
+        "moduleName": "AppierExtension"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
         "declKind": "Import",
         "moduleName": "AppierExtension"
       },
@@ -1593,8 +1586,15 @@
       },
       {
         "kind": "Import",
-        "name": "os",
-        "printedName": "os",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppierExtension"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
         "declKind": "Import",
         "moduleName": "AppierExtension"
       },
@@ -1899,20 +1899,6 @@
         "declAttributes": [
           "AccessControl"
         ]
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "AppierExtension"
-      },
-      {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "AppierExtension"
       },
       {
         "kind": "TypeDecl",
@@ -2931,6 +2917,13 @@
   },
   "ConstValues": [
     {
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGNotificationSdk\/Extensions\/Logger+AIQUANotification.swift",
+      "kind": "StringLiteral",
+      "offset": 128,
+      "length": 20,
+      "value": "\"AIQUA Notification\""
+    },
+    {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/DeviceInfo.swift",
       "kind": "StringLiteral",
       "offset": 153,
@@ -2938,74 +2931,67 @@
       "value": "\"Unknown\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGNotificationSdk\/Extensions\/Logger+AIQUANotification.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/LogMessage.swift",
       "kind": "StringLiteral",
-      "offset": 132,
-      "length": 20,
-      "value": "\"AIQUA Notification\""
+      "offset": 712,
+      "length": 2,
+      "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 2424,
+      "offset": 1652,
       "length": 29,
       "value": "\"yyyy-MM-dd HH:mm:ss.SSSSSSZ\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 199,
+      "offset": 189,
       "length": 6,
       "value": "\"AppierExtension.Logger\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 2570,
+      "offset": 1790,
       "length": 4,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 2576,
+      "offset": 1796,
       "length": 7,
       "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 2585,
+      "offset": 1805,
       "length": 5,
       "value": "3"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 2570,
+      "offset": 1790,
       "length": 4,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 2576,
+      "offset": 1796,
       "length": 7,
       "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 2585,
+      "offset": 1805,
       "length": 5,
       "value": "3"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/LogMessage.swift",
-      "kind": "StringLiteral",
-      "offset": 740,
-      "length": 2,
-      "value": "\"\""
     }
   ]
 }
