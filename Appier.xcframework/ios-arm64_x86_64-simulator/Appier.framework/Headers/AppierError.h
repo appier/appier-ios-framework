@@ -9,6 +9,8 @@ typedef NS_ENUM(NSInteger, AppierError) {
     ApplicationNotExist = 2,
     FetchRemoteConfigFailed = 3,
     InvalidEndpoint = 4,
+    InvalidParameters = 5,
+    ModuleNotInitialized = 6,
     
     // HTTP Client Error
     BadRequest = 400,
