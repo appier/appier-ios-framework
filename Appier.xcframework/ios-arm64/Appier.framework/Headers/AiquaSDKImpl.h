@@ -19,6 +19,7 @@
 @protocol AIQRecommendationLoggingProtocol;
 @protocol AIQInAppRecommendationDataProviderProtocol;
 @protocol AIQEventAttributionProtocol;
+@protocol APRPushNotificationNotifierDelegate;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -719,7 +720,7 @@ extern NSString * _Nonnull QGWKWebViewUserScript;
  Update the inbox limit to QGInboxLimitHigh, ex: [[QGSdk getSharedInstance] updateInboxRecordLimit:QGInboxLimitHigh];
  @endcode
  */
-- (void)updateInboxRecordLimit:(QGInboxLimit) limit;
+- (void)updateInboxRecordLimit:(NSInteger)limit;
 
 /*!
  @abstract
@@ -824,6 +825,19 @@ extern NSString * _Nonnull QGWKWebViewUserScript;
 - (void)handleScriptMessageOfWebView:(WKWebView *)webView userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message processEventParameters:(BOOL)processEventParameters;
 - (void)didReceiveAidealExternalCampaign:(NSDictionary *)campaign;
 - (void)onStart:(NSString *)appId withAppGroup:(NSString * _Nullable)appGroup setDevProfile:(BOOL)devProfile frameworkType:(NSString * _Nullable)type frameworkVersion:(NSString * _Nullable)version;
+
+/// Registers a push notification notifier delegate.
+///
+/// Use this method to register an object that conforms to the `AIQPushNotificationNotifierDelegate`.
+/// The system will notify this notifier when relevant push notifications are received.
+///
+/// > Important: The system holds a **weak reference** to the `delegate`.
+/// > You must store a **strong reference** elsewhere to keep it alive. If not retained,
+/// > the `delegate` may be deallocated and will not receive notifications.
+///
+/// @param delegate The delegate object to register. This parameter can be `nil`
+/// to clear any existing delegate.
+- (void)setPushNotificationNotifierDelegate:(id <APRPushNotificationNotifierDelegate> _Nullable)delegate;
 
 @end
 NS_ASSUME_NONNULL_END
