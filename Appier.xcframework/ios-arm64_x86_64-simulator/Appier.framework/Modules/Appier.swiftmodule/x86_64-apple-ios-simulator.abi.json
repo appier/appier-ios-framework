@@ -15240,26 +15240,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "[Swift.AnyHashable : Any]?",
+                "printedName": "Appier.AIQMutableOrderedDictionary?",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Dictionary",
-                    "printedName": "[Swift.AnyHashable : Any]",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "AnyHashable",
-                        "printedName": "Swift.AnyHashable",
-                        "usr": "s:s11AnyHashableV"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ProtocolComposition",
-                        "printedName": "Any"
-                      }
-                    ],
-                    "usr": "s:SD"
+                    "name": "AIQMutableOrderedDictionary",
+                    "printedName": "Appier.AIQMutableOrderedDictionary",
+                    "usr": "c:objc(cs)AIQMutableOrderedDictionary"
                   }
                 ],
                 "usr": "s:Sq"
@@ -15267,7 +15254,7 @@
             ],
             "declKind": "Var",
             "usr": "c:@CM@Appier@objc(cs)AIQLocalStorage(py)inbox",
-            "mangledName": "$s6Appier15AIQLocalStorageC5inboxSDys11AnyHashableVypGSgvp",
+            "mangledName": "$s6Appier15AIQLocalStorageC5inboxSo27AIQMutableOrderedDictionaryCSgvp",
             "moduleName": "Appier",
             "objc_name": "inbox",
             "declAttributes": [
@@ -15285,26 +15272,13 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "[Swift.AnyHashable : Any]?",
+                    "printedName": "Appier.AIQMutableOrderedDictionary?",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "Dictionary",
-                        "printedName": "[Swift.AnyHashable : Any]",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "AnyHashable",
-                            "printedName": "Swift.AnyHashable",
-                            "usr": "s:s11AnyHashableV"
-                          },
-                          {
-                            "kind": "TypeNominal",
-                            "name": "ProtocolComposition",
-                            "printedName": "Any"
-                          }
-                        ],
-                        "usr": "s:SD"
+                        "name": "AIQMutableOrderedDictionary",
+                        "printedName": "Appier.AIQMutableOrderedDictionary",
+                        "usr": "c:objc(cs)AIQMutableOrderedDictionary"
                       }
                     ],
                     "usr": "s:Sq"
@@ -15312,7 +15286,7 @@
                 ],
                 "declKind": "Accessor",
                 "usr": "c:@CM@Appier@objc(cs)AIQLocalStorage(im)inbox",
-                "mangledName": "$s6Appier15AIQLocalStorageC5inboxSDys11AnyHashableVypGSgvg",
+                "mangledName": "$s6Appier15AIQLocalStorageC5inboxSo27AIQMutableOrderedDictionaryCSgvg",
                 "moduleName": "Appier",
                 "objc_name": "inbox",
                 "declAttributes": [
@@ -15335,26 +15309,13 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "[Swift.AnyHashable : Any]?",
+                    "printedName": "Appier.AIQMutableOrderedDictionary?",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "Dictionary",
-                        "printedName": "[Swift.AnyHashable : Any]",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "AnyHashable",
-                            "printedName": "Swift.AnyHashable",
-                            "usr": "s:s11AnyHashableV"
-                          },
-                          {
-                            "kind": "TypeNominal",
-                            "name": "ProtocolComposition",
-                            "printedName": "Any"
-                          }
-                        ],
-                        "usr": "s:SD"
+                        "name": "AIQMutableOrderedDictionary",
+                        "printedName": "Appier.AIQMutableOrderedDictionary",
+                        "usr": "c:objc(cs)AIQMutableOrderedDictionary"
                       }
                     ],
                     "usr": "s:Sq"
@@ -15362,7 +15323,7 @@
                 ],
                 "declKind": "Accessor",
                 "usr": "c:@CM@Appier@objc(cs)AIQLocalStorage(im)setInbox:",
-                "mangledName": "$s6Appier15AIQLocalStorageC5inboxSDys11AnyHashableVypGSgvs",
+                "mangledName": "$s6Appier15AIQLocalStorageC5inboxSo27AIQMutableOrderedDictionaryCSgvs",
                 "moduleName": "Appier",
                 "objc_name": "setInbox:",
                 "declAttributes": [
@@ -25760,26 +25721,13 @@
               {
                 "kind": "TypeNominal",
                 "name": "Optional",
-                "printedName": "[Swift.AnyHashable : Any]?",
+                "printedName": "Appier.AIQMutableOrderedDictionary?",
                 "children": [
                   {
                     "kind": "TypeNominal",
-                    "name": "Dictionary",
-                    "printedName": "[Swift.AnyHashable : Any]",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "AnyHashable",
-                        "printedName": "Swift.AnyHashable",
-                        "usr": "s:s11AnyHashableV"
-                      },
-                      {
-                        "kind": "TypeNominal",
-                        "name": "ProtocolComposition",
-                        "printedName": "Any"
-                      }
-                    ],
-                    "usr": "s:SD"
+                    "name": "AIQMutableOrderedDictionary",
+                    "printedName": "Appier.AIQMutableOrderedDictionary",
+                    "usr": "c:objc(cs)AIQMutableOrderedDictionary"
                   }
                 ],
                 "usr": "s:Sq"
@@ -25787,7 +25735,7 @@
             ],
             "declKind": "Var",
             "usr": "c:@M@Appier@objc(pl)AIQStorage(py)inbox",
-            "mangledName": "$s6Appier10AIQStorageP5inboxSDys11AnyHashableVypGSgvp",
+            "mangledName": "$s6Appier10AIQStorageP5inboxSo27AIQMutableOrderedDictionaryCSgvp",
             "moduleName": "Appier",
             "protocolReq": true,
             "declAttributes": [
@@ -25803,26 +25751,13 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "[Swift.AnyHashable : Any]?",
+                    "printedName": "Appier.AIQMutableOrderedDictionary?",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "Dictionary",
-                        "printedName": "[Swift.AnyHashable : Any]",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "AnyHashable",
-                            "printedName": "Swift.AnyHashable",
-                            "usr": "s:s11AnyHashableV"
-                          },
-                          {
-                            "kind": "TypeNominal",
-                            "name": "ProtocolComposition",
-                            "printedName": "Any"
-                          }
-                        ],
-                        "usr": "s:SD"
+                        "name": "AIQMutableOrderedDictionary",
+                        "printedName": "Appier.AIQMutableOrderedDictionary",
+                        "usr": "c:objc(cs)AIQMutableOrderedDictionary"
                       }
                     ],
                     "usr": "s:Sq"
@@ -25830,7 +25765,7 @@
                 ],
                 "declKind": "Accessor",
                 "usr": "c:@M@Appier@objc(pl)AIQStorage(im)inbox",
-                "mangledName": "$s6Appier10AIQStorageP5inboxSDys11AnyHashableVypGSgvg",
+                "mangledName": "$s6Appier10AIQStorageP5inboxSo27AIQMutableOrderedDictionaryCSgvg",
                 "moduleName": "Appier",
                 "genericSig": "<τ_0_0 where τ_0_0 : Appier.AIQStorage>",
                 "sugared_genericSig": "<Self where Self : Appier.AIQStorage>",
@@ -25854,26 +25789,13 @@
                   {
                     "kind": "TypeNominal",
                     "name": "Optional",
-                    "printedName": "[Swift.AnyHashable : Any]?",
+                    "printedName": "Appier.AIQMutableOrderedDictionary?",
                     "children": [
                       {
                         "kind": "TypeNominal",
-                        "name": "Dictionary",
-                        "printedName": "[Swift.AnyHashable : Any]",
-                        "children": [
-                          {
-                            "kind": "TypeNominal",
-                            "name": "AnyHashable",
-                            "printedName": "Swift.AnyHashable",
-                            "usr": "s:s11AnyHashableV"
-                          },
-                          {
-                            "kind": "TypeNominal",
-                            "name": "ProtocolComposition",
-                            "printedName": "Any"
-                          }
-                        ],
-                        "usr": "s:SD"
+                        "name": "AIQMutableOrderedDictionary",
+                        "printedName": "Appier.AIQMutableOrderedDictionary",
+                        "usr": "c:objc(cs)AIQMutableOrderedDictionary"
                       }
                     ],
                     "usr": "s:Sq"
@@ -25881,7 +25803,7 @@
                 ],
                 "declKind": "Accessor",
                 "usr": "c:@M@Appier@objc(pl)AIQStorage(im)setInbox:",
-                "mangledName": "$s6Appier10AIQStorageP5inboxSDys11AnyHashableVypGSgvs",
+                "mangledName": "$s6Appier10AIQStorageP5inboxSo27AIQMutableOrderedDictionaryCSgvs",
                 "moduleName": "Appier",
                 "genericSig": "<τ_0_0 where τ_0_0 : Appier.AIQStorage>",
                 "sugared_genericSig": "<Self where Self : Appier.AIQStorage>",
@@ -30003,14 +29925,14 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "QGInboxLimit",
-                "printedName": "Appier.QGInboxLimit",
-                "usr": "c:@E@QGInboxLimit"
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
               }
             ],
             "declKind": "Func",
             "usr": "c:@M@Appier@objc(cs)Aiqua(im)updateInboxRecordLimit:",
-            "mangledName": "$s6Appier5AiquaC22updateInboxRecordLimityySo07QGInboxF0VF",
+            "mangledName": "$s6Appier5AiquaC22updateInboxRecordLimityySiF",
             "moduleName": "Appier",
             "declAttributes": [
               "Final",
@@ -37242,6 +37164,44 @@
           },
           {
             "kind": "Function",
+            "name": "setPushNotificationNotifierDelegate",
+            "printedName": "setPushNotificationNotifierDelegate(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any Appier.APRPushNotificationNotifierDelegate)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "APRPushNotificationNotifierDelegate",
+                    "printedName": "any Appier.APRPushNotificationNotifierDelegate",
+                    "usr": "c:@M@Appier@objc(pl)APRPushNotificationNotifierDelegate"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Appier@objc(cs)AppierSDK(cm)setPushNotificationNotifierDelegate:",
+            "mangledName": "$s6Appier0A3SDKC35setPushNotificationNotifierDelegateyyAA07APRPushefG0_pSgFZ",
+            "moduleName": "Appier",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "setAPNSToken",
             "printedName": "setAPNSToken(_:)",
             "children": [
@@ -37492,6 +37452,728 @@
         "printedName": "Foundation",
         "declKind": "Import",
         "moduleName": "Appier"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "APRPushNotificationClickModel",
+        "printedName": "APRPushNotificationClickModel",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "notificationId",
+            "printedName": "notificationId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "NSNumber",
+                "printedName": "Foundation.NSNumber",
+                "usr": "c:objc(cs)NSNumber"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Appier@objc(cs)APRPushNotificationClickModel(py)notificationId",
+            "mangledName": "$s6Appier29APRPushNotificationClickModelC14notificationIdSo8NSNumberCvp",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSNumber",
+                    "printedName": "Foundation.NSNumber",
+                    "usr": "c:objc(cs)NSNumber"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)APRPushNotificationClickModel(im)notificationId",
+                "mangledName": "$s6Appier29APRPushNotificationClickModelC14notificationIdSo8NSNumberCvg",
+                "moduleName": "Appier",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "title",
+            "printedName": "title",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Appier@objc(cs)APRPushNotificationClickModel(py)title",
+            "mangledName": "$s6Appier29APRPushNotificationClickModelC5titleSSvp",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)APRPushNotificationClickModel(im)title",
+                "mangledName": "$s6Appier29APRPushNotificationClickModelC5titleSSvg",
+                "moduleName": "Appier",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "message",
+            "printedName": "message",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Appier@objc(cs)APRPushNotificationClickModel(py)message",
+            "mangledName": "$s6Appier29APRPushNotificationClickModelC7messageSSvp",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)APRPushNotificationClickModel(im)message",
+                "mangledName": "$s6Appier29APRPushNotificationClickModelC7messageSSvg",
+                "moduleName": "Appier",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "keyValuePairs",
+            "printedName": "keyValuePairs",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Appier@objc(cs)APRPushNotificationClickModel(py)keyValuePairs",
+            "mangledName": "$s6Appier29APRPushNotificationClickModelC13keyValuePairsSDySSypGvp",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)APRPushNotificationClickModel(im)keyValuePairs",
+                "mangledName": "$s6Appier29APRPushNotificationClickModelC13keyValuePairsSDySSypGvg",
+                "moduleName": "Appier",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "rawJsonString",
+            "printedName": "rawJsonString",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Appier@objc(cs)APRPushNotificationClickModel(py)rawJsonString",
+            "mangledName": "$s6Appier29APRPushNotificationClickModelC13rawJsonStringSSvp",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)APRPushNotificationClickModel(im)rawJsonString",
+                "mangledName": "$s6Appier29APRPushNotificationClickModelC13rawJsonStringSSvg",
+                "moduleName": "Appier",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "displayTime",
+            "printedName": "displayTime",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Date",
+                "printedName": "Foundation.Date",
+                "usr": "s:10Foundation4DateV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Appier@objc(cs)APRPushNotificationClickModel(py)displayTime",
+            "mangledName": "$s6Appier29APRPushNotificationClickModelC11displayTime10Foundation4DateVvp",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Date",
+                    "printedName": "Foundation.Date",
+                    "usr": "s:10Foundation4DateV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)APRPushNotificationClickModel(im)displayTime",
+                "mangledName": "$s6Appier29APRPushNotificationClickModelC11displayTime10Foundation4DateVvg",
+                "moduleName": "Appier",
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "toDictionary",
+            "printedName": "toDictionary()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Appier@objc(cs)APRPushNotificationClickModel(im)toDictionary",
+            "mangledName": "$s6Appier29APRPushNotificationClickModelC12toDictionarySDySSypGyF",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "APRPushNotificationClickModel",
+                "printedName": "Appier.APRPushNotificationClickModel",
+                "usr": "c:@M@Appier@objc(cs)APRPushNotificationClickModel"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@Appier@objc(cs)APRPushNotificationClickModel(im)init",
+            "mangledName": "$s6Appier29APRPushNotificationClickModelCACycfc",
+            "moduleName": "Appier",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@Appier@objc(cs)APRPushNotificationClickModel",
+        "mangledName": "$s6Appier29APRPushNotificationClickModelC",
+        "moduleName": "Appier",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "hasMissingDesignatedInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "APRPushNotificationNotifier",
+        "printedName": "APRPushNotificationNotifier",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "set",
+            "printedName": "set(delegate:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any Appier.APRPushNotificationNotifierDelegate)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "APRPushNotificationNotifierDelegate",
+                    "printedName": "any Appier.APRPushNotificationNotifierDelegate",
+                    "usr": "c:@M@Appier@objc(pl)APRPushNotificationNotifierDelegate"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Appier@objc(cs)APRPushNotificationNotifier(im)setWithDelegate:",
+            "mangledName": "$s6Appier27APRPushNotificationNotifierC3set8delegateyAA0bcD8Delegate_pSg_tF",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onClickNotification",
+            "printedName": "onClickNotification(_:displayTime:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "NSDictionary",
+                "printedName": "Foundation.NSDictionary",
+                "usr": "c:objc(cs)NSDictionary"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Date",
+                "printedName": "Foundation.Date",
+                "usr": "s:10Foundation4DateV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Appier@objc(cs)APRPushNotificationNotifier(im)onClickNotification:displayTime:",
+            "mangledName": "$s6Appier27APRPushNotificationNotifierC07onClickC0_11displayTimeySo12NSDictionaryC_10Foundation4DateVtF",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "APRPushNotificationNotifier",
+                "printedName": "Appier.APRPushNotificationNotifier",
+                "usr": "c:@M@Appier@objc(cs)APRPushNotificationNotifier"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@Appier@objc(cs)APRPushNotificationNotifier(im)init",
+            "mangledName": "$s6Appier27APRPushNotificationNotifierCACycfc",
+            "moduleName": "Appier",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@Appier@objc(cs)APRPushNotificationNotifier",
+        "mangledName": "$s6Appier27APRPushNotificationNotifierC",
+        "moduleName": "Appier",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "APRPushNotificationNotifierDelegate",
+        "printedName": "APRPushNotificationNotifierDelegate",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "notificationOnClicked",
+            "printedName": "notificationOnClicked(notifier:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "APRPushNotificationNotifier",
+                "printedName": "Appier.APRPushNotificationNotifier",
+                "usr": "c:@M@Appier@objc(cs)APRPushNotificationNotifier"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "APRPushNotificationClickModel",
+                "printedName": "Appier.APRPushNotificationClickModel",
+                "usr": "c:@M@Appier@objc(cs)APRPushNotificationClickModel"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Appier@objc(pl)APRPushNotificationNotifierDelegate(im)notificationOnClickedWithNotifier::",
+            "mangledName": "$s6Appier35APRPushNotificationNotifierDelegateP21notificationOnClicked8notifier_yAA0bcD0C_AA0bC10ClickModelCtF",
+            "moduleName": "Appier",
+            "genericSig": "<τ_0_0 where τ_0_0 : Appier.APRPushNotificationNotifierDelegate>",
+            "sugared_genericSig": "<Self where Self : Appier.APRPushNotificationNotifierDelegate>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@Appier@objc(pl)APRPushNotificationNotifierDelegate",
+        "mangledName": "$s6Appier35APRPushNotificationNotifierDelegateP",
+        "moduleName": "Appier",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
       },
       {
         "kind": "Import",
@@ -89609,7 +90291,7 @@
       "kind": "StringLiteral",
       "offset": 350,
       "length": 7,
-      "value": "\"8.2.3\""
+      "value": "\"8.3.0\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",

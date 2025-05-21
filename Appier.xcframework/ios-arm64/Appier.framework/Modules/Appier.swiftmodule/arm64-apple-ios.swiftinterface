@@ -507,7 +507,7 @@ extension Appier.AIQLocalStorage : Appier.AIQStorage {
     @objc get
     @objc set
   }
-  @objc dynamic public var inbox: [Swift.AnyHashable : Any]? {
+  @objc dynamic public var inbox: Appier.AIQMutableOrderedDictionary? {
     @objc get
     @objc set
   }
@@ -823,7 +823,7 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
   @objc var isPersonalizationDisabledStatusNotConfigured: Swift.Bool { get }
   @objc var geofences: Swift.String? { get set }
   @objc var isGeofenceCapable: Swift.Bool { get set }
-  @objc var inbox: [Swift.AnyHashable : Any]? { get set }
+  @objc var inbox: Appier.AIQMutableOrderedDictionary? { get set }
   @objc var hasInbox: Swift.Bool { get }
   @objc var inboxLimit: Swift.Int { get set }
   @objc var hasInboxLimit: Swift.Bool { get }
@@ -875,7 +875,7 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
   @objc final public func logRecommendationClicked(scenarioId: Swift.String, modelIdString: Swift.String, productId: Swift.String, recommendationId: Swift.String)
   @objc final public func fetchInboxMessages(completionHandler: @escaping (Swift.Bool, (any Swift.Error)?) -> Swift.Void)
   @objc(getInboxesWithStatusRead:unread:deleted:) final public func getInboxesWithStatus(read: Swift.Bool, unread: Swift.Bool, deleted: Swift.Bool) -> [Appier.QGInbox]
-  @objc final public func updateInboxRecordLimit(_ limit: Appier.QGInboxLimit)
+  @objc final public func updateInboxRecordLimit(_ limit: Swift.Int)
   @objc final public func getStoredNotifications() -> [Any]
   @objc final public func deleteStoredNotifications()
   @objc final public func deleteStoredNotification(at index: Swift.UInt)
@@ -1103,11 +1103,31 @@ extension Appier.AIQUtility {
   public static func userNotificationCenter(_ center: UserNotifications.UNUserNotificationCenter, didReceiveNotificationResponse response: UserNotifications.UNNotificationResponse)
   @objc @available(iOS 10.0, *)
   public static func userNotificationCenter(_ center: UserNotifications.UNUserNotificationCenter, willPresent notification: UserNotifications.UNNotification)
+  @objc public static func setPushNotificationNotifierDelegate(_ delegate: (any Appier.APRPushNotificationNotifierDelegate)?)
   @objc public static func setAPNSToken(_ token: Foundation.Data)
   @objc public static func setFCMToken(_ token: Swift.String?)
   @objc public static func isAppierPush(_ userInfo: [Swift.AnyHashable : Any]?) -> Swift.Bool
   @objc override dynamic public init()
   @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @objcMembers public class APRPushNotificationClickModel : ObjectiveC.NSObject {
+  @objc final public let notificationId: Foundation.NSNumber
+  @objc final public let title: Swift.String
+  @objc final public let message: Swift.String
+  @objc final public let keyValuePairs: [Swift.String : Any]
+  @objc final public let rawJsonString: Swift.String
+  @objc final public let displayTime: Foundation.Date
+  @objc public func toDictionary() -> [Swift.String : Any]
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class APRPushNotificationNotifier : ObjectiveC.NSObject {
+  @objc public func set(delegate: (any Appier.APRPushNotificationNotifierDelegate)?)
+  @objc public func onClickNotification(_ notificationInfo: Foundation.NSDictionary, displayTime: Foundation.Date)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public protocol APRPushNotificationNotifierDelegate {
+  @objc func notificationOnClicked(notifier: Appier.APRPushNotificationNotifier, _ notification: Appier.APRPushNotificationClickModel)
 }
 public struct BadgeConfiguration {
   public var allowsDisplay: Swift.Bool

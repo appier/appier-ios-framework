@@ -542,6 +542,14 @@ SWIFT_CLASS("_TtC6Appier36AIQInAppCreativeStudioViewController")
 
 
 
+@class WKUserContentController;
+@class WKScriptMessage;
+
+@interface AIQInAppCreativeStudioViewController (SWIFT_EXTENSION(Appier))
+- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
+@end
+
+
 @class WKWebView;
 @class WKNavigation;
 @class WKNavigationAction;
@@ -550,14 +558,6 @@ SWIFT_CLASS("_TtC6Appier36AIQInAppCreativeStudioViewController")
 - (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
 - (void)webView:(WKWebView * _Nonnull)webView decidePolicyForNavigationAction:(WKNavigationAction * _Nonnull)navigationAction decisionHandler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
 @end
-
-@class WKUserContentController;
-@class WKScriptMessage;
-
-@interface AIQInAppCreativeStudioViewController (SWIFT_EXTENSION(Appier))
-- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
-@end
-
 
 
 
@@ -765,8 +765,8 @@ SWIFT_PROTOCOL("_TtP6Appier10AIQStorage_")
 @property (nonatomic, copy) NSString * _Nullable geofences;
 /// The geofence capablility
 @property (nonatomic) BOOL isGeofenceCapable;
-/// The raw data is encoded before set and decoded before return. ([notificationId: QGInbox])
-@property (nonatomic, copy) NSDictionary * _Nullable inbox;
+/// The QGInbox is encoded before set and decoded before return
+@property (nonatomic, strong) AIQMutableOrderedDictionary * _Nullable inbox;
 /// This is equivalent to <em>inbox != nil</em>
 @property (nonatomic, readonly) BOOL hasInbox;
 /// Use this status only if hasInboxLimit is true. Otherwise, it is 0.
@@ -777,7 +777,7 @@ SWIFT_PROTOCOL("_TtP6Appier10AIQStorage_")
 @property (nonatomic) BOOL isForceTouchCapabilityEnabled;
 @property (nonatomic) BOOL inAppDisabledStatus;
 @property (nonatomic) BOOL inAppVisibleStatus;
-/// The raw data is encoded before set and decoded before return
+/// The QGInApp is encoded before set and decoded before return
 @property (nonatomic, strong) AIQMutableOrderedDictionary * _Nullable inApp;
 /// This is equivalent to <em>inApp != nil</em>
 @property (nonatomic, readonly) BOOL hasInApp;
@@ -858,7 +858,7 @@ SWIFT_PROTOCOL("_TtP6Appier10AIQStorage_")
 @property (nonatomic, readonly) BOOL isPersonalizationDisabledStatusNotConfigured;
 @property (nonatomic, copy) NSString * _Nullable geofences;
 @property (nonatomic) BOOL isGeofenceCapable;
-@property (nonatomic, copy) NSDictionary * _Nullable inbox;
+@property (nonatomic, strong) AIQMutableOrderedDictionary * _Nullable inbox;
 @property (nonatomic, readonly) BOOL hasInbox;
 @property (nonatomic) NSInteger inboxLimit;
 @property (nonatomic, readonly) BOOL hasInboxLimit;
@@ -1057,6 +1057,35 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isRunningTests;
 + (void)clearPIIDataWithStorage:(AIQLocalStorage * _Nonnull)storage;
 @end
 
+
+SWIFT_CLASS("_TtC6Appier29APRPushNotificationClickModel")
+@interface APRPushNotificationClickModel : NSObject
+@property (nonatomic, readonly, strong) NSNumber * _Nonnull notificationId;
+@property (nonatomic, readonly, copy) NSString * _Nonnull title;
+@property (nonatomic, readonly, copy) NSString * _Nonnull message;
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nonnull keyValuePairs;
+@property (nonatomic, readonly, copy) NSString * _Nonnull rawJsonString;
+@property (nonatomic, readonly, copy) NSDate * _Nonnull displayTime;
+- (NSDictionary<NSString *, id> * _Nonnull)toDictionary SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@protocol APRPushNotificationNotifierDelegate;
+
+SWIFT_CLASS("_TtC6Appier27APRPushNotificationNotifier")
+@interface APRPushNotificationNotifier : NSObject
+- (void)setWithDelegate:(id <APRPushNotificationNotifierDelegate> _Nullable)delegate;
+- (void)onClickNotification:(NSDictionary * _Nonnull)notificationInfo displayTime:(NSDate * _Nonnull)displayTime;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_PROTOCOL("_TtP6Appier35APRPushNotificationNotifierDelegate_")
+@protocol APRPushNotificationNotifierDelegate
+- (void)notificationOnClickedWithNotifier:(APRPushNotificationNotifier * _Nonnull)notifier :(APRPushNotificationClickModel * _Nonnull)notification;
+@end
+
 @class UIScrollView;
 
 SWIFT_CLASS("_TtC6Appier6AiDeal")
@@ -1168,7 +1197,7 @@ SWIFT_CLASS("_TtC6Appier5Aiqua")
 - (void)logRecommendationClickedWithScenarioId:(NSString * _Nonnull)scenarioId modelIdString:(NSString * _Nonnull)modelIdString productId:(NSString * _Nonnull)productId recommendationId:(NSString * _Nonnull)recommendationId;
 - (void)fetchInboxMessagesWithCompletionHandler:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completionHandler;
 - (NSArray<QGInbox *> * _Nonnull)getInboxesWithStatusRead:(BOOL)read unread:(BOOL)unread deleted:(BOOL)deleted SWIFT_WARN_UNUSED_RESULT;
-- (void)updateInboxRecordLimit:(QGInboxLimit)limit;
+- (void)updateInboxRecordLimit:(NSInteger)limit;
 - (NSArray * _Nonnull)getStoredNotifications SWIFT_WARN_UNUSED_RESULT;
 - (void)deleteStoredNotifications;
 - (void)deleteStoredNotificationAt:(NSUInteger)index;
@@ -1284,6 +1313,18 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) NSUInteger flushInterval;)
 + (void)application:(UIApplication * _Nonnull)application didReceiveRemoteNotification:(NSDictionary * _Nonnull)userInfo fetchCompletionHandler:(void (^ _Nonnull)(UIBackgroundFetchResult))fetchCompletionHandler;
 + (void)userNotificationCenter:(UNUserNotificationCenter * _Nonnull)center didReceiveNotificationResponse:(UNNotificationResponse * _Nonnull)response SWIFT_AVAILABILITY(ios,introduced=10.0);
 + (void)userNotificationCenter:(UNUserNotificationCenter * _Nonnull)center willPresent:(UNNotification * _Nonnull)notification SWIFT_AVAILABILITY(ios,introduced=10.0);
+/// Registers a push notification notifier delegate.
+/// Use this method to register an object that conforms to the <code>AIQPushNotificationNotifierDelegate</code>.
+/// The system will notify this notifier when relevant push notifications are received.
+/// <blockquote>
+/// Important: The system holds a <em>weak reference</em> to the <code>delegate</code>.
+/// You must store a <em>strong reference</em> elsewhere to keep it alive. If not retained,
+/// the <code>delegate</code> may be deallocated and will not receive notifications.
+///
+/// </blockquote>
+/// @param delegate The delegate object to register. This parameter can be <code>nil</code>
+/// to clear any existing delegate.
++ (void)setPushNotificationNotifierDelegate:(id <APRPushNotificationNotifierDelegate> _Nullable)delegate;
 + (void)setAPNSToken:(NSData * _Nonnull)token;
 + (void)setFCMToken:(NSString * _Nullable)token;
 + (BOOL)isAppierPush:(NSDictionary * _Nullable)userInfo SWIFT_WARN_UNUSED_RESULT;
@@ -3056,6 +3097,14 @@ SWIFT_CLASS("_TtC6Appier36AIQInAppCreativeStudioViewController")
 
 
 
+@class WKUserContentController;
+@class WKScriptMessage;
+
+@interface AIQInAppCreativeStudioViewController (SWIFT_EXTENSION(Appier))
+- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
+@end
+
+
 @class WKWebView;
 @class WKNavigation;
 @class WKNavigationAction;
@@ -3064,14 +3113,6 @@ SWIFT_CLASS("_TtC6Appier36AIQInAppCreativeStudioViewController")
 - (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
 - (void)webView:(WKWebView * _Nonnull)webView decidePolicyForNavigationAction:(WKNavigationAction * _Nonnull)navigationAction decisionHandler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
 @end
-
-@class WKUserContentController;
-@class WKScriptMessage;
-
-@interface AIQInAppCreativeStudioViewController (SWIFT_EXTENSION(Appier))
-- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
-@end
-
 
 
 
@@ -3279,8 +3320,8 @@ SWIFT_PROTOCOL("_TtP6Appier10AIQStorage_")
 @property (nonatomic, copy) NSString * _Nullable geofences;
 /// The geofence capablility
 @property (nonatomic) BOOL isGeofenceCapable;
-/// The raw data is encoded before set and decoded before return. ([notificationId: QGInbox])
-@property (nonatomic, copy) NSDictionary * _Nullable inbox;
+/// The QGInbox is encoded before set and decoded before return
+@property (nonatomic, strong) AIQMutableOrderedDictionary * _Nullable inbox;
 /// This is equivalent to <em>inbox != nil</em>
 @property (nonatomic, readonly) BOOL hasInbox;
 /// Use this status only if hasInboxLimit is true. Otherwise, it is 0.
@@ -3291,7 +3332,7 @@ SWIFT_PROTOCOL("_TtP6Appier10AIQStorage_")
 @property (nonatomic) BOOL isForceTouchCapabilityEnabled;
 @property (nonatomic) BOOL inAppDisabledStatus;
 @property (nonatomic) BOOL inAppVisibleStatus;
-/// The raw data is encoded before set and decoded before return
+/// The QGInApp is encoded before set and decoded before return
 @property (nonatomic, strong) AIQMutableOrderedDictionary * _Nullable inApp;
 /// This is equivalent to <em>inApp != nil</em>
 @property (nonatomic, readonly) BOOL hasInApp;
@@ -3372,7 +3413,7 @@ SWIFT_PROTOCOL("_TtP6Appier10AIQStorage_")
 @property (nonatomic, readonly) BOOL isPersonalizationDisabledStatusNotConfigured;
 @property (nonatomic, copy) NSString * _Nullable geofences;
 @property (nonatomic) BOOL isGeofenceCapable;
-@property (nonatomic, copy) NSDictionary * _Nullable inbox;
+@property (nonatomic, strong) AIQMutableOrderedDictionary * _Nullable inbox;
 @property (nonatomic, readonly) BOOL hasInbox;
 @property (nonatomic) NSInteger inboxLimit;
 @property (nonatomic, readonly) BOOL hasInboxLimit;
@@ -3571,6 +3612,35 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isRunningTests;
 + (void)clearPIIDataWithStorage:(AIQLocalStorage * _Nonnull)storage;
 @end
 
+
+SWIFT_CLASS("_TtC6Appier29APRPushNotificationClickModel")
+@interface APRPushNotificationClickModel : NSObject
+@property (nonatomic, readonly, strong) NSNumber * _Nonnull notificationId;
+@property (nonatomic, readonly, copy) NSString * _Nonnull title;
+@property (nonatomic, readonly, copy) NSString * _Nonnull message;
+@property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nonnull keyValuePairs;
+@property (nonatomic, readonly, copy) NSString * _Nonnull rawJsonString;
+@property (nonatomic, readonly, copy) NSDate * _Nonnull displayTime;
+- (NSDictionary<NSString *, id> * _Nonnull)toDictionary SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@protocol APRPushNotificationNotifierDelegate;
+
+SWIFT_CLASS("_TtC6Appier27APRPushNotificationNotifier")
+@interface APRPushNotificationNotifier : NSObject
+- (void)setWithDelegate:(id <APRPushNotificationNotifierDelegate> _Nullable)delegate;
+- (void)onClickNotification:(NSDictionary * _Nonnull)notificationInfo displayTime:(NSDate * _Nonnull)displayTime;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_PROTOCOL("_TtP6Appier35APRPushNotificationNotifierDelegate_")
+@protocol APRPushNotificationNotifierDelegate
+- (void)notificationOnClickedWithNotifier:(APRPushNotificationNotifier * _Nonnull)notifier :(APRPushNotificationClickModel * _Nonnull)notification;
+@end
+
 @class UIScrollView;
 
 SWIFT_CLASS("_TtC6Appier6AiDeal")
@@ -3682,7 +3752,7 @@ SWIFT_CLASS("_TtC6Appier5Aiqua")
 - (void)logRecommendationClickedWithScenarioId:(NSString * _Nonnull)scenarioId modelIdString:(NSString * _Nonnull)modelIdString productId:(NSString * _Nonnull)productId recommendationId:(NSString * _Nonnull)recommendationId;
 - (void)fetchInboxMessagesWithCompletionHandler:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completionHandler;
 - (NSArray<QGInbox *> * _Nonnull)getInboxesWithStatusRead:(BOOL)read unread:(BOOL)unread deleted:(BOOL)deleted SWIFT_WARN_UNUSED_RESULT;
-- (void)updateInboxRecordLimit:(QGInboxLimit)limit;
+- (void)updateInboxRecordLimit:(NSInteger)limit;
 - (NSArray * _Nonnull)getStoredNotifications SWIFT_WARN_UNUSED_RESULT;
 - (void)deleteStoredNotifications;
 - (void)deleteStoredNotificationAt:(NSUInteger)index;
@@ -3798,6 +3868,18 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class) NSUInteger flushInterval;)
 + (void)application:(UIApplication * _Nonnull)application didReceiveRemoteNotification:(NSDictionary * _Nonnull)userInfo fetchCompletionHandler:(void (^ _Nonnull)(UIBackgroundFetchResult))fetchCompletionHandler;
 + (void)userNotificationCenter:(UNUserNotificationCenter * _Nonnull)center didReceiveNotificationResponse:(UNNotificationResponse * _Nonnull)response SWIFT_AVAILABILITY(ios,introduced=10.0);
 + (void)userNotificationCenter:(UNUserNotificationCenter * _Nonnull)center willPresent:(UNNotification * _Nonnull)notification SWIFT_AVAILABILITY(ios,introduced=10.0);
+/// Registers a push notification notifier delegate.
+/// Use this method to register an object that conforms to the <code>AIQPushNotificationNotifierDelegate</code>.
+/// The system will notify this notifier when relevant push notifications are received.
+/// <blockquote>
+/// Important: The system holds a <em>weak reference</em> to the <code>delegate</code>.
+/// You must store a <em>strong reference</em> elsewhere to keep it alive. If not retained,
+/// the <code>delegate</code> may be deallocated and will not receive notifications.
+///
+/// </blockquote>
+/// @param delegate The delegate object to register. This parameter can be <code>nil</code>
+/// to clear any existing delegate.
++ (void)setPushNotificationNotifierDelegate:(id <APRPushNotificationNotifierDelegate> _Nullable)delegate;
 + (void)setAPNSToken:(NSData * _Nonnull)token;
 + (void)setFCMToken:(NSString * _Nullable)token;
 + (BOOL)isAppierPush:(NSDictionary * _Nullable)userInfo SWIFT_WARN_UNUSED_RESULT;
