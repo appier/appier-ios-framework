@@ -90291,7 +90291,7 @@
       "kind": "StringLiteral",
       "offset": 350,
       "length": 7,
-      "value": "\"8.3.0\""
+      "value": "\"8.3.1\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
