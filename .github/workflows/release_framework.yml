@@ -4,6 +4,22 @@ on:
   pull_request:
     types:
       - closed
+    branches:
+      - 'release-**'
+
+  workflow_dispatch:
+    inputs:
+      skip_add_tag_and_release:
+        default: false
+        type: boolean
+
+      skip_deploy_pod_framework:
+        default: false
+        type: boolean
+
+      skip_deploy_pod_extension:
+        default: false
+        type: boolean
         
 jobs:
   release_framework:
@@ -20,6 +36,7 @@ jobs:
         gemfile_hash: ${{ hashFiles('**/Gemfile.lock') }}
 
     - name: Github release
+      if: ${{ !inputs.skip_add_tag_and_release }}
       env:
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       run: |
@@ -32,12 +49,14 @@ jobs:
         bundle exec fastlane release is_prerelease:$is_prerelease
 
     - name: Deploy pods framework
+      if: ${{ !inputs.skip_deploy_pod_framework }}
       env:
         COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
       run: |
         bundle exec fastlane pods_framework
         
     - name: Deploy pods extension framework
+      if: ${{ !inputs.skip_deploy_pod_extension }}
       env:
         COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
       run: |
