@@ -542,13 +542,13 @@ SWIFT_CLASS("_TtC6Appier36AIQInAppCreativeStudioViewController")
 
 
 
+
 @class WKUserContentController;
 @class WKScriptMessage;
 
 @interface AIQInAppCreativeStudioViewController (SWIFT_EXTENSION(Appier))
 - (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
 @end
-
 
 @class WKWebView;
 @class WKNavigation;
@@ -982,7 +982,10 @@ SWIFT_CLASS_NAMED("AIQUAConfiguration")
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIQConfiguration * _Nonnull shared;)
 + (AIQConfiguration * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, readonly, strong) AIQLocalStorage * _Nonnull storage;
-@property (nonatomic, copy) NSString * _Nonnull remoteConfigEndpoint;
+@property (nonatomic, copy) NSString * _Nonnull remoteConfigEndpointProd;
+@property (nonatomic, copy) NSString * _Nonnull remoteConfigEndpointStaging;
+@property (nonatomic) BOOL isStagingEvn;
+@property (nonatomic, readonly, copy) NSString * _Nonnull remoteConfigEndpoint;
 @property (nonatomic, strong) EndpointConfiguration * _Nonnull endpoint;
 @property (nonatomic, strong) RmnConfiguration * _Nonnull rmnConfig;
 @property (nonatomic, strong) AnalyticsConfiguration * _Nonnull analyticsConfig;
@@ -1663,6 +1666,27 @@ SWIFT_CLASS("_TtC6Appier15DeepLinkTracker")
 @end
 
 
+SWIFT_PROTOCOL("_TtP6Appier16OrderedTaskQueue_")
+@protocol OrderedTaskQueue <NSObject>
+/// Adds a task to the queue that will be executed in the order it was added.
+/// \param task The task to be executed.
+///
+- (void)addTask:(void (^ _Nonnull)(void))task;
+@end
+
+
+SWIFT_CLASS_NAMED("DefaultOrderedTaskQueue")
+@interface AIQOrderedTaskQueue : NSObject <OrderedTaskQueue>
+/// Initializes the ordered task queue with a specific label for the serial queue.
+/// \param label The label for the serial queue.
+///
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (void)addTask:(void (^ _Nonnull)(void))task;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
 SWIFT_CLASS_NAMED("DeviceInfo")
 @interface APRDeviceInfo : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -1874,14 +1898,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * 
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
-+ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull rmnLogger;)
++ (APRLogger * _Nonnull)rmnLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull rmnLogger;)
-+ (APRLogger * _Nonnull)rmnLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
++ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -1900,6 +1924,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * 
 - (BOOL)isStringContainsNewLineCharacter SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, readonly, strong) NSString * _Nonnull SHA256string;
 @end
+
 
 
 SWIFT_CLASS_NAMED("PersonalizationRemoteService")
@@ -2156,7 +2181,8 @@ SWIFT_CLASS_NAMED("RemoteConfig")
 @property (nonatomic, strong) AIQRemoteConfigDataCollector * _Nullable dataCollector;
 + (AIQRemoteConfig * _Nullable)decodeWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 
@@ -3097,13 +3123,13 @@ SWIFT_CLASS("_TtC6Appier36AIQInAppCreativeStudioViewController")
 
 
 
+
 @class WKUserContentController;
 @class WKScriptMessage;
 
 @interface AIQInAppCreativeStudioViewController (SWIFT_EXTENSION(Appier))
 - (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
 @end
-
 
 @class WKWebView;
 @class WKNavigation;
@@ -3537,7 +3563,10 @@ SWIFT_CLASS_NAMED("AIQUAConfiguration")
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIQConfiguration * _Nonnull shared;)
 + (AIQConfiguration * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, readonly, strong) AIQLocalStorage * _Nonnull storage;
-@property (nonatomic, copy) NSString * _Nonnull remoteConfigEndpoint;
+@property (nonatomic, copy) NSString * _Nonnull remoteConfigEndpointProd;
+@property (nonatomic, copy) NSString * _Nonnull remoteConfigEndpointStaging;
+@property (nonatomic) BOOL isStagingEvn;
+@property (nonatomic, readonly, copy) NSString * _Nonnull remoteConfigEndpoint;
 @property (nonatomic, strong) EndpointConfiguration * _Nonnull endpoint;
 @property (nonatomic, strong) RmnConfiguration * _Nonnull rmnConfig;
 @property (nonatomic, strong) AnalyticsConfiguration * _Nonnull analyticsConfig;
@@ -4218,6 +4247,27 @@ SWIFT_CLASS("_TtC6Appier15DeepLinkTracker")
 @end
 
 
+SWIFT_PROTOCOL("_TtP6Appier16OrderedTaskQueue_")
+@protocol OrderedTaskQueue <NSObject>
+/// Adds a task to the queue that will be executed in the order it was added.
+/// \param task The task to be executed.
+///
+- (void)addTask:(void (^ _Nonnull)(void))task;
+@end
+
+
+SWIFT_CLASS_NAMED("DefaultOrderedTaskQueue")
+@interface AIQOrderedTaskQueue : NSObject <OrderedTaskQueue>
+/// Initializes the ordered task queue with a specific label for the serial queue.
+/// \param label The label for the serial queue.
+///
+- (nonnull instancetype)initWithLabel:(NSString * _Nonnull)label OBJC_DESIGNATED_INITIALIZER;
+- (void)addTask:(void (^ _Nonnull)(void))task;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
 SWIFT_CLASS_NAMED("DeviceInfo")
 @interface APRDeviceInfo : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -4429,14 +4479,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * 
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
-+ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull rmnLogger;)
++ (APRLogger * _Nonnull)rmnLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull rmnLogger;)
-+ (APRLogger * _Nonnull)rmnLogger SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
++ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -4455,6 +4505,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * 
 - (BOOL)isStringContainsNewLineCharacter SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, readonly, strong) NSString * _Nonnull SHA256string;
 @end
+
 
 
 SWIFT_CLASS_NAMED("PersonalizationRemoteService")
@@ -4711,7 +4762,8 @@ SWIFT_CLASS_NAMED("RemoteConfig")
 @property (nonatomic, strong) AIQRemoteConfigDataCollector * _Nullable dataCollector;
 + (AIQRemoteConfig * _Nullable)decodeWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 

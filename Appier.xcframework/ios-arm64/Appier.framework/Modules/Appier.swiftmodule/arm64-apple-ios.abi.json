@@ -19393,6 +19393,115 @@
           },
           {
             "kind": "Var",
+            "name": "idfaToAppend",
+            "printedName": "idfaToAppend",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6Appier15AIQLocalStorageC12idfaToAppendSSSgvp",
+            "mangledName": "$s6Appier15AIQLocalStorageC12idfaToAppendSSSgvp",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6Appier15AIQLocalStorageC12idfaToAppendSSSgvg",
+                "mangledName": "$s6Appier15AIQLocalStorageC12idfaToAppendSSSgvg",
+                "moduleName": "Appier",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6Appier15AIQLocalStorageC12idfaToAppendSSSgvs",
+                "mangledName": "$s6Appier15AIQLocalStorageC12idfaToAppendSSSgvs",
+                "moduleName": "Appier",
+                "isFromExtension": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6Appier15AIQLocalStorageC12idfaToAppendSSSgvM",
+                "mangledName": "$s6Appier15AIQLocalStorageC12idfaToAppendSSSgvM",
+                "moduleName": "Appier",
+                "implicit": true,
+                "isFromExtension": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "asiField",
             "printedName": "asiField",
             "children": [
@@ -30396,8 +30505,8 @@
           },
           {
             "kind": "Var",
-            "name": "remoteConfigEndpoint",
-            "printedName": "remoteConfigEndpoint",
+            "name": "remoteConfigEndpointProd",
+            "printedName": "remoteConfigEndpointProd",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -30407,8 +30516,8 @@
               }
             ],
             "declKind": "Var",
-            "usr": "c:@M@Appier@objc(cs)AIQConfiguration(py)remoteConfigEndpoint",
-            "mangledName": "$s6Appier18AIQUAConfigurationC20remoteConfigEndpointSSvp",
+            "usr": "c:@M@Appier@objc(cs)AIQConfiguration(py)remoteConfigEndpointProd",
+            "mangledName": "$s6Appier18AIQUAConfigurationC24remoteConfigEndpointProdSSvp",
             "moduleName": "Appier",
             "declAttributes": [
               "HasInitialValue",
@@ -30431,8 +30540,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "c:@M@Appier@objc(cs)AIQConfiguration(im)remoteConfigEndpoint",
-                "mangledName": "$s6Appier18AIQUAConfigurationC20remoteConfigEndpointSSvg",
+                "usr": "c:@M@Appier@objc(cs)AIQConfiguration(im)remoteConfigEndpointProd",
+                "mangledName": "$s6Appier18AIQUAConfigurationC24remoteConfigEndpointProdSSvg",
                 "moduleName": "Appier",
                 "implicit": true,
                 "declAttributes": [
@@ -30458,8 +30567,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "c:@M@Appier@objc(cs)AIQConfiguration(im)setRemoteConfigEndpoint:",
-                "mangledName": "$s6Appier18AIQUAConfigurationC20remoteConfigEndpointSSvs",
+                "usr": "c:@M@Appier@objc(cs)AIQConfiguration(im)setRemoteConfigEndpointProd:",
+                "mangledName": "$s6Appier18AIQUAConfigurationC24remoteConfigEndpointProdSSvs",
                 "moduleName": "Appier",
                 "implicit": true,
                 "declAttributes": [
@@ -30479,11 +30588,241 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:6Appier18AIQUAConfigurationC20remoteConfigEndpointSSvM",
-                "mangledName": "$s6Appier18AIQUAConfigurationC20remoteConfigEndpointSSvM",
+                "usr": "s:6Appier18AIQUAConfigurationC24remoteConfigEndpointProdSSvM",
+                "mangledName": "$s6Appier18AIQUAConfigurationC24remoteConfigEndpointProdSSvM",
                 "moduleName": "Appier",
                 "implicit": true,
                 "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "remoteConfigEndpointStaging",
+            "printedName": "remoteConfigEndpointStaging",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Appier@objc(cs)AIQConfiguration(py)remoteConfigEndpointStaging",
+            "mangledName": "$s6Appier18AIQUAConfigurationC27remoteConfigEndpointStagingSSvp",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)AIQConfiguration(im)remoteConfigEndpointStaging",
+                "mangledName": "$s6Appier18AIQUAConfigurationC27remoteConfigEndpointStagingSSvg",
+                "moduleName": "Appier",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)AIQConfiguration(im)setRemoteConfigEndpointStaging:",
+                "mangledName": "$s6Appier18AIQUAConfigurationC27remoteConfigEndpointStagingSSvs",
+                "moduleName": "Appier",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6Appier18AIQUAConfigurationC27remoteConfigEndpointStagingSSvM",
+                "mangledName": "$s6Appier18AIQUAConfigurationC27remoteConfigEndpointStagingSSvM",
+                "moduleName": "Appier",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "isStagingEvn",
+            "printedName": "isStagingEvn",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Appier@objc(cs)AIQConfiguration(py)isStagingEvn",
+            "mangledName": "$s6Appier18AIQUAConfigurationC12isStagingEvnSbvp",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)AIQConfiguration(im)isStagingEvn",
+                "mangledName": "$s6Appier18AIQUAConfigurationC12isStagingEvnSbvg",
+                "moduleName": "Appier",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)AIQConfiguration(im)setIsStagingEvn:",
+                "mangledName": "$s6Appier18AIQUAConfigurationC12isStagingEvnSbvs",
+                "moduleName": "Appier",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6Appier18AIQUAConfigurationC12isStagingEvnSbvM",
+                "mangledName": "$s6Appier18AIQUAConfigurationC12isStagingEvnSbvM",
+                "moduleName": "Appier",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "remoteConfigEndpoint",
+            "printedName": "remoteConfigEndpoint",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Appier@objc(cs)AIQConfiguration(py)remoteConfigEndpoint",
+            "mangledName": "$s6Appier18AIQUAConfigurationC20remoteConfigEndpointSSvp",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)AIQConfiguration(im)remoteConfigEndpoint",
+                "mangledName": "$s6Appier18AIQUAConfigurationC20remoteConfigEndpointSSvg",
+                "moduleName": "Appier",
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
               }
             ]
           },
@@ -57261,6 +57600,275 @@
         "moduleName": "Appier"
       },
       {
+        "kind": "TypeDecl",
+        "name": "OrderedTaskQueue",
+        "printedName": "OrderedTaskQueue",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "addTask",
+            "printedName": "addTask(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Appier@objc(pl)OrderedTaskQueue(im)addTask:",
+            "mangledName": "$s6Appier16OrderedTaskQueueP03addC0yyyycF",
+            "moduleName": "Appier",
+            "genericSig": "<τ_0_0 where τ_0_0 : Appier.OrderedTaskQueue>",
+            "sugared_genericSig": "<Self where Self : Appier.OrderedTaskQueue>",
+            "protocolReq": true,
+            "declAttributes": [
+              "RawDocComment",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "c:@M@Appier@objc(pl)OrderedTaskQueue",
+        "mangledName": "$s6Appier16OrderedTaskQueueP",
+        "moduleName": "Appier",
+        "genericSig": "<τ_0_0 : ObjectiveC.NSObjectProtocol>",
+        "sugared_genericSig": "<Self : ObjectiveC.NSObjectProtocol>",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "DefaultOrderedTaskQueue",
+        "printedName": "DefaultOrderedTaskQueue",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(label:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DefaultOrderedTaskQueue",
+                "printedName": "Appier.DefaultOrderedTaskQueue",
+                "usr": "c:@M@Appier@objc(cs)AIQOrderedTaskQueue"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@Appier@objc(cs)AIQOrderedTaskQueue(im)initWithLabel:",
+            "mangledName": "$s6Appier23DefaultOrderedTaskQueueC5labelACSS_tcfc",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "addTask",
+            "printedName": "addTask(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Appier@objc(cs)AIQOrderedTaskQueue(im)addTask:",
+            "mangledName": "$s6Appier23DefaultOrderedTaskQueueC03addD0yyyycF",
+            "moduleName": "Appier",
+            "objc_name": "addTask:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DefaultOrderedTaskQueue",
+                "printedName": "Appier.DefaultOrderedTaskQueue",
+                "usr": "c:@M@Appier@objc(cs)AIQOrderedTaskQueue"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@Appier@objc(cs)AIQOrderedTaskQueue(im)init",
+            "mangledName": "$s6Appier23DefaultOrderedTaskQueueCACycfc",
+            "moduleName": "Appier",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@Appier@objc(cs)AIQOrderedTaskQueue",
+        "mangledName": "$s6Appier23DefaultOrderedTaskQueueC",
+        "moduleName": "Appier",
+        "objc_name": "AIQOrderedTaskQueue",
+        "declAttributes": [
+          "AccessControl",
+          "ObjCMembers",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "OrderedTaskQueue",
+            "printedName": "OrderedTaskQueue",
+            "usr": "c:@M@Appier@objc(pl)OrderedTaskQueue",
+            "mangledName": "$s6Appier16OrderedTaskQueueP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Appier"
+      },
+      {
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
@@ -68174,32 +68782,6 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "RemoteConfig",
-                "printedName": "Appier.RemoteConfig",
-                "usr": "c:@M@Appier@objc(cs)AIQRemoteConfig"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@Appier@objc(cs)AIQRemoteConfig(im)init",
-            "mangledName": "$s6Appier12RemoteConfigCACycfc",
-            "moduleName": "Appier",
-            "overriding": true,
-            "implicit": true,
-            "objc_name": "init",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "Override"
-            ],
-            "init_kind": "Designated"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
             "printedName": "init(from:)",
             "children": [
               {
@@ -68219,9 +68801,9 @@
             "usr": "s:6Appier12RemoteConfigC4fromACs7Decoder_p_tKcfc",
             "mangledName": "$s6Appier12RemoteConfigC4fromACs7Decoder_p_tKcfc",
             "moduleName": "Appier",
-            "implicit": true,
             "declAttributes": [
-              "Required"
+              "Required",
+              "AccessControl"
             ],
             "throwing": true,
             "init_kind": "Designated"
@@ -68263,6 +68845,7 @@
           "ObjCMembers"
         ],
         "superclassUsr": "c:@M@Appier@objc(cs)AIQObject",
+        "hasMissingDesignatedInitializers": true,
         "inheritsConvenienceInitializers": true,
         "superclassNames": [
           "Appier.AIQObject",
@@ -89421,28 +90004,42 @@
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Core\/AIQUAConfiguration.swift",
       "kind": "StringLiteral",
-      "offset": 844,
+      "offset": 706,
       "length": 32,
       "value": "\"https:\/\/config.aiqua.io\/mobile\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Core\/AIQUAConfiguration.swift",
+      "kind": "StringLiteral",
+      "offset": 792,
+      "length": 65,
+      "value": "\"https:\/\/aiqua-stg-qgraph.s3.ap-southeast-1.amazonaws.com\/mobile\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Core\/AIQUAConfiguration.swift",
+      "kind": "BooleanLiteral",
+      "offset": 894,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Core\/AIQUAConfiguration.swift",
       "kind": "IntegerLiteral",
-      "offset": 2607,
+      "offset": 2749,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Core\/AIQUAConfiguration.swift",
       "kind": "IntegerLiteral",
-      "offset": 2717,
+      "offset": 2859,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Core\/AIQUAConfiguration.swift",
       "kind": "IntegerLiteral",
-      "offset": 2845,
+      "offset": 2987,
       "length": 1,
       "value": "0"
     },
@@ -90291,7 +90888,7 @@
       "kind": "StringLiteral",
       "offset": 350,
       "length": 7,
-      "value": "\"8.3.1\""
+      "value": "\"8.3.2\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
@@ -91696,7 +92293,14 @@
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 20208,
+      "offset": 20212,
+      "length": 19,
+      "value": "\"qg_idfa_to_append\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
+      "kind": "StringLiteral",
+      "offset": 20258,
       "length": 10,
       "value": "\"asiField\""
     },
