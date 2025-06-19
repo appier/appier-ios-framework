@@ -683,6 +683,10 @@ extension Appier.AIQLocalStorage : Appier.AIQStorage {
     get
     set
   }
+  public var idfaToAppend: Swift.String? {
+    get
+    set
+  }
   public var asiField: Swift.String? {
     get
     set
@@ -890,7 +894,12 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
 @_inheritsConvenienceInitializers @objc(AIQConfiguration) @objcMembers public class AIQUAConfiguration : ObjectiveC.NSObject {
   @objc public static let shared: Appier.AIQUAConfiguration
   @objc final public let storage: Appier.AIQLocalStorage
-  @objc public var remoteConfigEndpoint: Swift.String
+  @objc public var remoteConfigEndpointProd: Swift.String
+  @objc public var remoteConfigEndpointStaging: Swift.String
+  @objc public var isStagingEvn: Swift.Bool
+  @objc public var remoteConfigEndpoint: Swift.String {
+    @objc get
+  }
   @objc public var endpoint: Appier.EndpointConfiguration {
     @objc get
     @objc set
@@ -1616,6 +1625,14 @@ extension Appier.LogType : Swift.CustomStringConvertible {
     get
   }
 }
+@objc public protocol OrderedTaskQueue : ObjectiveC.NSObjectProtocol {
+  @objc func addTask(_ task: @escaping () -> Swift.Void)
+}
+@objc(AIQOrderedTaskQueue) @objcMembers public class DefaultOrderedTaskQueue : ObjectiveC.NSObject, Appier.OrderedTaskQueue {
+  @objc public init(label: Swift.String)
+  @objc public func addTask(_ task: @escaping () -> Swift.Void)
+  @objc deinit
+}
 @_hasMissingDesignatedInitializers @objc(AIQPersonalizationRemoteService) @objcMembers final public class PersonalizationRemoteService : ObjectiveC.NSObject {
   @objc(initWithConfiguration:session:) convenience public init(configuration: Appier.AIQUAConfiguration, session: Foundation.URLSession)
   @objc deinit
@@ -1924,7 +1941,7 @@ extension Appier.RecommendationRemoteService : Appier.RecommendationService {
   }
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objcMembers @objc(AIQRemoteConfig) public class RemoteConfig : Appier.AIQObject, Swift.Codable {
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers @objc(AIQRemoteConfig) public class RemoteConfig : Appier.AIQObject, Swift.Codable {
   @objc public var endpoints: Appier.RemoteConfigEndpoints?
   @objc public var aiDeal: Appier.RemoteConfigAideal?
   @objc public var retailMediaNetwork: Appier.RmnConfig?
@@ -1932,10 +1949,9 @@ extension Appier.RecommendationRemoteService : Appier.RecommendationService {
   @objc public var dataCollector: Appier.RemoteConfigDataCollector?
   @objc(decodeWithData:error:) public class func decode(from data: Foundation.Data) throws -> Appier.RemoteConfig
   @objc public func data() throws -> Foundation.Data
-  @objc override dynamic public init()
+  required public init(from decoder: any Swift.Decoder) throws
   @objc deinit
   public func encode(to encoder: any Swift.Encoder) throws
-  required public init(from decoder: any Swift.Decoder) throws
 }
 @objc @_inheritsConvenienceInitializers public class RemoteConfigAideal : Appier.AIQObject, Swift.Codable {
   @objc override dynamic public init()
