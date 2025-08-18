@@ -23,7 +23,7 @@ on:
         
 jobs:
   release_framework:
-    if: (startsWith(github.head_ref, 'release') || startsWith(github.head_ref, 'prerelease')) && github.event.pull_request.merged == true
+    if: github.event_name == 'workflow_dispatch' || ((startsWith(github.head_ref, 'release') || startsWith(github.head_ref, 'prerelease')) && github.event.pull_request.merged == true)
     runs-on: macos-latest
     steps:
 
