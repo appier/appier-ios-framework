@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AIQMutableOrderedDictionary : NSObject <NSCoding>
 - (void)addObject:(id)obj forKey:(id)key;
+- (void)insertObject:(id)obj forKey:(id)key atIndex:(NSUInteger)index;
 - (nullable id)objectForKey:(id)key;
 - (void)removeObjectForKey:(id)key;
 - (NSArray *)allKeys;
