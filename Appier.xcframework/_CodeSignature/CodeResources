@@ -14,7 +14,7 @@
 		</data>
 		<key>ios-arm64/Appier.framework/Appier</key>
 		<data>
-		jUknIllNF/jZUydl14UE+hb154I=
+		5lfudNsuznCBhVm6oBVyFgo+iwA=
 		</data>
 		<key>ios-arm64/Appier.framework/Assets.car</key>
 		<data>
@@ -106,11 +106,11 @@
 		</data>
 		<key>ios-arm64/Appier.framework/Info.plist</key>
 		<data>
-		eVRHPszHvAQSnEhEtQSAilo5meY=
+		P+Po1QZfm8r1xd8eZmouR9/TFCY=
 		</data>
 		<key>ios-arm64/Appier.framework/Modules/Appier.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		4shenR3Yxky8y9/WJ+DslD8K/jo=
+		tet7k4jnGB1QG5c8A0nmyt04otY=
 		</data>
 		<key>ios-arm64/Appier.framework/Modules/Appier.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
@@ -172,11 +172,11 @@
 		</dict>
 		<key>ios-arm64/Appier.framework/layout_large.html</key>
 		<data>
-		Eh1kgd+VHQjt5Jugj2ogedL5CIA=
+		K30gKHCcnVQ+rG1JVR2y4FH6zfE=
 		</data>
 		<key>ios-arm64/Appier.framework/layout_medium.html</key>
 		<data>
-		0rrKd+xB3udtOT9UmaZH0YUXIrY=
+		a7MPIA7MBK0Bh+8sVfLrHRkXQ6k=
 		</data>
 		<key>ios-arm64/Appier.framework/layout_small.html</key>
 		<data>
@@ -205,7 +205,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/Appier.framework/Appier</key>
 		<data>
-		zF256jRXVUaJG+KUJRIm9BWwsnk=
+		Jfk7qjBin4LJoXXiUpRws/C5Ql0=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Appier.framework/Assets.car</key>
 		<data>
@@ -297,11 +297,11 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/Appier.framework/Info.plist</key>
 		<data>
-		29AigEyAwim8KkHMiMpEiw5lseU=
+		GjT2I/JraFd3j/nRopAi/vHIT4k=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Appier.framework/Modules/Appier.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		14HeZYJEkAlSe/POwxVh3mFyGc0=
+		MLj/GXEXQMZ1aA3yDUW0Yh/3rWs=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Appier.framework/Modules/Appier.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -317,7 +317,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/Appier.framework/Modules/Appier.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		14HeZYJEkAlSe/POwxVh3mFyGc0=
+		MLj/GXEXQMZ1aA3yDUW0Yh/3rWs=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Appier.framework/Modules/Appier.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -341,7 +341,7 @@
 		</data>
 		<key>ios-arm64_x86_64-simulator/Appier.framework/_CodeSignature/CodeResources</key>
 		<data>
-		bUljChTdYenD3wbKF0nAoGTsKmI=
+		LubSUGZ38UQjwQzOiIPtfES0to0=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Appier.framework/aideal-click.js</key>
 		<data>
@@ -383,11 +383,11 @@
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Appier.framework/layout_large.html</key>
 		<data>
-		Eh1kgd+VHQjt5Jugj2ogedL5CIA=
+		K30gKHCcnVQ+rG1JVR2y4FH6zfE=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Appier.framework/layout_medium.html</key>
 		<data>
-		0rrKd+xB3udtOT9UmaZH0YUXIrY=
+		a7MPIA7MBK0Bh+8sVfLrHRkXQ6k=
 		</data>
 		<key>ios-arm64_x86_64-simulator/Appier.framework/layout_small.html</key>
 		<data>
@@ -435,11 +435,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			jUknIllNF/jZUydl14UE+hb154I=
+			5lfudNsuznCBhVm6oBVyFgo+iwA=
 			</data>
 			<key>hash2</key>
 			<data>
-			hyfSe9HltCaTBr5+RNzvaKME+9BnQNkDdha8upDOnp0=
+			3tXZ8HSmbaEHKx4C9UPvX+xX4BHH05gJsGe55xv5t4g=
 			</data>
 		</dict>
 		<key>ios-arm64/Appier.framework/Assets.car</key>
@@ -688,22 +688,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			eVRHPszHvAQSnEhEtQSAilo5meY=
+			P+Po1QZfm8r1xd8eZmouR9/TFCY=
 			</data>
 			<key>hash2</key>
 			<data>
-			5IKNBNMl313xY18+uew+/zSf8rRyt+mwbtlIMP09C/M=
+			yFfhlODyXy173RaUtqGDU2tMQGePAH1I6mq0JrRohR0=
 			</data>
 		</dict>
 		<key>ios-arm64/Appier.framework/Modules/Appier.swiftmodule/arm64-apple-ios.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			4shenR3Yxky8y9/WJ+DslD8K/jo=
+			tet7k4jnGB1QG5c8A0nmyt04otY=
 			</data>
 			<key>hash2</key>
 			<data>
-			uaoXQi8DCCwUmiqjz/1JHNhdR58w+/C0bOSQtx7FEA0=
+			ALuBu1RjsvtFSBZxCMojczGaaEfCrJAQolLRGQZdioo=
 			</data>
 		</dict>
 		<key>ios-arm64/Appier.framework/Modules/Appier.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
@@ -846,22 +846,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Eh1kgd+VHQjt5Jugj2ogedL5CIA=
+			K30gKHCcnVQ+rG1JVR2y4FH6zfE=
 			</data>
 			<key>hash2</key>
 			<data>
-			wjVxPWflVwh1a6ToEGaXamh0zyfvPlZGyA9ncQf+PJw=
+			nriKNg83OEPYOw76aZF+KIZQ2TCisqP825pL63knpb0=
 			</data>
 		</dict>
 		<key>ios-arm64/Appier.framework/layout_medium.html</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			0rrKd+xB3udtOT9UmaZH0YUXIrY=
+			a7MPIA7MBK0Bh+8sVfLrHRkXQ6k=
 			</data>
 			<key>hash2</key>
 			<data>
-			0ugQWNog5CS5t6UbQSd6jUTPyDODZmcIHEcxB4qFZOA=
+			rUFNBzrC13OPQ85QVW7opK/sFIrFjZkCdGRH9Ogv+PY=
 			</data>
 		</dict>
 		<key>ios-arm64/Appier.framework/layout_small.html</key>
@@ -925,11 +925,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			zF256jRXVUaJG+KUJRIm9BWwsnk=
+			Jfk7qjBin4LJoXXiUpRws/C5Ql0=
 			</data>
 			<key>hash2</key>
 			<data>
-			PBHexgqHLNopDw/XyRIpo0+E0wEH2guK+O/MGLzvcvk=
+			HaSaLOmroErburC1Pn6DqRCJv8Do/Y3/LtEXZIt90kM=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Appier.framework/Assets.car</key>
@@ -1178,22 +1178,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			29AigEyAwim8KkHMiMpEiw5lseU=
+			GjT2I/JraFd3j/nRopAi/vHIT4k=
 			</data>
 			<key>hash2</key>
 			<data>
-			mVsLZBzAYdP3byxQfkOIzdd5sU5362Iy1swAcEcG6bY=
+			Pzka/voAhgh1f3a7l8TwYcMIFTv4ZZ1fupEbPxUgx2I=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Appier.framework/Modules/Appier.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			14HeZYJEkAlSe/POwxVh3mFyGc0=
+			MLj/GXEXQMZ1aA3yDUW0Yh/3rWs=
 			</data>
 			<key>hash2</key>
 			<data>
-			JSavFLVjRH4HGS1zkgJa2jhW9FbQPE6LFbleIH6DpPM=
+			coewOMNDqHZUOlZNMuZaZsaawK4VhElWRL3nJZr9/7k=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Appier.framework/Modules/Appier.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -1233,11 +1233,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			14HeZYJEkAlSe/POwxVh3mFyGc0=
+			MLj/GXEXQMZ1aA3yDUW0Yh/3rWs=
 			</data>
 			<key>hash2</key>
 			<data>
-			JSavFLVjRH4HGS1zkgJa2jhW9FbQPE6LFbleIH6DpPM=
+			coewOMNDqHZUOlZNMuZaZsaawK4VhElWRL3nJZr9/7k=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Appier.framework/Modules/Appier.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -1299,11 +1299,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			bUljChTdYenD3wbKF0nAoGTsKmI=
+			LubSUGZ38UQjwQzOiIPtfES0to0=
 			</data>
 			<key>hash2</key>
 			<data>
-			p+4uGUGsEha0765xqsVEZKTHVbpjT39LDJ7cwwbOtrA=
+			T4LE/UgMRnNAP7XO7gDSfnb+pe/joTRtb0enqmpTrxs=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Appier.framework/aideal-click.js</key>
@@ -1391,22 +1391,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Eh1kgd+VHQjt5Jugj2ogedL5CIA=
+			K30gKHCcnVQ+rG1JVR2y4FH6zfE=
 			</data>
 			<key>hash2</key>
 			<data>
-			wjVxPWflVwh1a6ToEGaXamh0zyfvPlZGyA9ncQf+PJw=
+			nriKNg83OEPYOw76aZF+KIZQ2TCisqP825pL63knpb0=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Appier.framework/layout_medium.html</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			0rrKd+xB3udtOT9UmaZH0YUXIrY=
+			a7MPIA7MBK0Bh+8sVfLrHRkXQ6k=
 			</data>
 			<key>hash2</key>
 			<data>
-			0ugQWNog5CS5t6UbQSd6jUTPyDODZmcIHEcxB4qFZOA=
+			rUFNBzrC13OPQ85QVW7opK/sFIrFjZkCdGRH9Ogv+PY=
 			</data>
 		</dict>
 		<key>ios-arm64_x86_64-simulator/Appier.framework/layout_small.html</key>
