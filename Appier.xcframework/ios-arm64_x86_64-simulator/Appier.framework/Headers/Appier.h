@@ -3,6 +3,16 @@
 FOUNDATION_EXPORT double AppierVersionNumber;
 FOUNDATION_EXPORT const unsigned char AppierVersionString[];
 
+#import <AppTrackingTransparency/AppTrackingTransparency.h>
+#import <CoreData/CoreData.h>
+#import <CoreLocation/CoreLocation.h>
+
+// Appier public headers
+#import <Appier/AppierError.h>
+#import <Appier/AsyncResult.h>
+#import <Appier/AppierQGSdk.h>
+#import <Appier/AppierQGSdk+CrossPlatformFramework.h>
+
 // AiDeal public headers
 #import <Appier/AIDNotification.h>
 #import <Appier/AIDPage.h>
@@ -10,10 +20,6 @@ FOUNDATION_EXPORT const unsigned char AppierVersionString[];
 
 // AIQUA public headers
 #import <Appier/QGSdk.h>
-#import <Appier/QGSdk+CrossPlatformFramework.h>
-#import <Appier/QGInbox.h>
-#import <Appier/AIQP.h> // deprecated
-#import <Appier/AIQP+ReactNative.h> // deprecated
 
 // AIQUA Notification public headers
 #import <Appier/QGNotificationSdk.h>

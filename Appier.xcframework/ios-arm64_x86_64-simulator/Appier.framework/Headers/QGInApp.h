@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "QGImageManager.h"
 #import "AIQInAppCondition.h"
 
 typedef NS_ENUM(NSInteger, InAppType){
@@ -27,6 +26,8 @@ typedef NS_ENUM(NSInteger, InAppPersistency) {
     InAppPersistencyNotPersist = 2
 };
 
+@protocol AIQInAppWebViewControllerDataSource;
+@protocol AppierImageManagingProtocol;
 @class AIQInAppCondition;
 @class AIQInAppAdditionalCondition;
 @class AIQInAppBadgeSetting;
@@ -38,7 +39,8 @@ typedef NS_ENUM(NSInteger, InAppPersistency) {
 @end
 
 
-@interface QGInApp: NSObject<NSCoding>
+@interface QGInApp: NSObject<NSCoding, AIQInAppWebViewControllerDataSource>
+@property (nonatomic, weak) id<AppierImageManagingProtocol> delegate;
 @property (nonatomic) NSNumber *notificationId;
 @property (nonatomic) NSNumber *messageNo;
 @property (nonatomic) InAppType type;
@@ -79,8 +81,11 @@ typedef NS_ENUM(NSInteger, InAppPersistency) {
 
 - (id)initWithDictionary:(NSDictionary *)campaign;
 
-+ (BOOL)isValidInApp:(QGInApp *)qgInApp WithDate:(NSDate *)now;
++ (BOOL)isValidInApp:(QGInApp *)qgInApp withDate:(NSDate *)now;
++ (BOOL)isValidFrequencyCapWithInApp:(QGInApp *)qgInApp withDate:(NSDate *)now;
 + (BOOL)isExpiredInApp:(QGInApp *)qgInApp;
++ (BOOL)isInvalidCreativeStudio:(QGInApp *)inApp;
 - (void)downloadIconResourcesWithCompletionHandler:(void(^)(BOOL))completionHandler;
+- (void)downloadImageResourcesWithCompletionHandler:(void(^)(BOOL))completionHandler;
 - (NSString *)fbImageUrl;
 @end
