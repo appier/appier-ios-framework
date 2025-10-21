@@ -1,7 +1,6 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
-// swift-module-flags: -target arm64-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AppierExtension
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name AppierExtension
 import AdSupport
 import AppTrackingTransparency
 @_exported import AppierExtension
@@ -15,6 +14,9 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 import os
+extension AppierExtension.Logger {
+  @objc(aiquaNotificationLogger) public static let aiquaNotification: AppierExtension.Logger
+}
 @_inheritsConvenienceInitializers @objc(APRDeviceInfo) @objcMembers public class DeviceInfo : ObjectiveC.NSObject {
   @objc override dynamic public init()
   @objc deinit
@@ -52,9 +54,6 @@ extension AppierExtension.DeviceInfo {
   }
   @objc override dynamic public init()
   @objc deinit
-}
-extension AppierExtension.Logger {
-  @objc(aiquaNotificationLogger) public static let aiquaNotification: AppierExtension.Logger
 }
 @_hasMissingDesignatedInitializers @objc(APRLogger) public class Logger : ObjectiveC.NSObject {
   @objc final public let category: Swift.String

@@ -59,7 +59,7 @@ DEPRECATED_MSG_ATTRIBUTE("Notification extension support will be removed from Ap
  @param request         UNNotificationRequest received in the notification
  
  */
-- (void)didReceiveNotificationRequest:(UNNotificationRequest *)request withContentHandler:(void (^)(UNNotificationContent *))contentHandler API_AVAILABLE(ios(10.0));
+- (void)didReceiveNotificationRequest:(UNNotificationRequest *)request withContentHandler:(void (^)(UNNotificationContent *))contentHandler;
 
 /*!
  @method
@@ -98,7 +98,7 @@ DEPRECATED_MSG_ATTRIBUTE("Notification extension support will be removed from Ap
  @param notification     UNNotification object received
  
  */
-- (void)didReceiveNotification:(UNNotification *)notification API_AVAILABLE(ios(10.0));
+- (void)didReceiveNotification:(UNNotification *)notification;
 
 /*!
  @method
@@ -118,7 +118,7 @@ DEPRECATED_MSG_ATTRIBUTE("Notification extension support will be removed from Ap
  @param context         NSExtensionCotext object
  
  */
-- (void)didReceiveNotificationResponse:(UNNotificationResponse *)response withContext:(NSExtensionContext *)context completionHandler:(void (^)(UNNotificationContentExtensionResponseOption))completion API_AVAILABLE(ios(10.0));
+- (void)didReceiveNotificationResponse:(UNNotificationResponse *)response withContext:(NSExtensionContext *)context completionHandler:(void (^)(UNNotificationContentExtensionResponseOption))completion;
 
 /*!
  @method
