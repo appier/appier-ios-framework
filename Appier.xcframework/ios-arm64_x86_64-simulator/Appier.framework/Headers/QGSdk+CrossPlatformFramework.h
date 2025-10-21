@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param version Vesrion of the SDK for the cross-platform framework. Use nil if not applicable.
  * @note This API is for internal use only.
  */
-- (void)onStart:(NSString *)appId withAppGroup:(NSString *)appGroup setDevProfile:(BOOL)devProfile frameworkType:(NSString * _Nullable)type version:(NSString * _Nullable)version;
+- (void)onStart:(NSString *)appId withAppGroup:(NSString * _Nullable)appGroup setDevProfile:(BOOL)devProfile frameworkType:(NSString * _Nullable)type version:(NSString * _Nullable)version;
 @end
 
 NS_ASSUME_NONNULL_END
