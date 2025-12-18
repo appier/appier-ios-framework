@@ -6076,6 +6076,36 @@
           },
           {
             "kind": "Function",
+            "name": "deleteLogEvent",
+            "printedName": "deleteLogEvent(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Appier@objc(pl)AIQEventLoggingProtocol(im)deleteLogEvent:",
+            "mangledName": "$s6Appier23AIQEventLoggingProtocolP14deleteLogEventyySSF",
+            "moduleName": "Appier",
+            "genericSig": "<τ_0_0 where τ_0_0 : Appier.AIQEventLoggingProtocol>",
+            "sugared_genericSig": "<Self where Self : Appier.AIQEventLoggingProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "setAttributionWindow",
             "printedName": "setAttributionWindow(_:)",
             "children": [
@@ -11531,6 +11561,70 @@
                 ],
                 "reqNewWitnessTableEntry": true,
                 "accessorKind": "set"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "appierID",
+            "printedName": "appierID",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.NSNumber?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSNumber",
+                    "printedName": "Foundation.NSNumber",
+                    "usr": "c:objc(cs)NSNumber"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Appier@objc(pl)AIQInAppWebViewStorageProtocol(py)appierID",
+            "mangledName": "$s6Appier30AIQInAppWebViewStorageProtocolP8appierIDSo8NSNumberCSgvp",
+            "moduleName": "Appier",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.NSNumber?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NSNumber",
+                        "printedName": "Foundation.NSNumber",
+                        "usr": "c:objc(cs)NSNumber"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(pl)AIQInAppWebViewStorageProtocol(im)appierID",
+                "mangledName": "$s6Appier30AIQInAppWebViewStorageProtocolP8appierIDSo8NSNumberCSgvg",
+                "moduleName": "Appier",
+                "genericSig": "<τ_0_0 where τ_0_0 : Appier.AIQInAppWebViewStorageProtocol>",
+                "sugared_genericSig": "<Self where Self : Appier.AIQInAppWebViewStorageProtocol>",
+                "protocolReq": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
               }
             ]
           },
@@ -32035,6 +32129,36 @@
             ],
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setAIQActiveProfile",
+            "printedName": "setAIQActiveProfile(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Appier@objc(pl)AIQUserProfileLoggingProtocol(im)setAIQActiveProfile:",
+            "mangledName": "$s6Appier29AIQUserProfileLoggingProtocolP012setAIQActiveC0yySbF",
+            "moduleName": "Appier",
+            "genericSig": "<τ_0_0 where τ_0_0 : Appier.AIQUserProfileLoggingProtocol>",
+            "sugared_genericSig": "<Self where Self : Appier.AIQUserProfileLoggingProtocol>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Protocol",
@@ -35696,6 +35820,75 @@
             "funcSelfKind": "NonMutating"
           },
           {
+            "kind": "Function",
+            "name": "initialize",
+            "printedName": "initialize(configuration:abortOnError:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:SD"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "hasDefaultArg": true,
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Bool) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Appier@objc(cs)AppierSDK(cm)initializeWithConfiguration:abortOnError:completion:",
+            "mangledName": "$s6Appier0A3SDKC10initialize13configuration12abortOnError10completionySDyS2SG_SbySbctFZ",
+            "moduleName": "Appier",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
             "kind": "Var",
             "name": "Aiqua",
             "printedName": "Aiqua",
@@ -37596,6 +37789,27 @@
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Appier"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Appier"
+      },
+      {
+        "kind": "Import",
+        "name": "WebKit",
+        "printedName": "WebKit",
+        "declKind": "Import",
+        "moduleName": "Appier"
+      },
+      {
+        "kind": "Import",
+        "name": "UserNotifications",
+        "printedName": "UserNotifications",
         "declKind": "Import",
         "moduleName": "Appier"
       },
@@ -43007,6 +43221,59 @@
           },
           {
             "kind": "Var",
+            "name": "AIQ_ACTIVE_PROFILE",
+            "printedName": "AIQ_ACTIVE_PROFILE",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Appier@objc(cs)QGConstant(cpy)AIQ_ACTIVE_PROFILE",
+            "mangledName": "$s6Appier8ConstantC18AIQ_ACTIVE_PROFILESSvpZ",
+            "moduleName": "Appier",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)QGConstant(cm)AIQ_ACTIVE_PROFILE",
+                "mangledName": "$s6Appier8ConstantC18AIQ_ACTIVE_PROFILESSvgZ",
+                "moduleName": "Appier",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
             "name": "QG_SAFARI_TRACKING_DISABLED_STATUS",
             "printedName": "QG_SAFARI_TRACKING_DISABLED_STATUS",
             "children": [
@@ -45040,6 +45307,109 @@
                 "declKind": "Accessor",
                 "usr": "s:6Appier8ConstantC49EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_PAYLOADSSvMZ",
                 "mangledName": "$s6Appier8ConstantC49EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_PAYLOADSSvMZ",
+                "moduleName": "Appier",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "EVENT_SWITCH_APP_ID",
+            "printedName": "EVENT_SWITCH_APP_ID",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Appier@objc(cs)QGConstant(cpy)EVENT_SWITCH_APP_ID",
+            "mangledName": "$s6Appier8ConstantC19EVENT_SWITCH_APP_IDSSvpZ",
+            "moduleName": "Appier",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "ObjC"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)QGConstant(cm)EVENT_SWITCH_APP_ID",
+                "mangledName": "$s6Appier8ConstantC19EVENT_SWITCH_APP_IDSSvgZ",
+                "moduleName": "Appier",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Appier@objc(cs)QGConstant(cm)setEVENT_SWITCH_APP_ID:",
+                "mangledName": "$s6Appier8ConstantC19EVENT_SWITCH_APP_IDSSvsZ",
+                "moduleName": "Appier",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6Appier8ConstantC19EVENT_SWITCH_APP_IDSSvMZ",
+                "mangledName": "$s6Appier8ConstantC19EVENT_SWITCH_APP_IDSSvMZ",
                 "moduleName": "Appier",
                 "static": true,
                 "implicit": true,
@@ -56718,6 +57088,36 @@
             "declKind": "Func",
             "usr": "c:@M@Appier@objc(cs)AIQLoggedEventDAO(im)deleteAll",
             "mangledName": "$s6Appier14LoggedEventDAOC9deleteAllSiyF",
+            "moduleName": "Appier",
+            "declAttributes": [
+              "AccessControl",
+              "DiscardableResult",
+              "RawDocComment",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "deleteLogEvent",
+            "printedName": "deleteLogEvent(with:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Appier@objc(cs)AIQLoggedEventDAO(im)deleteLogEventWith:",
+            "mangledName": "$s6Appier14LoggedEventDAOC09deleteLogC04withSiSS_tF",
             "moduleName": "Appier",
             "declAttributes": [
               "AccessControl",
@@ -92277,6 +92677,13 @@
       "value": "\"\""
     },
     {
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/AiquaSdk\/Aiqua.swift",
+      "kind": "BooleanLiteral",
+      "offset": 202,
+      "length": 5,
+      "value": "false"
+    },
+    {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Core\/AIQUAConfiguration.swift",
       "kind": "StringLiteral",
       "offset": 706,
@@ -92317,6 +92724,13 @@
       "offset": 3505,
       "length": 1,
       "value": "0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/AiquaSdk\/Internal\/AiquaSDK.swift",
+      "kind": "BooleanLiteral",
+      "offset": 679,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/AIQUtility.swift",
@@ -92452,11 +92866,46 @@
       "value": "\"com.appier.is_dev_profile\""
     },
     {
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/AppierSdk\/AppierSDK.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1711,
+      "length": 4,
+      "value": "true"
+    },
+    {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/AppierSdk\/Internal\/AppierSDKImpl.swift",
       "kind": "IntegerLiteral",
-      "offset": 105,
+      "offset": 128,
       "length": 3,
       "value": "600"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/AppierSdk\/Internal\/AppierSDKImpl.swift",
+      "kind": "StringLiteral",
+      "offset": 230,
+      "length": 29,
+      "value": "\"com.appier.sdk.appid.switch\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/AppierSdk\/Internal\/AppierSDKImpl.swift",
+      "kind": "BooleanLiteral",
+      "offset": 310,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/AppierSdk\/Internal\/AppierSDKImpl.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2967,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/AppierSdk\/Internal\/AppierSDKImpl.swift",
+      "kind": "BooleanLiteral",
+      "offset": 10097,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/AiDealSdk\/Interaction Recording\/ApplicationStateEvent.swift",
@@ -93177,7 +93626,7 @@
       "kind": "StringLiteral",
       "offset": 385,
       "length": 7,
-      "value": "\"8.4.3\""
+      "value": "\"8.5.0\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
@@ -93574,1043 +94023,1057 @@
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 4555,
+      "offset": 4538,
+      "length": 20,
+      "value": "\"aiq_active_profile\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
+      "kind": "StringLiteral",
+      "offset": 4619,
       "length": 41,
       "value": "\"qg_safari_user_tracking_disabled_status\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 4648,
+      "offset": 4712,
       "length": 38,
       "value": "\"qg_safari_data_sent_to_server_status\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 4734,
+      "offset": 4798,
       "length": 28,
       "value": "\"qg_app_group_name_main_sdk\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 4820,
+      "offset": 4884,
       "length": 34,
       "value": "\"qg_force_touch_capability_status\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 4909,
+      "offset": 4973,
       "length": 44,
       "value": "\"qg_rich_push_notification_supported_status\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 5004,
+      "offset": 5068,
       "length": 23,
       "value": "\"qg_rich_push_deeplink\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 5084,
+      "offset": 5148,
       "length": 43,
       "value": "\"qg_is_not_first_time_app_background_event\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 5173,
+      "offset": 5237,
       "length": 22,
       "value": "\"qg_exit_push_payload\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 5240,
+      "offset": 5304,
       "length": 20,
       "value": "\"qg_is_collect_idfa\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 5308,
+      "offset": 5372,
       "length": 24,
       "value": "\"qg_is_collect_location\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 5387,
+      "offset": 5451,
       "length": 30,
       "value": "\"qg_did_migrate_image_storage\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "IntegerLiteral",
-      "offset": 5481,
+      "offset": 5545,
       "length": 2,
       "value": "15"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "BooleanLiteral",
-      "offset": 5554,
+      "offset": 5618,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "BooleanLiteral",
-      "offset": 5629,
+      "offset": 5693,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 5682,
+      "offset": 5746,
       "length": 27,
       "value": "\"com.appier.framework_type\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 5759,
+      "offset": 5823,
       "length": 30,
       "value": "\"com.appier.framework_version\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 5841,
+      "offset": 5905,
       "length": 32,
       "value": "\"com.appier.fetch_remote_config\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 6330,
+      "offset": 6394,
       "length": 17,
       "value": "\"aiq_cg_received\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 7858,
+      "offset": 7205,
+      "length": 19,
+      "value": "\"aiq_switch_app_id\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
+      "kind": "StringLiteral",
+      "offset": 7987,
       "length": 66,
       "value": "\"https:\/\/appier-app-link-tester-cxvcdcmecq-de.a.run.app\/singapore\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 7961,
+      "offset": 8090,
       "length": 12,
       "value": "\"production\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 8036,
+      "offset": 8165,
       "length": 27,
       "value": "\"qg_universal_link_domains\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 8138,
+      "offset": 8267,
       "length": 31,
       "value": "\"AppierAppDelegateProxyEnabled\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 8257,
+      "offset": 8386,
       "length": 44,
       "value": "\"AppierSceneDelegateDeeplinkHandlingEnabled\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 8353,
+      "offset": 8482,
       "length": 32,
       "value": "\"appier_failed_push_event_stack\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 8429,
+      "offset": 8558,
       "length": 20,
       "value": "\"aiq_webkit_version\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 8493,
+      "offset": 8622,
       "length": 22,
       "value": "\"appier_session_count\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 8568,
+      "offset": 8697,
       "length": 32,
       "value": "\"appier_last_track_session_time\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 8645,
+      "offset": 8774,
       "length": 24,
       "value": "\"appier_app_launch_time\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 8713,
+      "offset": 8842,
       "length": 16,
       "value": "\"deep_link_utms\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 8762,
+      "offset": 8891,
       "length": 5,
       "value": "\"ads\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 9419,
+      "offset": 9548,
       "length": 14,
       "value": "\"aiqMobileSdk\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 9478,
+      "offset": 9607,
       "length": 4940,
       "value": "\"    var \""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 9521,
+      "offset": 9650,
       "length": 1,
       "value": "\" = {\n        promises: {},\n        flush: function () {\n            var e = this;\n            return new Promise(function (s, r) {\n                var t = e.generateUUID();\n                e.promises[t] = {\n                    resolve: s,\n                    reject: r\n                };\n                var o = {\n                    command: 'flush',\n                    promiseId: t\n                };\n                try {\n                    window.webkit.messageHandlers.aiqua.postMessage(o);\n                } catch (e) {\n\n                }\n            })\n        },\n        logEvent: function (e) {\n            try {\n                var s = JSON.parse(e);\n                s.command = 'event', window.webkit.messageHandlers.aiqua.postMessage(s);\n            } catch (e) {\n\n            }\n        },\n        setCustomKey: function (e) {\n            try {\n                var s = JSON.parse(e);\n                s.command = 'profile', window.webkit.messageHandlers.aiqua.postMessage(s);\n            } catch (e) {\n\n            }\n        },\n        getAppId: function () {\n            var e = this;\n            return new Promise(function (s, r) {\n                var t = e.generateUUID();\n                e.promises[t] = {\n                    resolve: s,\n                    reject: r\n                };\n                var o = {\n                    command: 'getAppId',\n                    promiseId: t\n                };\n                try {\n                    window.webkit.messageHandlers.aiqua.postMessage(o);\n                } catch (e) {\n\n                }\n            })\n        },\n        getVersion: function () {\n            var e = this;\n            return new Promise(function (s, r) {\n                var t = e.generateUUID();\n                e.promises[t] = {\n                    resolve: s,\n                    reject: r\n                };\n                var o = {\n                    command: 'sdkVersion',\n                    promiseId: t\n                };\n                try {\n                    window.webkit.messageHandlers.aiqua.postMessage(o);\n                } catch (e) {\n\n                }\n            })\n        },\n        getRecommendationByScenario: function (o) {\n            var e = this;\n            var j = JSON.parse(o);\n            return new Promise(function (s, r) {\n                var t = e.generateUUID();\n                e.promises[t] = {\n                    resolve: s,\n                    reject: r\n                };\n                var o = {\n                    command: 'getRecommendation',\n                    promiseId: t,\n                    scenarioId: j.scenarioId,\n                    productId: j.productId,\n                    query: {\n                        filter: j.filter,\n                        num: j.num,\n                        user_id: j.user_id\n                    }\n                };\n                try {\n                    window.webkit.messageHandlers.aiqua.postMessage(o);\n                } catch (e) {\n\n                }\n            })\n        },\n        generateUUID: function () {\n            var e = (new Date).getTime();\n            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(\/[xy]\/g, function (s) {\n                var r = (e + 16 * Math.random()) % 16 | 0;\n                return e = Math.floor(e \/ 16), ('x' == s ? r : 3 & r | 8).toString(16);\n            })\n        },\n        resolvePromise: function (data) {\n            var decodedData = this.base64Decode(data);\n            var transferData = JSON.parse(decodedData);\n            var e = transferData['e'];\n            var s = transferData['s'];\n            var r = transferData['r'];\n            r ? this.promises[e].reject(s) : this.promises[e].resolve(s), delete this.promises[e];\n        },\n        base64Decode: function (base64Str) {\n            try {\n                if (typeof TextEncoder !== 'undefined') {\n                    var d = new TextDecoder('utf-8');\n                    return d.decode(Uint8Array.from(window.atob(base64Str), function (c) {\n                        return c.codePointAt(0);\n                    }));\n                } else {\n                    return decodeURIComponent(escape(window.atob(base64Str)));\n                }\n            } catch (e) {\n                return window.atob(base64Str);\n            }\n        }\n    };\n\n    window.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 14379,
+      "offset": 14508,
       "length": 1,
       "value": "\" = \""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 14409,
+      "offset": 14538,
       "length": 1,
       "value": "\";\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 14495,
+      "offset": 14624,
       "length": 11,
       "value": "\"undefined\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 14556,
+      "offset": 14685,
       "length": 5,
       "value": "\"url\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 14594,
+      "offset": 14723,
       "length": 16,
       "value": "\"notificationId\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 14656,
+      "offset": 14785,
       "length": 10,
       "value": "\"latitude\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 14713,
+      "offset": 14842,
       "length": 11,
       "value": "\"longitude\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 14775,
+      "offset": 14904,
       "length": 10,
       "value": "\"altitude\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 14870,
+      "offset": 14999,
       "length": 10,
       "value": "\"accuracy\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 14925,
+      "offset": 15054,
       "length": 7,
       "value": "\"speed\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15018,
+      "offset": 15147,
       "length": 17,
       "value": "\"geofence_config\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15064,
+      "offset": 15193,
       "length": 13,
       "value": "\"geofence_id\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15108,
+      "offset": 15237,
       "length": 15,
       "value": "\"geofence_name\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15158,
+      "offset": 15287,
       "length": 19,
       "value": "\"geofence_latitude\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15213,
+      "offset": 15342,
       "length": 20,
       "value": "\"geofence_longitude\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15266,
+      "offset": 15395,
       "length": 17,
       "value": "\"geofence_radius\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15307,
+      "offset": 15436,
       "length": 7,
       "value": "\"error\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15361,
+      "offset": 15490,
       "length": 33,
       "value": "\"device_location_service_enabled\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15436,
+      "offset": 15565,
       "length": 27,
       "value": "\"background_refresh_status\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15509,
+      "offset": 15638,
       "length": 31,
       "value": "\"location_monitoring_available\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15590,
+      "offset": 15719,
       "length": 36,
       "value": "\"user_location_authorization_status\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15660,
+      "offset": 15789,
       "length": 18,
       "value": "\"precise_location\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15706,
+      "offset": 15835,
       "length": 11,
       "value": "\"timestamp\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15745,
+      "offset": 15874,
       "length": 11,
       "value": "\"eventName\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15785,
+      "offset": 15914,
       "length": 12,
       "value": "\"parameters\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15826,
+      "offset": 15955,
       "length": 5,
       "value": "\"vts\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15868,
+      "offset": 15997,
       "length": 9,
       "value": "\"vtsCurr\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15912,
+      "offset": 16041,
       "length": 18,
       "value": "\"callToActionText\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 15969,
+      "offset": 16098,
       "length": 22,
       "value": "\"qg_lead_gen_datetime\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16037,
+      "offset": 16166,
       "length": 29,
       "value": "\"qg_lead_gen_notification_id\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16091,
+      "offset": 16220,
       "length": 8,
       "value": "\"reason\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16128,
+      "offset": 16257,
       "length": 12,
       "value": "\"giosgJsUrl\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16178,
+      "offset": 16307,
       "length": 24,
       "value": "\"last_app_launched_time\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16236,
+      "offset": 16365,
       "length": 17,
       "value": "\"deepLinkRecords\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16317,
+      "offset": 16446,
       "length": 13,
       "value": "\"scenario_id\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16356,
+      "offset": 16485,
       "length": 10,
       "value": "\"model_id\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16394,
+      "offset": 16523,
       "length": 12,
       "value": "\"product_id\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16441,
+      "offset": 16570,
       "length": 19,
       "value": "\"recommendation_id\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16509,
+      "offset": 16638,
       "length": 8,
       "value": "\"utm_id\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16544,
+      "offset": 16673,
       "length": 14,
       "value": "\"utm_campaign\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16584,
+      "offset": 16713,
       "length": 13,
       "value": "\"utm_content\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16622,
+      "offset": 16751,
       "length": 12,
       "value": "\"utm_medium\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16659,
+      "offset": 16788,
       "length": 12,
       "value": "\"utm_source\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16694,
+      "offset": 16823,
       "length": 10,
       "value": "\"utm_term\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16737,
+      "offset": 16866,
       "length": 21,
       "value": "\"utm_source_platform\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16791,
+      "offset": 16920,
       "length": 21,
       "value": "\"utm_creative_format\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16846,
+      "offset": 16975,
       "length": 22,
       "value": "\"utm_marketing_tactic\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16890,
+      "offset": 17019,
       "length": 5,
       "value": "\"asi\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16926,
+      "offset": 17055,
       "length": 15,
       "value": "\"asi_timestamp\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 16977,
+      "offset": 17106,
       "length": 20,
       "value": "\"attribution_window\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 17367,
+      "offset": 17496,
       "length": 7,
       "value": "\"gclid\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 17399,
+      "offset": 17528,
       "length": 8,
       "value": "\"gclsrc\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 17442,
+      "offset": 17571,
       "length": 4,
       "value": "\"dl\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 17479,
+      "offset": 17608,
       "length": 4,
       "value": "\"cs\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 17516,
+      "offset": 17645,
       "length": 4,
       "value": "\"cm\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 17551,
+      "offset": 17680,
       "length": 4,
       "value": "\"cn\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 17589,
+      "offset": 17718,
       "length": 4,
       "value": "\"cc\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 17624,
+      "offset": 17753,
       "length": 4,
       "value": "\"ck\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 17667,
+      "offset": 17796,
       "length": 8,
       "value": "\"google\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 17711,
+      "offset": 17840,
       "length": 5,
       "value": "\"cpc\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 17804,
+      "offset": 17933,
       "length": 22,
       "value": "\"notification_clicked\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 17854,
+      "offset": 17983,
       "length": 15,
       "value": "\"qg_line_click\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 17901,
+      "offset": 18030,
       "length": 16,
       "value": "\"geofence_enter\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 17948,
+      "offset": 18077,
       "length": 15,
       "value": "\"geofence_exit\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 17997,
+      "offset": 18126,
       "length": 18,
       "value": "\"geofence_updated\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 18056,
+      "offset": 18185,
       "length": 26,
       "value": "\"geofence_register_failed\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 18121,
+      "offset": 18250,
       "length": 24,
       "value": "\"aiq_immediate_campaign\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 18173,
+      "offset": 18302,
       "length": 26,
       "value": "\"aiq_deep_link_redirected\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 18290,
+      "offset": 18419,
       "length": 20,
       "value": "\"qg_inapp_displayed\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 18336,
+      "offset": 18465,
       "length": 18,
       "value": "\"qg_inapp_toggled\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 18380,
+      "offset": 18509,
       "length": 18,
       "value": "\"qg_inapp_clicked\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 18423,
+      "offset": 18552,
       "length": 17,
       "value": "\"qg_inapp_closed\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 18466,
+      "offset": 18595,
       "length": 19,
       "value": "\"qg_inapp_lead_gen\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 18510,
+      "offset": 18639,
       "length": 17,
       "value": "\"qg_inapp_failed\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 18617,
+      "offset": 18746,
       "length": 26,
       "value": "\"invalid_campaign_payload\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 18686,
+      "offset": 18815,
       "length": 28,
       "value": "\"display_campaign_exception\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 18755,
+      "offset": 18884,
       "length": 26,
       "value": "\"setup_campaign_exception\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 18819,
+      "offset": 18948,
       "length": 23,
       "value": "\"invalid_campaign_icon\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 18881,
+      "offset": 19010,
       "length": 24,
       "value": "\"invalid_campaign_image\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 18937,
+      "offset": 19066,
       "length": 17,
       "value": "\"giosg_timed_out\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 18995,
+      "offset": 19124,
       "length": 26,
       "value": "\"missing_cstudio_endpoint\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 19083,
+      "offset": 19212,
       "length": 29,
       "value": "\"appier_endpoint_user_server\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 19136,
+      "offset": 19265,
       "length": 23,
       "value": "\"appier_endpoint_dback\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 19192,
+      "offset": 19321,
       "length": 32,
       "value": "\"appier_endpoint_recommendation\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 19250,
+      "offset": 19379,
       "length": 25,
       "value": "\"appier_endpoint_cstudio\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 19341,
+      "offset": 19470,
       "length": 35,
       "value": "\"appier_rmn_config_market_place_id\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 19398,
+      "offset": 19527,
       "length": 23,
       "value": "\"appier_rmn_config_api\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 19445,
+      "offset": 19574,
       "length": 25,
       "value": "\"appier_rmn_config_event\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 19531,
+      "offset": 19660,
       "length": 35,
       "value": "\"appier_analytics_config_airis_api\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 19596,
+      "offset": 19725,
       "length": 38,
       "value": "\"appier_analytics_config_airis_domain\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 19669,
+      "offset": 19798,
       "length": 43,
       "value": "\"appier_analytics_config_airis_aggregation\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 19741,
+      "offset": 19870,
       "length": 37,
       "value": "\"appier_analytics_config_rollbar_api\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 19809,
+      "offset": 19938,
       "length": 39,
       "value": "\"appier_analytics_config_rollbar_token\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 19909,
+      "offset": 20038,
       "length": 15,
       "value": "\"aiq_geofences\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 19950,
+      "offset": 20079,
       "length": 24,
       "value": "\"aiq_geofencing_capable\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 20000,
+      "offset": 20129,
       "length": 22,
       "value": "\"aiq_geofence_enabled\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 20050,
+      "offset": 20179,
       "length": 11,
       "value": "\"available\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 20086,
+      "offset": 20215,
       "length": 8,
       "value": "\"denied\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 20123,
+      "offset": 20252,
       "length": 12,
       "value": "\"restricted\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 20200,
+      "offset": 20329,
       "length": 15,
       "value": "\"notDetermined\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 20240,
+      "offset": 20369,
       "length": 8,
       "value": "\"denied\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 20277,
+      "offset": 20406,
       "length": 12,
       "value": "\"restricted\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 20318,
+      "offset": 20447,
       "length": 12,
       "value": "\"authorized\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 20368,
+      "offset": 20497,
       "length": 21,
       "value": "\"authorizedWhenInUse\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 20424,
+      "offset": 20553,
       "length": 18,
       "value": "\"authorizedAlways\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 20512,
+      "offset": 20641,
       "length": 15,
       "value": "\"batchInterval\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 20571,
+      "offset": 20700,
       "length": 27,
       "value": "\"deepLinkAttributionWindow\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 20637,
+      "offset": 20766,
       "length": 22,
       "value": "\"trackInstallReferrer\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 20697,
+      "offset": 20826,
       "length": 21,
       "value": "\"appendAdvertisingId\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 20749,
+      "offset": 20878,
       "length": 19,
       "value": "\"qg_idfa_to_append\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 20795,
+      "offset": 20924,
       "length": 10,
       "value": "\"asiField\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 20889,
+      "offset": 21018,
       "length": 22,
       "value": "\"eventStorageMaxCount\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 20949,
+      "offset": 21078,
       "length": 21,
       "value": "\"recentEventDuration\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 21009,
+      "offset": 21138,
       "length": 22,
       "value": "\"recentEventKeyEvents\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 21074,
+      "offset": 21203,
       "length": 26,
       "value": "\"recentEventMaxCountByKey\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
       "kind": "StringLiteral",
-      "offset": 21132,
+      "offset": 21261,
       "length": 15,
       "value": "\"preferPostApi\""
     },

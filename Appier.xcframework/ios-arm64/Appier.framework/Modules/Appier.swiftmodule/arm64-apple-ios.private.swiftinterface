@@ -214,6 +214,7 @@ extension Appier.AIDPageType : Swift.CaseIterable {
   @objc(logEvent:withValueToSum:withValueToSumCurrency:) func logEvent(_ name: Swift.String, valueToSum: Foundation.NSNumber?, currency: Swift.String?)
   @objc(logEvent:withParameters:withValueToSum:) func logEvent(_ name: Swift.String, parameters param: [Swift.AnyHashable : Any]?, valueToSum: Foundation.NSNumber?)
   @objc(logEvent:withParameters:withValueToSum:withValueToSumCurrency:) func logEvent(_ name: Swift.String, parameters param: [Swift.AnyHashable : Any]?, valueToSum: Foundation.NSNumber?, currency: Swift.String?)
+  @objc func deleteLogEvent(_ name: Swift.String)
   @objc func setAttributionWindow(_ seconds: Swift.Int)
   @objc func setClickAttributionWindow(_ seconds: Swift.Int)
 }
@@ -356,6 +357,7 @@ extension Appier.AIQInAppWebViewController : WebKit.WKNavigationDelegate {
 }
 @objc public protocol AIQInAppWebViewStorageProtocol {
   @objc var webkitVersion: Swift.String { get set }
+  @objc var appierID: Foundation.NSNumber? { get }
   @objc func setClickThroughFor(notificationId: Foundation.NSNumber)
   @objc func handleDeepLink(_ url: Foundation.URL)
 }
@@ -959,6 +961,7 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
   @objc func setDayOfBirth(_ day: Foundation.NSNumber?)
   @objc func setMonthOfBirth(_ month: Foundation.NSNumber?)
   @objc func setYearOfBirth(_ year: Foundation.NSNumber?)
+  @objc func setAIQActiveProfile(_ isActive: Swift.Bool)
 }
 extension Appier.AIQUtility {
   @objc dynamic public class func clearPIIData(storage: Appier.AIQLocalStorage)
@@ -1060,6 +1063,7 @@ extension Appier.AIQUtility {
   @objc public static let CONFIG_APP_GROUP_ID: Swift.String
   @objc public static let CONFIG_IS_DEV_PROFILE: Swift.String
   @objc public static func initialize(configuration: [Swift.String : Swift.String])
+  @objc public static func initialize(configuration: [Swift.String : Swift.String], abortOnError: Swift.Bool = true, completion: @escaping (_ isSuccess: Swift.Bool) -> Swift.Void)
   @objc public static var Aiqua: Appier.Aiqua {
     @objc get
   }
@@ -1231,6 +1235,7 @@ public enum BadgePositionOverride {
   @objc public static let QG_SAVED_PUSH_NOTIFICATION_LIMIT: Swift.String
   @objc public static let QG_SAVE_PUSH_NOTIFICATION_ENABLED: Swift.String
   @objc public static let AIQ_GEOFENCING_CAPABLE: Swift.String
+  @objc public static let AIQ_ACTIVE_PROFILE: Swift.String
   @objc public static let QG_SAFARI_TRACKING_DISABLED_STATUS: Swift.String
   @objc public static let QG_SAFARI_DATA_SENT_STATUS: Swift.String
   @objc public static let QG_APP_GROUP_NAME_SDK: Swift.String
@@ -1262,6 +1267,7 @@ public enum BadgePositionOverride {
   @objc public static var EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_ICON: Swift.String
   @objc public static var EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_IMAGE: Swift.String
   @objc public static var EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_PAYLOAD: Swift.String
+  @objc public static var EVENT_SWITCH_APP_ID: Swift.String
   @objc public static var KEY_EVENT_NAME: Swift.String
   @objc public static var KEY_PARAMETERS: Swift.String
   @objc public static var KEY_VALUE_TO_SUM: Swift.String
@@ -1599,6 +1605,8 @@ extension Appier.LINEUrlHandler : Appier.ThirdPartyUrlHandlerProtocol {
   public func deleteOutdated() -> Swift.Int
   @objc @discardableResult
   public func deleteAll() -> Swift.Int
+  @objc @discardableResult
+  public func deleteLogEvent(with eventName: Swift.String) -> Swift.Int
   @objc @discardableResult
   public func create(loggedEvent: Appier.LoggedEvent) -> Swift.Bool
   @objc deinit

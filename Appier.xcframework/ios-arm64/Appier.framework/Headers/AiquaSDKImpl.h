@@ -133,6 +133,32 @@ extern NSString * _Nonnull QGWKWebViewUserScript;
 /*! This method is not used currently */
 - (void)onStop;
 
+/*!
+ @abstract
+ Enable or disable data transmission to AIQUA servers
+
+ @discussion
+ This method controls whether the SDK should send data to AIQUA servers.
+ When disabled, the following operations will be blocked:
+ - Event logging (logEvent methods)
+ - User profile updates (setUserId, setName, setEmail, etc.)
+ - User detail logging
+ - Analytics data transmission
+
+ @param enable `YES` to enable data transmission (default behavior),
+               `NO` to disable all data transmission to servers
+
+ @note Local data operations and UI features (like InApp campaigns display)
+       may still function when data transmission is disabled.
+ */
+- (void)enableSendData:(BOOL)enable;
+
+/*!
+ @abstract
+ Get AIQUA App ID from storage
+ */
+- (nullable NSString *)getAppId;
+
 - (BOOL)getShowPushPrompt DEPRECATED_MSG_ATTRIBUTE();
 
 /*!
@@ -249,6 +275,30 @@ extern NSString * _Nonnull QGWKWebViewUserScript;
 
 /*!
  @abstract
+ Performs comprehensive cleanup and reset of the SDK state with optional Appier ID renewal.
+ 
+ @discussion
+ This method performs a complete reset of the AIQUA SDK internal state.
+
+ This method is typically used during App ID switching scenarios where a complete
+ state reset is required to ensure clean separation between different app contexts.
+ 
+ @param shouldRenewAppierID If YES, generates a new Appier ID and saves it to storage.
+                           If NO, preserves the current Appier ID.
+ @param completionHandler  Called asynchronously when all cleanup operations complete.
+                          The handler is executed on a background queue.
+ 
+ @warning This operation is destructive and will permanently remove all cached data,
+          logged events, and campaign information. Use with caution.
+ */
+- (void)cleanupAndResetStateWithAppierIDRenewal:(BOOL)shouldRenewAppierID completionHandler:(void (^)(void))completionHandler;
+
+
+
+- (void)uploadUserDetailsAndGCMIdWithCompletionHandler:(nullable void (^)(void))completionHandler;
+
+/*!
+ @abstract
  Get AIQUA Appier ID from storage
 
  @discussion
@@ -360,6 +410,17 @@ extern NSString * _Nonnull QGWKWebViewUserScript;
  @deprecated in version 7.18.0
  */
 - (void)logEvent:(NSString *)name withParameters:(NSDictionary *)parameters withValueToSum:(nullable NSNumber *)valueToSum withValueToSumCurrency:(nullable NSString *)vtsCurr withConvertedEvent:(nullable NSString *)convertedEventName withAttributionEnabled:(BOOL)enabled DEPRECATED_MSG_ATTRIBUTE("Use logEvent:withParameters:withValueToSum:withValueToSumCurrency: instead.");
+
+
+/*!
+ @abstract
+ Clear summary explaining the method deletes logged events from memory queue by event name.
+
+ @param eventName   Must be a non-empty string, all events with exact name match will be removed
+ @param completion  Optional handler that receives the number of deleted events
+ */
+- (void)deleteLogEventWithName:(NSString *)eventName
+                    completion:(nullable void(^)(NSInteger deletedCount))completion;
 
 /*!
  @abstract
@@ -497,8 +558,24 @@ extern NSString * _Nonnull QGWKWebViewUserScript;
  @discussion
  When calling flush manually, it is sometimes important to verify
  that the flush has finished before further action is taken.
+ The completion handler provides a success parameter indicating
+ whether the flush operation completed successfully.
+
+ @param handler A completion block that is called when the flush operation completes.
+                The success parameter indicates whether the flush was successful (YES) or failed (NO).
  */
-- (void)flushWithCompletion:(nullable void (^)(void))handler;
+- (void)flushWithCompletion:(nullable void (^)(BOOL success))handler;
+
+/**
+ * Flushes the data queue with an option to guarantee execution.
+ *
+ * If guaranteed is YES and a flush is already in progress, the handler will be queued
+ * and executed after the current flush completes.
+ *
+ * @param handler A completion block that is called when the flush operation completes.
+ * @param guaranteed Whether to queue the flush if one is already in progress.
+ */
+- (void)flushWithCompletion:(nullable void (^)(BOOL success))handler guaranteed:(BOOL)guaranteed;
 
 /*!
  @abstract
@@ -792,6 +869,17 @@ extern NSString * _Nonnull QGWKWebViewUserScript;
  @endcode
  */
 - (void)setPushNotificationStorageLimit:(long)limit;
+
+/*!
+ @abstract
+ Set whether the current AppID is active.
+
+ @discussion
+ This method is used to set whether this AppID is the currently active AppID. This is used to determine if the app should receive push notifications for this ID.
+
+ @param isActive A boolean value indicating whether this AppID is active. `YES` if it is active, `NO` otherwise.
+ */
+- (void)setAIQActiveProfile:(BOOL)isActive;
 
 /*!
  @abstract

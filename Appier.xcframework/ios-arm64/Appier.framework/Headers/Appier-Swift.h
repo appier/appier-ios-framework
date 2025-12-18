@@ -399,6 +399,7 @@ SWIFT_PROTOCOL("_TtP6Appier23AIQEventLoggingProtocol_")
 - (void)logEvent:(NSString * _Nonnull)name withValueToSum:(NSNumber * _Nullable)valueToSum withValueToSumCurrency:(NSString * _Nullable)currency;
 - (void)logEvent:(NSString * _Nonnull)name withParameters:(NSDictionary * _Nullable)param withValueToSum:(NSNumber * _Nullable)valueToSum;
 - (void)logEvent:(NSString * _Nonnull)name withParameters:(NSDictionary * _Nullable)param withValueToSum:(NSNumber * _Nullable)valueToSum withValueToSumCurrency:(NSString * _Nullable)currency;
+- (void)deleteLogEvent:(NSString * _Nonnull)name;
 - (void)setAttributionWindow:(NSInteger)seconds;
 - (void)setClickAttributionWindow:(NSInteger)seconds;
 @end
@@ -603,6 +604,7 @@ SWIFT_CLASS("_TtC6Appier24AIQInAppWebViewPresenter")
 SWIFT_PROTOCOL("_TtP6Appier30AIQInAppWebViewStorageProtocol_")
 @protocol AIQInAppWebViewStorageProtocol
 @property (nonatomic, copy) NSString * _Nonnull webkitVersion;
+@property (nonatomic, readonly, strong) NSNumber * _Nullable appierID;
 - (void)setClickThroughForNotificationId:(NSNumber * _Nonnull)notificationId;
 - (void)handleDeepLink:(NSURL * _Nonnull)url;
 @end
@@ -957,6 +959,7 @@ SWIFT_PROTOCOL("_TtP6Appier29AIQUserProfileLoggingProtocol_")
 - (void)setDayOfBirth:(NSNumber * _Nullable)day;
 - (void)setMonthOfBirth:(NSNumber * _Nullable)month;
 - (void)setYearOfBirth:(NSNumber * _Nullable)year;
+- (void)setAIQActiveProfile:(BOOL)isActive;
 @end
 
 @class NSURLSession;
@@ -1184,6 +1187,30 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull CONFIG_IS_DEV_PROFILE;)
 + (NSString * _Nonnull)CONFIG_IS_DEV_PROFILE SWIFT_WARN_UNUSED_RESULT;
 + (void)initializeWithConfiguration:(NSDictionary<NSString *, NSString *> * _Nonnull)configuration;
+/// Initializes the SDK with the specified configuration.
+/// The initialization result is returned via the completion handler as a Boolean value,
+/// indicating whether the initialization was successful.
+/// <h3>App ID Switching Behavior (<code>abortWhenFailed</code>)</h3>
+/// When switching App IDs, <code>abortWhenFailed</code> controls behavior if flushing unsent data fails:
+/// <ul>
+///   <li>
+///     <em><code>true</code> (default):</em> Rollback to previous App ID on flush failure. Completion receives <code>false</code>.
+///   </li>
+///   <li>
+///     <em><code>false</code>:</em> Continue with App ID switch even if flush fails. Completion receives <code>true</code>.
+///   </li>
+/// </ul>
+/// This parameter only affects App ID switching scenarios.
+/// \param configuration A dictionary containing initialization settings, such as API keys,
+/// environment flags, or other required parameters.
+///
+/// \param abortOnError Controls behavior when flushing unsent data fails during App ID switching.
+/// Default is <code>true</code>.
+///
+/// \param completion A closure called when initialization finishes. Receives <code>true</code>
+/// for successful initialization and <code>false</code> for errors.
+///
++ (void)initializeWithConfiguration:(NSDictionary<NSString *, NSString *> * _Nonnull)configuration abortOnError:(BOOL)abortOnError completion:(void (^ _Nonnull)(BOOL))completion;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Aiqua * _Nonnull Aiqua;)
 + (Aiqua * _Nonnull)Aiqua SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AiDeal * _Nonnull AiDeal;)
@@ -1372,6 +1399,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 + (NSString * _Nonnull)QG_SAVE_PUSH_NOTIFICATION_ENABLED SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AIQ_GEOFENCING_CAPABLE;)
 + (NSString * _Nonnull)AIQ_GEOFENCING_CAPABLE SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull AIQ_ACTIVE_PROFILE;)
++ (NSString * _Nonnull)AIQ_ACTIVE_PROFILE SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_SAFARI_TRACKING_DISABLED_STATUS;)
 + (NSString * _Nonnull)QG_SAFARI_TRACKING_DISABLED_STATUS SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_SAFARI_DATA_SENT_STATUS;)
@@ -1442,6 +1471,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull EVEN
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_PAYLOAD;)
 + (NSString * _Nonnull)EVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_PAYLOAD SWIFT_WARN_UNUSED_RESULT;
 + (void)setEVENT_INAPP_FAILEDREASON_INVALID_CAMPAIGN_PAYLOAD:(NSString * _Nonnull)value;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull EVENT_SWITCH_APP_ID;)
++ (NSString * _Nonnull)EVENT_SWITCH_APP_ID SWIFT_WARN_UNUSED_RESULT;
++ (void)setEVENT_SWITCH_APP_ID:(NSString * _Nonnull)value;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, copy) NSString * _Nonnull KEY_EVENT_NAME;)
 + (NSString * _Nonnull)KEY_EVENT_NAME SWIFT_WARN_UNUSED_RESULT;
 + (void)setKEY_EVENT_NAME:(NSString * _Nonnull)value;
@@ -1760,6 +1792,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSInteger defaultMax
 - (NSInteger)deleteOverflowed;
 - (NSInteger)deleteOutdated;
 - (NSInteger)deleteAll;
+- (NSInteger)deleteLogEventWith:(NSString * _Nonnull)eventName;
 - (BOOL)createWithLoggedEvent:(AIQLoggedEvent * _Nonnull)loggedEvent;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
