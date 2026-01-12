@@ -20,67 +20,125 @@ on:
       skip_deploy_pod_extension:
         default: false
         type: boolean
-        
+
 jobs:
-  release_framework:
-    if: (startsWith(github.head_ref, 'release') || startsWith(github.head_ref, 'prerelease')) && github.event.pull_request.merged == true
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      should_release: ${{ steps.check.outputs.should_release }}
+    steps:
+      - name: Check release conditions
+        id: check
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            # workflow_dispatch: only allow on master branch
+            if [[ "${{ github.ref_name }}" == "master" ]]; then
+              echo "should_release=true" >> $GITHUB_OUTPUT
+            else
+              echo "should_release=false" >> $GITHUB_OUTPUT
+            fi
+          elif [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            # PR: check if it's a release/prerelease branch and merged
+            head_ref="${{ github.head_ref }}"
+            is_merged=${{ github.event.pull_request.merged }}
+            
+            if [[ ("$head_ref" == release* || "$head_ref" == prerelease*) && "$is_merged" == "true" ]]; then
+              echo "should_release=true" >> $GITHUB_OUTPUT
+            else
+              echo "should_release=false" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "should_release=false" >> $GITHUB_OUTPUT
+          fi
+
+  create_release:
+    needs: [prepare]
+    if: needs.prepare.outputs.should_release == 'true' && !inputs.skip_add_tag_and_release
+    runs-on: macos-latest
+    outputs:
+      release_created: ${{ steps.release.outputs.created }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup gem
+        uses: appier/appier-ios-framework/.github/actions/install_gem_dependencies@master
+        with:
+          gemfile_hash: ${{ hashFiles('**/Gemfile.lock') }}
+
+      - name: Create Github release
+        id: release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          is_prerelease=false
+
+          if [[ "${{ github.ref_name }}" == "prerelease" || "${{ github.ref_name }}" == prerelease* ]]; then
+            is_prerelease=true
+          fi
+
+          bundle exec fastlane release is_prerelease:$is_prerelease
+          echo "created=true" >> $GITHUB_OUTPUT
+
+  deploy_pod_framework:
+    needs: [prepare, create_release]
+    if: needs.prepare.outputs.should_release == 'true' && !inputs.skip_deploy_pod_framework && (github.event_name == 'workflow_dispatch' || needs.create_release.result == 'success')
     runs-on: macos-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Setup gem
+        uses: appier/appier-ios-framework/.github/actions/install_gem_dependencies@master
+        with:
+          gemfile_hash: ${{ hashFiles('**/Gemfile.lock') }}
 
-    - name: Setup gem
-      uses: appier/appier-ios-framework/.github/actions/install_gem_dependencies@master
-      with:
-        gemfile_hash: ${{ hashFiles('**/Gemfile.lock') }}
+      - name: Deploy pods framework
+        env:
+          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+        run: bundle exec fastlane pods_framework
 
-    - name: Github release
-      if: ${{ !inputs.skip_add_tag_and_release }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-      run: |
-        is_prerelease=false
+  deploy_pod_extension:
+    needs: [prepare, create_release]
+    if: needs.prepare.outputs.should_release == 'true' && !inputs.skip_deploy_pod_extension && (github.event_name == 'workflow_dispatch' || needs.create_release.result == 'success')
+    runs-on: macos-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-        if [[ "${GITHUB_REF_NAME}" == "prerelease" || "${GITHUB_REF_NAME}" == prerelease* ]]; then
-          is_prerelease=true
-        fi
+      - name: Setup gem
+        uses: appier/appier-ios-framework/.github/actions/install_gem_dependencies@master
+        with:
+          gemfile_hash: ${{ hashFiles('**/Gemfile.lock') }}
 
-        bundle exec fastlane release is_prerelease:$is_prerelease
+      - name: Deploy pods extension framework
+        env:
+          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+        run: bundle exec fastlane pods_extension_framework
 
-    - name: Deploy pods framework
-      if: ${{ !inputs.skip_deploy_pod_framework }}
-      env:
-        COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
-      run: |
-        bundle exec fastlane pods_framework
-        
-    - name: Deploy pods extension framework
-      if: ${{ !inputs.skip_deploy_pod_extension }}
-      env:
-        COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
-      run: |
-        bundle exec fastlane pods_extension_framework
+  enable_dependent_workflows:
+    needs: [prepare, create_release]
+    if: needs.prepare.outputs.should_release == 'true' && needs.create_release.outputs.release_created == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enable Build app with release framework workflow
+        run: |
+          curl -X PUT \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.GH_TOKEN }}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/plaxieappier/appier-ios-automation-test-app/actions/workflows/build_app_from_release_sources.yml/enable"
 
-    - name: Enable Build app with release framework workflow
-      if: (startsWith(github.head_ref, 'release'))
-      run: |
-        curl -X PUT \
-          -H "Accept: application/vnd.github+json" \
-          -H "Authorization: Bearer ${{ secrets.GH_TOKEN }}" \
-          -H "X-GitHub-Api-Version: 2022-11-28" \
-          "https://api.github.com/repos/plaxieappier/appier-ios-automation-test-app/actions/workflows/build_app_from_release_sources.yml/enable"
-
-    - name: Enable Build demo app workflow
-      run: |
-        curl -X PUT \
-          -H "Accept: application/vnd.github+json" \
-          -H "Authorization: Bearer ${{ secrets.GH_TOKEN }}" \
-          -H "X-GitHub-Api-Version: 2022-11-28" \
-          "https://api.github.com/repos/plaxieappier/aiqua-ios-demo/actions/workflows/build_and_upload_demo_app.yml/enable"
+      - name: Enable Build demo app workflow
+        run: |
+          curl -X PUT \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.GH_TOKEN }}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/plaxieappier/aiqua-ios-demo/actions/workflows/build_and_upload_demo_app.yml/enable"
 
   release_success_message:
-    needs: [release_framework]
+    needs: [deploy_pod_framework, deploy_pod_extension]
     if: ${{ always() && !contains(needs.*.result, 'failure') && !contains(needs.*.result, 'cancelled') && !contains(needs.*.result, 'skipped') }}
     uses: ./.github/workflows/Send_message_to_slack.yml
     secrets: inherit
@@ -88,7 +146,7 @@ jobs:
       is_success: "true"
 
   release_fail_message:
-    needs: [release_framework]
+    needs: [deploy_pod_framework, deploy_pod_extension]
     if: ${{ always() && contains(needs.*.result, 'failure') }}
     uses: ./.github/workflows/Send_message_to_slack.yml
     secrets: inherit
