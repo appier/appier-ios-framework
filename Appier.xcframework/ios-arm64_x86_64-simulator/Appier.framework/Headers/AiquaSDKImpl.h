@@ -2,12 +2,12 @@
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
 #import <UserNotifications/UserNotifications.h>
-#import "QGInbox.h"
-#import "QGInApp.h"
-#import "AIQInAppCondition.h"
-#import "AIQMutableOrderedDictionary.h"
-#import "AIQDataTrackingConfiguration.h"
-#import "SwiftMediator.h"
+#import <Appier/QGInbox.h>
+#import <Appier/QGInApp.h>
+#import <Appier/AIQInAppCondition.h>
+#import <Appier/AIQMutableOrderedDictionary.h>
+#import <Appier/AIQDataTrackingConfiguration.h>
+#import <Appier/SwiftMediator.h>
 //#import "AppierError.h"
 //#import "AsyncResult.h"
 

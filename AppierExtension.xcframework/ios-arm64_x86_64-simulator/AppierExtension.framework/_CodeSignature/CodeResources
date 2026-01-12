@@ -4,6 +4,10 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>Headers/AppierError.h</key>
+		<data>
+		feQl+ODRYFhZ/oy6p3RsFJkLo5w=
+		</data>
 		<key>Headers/AppierExtension-Swift.h</key>
 		<data>
 		VcfagnG8p2SkqjBsIdqIPPPAFNA=
@@ -12,13 +16,17 @@
 		<data>
 		s6KJ96/1W961MZappwYBeHIP1ic=
 		</data>
+		<key>Headers/AsyncResult.h</key>
+		<data>
+		wEndMBFD0q7AExrsoxbf4wSCyj0=
+		</data>
 		<key>Headers/QGNotificationContentViewController.h</key>
 		<data>
 		S/ErMHNFEu9l+0uuwlwntBPxxAM=
 		</data>
 		<key>Headers/QGNotificationSdk.h</key>
 		<data>
-		bdhNP3GM2hZFV7M7dJmLCfEoXPQ=
+		W7rBaXzfR79WyvBAdGMsoholhb8=
 		</data>
 		<key>Headers/QGNotificationService.h</key>
 		<data>
@@ -30,7 +38,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		pgPE2VorJQO1Ak6ZcN6F6s7BUkg=
+		tAv2303KwZctq2EPwumCG9F/sEk=
 		</data>
 		<key>Modules/AppierExtension.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -79,6 +87,17 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Headers/AppierError.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			feQl+ODRYFhZ/oy6p3RsFJkLo5w=
+			</data>
+			<key>hash2</key>
+			<data>
+			W0Z9cxPd6VtYCG+gcacoFHx+ofKHueprdSG8OGM01ZQ=
+			</data>
+		</dict>
 		<key>Headers/AppierExtension-Swift.h</key>
 		<dict>
 			<key>hash</key>
@@ -101,6 +120,17 @@
 			R7djCjR+X+VM1QbhKHX9fTC4Fz4H4jb16WAgF90Py2U=
 			</data>
 		</dict>
+		<key>Headers/AsyncResult.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			wEndMBFD0q7AExrsoxbf4wSCyj0=
+			</data>
+			<key>hash2</key>
+			<data>
+			XR1IiHiFUj468yrQTzmlkOIBDqYTWU5PjyLGzg/mOzk=
+			</data>
+		</dict>
 		<key>Headers/QGNotificationContentViewController.h</key>
 		<dict>
 			<key>hash</key>
@@ -116,11 +146,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			bdhNP3GM2hZFV7M7dJmLCfEoXPQ=
+			W7rBaXzfR79WyvBAdGMsoholhb8=
 			</data>
 			<key>hash2</key>
 			<data>
-			8rms0boZdLJVA9IPCfWy6telMzOHAC5pyF3RxgvJSFE=
+			eEAbIO7M2LXY8JsGrAAECbS8dWTqzZGyXq+GzQDSmOA=
 			</data>
 		</dict>
 		<key>Headers/QGNotificationService.h</key>

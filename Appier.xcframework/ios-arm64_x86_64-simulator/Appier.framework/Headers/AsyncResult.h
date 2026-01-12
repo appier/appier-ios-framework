@@ -2,7 +2,10 @@
 #define AsyncResult_h
 
 #import <Foundation/Foundation.h>
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wquoted-include-in-framework-header"
 #import "AppierError.h"
+#pragma clang diagnostic pop
 
 /**
  * Generic asynchronous result handler for API calls.
