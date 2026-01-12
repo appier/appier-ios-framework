@@ -51,10 +51,12 @@ jobs:
             echo "should_release=false" >> $GITHUB_OUTPUT
           fi
 
-  setup:
+  create_release:
     needs: [prepare]
-    if: needs.prepare.outputs.should_release == 'true'
+    if: needs.prepare.outputs.should_release == 'true' && !inputs.skip_add_tag_and_release
     runs-on: macos-latest
+    outputs:
+      release_created: ${{ steps.release.outputs.created }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -63,16 +65,6 @@ jobs:
         uses: appier/appier-ios-framework/.github/actions/install_gem_dependencies@master
         with:
           gemfile_hash: ${{ hashFiles('**/Gemfile.lock') }}
-
-  create_release:
-    needs: [prepare, setup]
-    if: needs.prepare.outputs.should_release == 'true' && !inputs.skip_add_tag_and_release
-    runs-on: macos-latest
-    outputs:
-      release_created: ${{ steps.release.outputs.created }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
 
       - name: Create Github release
         id: release
@@ -85,23 +77,21 @@ jobs:
             is_prerelease=true
           fi
 
-          # Check if tag already exists
-          tag_name=$(grep version version.json | sed -E 's/.*"version": "([^"]+).*/\1/')
-          if git rev-parse "v$tag_name" >/dev/null 2>&1; then
-            echo "Tag v$tag_name already exists, skipping release creation"
-            echo "created=false" >> $GITHUB_OUTPUT
-          else
-            bundle exec fastlane release is_prerelease:$is_prerelease
-            echo "created=true" >> $GITHUB_OUTPUT
-          fi
+          bundle exec fastlane release is_prerelease:$is_prerelease
+          echo "created=true" >> $GITHUB_OUTPUT
 
   deploy_pod_framework:
-    needs: [prepare, setup]
-    if: needs.prepare.outputs.should_release == 'true' && !inputs.skip_deploy_pod_framework
+    needs: [prepare, create_release]
+    if: needs.prepare.outputs.should_release == 'true' && !inputs.skip_deploy_pod_framework && (github.event_name == 'workflow_dispatch' || needs.create_release.result == 'success')
     runs-on: macos-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Setup gem
+        uses: appier/appier-ios-framework/.github/actions/install_gem_dependencies@master
+        with:
+          gemfile_hash: ${{ hashFiles('**/Gemfile.lock') }}
 
       - name: Deploy pods framework
         env:
@@ -109,12 +99,17 @@ jobs:
         run: bundle exec fastlane pods_framework
 
   deploy_pod_extension:
-    needs: [prepare, setup]
-    if: needs.prepare.outputs.should_release == 'true' && !inputs.skip_deploy_pod_extension
+    needs: [prepare, create_release]
+    if: needs.prepare.outputs.should_release == 'true' && !inputs.skip_deploy_pod_extension && (github.event_name == 'workflow_dispatch' || needs.create_release.result == 'success')
     runs-on: macos-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Setup gem
+        uses: appier/appier-ios-framework/.github/actions/install_gem_dependencies@master
+        with:
+          gemfile_hash: ${{ hashFiles('**/Gemfile.lock') }}
 
       - name: Deploy pods extension framework
         env:
