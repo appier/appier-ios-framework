@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AIQInAppCondition.h"
+#import <Appier/AIQInAppCondition.h>
 
 typedef NS_ENUM(NSInteger, InAppType){
     InAppTypeUnknown = -1,

@@ -15,7 +15,7 @@
 #import <Foundation/Foundation.h>
 #import <UserNotifications/UserNotifications.h>
 #import <UserNotificationsUI/UserNotificationsUI.h>
-#import "iCarousel.h"
+#import <Appier/iCarousel.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

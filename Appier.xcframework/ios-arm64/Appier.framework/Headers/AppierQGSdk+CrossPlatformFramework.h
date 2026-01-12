@@ -1,4 +1,4 @@
-#import "QGSdk.h"
+#import <Appier/QGSdk.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
