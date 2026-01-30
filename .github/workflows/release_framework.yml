@@ -82,7 +82,7 @@ jobs:
 
   deploy_pod_framework:
     needs: [prepare, create_release]
-    if: needs.prepare.outputs.should_release == 'true' && !inputs.skip_deploy_pod_framework && (github.event_name == 'workflow_dispatch' || needs.create_release.result == 'success')
+    if: ${{ !failure() && needs.prepare.outputs.should_release == 'true' && !inputs.skip_deploy_pod_framework && (github.event_name == 'workflow_dispatch' || needs.create_release.result == 'success') }}
     runs-on: macos-latest
     steps:
       - name: Checkout repository
@@ -100,7 +100,7 @@ jobs:
 
   deploy_pod_extension:
     needs: [prepare, create_release]
-    if: needs.prepare.outputs.should_release == 'true' && !inputs.skip_deploy_pod_extension && (github.event_name == 'workflow_dispatch' || needs.create_release.result == 'success')
+    if: ${{ !failure() && needs.prepare.outputs.should_release == 'true' && !inputs.skip_deploy_pod_extension && (github.event_name == 'workflow_dispatch' || needs.create_release.result == 'success') }}
     runs-on: macos-latest
     steps:
       - name: Checkout repository
