@@ -304,7 +304,7 @@ extern NSString * _Nonnull QGWKWebViewUserScript;
  @discussion
  Get AIQUA Appier ID from storage
  */
-- (NSString *)getAppierId;
+- (NSString * _Nullable)getAppierId;
 
 /*!
  @abstract

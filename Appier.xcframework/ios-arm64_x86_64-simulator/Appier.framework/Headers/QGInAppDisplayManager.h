@@ -11,6 +11,7 @@
 - (void)inWebViewPermanentClosed:(NSNumber *)nId;
 - (void)renewInApp:(QGInApp *)inApp;
 
+- (void)didDisplayInAppWithNotificationId:(NSNumber *)notificationId eventName:(NSString *)eventName param:(NSDictionary *)param;
 - (void)didFailToDisplayInAppWithNotificationId:(NSNumber *)notificationId eventName:(NSString *)eventName param:(NSDictionary *)param;
 @end
 

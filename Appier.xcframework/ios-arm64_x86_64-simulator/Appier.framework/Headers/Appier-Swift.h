@@ -569,6 +569,7 @@ SWIFT_PROTOCOL("_TtP6Appier19AIQInAppWebDelegate_")
 - (void)inAppWebViewCollapseWithWebView:(AIQInAppWebViewController * _Nonnull)webView;
 - (void)inAppWebViewDismissWithWebView:(AIQInAppWebViewController * _Nonnull)webView;
 - (void)inAppWebViewPermanentDismissWithWebView:(AIQInAppWebViewController * _Nonnull)webView;
+- (void)didDisplayInAppWithNotificationId:(NSNumber * _Nullable)notificationId eventName:(NSString * _Nonnull)eventName param:(NSDictionary<NSString *, id> * _Nullable)param;
 - (void)didFailToDisplayInAppWithNotificationId:(NSNumber * _Nullable)notificationId eventName:(NSString * _Nonnull)eventName param:(NSDictionary<NSString *, id> * _Nullable)param;
 @end
 
@@ -755,8 +756,6 @@ SWIFT_PROTOCOL("_TtP6Appier10AIQStorage_")
 @property (nonatomic) NSInteger lastTrackSessionTime;
 /// The raw data is encoded before set and decoded before return
 @property (nonatomic, copy) NSArray<NSDictionary *> * _Nullable savedPushNotifications;
-/// This is equivalent to <em>savedPushNotification != nil</em>
-@property (nonatomic, readonly) BOOL hasSavedPushNotifications;
 /// This will be read in AppierExtension. The default value is 20.
 @property (nonatomic, strong) NSNumber * _Nonnull savedPushNotificationLimit;
 /// This will be read in AppierExtension
@@ -827,7 +826,6 @@ SWIFT_PROTOCOL("_TtP6Appier10AIQStorage_")
 @property (nonatomic, copy) NSDictionary<NSString *, NSString *> * _Nullable airisCrashRecord;
 @property (nonatomic) NSInteger airisCrashCount;
 @property (nonatomic, copy) NSArray<NSDictionary *> * _Nullable savedPushNotifications;
-@property (nonatomic, readonly) BOOL hasSavedPushNotifications;
 @property (nonatomic, strong) NSNumber * _Nonnull savedPushNotificationLimit;
 @property (nonatomic) BOOL isSavedPushNotificationEnabled;
 @property (nonatomic, copy) NSString * _Nullable richPushDeeplink;
@@ -1115,7 +1113,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _
 SWIFT_CLASS("_TtC6Appier5Aiqua")
 @interface Aiqua : NSObject
 - (void)setCarouselNotificationCategoryWithNextButtonTitle:(NSString * _Nullable)nextButtonTitle openAppButtonTitle:(NSString * _Nullable)openAppButtonTitle SWIFT_AVAILABILITY(ios,introduced=10.0);
-- (UNNotificationCategory * _Nonnull)getSliderPushActionCategoryWithNextButtonTitle:(NSString * _Nonnull)nextButtonTitle openAppButtonTitle:(NSString * _Nonnull)openAppButtonTitle SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=10.0);
+- (UNNotificationCategory * _Nonnull)getSliderPushActionCategoryWithNextButtonTitle:(NSString * _Nullable)nextButtonTitle openAppButtonTitle:(NSString * _Nullable)openAppButtonTitle SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=10.0);
 - (void)setUniversalLinkDomains:(NSArray<NSString *> * _Nonnull)domains;
 - (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId queryParameters:(NSDictionary<NSString *, id> * _Nullable)queryParameters completionHandler:(void (^ _Nonnull)(id _Nullable))completionHandler;
 - (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId productId:(NSString * _Nullable)productId queryParameters:(NSDictionary<NSString *, id> * _Nullable)queryParameters completionHandler:(void (^ _Nonnull)(id _Nullable))completionHandler;
@@ -3035,6 +3033,7 @@ SWIFT_PROTOCOL("_TtP6Appier19AIQInAppWebDelegate_")
 - (void)inAppWebViewCollapseWithWebView:(AIQInAppWebViewController * _Nonnull)webView;
 - (void)inAppWebViewDismissWithWebView:(AIQInAppWebViewController * _Nonnull)webView;
 - (void)inAppWebViewPermanentDismissWithWebView:(AIQInAppWebViewController * _Nonnull)webView;
+- (void)didDisplayInAppWithNotificationId:(NSNumber * _Nullable)notificationId eventName:(NSString * _Nonnull)eventName param:(NSDictionary<NSString *, id> * _Nullable)param;
 - (void)didFailToDisplayInAppWithNotificationId:(NSNumber * _Nullable)notificationId eventName:(NSString * _Nonnull)eventName param:(NSDictionary<NSString *, id> * _Nullable)param;
 @end
 
@@ -3221,8 +3220,6 @@ SWIFT_PROTOCOL("_TtP6Appier10AIQStorage_")
 @property (nonatomic) NSInteger lastTrackSessionTime;
 /// The raw data is encoded before set and decoded before return
 @property (nonatomic, copy) NSArray<NSDictionary *> * _Nullable savedPushNotifications;
-/// This is equivalent to <em>savedPushNotification != nil</em>
-@property (nonatomic, readonly) BOOL hasSavedPushNotifications;
 /// This will be read in AppierExtension. The default value is 20.
 @property (nonatomic, strong) NSNumber * _Nonnull savedPushNotificationLimit;
 /// This will be read in AppierExtension
@@ -3293,7 +3290,6 @@ SWIFT_PROTOCOL("_TtP6Appier10AIQStorage_")
 @property (nonatomic, copy) NSDictionary<NSString *, NSString *> * _Nullable airisCrashRecord;
 @property (nonatomic) NSInteger airisCrashCount;
 @property (nonatomic, copy) NSArray<NSDictionary *> * _Nullable savedPushNotifications;
-@property (nonatomic, readonly) BOOL hasSavedPushNotifications;
 @property (nonatomic, strong) NSNumber * _Nonnull savedPushNotificationLimit;
 @property (nonatomic) BOOL isSavedPushNotificationEnabled;
 @property (nonatomic, copy) NSString * _Nullable richPushDeeplink;
@@ -3581,7 +3577,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSNotificationName _
 SWIFT_CLASS("_TtC6Appier5Aiqua")
 @interface Aiqua : NSObject
 - (void)setCarouselNotificationCategoryWithNextButtonTitle:(NSString * _Nullable)nextButtonTitle openAppButtonTitle:(NSString * _Nullable)openAppButtonTitle SWIFT_AVAILABILITY(ios,introduced=10.0);
-- (UNNotificationCategory * _Nonnull)getSliderPushActionCategoryWithNextButtonTitle:(NSString * _Nonnull)nextButtonTitle openAppButtonTitle:(NSString * _Nonnull)openAppButtonTitle SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=10.0);
+- (UNNotificationCategory * _Nonnull)getSliderPushActionCategoryWithNextButtonTitle:(NSString * _Nullable)nextButtonTitle openAppButtonTitle:(NSString * _Nullable)openAppButtonTitle SWIFT_WARN_UNUSED_RESULT SWIFT_AVAILABILITY(ios,introduced=10.0);
 - (void)setUniversalLinkDomains:(NSArray<NSString *> * _Nonnull)domains;
 - (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId queryParameters:(NSDictionary<NSString *, id> * _Nullable)queryParameters completionHandler:(void (^ _Nonnull)(id _Nullable))completionHandler;
 - (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId productId:(NSString * _Nullable)productId queryParameters:(NSDictionary<NSString *, id> * _Nullable)queryParameters completionHandler:(void (^ _Nonnull)(id _Nullable))completionHandler;

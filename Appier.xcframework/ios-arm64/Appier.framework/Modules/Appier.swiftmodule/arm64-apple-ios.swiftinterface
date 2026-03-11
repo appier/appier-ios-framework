@@ -318,6 +318,7 @@ extension Appier.AIQInAppCreativeStudioViewController {
   @objc func inAppWebViewCollapse(webView: Appier.AIQInAppWebViewController)
   @objc func inAppWebViewDismiss(webView: Appier.AIQInAppWebViewController)
   @objc func inAppWebViewPermanentDismiss(webView: Appier.AIQInAppWebViewController)
+  @objc func didDisplayInApp(withNotificationId notificationId: Foundation.NSNumber?, eventName: Swift.String, param: [Swift.String : Any]?)
   @objc func didFailToDisplayInApp(withNotificationId notificationId: Foundation.NSNumber?, eventName: Swift.String, param: [Swift.String : Any]?)
 }
 @objc @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor @preconcurrency public class AIQInAppWebViewController : UIKit.UIViewController {
@@ -565,9 +566,6 @@ extension Appier.AIQLocalStorage : Appier.AIQStorage {
   @objc dynamic public var savedPushNotifications: [[Swift.AnyHashable : Any]]? {
     @objc get
     @objc set
-  }
-  @objc dynamic public var hasSavedPushNotifications: Swift.Bool {
-    @objc get
   }
   @objc dynamic public var savedPushNotificationLimit: Foundation.NSNumber {
     @objc get
@@ -853,7 +851,6 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
   @objc var sessionCount: Swift.Int { get set }
   @objc var lastTrackSessionTime: Swift.Int { get set }
   @objc var savedPushNotifications: [[Swift.AnyHashable : Any]]? { get set }
-  @objc var hasSavedPushNotifications: Swift.Bool { get }
   @objc var savedPushNotificationLimit: Foundation.NSNumber { get set }
   @objc var isSavedPushNotificationEnabled: Swift.Bool { get set }
   @objc var richPushDeeplink: Swift.String? { get set }
@@ -875,7 +872,7 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
   @objc @available(iOS 10.0, *)
   final public func setCarouselNotificationCategory(nextButtonTitle: Swift.String?, openAppButtonTitle: Swift.String?)
   @objc @available(iOS 10.0, *)
-  final public func getSliderPushActionCategory(nextButtonTitle: Swift.String, openAppButtonTitle: Swift.String) -> UserNotifications.UNNotificationCategory
+  final public func getSliderPushActionCategory(nextButtonTitle: Swift.String?, openAppButtonTitle: Swift.String?) -> UserNotifications.UNNotificationCategory
   @objc final public func setUniversalLinkDomains(_ domains: [Swift.String])
   @objc final public func getRecommendation(scenarioId: Swift.String, queryParameters: [Swift.String : Any]?, completionHandler: @escaping (Any?) -> Swift.Void)
   @objc final public func getRecommendation(scenarioId: Swift.String, productId: Swift.String?, queryParameters: [Swift.String : Any]?, completionHandler: @escaping (Any?) -> Swift.Void)

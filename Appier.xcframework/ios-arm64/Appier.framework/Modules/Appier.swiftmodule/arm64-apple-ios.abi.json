@@ -10321,6 +10321,77 @@
           },
           {
             "kind": "Function",
+            "name": "didDisplayInApp",
+            "printedName": "didDisplayInApp(withNotificationId:eventName:param:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.NSNumber?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSNumber",
+                    "printedName": "Foundation.NSNumber",
+                    "usr": "c:objc(cs)NSNumber"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Appier@objc(pl)AIQInAppWebDelegate(im)didDisplayInAppWithNotificationId:eventName:param:",
+            "mangledName": "$s6Appier19AIQInAppWebDelegateP012didDisplayInC018withNotificationId9eventName5paramySo8NSNumberCSg_SSSDySSypGSgtF",
+            "moduleName": "Appier",
+            "genericSig": "<τ_0_0 where τ_0_0 : Appier.AIQInAppWebDelegate>",
+            "sugared_genericSig": "<Self where Self : Appier.AIQInAppWebDelegate>",
+            "protocolReq": true,
+            "declAttributes": [
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "didFailToDisplayInApp",
             "printedName": "didFailToDisplayInApp(withNotificationId:eventName:param:)",
             "children": [
@@ -16820,56 +16891,6 @@
                 ],
                 "isFromExtension": true,
                 "accessorKind": "set"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "hasSavedPushNotifications",
-            "printedName": "hasSavedPushNotifications",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@CM@Appier@objc(cs)AIQLocalStorage(py)hasSavedPushNotifications",
-            "mangledName": "$s6Appier15AIQLocalStorageC25hasSavedPushNotificationsSbvp",
-            "moduleName": "Appier",
-            "objc_name": "hasSavedPushNotifications",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC",
-              "AccessControl"
-            ],
-            "isFromExtension": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@CM@Appier@objc(cs)AIQLocalStorage(im)hasSavedPushNotifications",
-                "mangledName": "$s6Appier15AIQLocalStorageC25hasSavedPushNotificationsSbvg",
-                "moduleName": "Appier",
-                "objc_name": "hasSavedPushNotifications",
-                "declAttributes": [
-                  "Dynamic",
-                  "ObjC"
-                ],
-                "isFromExtension": true,
-                "accessorKind": "get"
               }
             ]
           },
@@ -27664,55 +27685,6 @@
           },
           {
             "kind": "Var",
-            "name": "hasSavedPushNotifications",
-            "printedName": "hasSavedPushNotifications",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "c:@M@Appier@objc(pl)AIQStorage(py)hasSavedPushNotifications",
-            "mangledName": "$s6Appier10AIQStorageP25hasSavedPushNotificationsSbvp",
-            "moduleName": "Appier",
-            "protocolReq": true,
-            "declAttributes": [
-              "RawDocComment",
-              "ObjC"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "c:@M@Appier@objc(pl)AIQStorage(im)hasSavedPushNotifications",
-                "mangledName": "$s6Appier10AIQStorageP25hasSavedPushNotificationsSbvg",
-                "moduleName": "Appier",
-                "genericSig": "<τ_0_0 where τ_0_0 : Appier.AIQStorage>",
-                "sugared_genericSig": "<Self where Self : Appier.AIQStorage>",
-                "protocolReq": true,
-                "declAttributes": [
-                  "ObjC"
-                ],
-                "reqNewWitnessTableEntry": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
             "name": "savedPushNotificationLimit",
             "printedName": "savedPushNotificationLimit",
             "children": [
@@ -29346,20 +29318,36 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
               },
               {
                 "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
             "usr": "c:@M@Appier@objc(cs)Aiqua(im)getSliderPushActionCategoryWithNextButtonTitle:openAppButtonTitle:",
-            "mangledName": "$s6Appier5AiquaC27getSliderPushActionCategory15nextButtonTitle07openAppiJ0So014UNNotificationG0CSS_SStF",
+            "mangledName": "$s6Appier5AiquaC27getSliderPushActionCategory15nextButtonTitle07openAppiJ0So014UNNotificationG0CSSSg_AItF",
             "moduleName": "Appier",
             "intro_iOS": "10.0",
             "declAttributes": [
@@ -92476,77 +92464,77 @@
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/InAppWebViewController\/AIQInAppWebViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 2299,
+      "offset": 2412,
       "length": 4,
       "value": "24.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/InAppWebViewController\/AIQInAppWebViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 2332,
+      "offset": 2445,
       "length": 4,
       "value": "10.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/InAppWebViewController\/AIQInAppWebViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 2361,
+      "offset": 2474,
       "length": 4,
       "value": "20.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/InAppWebViewController\/AIQInAppWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 2406,
+      "offset": 2519,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/InAppWebViewController\/AIQInAppWebViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 2655,
+      "offset": 2768,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/InAppWebViewController\/AIQInAppWebViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 3063,
+      "offset": 3176,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/InAppWebViewController\/AIQInAppWebViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 3241,
+      "offset": 3354,
       "length": 4,
       "value": "0.82"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/InAppWebViewController\/AIQInAppWebViewController.swift",
       "kind": "Array",
-      "offset": 3288,
+      "offset": 3401,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/InAppWebViewController\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 3518,
+      "offset": 3631,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/InAppWebViewController\/AIQInAppWebViewController.swift",
       "kind": "Array",
-      "offset": 3635,
+      "offset": 3748,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/InAppWebViewController\/AIQInAppWebViewController.swift",
       "kind": "StringLiteral",
-      "offset": 3939,
+      "offset": 4052,
       "length": 2,
       "value": "\"\""
     },
@@ -93626,7 +93614,7 @@
       "kind": "StringLiteral",
       "offset": 385,
       "length": 7,
-      "value": "\"8.5.2\""
+      "value": "\"8.6.0\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
@@ -95430,7 +95418,7 @@
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/AiDealSdk\/Campaign Models\/CountdownFormatter.swift",
       "kind": "StringLiteral",
-      "offset": 341,
+      "offset": 333,
       "length": 7,
       "value": "\"ja_JP\""
     },
