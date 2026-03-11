@@ -26,7 +26,7 @@
 		</data>
 		<key>Headers/QGNotificationSdk.h</key>
 		<data>
-		W7rBaXzfR79WyvBAdGMsoholhb8=
+		p3tCZNt3Zqhpn+UGQdOotiovGxg=
 		</data>
 		<key>Headers/QGNotificationService.h</key>
 		<data>
@@ -38,7 +38,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		f2liypEjC3EJk88lLaF7wuBA4CQ=
+		vMtp1jn66H8KORkyrtEwxboay3I=
 		</data>
 		<key>Modules/AppierExtension.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -146,11 +146,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			W7rBaXzfR79WyvBAdGMsoholhb8=
+			p3tCZNt3Zqhpn+UGQdOotiovGxg=
 			</data>
 			<key>hash2</key>
 			<data>
-			eEAbIO7M2LXY8JsGrAAECbS8dWTqzZGyXq+GzQDSmOA=
+			OkOhNjuSUE3lRTFCE3a/6MjyxdqoN+BgfTrJ5rHa0i4=
 			</data>
 		</dict>
 		<key>Headers/QGNotificationService.h</key>
