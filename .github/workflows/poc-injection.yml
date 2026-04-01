@@ -1,0 +1,16 @@
+name: PoC - Expression Injection
+
+on:
+  pull_request:
+    types: [opened, closed]
+
+jobs:
+  vulnerable_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Vulnerable step - same pattern as Send_message_to_slack.yml
+        run: |
+          echo "=== PoC: GitHub Actions Expression Injection ==="
+          echo "PR_TITLE=${{ github.event.pull_request.title }}"
+          echo "HEAD_REF=${{ github.head_ref }}"
+          echo "=== If you see RCE_PROVEN below, injection works ==="
