@@ -18,92 +18,92 @@ jobs:
     environment: ENV
     steps:
 
-    - id: messages
-      env:
-        PR_HEAD_REPO_FULL_NAME: ${{ github.event.pull_request.head.repo.full_name }}
-        SERVER_URL: ${{ github.server_url }}
-        REPOSITORY: ${{ github.repository }}
-        IS_SUCCESS: ${{ inputs.is_success }}
-        WORKFLOW_NAME: ${{ github.workflow }}
-        PR_TITLE: ${{ github.event.pull_request.title }}
-        RUN_ID: ${{ github.run_id }}
-      run: |
-        if [ -n "$PR_HEAD_REPO_FULL_NAME" ]; then
-          REPO="<$SERVER_URL/$REPOSITORY|$PR_HEAD_REPO_FULL_NAME>"
-        else
-          REPO="<$SERVER_URL/$REPOSITORY|$REPOSITORY>"
-        fi
+      - id: messages
+        env:
+          PR_HEAD_REPO_FULL_NAME: ${{ github.event.pull_request.head.repo.full_name }}
+          SERVER_URL: ${{ github.server_url }}
+          REPOSITORY: ${{ github.repository }}
+          IS_SUCCESS: ${{ inputs.is_success }}
+          WORKFLOW_NAME: ${{ github.workflow }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          if [ -n "$PR_HEAD_REPO_FULL_NAME" ]; then
+            REPO="<$SERVER_URL/$REPOSITORY|$PR_HEAD_REPO_FULL_NAME>"
+          else
+            REPO="<$SERVER_URL/$REPOSITORY|$REPOSITORY>"
+          fi
 
-        if [[ "$IS_SUCCESS" == "true" ]]; then
-          echo ATTACHMENT_COLOR="#36a64f" >> $GITHUB_OUTPUT
-        else
-          echo ATTACHMENT_COLOR="#e23636" >> $GITHUB_OUTPUT
-        fi
+          if [[ "$IS_SUCCESS" == "true" ]]; then
+            echo ATTACHMENT_COLOR="#36a64f" >> $GITHUB_OUTPUT
+          else
+            echo ATTACHMENT_COLOR="#e23636" >> $GITHUB_OUTPUT
+          fi
 
-        echo TITLE="<!subteam^S042H1N39E3>\n:apple2: ${REPO}" >> $GITHUB_OUTPUT
+          echo TITLE="<!subteam^S042H1N39E3>\n:apple2: ${REPO}" >> $GITHUB_OUTPUT
 
-        echo WORKFLOW="$WORKFLOW_NAME" >> $GITHUB_OUTPUT
+          echo WORKFLOW="$WORKFLOW_NAME" >> $GITHUB_OUTPUT
 
-        echo PR="$PR_TITLE" >> $GITHUB_OUTPUT
+          echo PR="$PR_TITLE" >> $GITHUB_OUTPUT
 
-        echo RUN="<https://github.com/$REPOSITORY/actions/runs/$RUN_ID|#$RUN_ID>" >> $GITHUB_OUTPUT
+          echo RUN="<https://github.com/$REPOSITORY/actions/runs/$RUN_ID|#$RUN_ID>" >> $GITHUB_OUTPUT
 
-    - id: payload
-      env:
-        TITLE: ${{ steps.messages.outputs.TITLE }}
-        ATTACHMENT_COLOR: ${{ steps.messages.outputs.ATTACHMENT_COLOR }}
-        WORKFLOW: ${{ steps.messages.outputs.WORKFLOW }}
-        PR: ${{ steps.messages.outputs.PR }}
-        RUN: ${{ steps.messages.outputs.RUN }}
-      run: |
-        payload=$(jq -n \
-          --arg title "$TITLE" \
-          --arg color "$ATTACHMENT_COLOR" \
-          --arg workflow "$WORKFLOW" \
-          --arg pr "$PR" \
-          --arg run "$RUN" \
-          '
-            {
-              blocks: [
-                {
-                  type: "section",
-                  text: {
-                    type: "mrkdwn",
-                    text: $title
+      - id: payload
+        env:
+          TITLE: ${{ steps.messages.outputs.TITLE }}
+          ATTACHMENT_COLOR: ${{ steps.messages.outputs.ATTACHMENT_COLOR }}
+          WORKFLOW: ${{ steps.messages.outputs.WORKFLOW }}
+          PR: ${{ steps.messages.outputs.PR }}
+          RUN: ${{ steps.messages.outputs.RUN }}
+        run: |
+          payload=$(jq -n \
+            --arg title "$TITLE" \
+            --arg color "$ATTACHMENT_COLOR" \
+            --arg workflow "$WORKFLOW" \
+            --arg pr "$PR" \
+            --arg run "$RUN" \
+            '
+              {
+                blocks: [
+                  {
+                    type: "section",
+                    text: {
+                      type: "mrkdwn",
+                      text: $title
+                    }
                   }
-                }
-              ],
-              attachments: [
-                {
-                  color: $color,
-                  blocks: [
-                    {label: "Workflow", value: $workflow},
-                    {label: "PR", value: $pr},
-                    {label: "Run", value: $run}
-                  ]
-                  | map(select(.value != "") | {
-                      type: "section",
-                      text: {
-                        type: "mrkdwn",
-                        text: ("*" + .label + "*\\n" + .value)
-                      }
-                    })
-                }
-              ]
-            }
-          ')
+                ],
+                attachments: [
+                  {
+                    color: $color,
+                    blocks: [
+                      {label: "Workflow", value: $workflow},
+                      {label: "PR", value: $pr},
+                      {label: "Run", value: $run}
+                    ]
+                    | map(select(.value != "") | {
+                        type: "section",
+                        text: {
+                          type: "mrkdwn",
+                          text: ("*" + .label + "*\\n" + .value)
+                        }
+                      })
+                  }
+                ]
+              }
+            ')
 
-        echo "$payload"
+          echo "$payload"
 
-        echo "payload<<EOF" >> "$GITHUB_OUTPUT"
-        echo "$payload" >> "$GITHUB_OUTPUT"
-        echo "EOF" >> "$GITHUB_OUTPUT"
+          echo "payload<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$payload" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
 
-    - name: Send GitHub Action trigger data to Slack workflow
-      id: slack
-      uses: slackapi/slack-github-action@70cd7be8e40a46e8b0eced40b0de447bdb42f68e # v1.26.0
-      with:
-        channel-id: "${{ vars.NOTIFY_SLACK_CHANNEL_ID }}"
-        payload: "${{ steps.payload.outputs.payload }}"
-      env:
-        SLACK_BOT_TOKEN: '${{ secrets.SLACK_BOT_OAUTH_TOKEN }}'
+      - name: Send GitHub Action trigger data to Slack workflow
+        id: slack
+        uses: slackapi/slack-github-action@70cd7be8e40a46e8b0eced40b0de447bdb42f68e # v1.26.0
+        with:
+          channel-id: "${{ vars.NOTIFY_SLACK_CHANNEL_ID }}"
+          payload: "${{ steps.payload.outputs.payload }}"
+        env:
+          SLACK_BOT_TOKEN: '${{ secrets.SLACK_BOT_OAUTH_TOKEN }}'
