@@ -40,7 +40,12 @@ jobs:
             echo ATTACHMENT_COLOR="#e23636" >> $GITHUB_OUTPUT
           fi
 
-          echo TITLE="<!subteam^S042H1N39E3>\n:apple2: ${REPO}" >> $GITHUB_OUTPUT
+          {
+            echo "TITLE<<EOF"
+            echo "<!subteam^S042H1N39E3>"
+            echo ":apple2: ${REPO}"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
 
           echo WORKFLOW="$WORKFLOW_NAME" >> $GITHUB_OUTPUT
 
@@ -85,7 +90,7 @@ jobs:
                         type: "section",
                         text: {
                           type: "mrkdwn",
-                          text: ("*" + .label + "*\\n" + .value)
+                          text: ("*" + .label + "*\n" + .value)
                         }
                       })
                   }
