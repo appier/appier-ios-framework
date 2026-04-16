@@ -766,9 +766,6 @@ SWIFT_PROTOCOL("_TtP6Appier10AIQStorage_")
 @property (nonatomic, copy) NSString * _Nullable endpointDback;
 @property (nonatomic, copy) NSString * _Nullable endpointRecommendation;
 @property (nonatomic, copy) NSString * _Nullable endpointCStudio;
-@property (nonatomic) NSInteger rmnMarketPlaceId;
-@property (nonatomic, copy) NSString * _Nullable rmnApi;
-@property (nonatomic, copy) NSString * _Nullable rmnEvent;
 @property (nonatomic, copy) NSArray<NSDictionary *> * _Nullable failedPushEventStack;
 @property (nonatomic, copy) NSData * _Nullable exitPushPayload;
 @property (nonatomic) BOOL isCollectIDFA;
@@ -834,9 +831,6 @@ SWIFT_PROTOCOL("_TtP6Appier10AIQStorage_")
 @property (nonatomic, copy) NSString * _Nullable endpointDback;
 @property (nonatomic, copy) NSString * _Nullable endpointRecommendation;
 @property (nonatomic, copy) NSString * _Nullable endpointCStudio;
-@property (nonatomic) NSInteger rmnMarketPlaceId;
-@property (nonatomic, copy) NSString * _Nullable rmnApi;
-@property (nonatomic, copy) NSString * _Nullable rmnEvent;
 @property (nonatomic, copy) NSString * _Nullable analyticsAirisApi;
 @property (nonatomic, copy) NSString * _Nullable analyticsAirisDomain;
 @property (nonatomic) NSInteger analyticsAirisAggregation;
@@ -911,7 +905,6 @@ SWIFT_CLASS("_TtC6Appier20AIQSilentPushManager")
 @end
 
 @class EndpointConfiguration;
-@class RmnConfiguration;
 @class AnalyticsConfiguration;
 @class DataCollectorConfiguration;
 @class RecommendationConfig;
@@ -925,7 +918,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AIQConfigura
 @property (nonatomic) BOOL isStagingEvn;
 @property (nonatomic, readonly, copy) NSString * _Nonnull remoteConfigEndpoint;
 @property (nonatomic, strong) EndpointConfiguration * _Nonnull endpoint;
-@property (nonatomic, strong) RmnConfiguration * _Nonnull rmnConfig;
 @property (nonatomic, strong) AnalyticsConfiguration * _Nonnull analyticsConfig;
 @property (nonatomic, strong) DataCollectorConfiguration * _Nonnull dataCollector;
 @property (nonatomic, strong) RecommendationConfig * _Nonnull recommendationConfig;
@@ -1213,7 +1205,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Aiqua * _Non
 + (Aiqua * _Nonnull)Aiqua SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AiDeal * _Nonnull AiDeal;)
 + (AiDeal * _Nonnull)AiDeal SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Rmn * _Nonnull Rmn;)
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Rmn * _Nonnull Rmn SWIFT_DEPRECATED_MSG("This API is deprecated and will be removed in a future version.");)
 + (Rmn * _Nonnull)Rmn SWIFT_WARN_UNUSED_RESULT;
 + (void)renewAppierId;
 + (void)renewAppierIdWithCompletionHandler:(void (^ _Nullable)(void))completionHandler;
@@ -1527,7 +1519,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 @class NSManagedObjectContext;
 SWIFT_CLASS_NAMED("CoreDataComponent")
 @interface AIQCoreDataComponent : NSObject
-@property (nonatomic, strong) NSManagedObjectContext * _Nullable managedObjectContext;
+@property (nonatomic, readonly, strong) NSManagedObjectContext * _Nullable managedObjectContext;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1836,18 +1828,13 @@ SWIFT_CLASS_NAMED("Logger")
 @end
 
 @interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
-+ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@interface APRLogger (SWIFT_EXTENSION(Appier))
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull rmnLogger;)
-+ (APRLogger * _Nonnull)rmnLogger SWIFT_WARN_UNUSED_RESULT;
-@end
-
-@interface APRLogger (SWIFT_EXTENSION(Appier))
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaNotificationLogger;)
 + (APRLogger * _Nonnull)aiquaNotificationLogger SWIFT_WARN_UNUSED_RESULT;
+@end
+
+@interface APRLogger (SWIFT_EXTENSION(Appier))
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * _Nonnull aiquaLogger;)
++ (APRLogger * _Nonnull)aiquaLogger SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @interface NSString (SWIFT_EXTENSION(Appier))
@@ -1964,6 +1951,9 @@ SWIFT_CLASS_NAMED("Builder")
 @class NSURLRequest;
 SWIFT_CLASS_NAMED("RecommendationRemoteService")
 @interface AIQRecommendationRemoteService : NSObject
+/// Captures the most recent request for test assertions.
+/// note:
+/// This is diagnostic/test-only state and should not be relied on by production logic.
 @property (nonatomic, copy) NSURLRequest * _Nullable observingRequest;
 - (nonnull instancetype)initWithConfiguration:(AIQConfiguration * _Nonnull)configuration loggedEventDAO:(AIQLoggedEventDAO * _Nonnull)loggedEventDAO session:(NSURLSession * _Nonnull)session;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -2064,7 +2054,6 @@ SWIFT_CLASS_NAMED("Builder")
 
 @class AIQRemoteConfigEndpoints;
 @class RemoteConfigAideal;
-@class AIQRmnConfig;
 @class AIQRemoteConfigDataCollector;
 @class RemoteConfigEventStorage;
 @class AIQRemoteConfigRecommendation;
@@ -2072,11 +2061,11 @@ SWIFT_CLASS_NAMED("RemoteConfig")
 @interface AIQRemoteConfig : AIQObject
 @property (nonatomic, strong) AIQRemoteConfigEndpoints * _Nullable endpoints;
 @property (nonatomic, strong) RemoteConfigAideal * _Nullable aiDeal;
-@property (nonatomic, strong) AIQRmnConfig * _Nullable retailMediaNetwork;
 @property (nonatomic, strong) AIQAnalyticsConfig * _Nullable analytics;
 @property (nonatomic, strong) AIQRemoteConfigDataCollector * _Nullable dataCollector;
 @property (nonatomic, strong) RemoteConfigEventStorage * _Nullable eventStorage;
 @property (nonatomic, strong) AIQRemoteConfigRecommendation * _Nullable recommendation;
+@property (nonatomic, copy) NSDictionary<NSString *, NSDictionary<NSString *, NSDictionary<NSString *, NSString *> *> *> * _Nullable mmp;
 + (AIQRemoteConfig * _Nullable)decodeWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -2163,7 +2152,7 @@ SWIFT_PROTOCOL_NAMED("RemoteConfigService")
 /// Rmn class for interacting with the API.
 /// This class represents an interface for accessing the Retail Media API and is initialized with
 /// the user’s application and the identifier of the marketplace associated with the API calls.
-SWIFT_CLASS("_TtC6Appier3Rmn")
+SWIFT_CLASS("_TtC6Appier3Rmn") SWIFT_DEPRECATED_MSG("This API is deprecated and will be removed in a future version.")
 @interface Rmn : NSObject
 /// Perform a search for product advertisements based on the specified criteria.
 /// This function initiates a search for product advertisements using the provided search query, placement ID,
@@ -2257,7 +2246,7 @@ SWIFT_CLASS("_TtC6Appier3Rmn")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-SWIFT_CLASS("_TtC6Appier12RmnProductAd")
+SWIFT_CLASS("_TtC6Appier12RmnProductAd") SWIFT_DEPRECATED_MSG("This API is deprecated and will be removed in a future version.")
 @interface RmnProductAd : AIQObject
 @property (nonatomic, copy) NSString * _Nullable advertiserId;
 @property (nonatomic) NSInteger campaignId;
@@ -2269,7 +2258,7 @@ SWIFT_CLASS("_TtC6Appier12RmnProductAd")
 @end
 
 @class RmnRedirect;
-SWIFT_CLASS("_TtC6Appier11RmnBannerAd")
+SWIFT_CLASS("_TtC6Appier11RmnBannerAd") SWIFT_DEPRECATED_MSG("This API is deprecated and will be removed in a future version.")
 @interface RmnBannerAd : RmnProductAd
 @property (nonatomic, copy) NSString * _Nullable imageUrl;
 @property (nonatomic, strong) RmnRedirect * _Nullable redirect;
@@ -2279,33 +2268,14 @@ SWIFT_CLASS("_TtC6Appier11RmnBannerAd")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-SWIFT_CLASS("_TtC6Appier21RmnBannerAdsPlacement")
+SWIFT_CLASS("_TtC6Appier21RmnBannerAdsPlacement") SWIFT_DEPRECATED_MSG("This API is deprecated and will be removed in a future version.")
 @interface RmnBannerAdsPlacement : AIQObject
 @property (nonatomic) NSInteger placementId;
 @property (nonatomic, copy) NSArray<RmnBannerAd *> * _Nonnull ads;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-SWIFT_CLASS_NAMED("RmnConfig")
-@interface AIQRmnConfig : AIQObject
-@property (nonatomic) NSInteger marketPlaceId;
-@property (nonatomic, copy) NSString * _Nullable api;
-@property (nonatomic, copy) NSString * _Nullable event;
-+ (AIQRmnConfig * _Nullable)decodeWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
-- (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-SWIFT_CLASS("_TtC6Appier16RmnConfiguration")
-@interface RmnConfiguration : AIQObject
-@property (nonatomic) NSInteger marketPlaceId;
-@property (nonatomic, copy) NSString * _Nullable api;
-@property (nonatomic, copy) NSString * _Nullable event;
-- (void)clear;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-SWIFT_CLASS("_TtC6Appier24RmnPostBannerAdsResponse")
+SWIFT_CLASS("_TtC6Appier24RmnPostBannerAdsResponse") SWIFT_DEPRECATED_MSG("This API is deprecated and will be removed in a future version.")
 @interface RmnPostBannerAdsResponse : AIQObject
 @property (nonatomic, copy) NSArray<RmnBannerAdsPlacement *> * _Nonnull placements;
 @property (nonatomic, copy) NSString * _Nullable requestId;
@@ -2314,7 +2284,7 @@ SWIFT_CLASS("_TtC6Appier24RmnPostBannerAdsResponse")
 @end
 
 @class RmnProductAdsPlacement;
-SWIFT_CLASS("_TtC6Appier25RmnPostProductAdsResponse")
+SWIFT_CLASS("_TtC6Appier25RmnPostProductAdsResponse") SWIFT_DEPRECATED_MSG("This API is deprecated and will be removed in a future version.")
 @interface RmnPostProductAdsResponse : AIQObject
 @property (nonatomic, copy) NSArray<RmnProductAdsPlacement *> * _Nonnull placements;
 @property (nonatomic, copy) NSString * _Nullable requestId;
@@ -2323,14 +2293,14 @@ SWIFT_CLASS("_TtC6Appier25RmnPostProductAdsResponse")
 @end
 
 @class RmnProductDetailsPlacement;
-SWIFT_CLASS("_TtC6Appier29RmnPostSearchProductsResponse")
+SWIFT_CLASS("_TtC6Appier29RmnPostSearchProductsResponse") SWIFT_DEPRECATED_MSG("This API is deprecated and will be removed in a future version.")
 @interface RmnPostSearchProductsResponse : AIQObject
 @property (nonatomic, copy) NSArray<RmnProductDetailsPlacement *> * _Nonnull placements;
 @property (nonatomic, copy) NSString * _Nullable requestId;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-SWIFT_CLASS("_TtC6Appier10RmnProduct")
+SWIFT_CLASS("_TtC6Appier10RmnProduct") SWIFT_DEPRECATED_MSG("This API is deprecated and will be removed in a future version.")
 @interface RmnProduct : AIQObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSInteger MAX_SUB_CATEGORIES_SIZE;)
 + (NSInteger)MAX_SUB_CATEGORIES_SIZE SWIFT_WARN_UNUSED_RESULT;
@@ -2349,14 +2319,14 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-SWIFT_CLASS("_TtC6Appier22RmnProductAdsPlacement")
+SWIFT_CLASS("_TtC6Appier22RmnProductAdsPlacement") SWIFT_DEPRECATED_MSG("This API is deprecated and will be removed in a future version.")
 @interface RmnProductAdsPlacement : AIQObject
 @property (nonatomic) NSInteger placementId;
 @property (nonatomic, copy) NSArray<RmnProductAd *> * _Nonnull ads;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-SWIFT_CLASS("_TtC6Appier19RmnProductDetailsAd")
+SWIFT_CLASS("_TtC6Appier19RmnProductDetailsAd") SWIFT_DEPRECATED_MSG("This API is deprecated and will be removed in a future version.")
 @interface RmnProductDetailsAd : RmnProductAd
 @property (nonatomic, copy) NSString * _Nullable brand;
 @property (nonatomic, copy) NSString * _Nullable categoryL1;
@@ -2371,20 +2341,20 @@ SWIFT_CLASS("_TtC6Appier19RmnProductDetailsAd")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-SWIFT_CLASS("_TtC6Appier26RmnProductDetailsPlacement")
+SWIFT_CLASS("_TtC6Appier26RmnProductDetailsPlacement") SWIFT_DEPRECATED_MSG("This API is deprecated and will be removed in a future version.")
 @interface RmnProductDetailsPlacement : AIQObject
 @property (nonatomic, copy) NSArray<RmnProductDetailsAd *> * _Nonnull ads;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-SWIFT_CLASS("_TtC6Appier11RmnRedirect")
+SWIFT_CLASS("_TtC6Appier11RmnRedirect") SWIFT_DEPRECATED_MSG("This API is deprecated and will be removed in a future version.")
 @interface RmnRedirect : AIQObject
 @property (nonatomic, copy) NSString * _Nullable type;
 @property (nonatomic, copy) NSString * _Nullable url;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-SWIFT_CLASS("_TtC6Appier7RmnSale")
+SWIFT_CLASS("_TtC6Appier7RmnSale") SWIFT_DEPRECATED_MSG("This API is deprecated and will be removed in a future version.")
 @interface RmnSale : AIQObject
 + (RmnSale * _Nonnull)fromProductWithProduct:(RmnProduct * _Nonnull)product quantity:(NSInteger)quantity unitPrice:(float)unitPrice SWIFT_WARN_UNUSED_RESULT;
 + (RmnSale * _Nonnull)fromProductWithProduct:(RmnProduct * _Nonnull)product advertiserId:(NSString * _Nullable)advertiserId quantity:(NSInteger)quantity unitPrice:(float)unitPrice SWIFT_WARN_UNUSED_RESULT;

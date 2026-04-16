@@ -599,18 +599,6 @@ extension Appier.AIQLocalStorage : Appier.AIQStorage {
     @objc get
     @objc set
   }
-  @objc dynamic public var rmnMarketPlaceId: Swift.Int {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var rmnApi: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc dynamic public var rmnEvent: Swift.String? {
-    @objc get
-    @objc set
-  }
   @objc dynamic public var analyticsAirisApi: Swift.String? {
     @objc get
     @objc set
@@ -859,9 +847,6 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
   @objc var endpointDback: Swift.String? { get set }
   @objc var endpointRecommendation: Swift.String? { get set }
   @objc var endpointCStudio: Swift.String? { get set }
-  @objc var rmnMarketPlaceId: Swift.Int { get set }
-  @objc var rmnApi: Swift.String? { get set }
-  @objc var rmnEvent: Swift.String? { get set }
   @objc var failedPushEventStack: [[Swift.AnyHashable : Any]]? { get set }
   @objc var exitPushPayload: Foundation.Data? { get set }
   @objc var isCollectIDFA: Swift.Bool { get set }
@@ -901,10 +886,6 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
     @objc get
   }
   @objc public var endpoint: Appier.EndpointConfiguration {
-    @objc get
-    @objc set
-  }
-  @objc public var rmnConfig: Appier.RmnConfiguration {
     @objc get
     @objc set
   }
@@ -1055,6 +1036,9 @@ extension Appier.AIQUtility {
   @objc(sharedApp) public static let shared: Appier.AppierApp
   @objc deinit
 }
+@_spi(AppierInternal) public enum AppierPluginRegistry {
+  @_spi(AppierInternal) public static func register(_ type: any Appier.MMPPlugin.Type)
+}
 @objc @_inheritsConvenienceInitializers @objcMembers final public class AppierSDK : ObjectiveC.NSObject {
   @objc public static let CONFIG_APP_ID: Swift.String
   @objc public static let CONFIG_APP_GROUP_ID: Swift.String
@@ -1067,7 +1051,8 @@ extension Appier.AIQUtility {
   @objc public static var AiDeal: Appier.AiDeal {
     @objc get
   }
-  @objc public static var Rmn: Appier.Rmn {
+  @objc @available(*, deprecated, message: "This API is deprecated and will be removed in a future version.")
+  public static var Rmn: Appier.Rmn {
     @objc get
   }
   @objc @available(swift, obsoleted: 1.0)
@@ -1291,10 +1276,7 @@ public enum BadgePositionOverride {
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(AIQCoreDataComponent) @objcMembers public class CoreDataComponent : ObjectiveC.NSObject {
-  @objc public var managedObjectContext: CoreData.NSManagedObjectContext? {
-    @objc get
-    @objc set
-  }
+  @objc final public let managedObjectContext: CoreData.NSManagedObjectContext?
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(AIQCoreDataComponentFactory) public class CoreDataComponentFactory : ObjectiveC.NSObject {
@@ -1608,25 +1590,27 @@ extension Appier.LINEUrlHandler : Appier.ThirdPartyUrlHandlerProtocol {
   public func create(loggedEvent: Appier.LoggedEvent) -> Swift.Bool
   @objc deinit
 }
-extension Appier.Logger {
-  @objc(aiquaLogger) public static let aiqua: Appier.Logger
+@_spi(AppierInternal) extension Appier.Logger {
+  @_spi(AppierInternal) @objc(aiquaLogger) public static let aiqua: Appier.Logger
 }
-extension Appier.Logger {
-  @objc(aiquaNotificationLogger) public static let aiquaNotification: Appier.Logger
+@_spi(AppierInternal) extension Appier.Logger {
+  @_spi(AppierInternal) @objc(aiquaNotificationLogger) public static let aiquaNotification: Appier.Logger
 }
-extension Appier.Logger {
-  public static let appier: Appier.Logger
+@_spi(AppierInternal) extension Appier.Logger {
+  @_spi(AppierInternal) public static let appier: Appier.Logger
 }
-extension Appier.Logger {
-  @objc(rmnLogger) public static let rmn: Appier.Logger
-}
-@_hasMissingDesignatedInitializers @objc(APRLogger) public class Logger : ObjectiveC.NSObject {
-  @objc final public let category: Swift.String
-  @objc public var enabled: Swift.Bool {
-    @objc get
+@_spi(AppierInternal) @objc(APRLogger) public class Logger : ObjectiveC.NSObject {
+  @_spi(AppierInternal) @objc final public let category: Swift.String
+  @_spi(AppierInternal) @objc public var enabled: Swift.Bool {
+    @_spi(AppierInternal) @objc get
   }
-  @objc(descriptionForLevel:) public static func description(for level: Appier.LogType) -> Swift.String
-  @objc deinit
+  @_spi(AppierInternal) public init(category: Swift.String)
+  @_spi(AppierInternal) public func debug(_ message: Appier.LogMessage)
+  @_spi(AppierInternal) public func info(_ message: Appier.LogMessage)
+  @_spi(AppierInternal) public func warning(_ message: Appier.LogMessage)
+  @_spi(AppierInternal) public func error(_ message: Appier.LogMessage)
+  @_spi(AppierInternal) @objc(descriptionForLevel:) public static func description(for level: Appier.LogType) -> Swift.String
+  @_spi(AppierInternal) @objc deinit
 }
 @objc(APRLogType) public enum LogType : Swift.Int {
   case debug, info, warning, error
@@ -1640,6 +1624,41 @@ extension Appier.LogType : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
   }
+}
+@_spi(AppierInternal) public struct LogMessage {
+}
+@_spi(AppierInternal) public enum LogPrivacy {
+  @_spi(AppierInternal) case auto, `private`, `public`
+  @_spi(AppierInternal) public static func == (a: Appier.LogPrivacy, b: Appier.LogPrivacy) -> Swift.Bool
+  @_spi(AppierInternal) public func hash(into hasher: inout Swift.Hasher)
+  @_spi(AppierInternal) public var hashValue: Swift.Int {
+    @_spi(AppierInternal) get
+  }
+}
+@_spi(AppierInternal) extension Appier.LogMessage : Swift.CustomStringConvertible {
+  @_spi(AppierInternal) public var description: Swift.String {
+    @_spi(AppierInternal) get
+  }
+}
+@_spi(AppierInternal) extension Appier.LogMessage : Swift.ExpressibleByStringLiteral {
+  @_spi(AppierInternal) public init(stringLiteral value: Swift.String)
+  @_spi(AppierInternal) public typealias ExtendedGraphemeClusterLiteralType = Swift.String
+  @_spi(AppierInternal) public typealias StringLiteralType = Swift.String
+  @_spi(AppierInternal) public typealias UnicodeScalarLiteralType = Swift.String
+}
+@_spi(AppierInternal) extension Appier.LogMessage : Swift.ExpressibleByStringInterpolation {
+  @_spi(AppierInternal) public init(stringInterpolation: Appier.LogMessage.StringInterpolation)
+  @_spi(AppierInternal) public struct StringInterpolation : Swift.StringInterpolationProtocol {
+    @_spi(AppierInternal) public init(literalCapacity: Swift.Int, interpolationCount _: Swift.Int)
+    @_spi(AppierInternal) public mutating func appendLiteral(_ literal: Swift.String)
+    @_spi(AppierInternal) public mutating func appendInterpolation(_ object: Any?, privacy: Appier.LogPrivacy = .auto)
+    @_spi(AppierInternal) public typealias StringLiteralType = Swift.String
+  }
+}
+@_spi(AppierInternal) public protocol MMPPlugin : AnyObject {
+  @_spi(AppierInternal) init()
+  @_spi(AppierInternal) func initialize(mmpConfig: [Swift.String : [Swift.String : [Swift.String : Swift.String]]])
+  @_spi(AppierInternal) func handleDeepLink(_ url: Foundation.URL)
 }
 @objc public protocol OrderedTaskQueue : ObjectiveC.NSObjectProtocol {
   @objc func addTask(_ task: @escaping () -> Swift.Void)
@@ -1972,11 +1991,11 @@ extension Appier.RecommendationRemoteService : Appier.RecommendationService {
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers @objc(AIQRemoteConfig) public class RemoteConfig : Appier.AIQObject, Swift.Codable {
   @objc public var endpoints: Appier.RemoteConfigEndpoints?
   @objc public var aiDeal: Appier.RemoteConfigAideal?
-  @objc public var retailMediaNetwork: Appier.RmnConfig?
   @objc public var analytics: Appier.AnalyticsConfig?
   @objc public var dataCollector: Appier.RemoteConfigDataCollector?
   @objc public var eventStorage: Appier.RemoteConfigEventStorage?
   @objc public var recommendation: Appier.RemoteConfigRecommendation?
+  @objc public var mmp: [Swift.String : [Swift.String : [Swift.String : Swift.String]]]?
   @objc(decodeWithData:error:) public class func decode(from data: Foundation.Data) throws -> Appier.RemoteConfig
   @objc public func data() throws -> Foundation.Data
   required public init(from decoder: any Swift.Decoder) throws
@@ -2050,7 +2069,8 @@ extension Appier.RemoteConfigRemoteService : Appier.RemoteConfigService {
 @objc(AIQRemoteConfigService) public protocol RemoteConfigService {
   @objc(fetchRemoteConfigWithCompletionHandler:) func fetchRemoteConfig(_ completionHandler: @escaping (Appier.RemoteConfig?, (any Swift.Error)?) -> Swift.Void)
 }
-@objc @_inheritsConvenienceInitializers @objcMembers public class Rmn : ObjectiveC.NSObject {
+@objc @_inheritsConvenienceInitializers @available(*, deprecated, message: "This API is deprecated and will be removed in a future version.")
+@objcMembers public class Rmn : ObjectiveC.NSObject {
   @objc public func searchProductAds(keyword: Swift.String, placementId: Swift.Int, maxAmount: Swift.Int, products: [Appier.RmnProduct], asyncResult: Appier.AsyncResult<Appier.RmnProductAdsResult>)
   @objc public func getProductAds(category: Swift.String, placementId: Swift.Int, maxAmount: Swift.Int, products: [Appier.RmnProduct], asyncResult: Appier.AsyncResult<Appier.RmnProductAdsResult>)
   @objc public func getBannerAds(placementId: Swift.Int, maxAmount: Swift.Int, asyncResult: Appier.AsyncResult<Appier.RmnBannerAdsResult>)
@@ -2067,7 +2087,8 @@ extension Appier.RemoteConfigRemoteService : Appier.RemoteConfigService {
   @objc override dynamic public init()
   @objc deinit
 }
-@objc @objcMembers public class RmnBannerAd : Appier.RmnProductAd {
+@objc @available(*, deprecated, message: "This API is deprecated and will be removed in a future version.")
+@objcMembers public class RmnBannerAd : Appier.RmnProductAd {
   @objc public var imageUrl: Swift.String?
   @objc public var redirect: Appier.RmnRedirect?
   @objc public var creativeId: Swift.Int
@@ -2079,7 +2100,8 @@ extension Appier.RemoteConfigRemoteService : Appier.RemoteConfigService {
   override public func encode(to encoder: any Swift.Encoder) throws
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @objcMembers public class RmnBannerAdsPlacement : Appier.AIQObject, Swift.Codable {
+@objc @_inheritsConvenienceInitializers @available(*, deprecated, message: "This API is deprecated and will be removed in a future version.")
+@objcMembers public class RmnBannerAdsPlacement : Appier.AIQObject, Swift.Codable {
   @objc public var placementId: Swift.Int
   @objc public var ads: [Appier.RmnBannerAd]
   @objc override dynamic public init()
@@ -2087,36 +2109,10 @@ extension Appier.RemoteConfigRemoteService : Appier.RemoteConfigService {
   public func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
 }
-@_inheritsConvenienceInitializers @objcMembers @objc(AIQRmnConfig) public class RmnConfig : Appier.AIQObject, Swift.Codable {
-  @objc public var marketPlaceId: Swift.Int
-  @objc public var api: Swift.String?
-  @objc public var event: Swift.String?
-  @objc(decodeWithData:error:) public class func decode(from data: Foundation.Data) throws -> Appier.RmnConfig
-  @objc public func data() throws -> Foundation.Data
-  @objc override dynamic public init()
-  @objc deinit
-  public func encode(to encoder: any Swift.Encoder) throws
-  required public init(from decoder: any Swift.Decoder) throws
-}
-@objc @_inheritsConvenienceInitializers @objcMembers public class RmnConfiguration : Appier.AIQObject {
-  @objc public var marketPlaceId: Swift.Int {
-    @objc get
-    @objc set
-  }
-  @objc public var api: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc public var event: Swift.String? {
-    @objc get
-    @objc set
-  }
-  @objc public func clear()
-  @objc override dynamic public init()
-  @objc deinit
-}
+@available(*, deprecated, message: "This API is deprecated and will be removed in a future version.")
 public typealias RmnBannerAdsResult = Appier.RmnPostBannerAdsResponse
-@objc @_inheritsConvenienceInitializers @objcMembers public class RmnPostBannerAdsResponse : Appier.AIQObject, Swift.Codable {
+@objc @_inheritsConvenienceInitializers @available(*, deprecated, message: "This API is deprecated and will be removed in a future version.")
+@objcMembers public class RmnPostBannerAdsResponse : Appier.AIQObject, Swift.Codable {
   @objc public var placements: [Appier.RmnBannerAdsPlacement]
   @objc public var requestId: Swift.String?
   @objc public var responseId: Swift.String?
@@ -2125,8 +2121,10 @@ public typealias RmnBannerAdsResult = Appier.RmnPostBannerAdsResponse
   public func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
 }
+@available(*, deprecated, message: "This API is deprecated and will be removed in a future version.")
 public typealias RmnProductAdsResult = Appier.RmnPostProductAdsResponse
-@objc @_inheritsConvenienceInitializers @objcMembers public class RmnPostProductAdsResponse : Appier.AIQObject, Swift.Codable {
+@objc @_inheritsConvenienceInitializers @available(*, deprecated, message: "This API is deprecated and will be removed in a future version.")
+@objcMembers public class RmnPostProductAdsResponse : Appier.AIQObject, Swift.Codable {
   @objc public var placements: [Appier.RmnProductAdsPlacement]
   @objc public var requestId: Swift.String?
   @objc public var responseId: Swift.String?
@@ -2135,15 +2133,18 @@ public typealias RmnProductAdsResult = Appier.RmnPostProductAdsResponse
   public func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
 }
+@available(*, deprecated, message: "This API is deprecated and will be removed in a future version.")
 public typealias RmnProductsWithDetailsResult = Appier.RmnPostSearchProductsResponse
-@objc @_inheritsConvenienceInitializers @objcMembers public class RmnPostSearchProductsResponse : Appier.AIQObject, Swift.Decodable {
+@objc @_inheritsConvenienceInitializers @available(*, deprecated, message: "This API is deprecated and will be removed in a future version.")
+@objcMembers public class RmnPostSearchProductsResponse : Appier.AIQObject, Swift.Decodable {
   @objc public var placements: [Appier.RmnProductDetailsPlacement]
   @objc public var requestId: Swift.String?
   @objc override dynamic public init()
   @objc deinit
   required public init(from decoder: any Swift.Decoder) throws
 }
-@objc @_inheritsConvenienceInitializers @objcMembers public class RmnProduct : Appier.AIQObject {
+@objc @_inheritsConvenienceInitializers @available(*, deprecated, message: "This API is deprecated and will be removed in a future version.")
+@objcMembers public class RmnProduct : Appier.AIQObject {
   @objc public static let MAX_SUB_CATEGORIES_SIZE: Swift.Int
   @objc public static let PRODUCT_CATEGORIES_SEPARATOR: Swift.String
   @objc public var productId: Swift.String?
@@ -2159,7 +2160,8 @@ public typealias RmnProductsWithDetailsResult = Appier.RmnPostSearchProductsResp
   @objc override dynamic public init()
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @objcMembers public class RmnProductAd : Appier.AIQObject, Swift.Codable {
+@objc @_inheritsConvenienceInitializers @available(*, deprecated, message: "This API is deprecated and will be removed in a future version.")
+@objcMembers public class RmnProductAd : Appier.AIQObject, Swift.Codable {
   @objc public var advertiserId: Swift.String?
   @objc public var campaignId: Swift.Int
   @objc public var adId: Swift.String?
@@ -2171,7 +2173,8 @@ public typealias RmnProductsWithDetailsResult = Appier.RmnPostSearchProductsResp
   public func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
 }
-@objc @_inheritsConvenienceInitializers @objcMembers public class RmnProductAdsPlacement : Appier.AIQObject, Swift.Codable {
+@objc @_inheritsConvenienceInitializers @available(*, deprecated, message: "This API is deprecated and will be removed in a future version.")
+@objcMembers public class RmnProductAdsPlacement : Appier.AIQObject, Swift.Codable {
   @objc public var placementId: Swift.Int
   @objc public var ads: [Appier.RmnProductAd]
   @objc override dynamic public init()
@@ -2179,7 +2182,8 @@ public typealias RmnProductsWithDetailsResult = Appier.RmnPostSearchProductsResp
   public func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
 }
-@objc @_hasMissingDesignatedInitializers @objcMembers public class RmnProductDetailsAd : Appier.RmnProductAd {
+@objc @_hasMissingDesignatedInitializers @available(*, deprecated, message: "This API is deprecated and will be removed in a future version.")
+@objcMembers public class RmnProductDetailsAd : Appier.RmnProductAd {
   @objc public var brand: Swift.String?
   @objc public var categoryL1: Swift.String?
   @objc public var categoryL2: Swift.String?
@@ -2191,13 +2195,15 @@ public typealias RmnProductsWithDetailsResult = Appier.RmnPostSearchProductsResp
   @objc public var title: Swift.String?
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers @objcMembers public class RmnProductDetailsPlacement : Appier.AIQObject, Swift.Decodable {
+@objc @_inheritsConvenienceInitializers @available(*, deprecated, message: "This API is deprecated and will be removed in a future version.")
+@objcMembers public class RmnProductDetailsPlacement : Appier.AIQObject, Swift.Decodable {
   @objc public var ads: [Appier.RmnProductDetailsAd]
   @objc override dynamic public init()
   @objc deinit
   required public init(from decoder: any Swift.Decoder) throws
 }
-@objc @_inheritsConvenienceInitializers @objcMembers public class RmnRedirect : Appier.AIQObject, Swift.Codable {
+@objc @_inheritsConvenienceInitializers @available(*, deprecated, message: "This API is deprecated and will be removed in a future version.")
+@objcMembers public class RmnRedirect : Appier.AIQObject, Swift.Codable {
   @objc public var type: Swift.String?
   @objc public var url: Swift.String?
   @objc override dynamic public init()
@@ -2205,7 +2211,8 @@ public typealias RmnProductsWithDetailsResult = Appier.RmnPostSearchProductsResp
   public func encode(to encoder: any Swift.Encoder) throws
   required public init(from decoder: any Swift.Decoder) throws
 }
-@objc @_inheritsConvenienceInitializers @objcMembers public class RmnSale : Appier.AIQObject {
+@objc @_inheritsConvenienceInitializers @available(*, deprecated, message: "This API is deprecated and will be removed in a future version.")
+@objcMembers public class RmnSale : Appier.AIQObject {
   @objc public static func fromProduct(product: Appier.RmnProduct, quantity: Swift.Int, unitPrice: Swift.Float) -> Appier.RmnSale
   @objc public static func fromProduct(product: Appier.RmnProduct, advertiserId: Swift.String?, quantity: Swift.Int, unitPrice: Swift.Float) -> Appier.RmnSale
   @objc public static func fromWebSdkEvent(event: [Swift.String : Any]) -> Appier.RmnSale
@@ -2361,3 +2368,5 @@ extension Appier.InAppMatchOperator : Swift.RawRepresentable {}
 extension Appier.LogType : Swift.Equatable {}
 extension Appier.LogType : Swift.Hashable {}
 extension Appier.LogType : Swift.RawRepresentable {}
+@_spi(AppierInternal) extension Appier.LogPrivacy : Swift.Equatable {}
+@_spi(AppierInternal) extension Appier.LogPrivacy : Swift.Hashable {}
