@@ -93263,7 +93263,7 @@
       "kind": "StringLiteral",
       "offset": 361,
       "length": 7,
-      "value": "\"8.7.0\""
+      "value": "\"8.8.0\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
@@ -95585,119 +95585,119 @@
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/InAppCampaign\/InAppAdditionalCondition.swift",
       "kind": "IntegerLiteral",
-      "offset": 3826,
+      "offset": 3953,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/InAppCampaign\/InAppAdditionalCondition.swift",
       "kind": "IntegerLiteral",
-      "offset": 3831,
+      "offset": 3958,
       "length": 4,
       "value": "1000"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/InAppCampaign\/InAppAdditionalCondition.swift",
       "kind": "IntegerLiteral",
-      "offset": 3891,
+      "offset": 4018,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/InAppCampaign\/InAppAdditionalCondition.swift",
       "kind": "IntegerLiteral",
-      "offset": 3896,
+      "offset": 4023,
       "length": 2,
       "value": "60"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/InAppCampaign\/InAppAdditionalCondition.swift",
       "kind": "IntegerLiteral",
-      "offset": 3901,
+      "offset": 4028,
       "length": 4,
       "value": "1000"
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/InAppCampaign\/InAppAdditionalCondition.swift",
       "kind": "StringLiteral",
-      "offset": 3995,
+      "offset": 4122,
       "length": 6,
       "value": "\"hour\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/InAppCampaign\/InAppAdditionalCondition.swift",
       "kind": "StringLiteral",
-      "offset": 4020,
+      "offset": 4147,
       "length": 8,
       "value": "\"minute\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/InAppCampaign\/InAppAdditionalCondition.swift",
       "kind": "StringLiteral",
-      "offset": 4230,
+      "offset": 4357,
       "length": 10,
       "value": "\"operator\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/InAppCampaign\/InAppAdditionalCondition.swift",
       "kind": "StringLiteral",
-      "offset": 4347,
+      "offset": 4474,
       "length": 5,
       "value": "\"AND\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/InAppCampaign\/InAppAdditionalCondition.swift",
       "kind": "StringLiteral",
-      "offset": 4367,
+      "offset": 4494,
       "length": 4,
       "value": "\"OR\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/InAppCampaign\/InAppAdditionalCondition.swift",
       "kind": "StringLiteral",
-      "offset": 4695,
+      "offset": 4822,
       "length": 10,
       "value": "\"operator\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/InAppCampaign\/InAppAdditionalCondition.swift",
       "kind": "StringLiteral",
-      "offset": 4861,
+      "offset": 4988,
       "length": 3,
       "value": "\"=\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/InAppCampaign\/InAppAdditionalCondition.swift",
       "kind": "StringLiteral",
-      "offset": 4885,
+      "offset": 5012,
       "length": 4,
       "value": "\"!=\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/InAppCampaign\/InAppAdditionalCondition.swift",
       "kind": "StringLiteral",
-      "offset": 4913,
+      "offset": 5040,
       "length": 3,
       "value": "\">\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/InAppCampaign\/InAppAdditionalCondition.swift",
       "kind": "StringLiteral",
-      "offset": 4937,
+      "offset": 5064,
       "length": 3,
       "value": "\"<\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/InAppCampaign\/InAppAdditionalCondition.swift",
       "kind": "StringLiteral",
-      "offset": 4971,
+      "offset": 5098,
       "length": 4,
       "value": "\">=\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/InAppCampaign\/InAppAdditionalCondition.swift",
       "kind": "StringLiteral",
-      "offset": 5003,
+      "offset": 5130,
       "length": 4,
       "value": "\"<=\""
     },
