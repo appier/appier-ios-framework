@@ -384,10 +384,6 @@ extension Appier.AIQLocalStorage : Appier.AIQRollbarStorageProtocol {
 }
 extension Appier.AIQLocalStorage : Appier.AIQStorage {
   @objc dynamic public func clean()
-  @objc dynamic public var isDevProfile: Swift.Bool {
-    @objc get
-    @objc set
-  }
   @objc dynamic public var appID: Swift.String? {
     @objc get
     @objc set
@@ -694,7 +690,7 @@ extension Appier.AIQLocalStorage : Appier.AIQStorage {
 }
 extension Appier.AIQLocalStorage {
   @objc dynamic public func synchronizeOnFirstLaunch(suiteName: Swift.String?)
-  @objc(setAppID:groupName:devProfile:frameworkType:version:) dynamic public func set(appID: Swift.String, groupName: Swift.String?, devProfile: Swift.Bool, frameworkType: Swift.String?, version: Swift.String?)
+  @objc(setAppID:groupName:frameworkType:version:) dynamic public func set(appID: Swift.String, groupName: Swift.String?, frameworkType: Swift.String?, version: Swift.String?)
   @objc dynamic public func createAndSaveNewAppierId()
   @objc dynamic public func cleanAttribution()
   @objc dynamic public func shouldUserDetailsBeSent() -> Swift.Bool
@@ -712,6 +708,7 @@ extension Appier.AIQLocalStorage {
     @objc get
   }
   @objc public static var shared: Appier.AIQLocalStorage
+  @objc public static var pushStorageEnabledThisSession: Swift.Bool
   @objc override convenience dynamic public init()
   @objc public init(suiteName: Swift.String?)
   @objc deinit
@@ -784,7 +781,6 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
 }
 @objc public protocol AIQStorage {
   @objc func clean()
-  @objc var isDevProfile: Swift.Bool { get set }
   @objc var appID: Swift.String? { get set }
   @objc var hasAppID: Swift.Bool { get }
   @objc var appSecret: Swift.String { get set }
@@ -1039,7 +1035,6 @@ extension Appier.AIQUtility {
 @objc @_inheritsConvenienceInitializers @objcMembers final public class AppierSDK : ObjectiveC.NSObject {
   @objc public static let CONFIG_APP_ID: Swift.String
   @objc public static let CONFIG_APP_GROUP_ID: Swift.String
-  @objc public static let CONFIG_IS_DEV_PROFILE: Swift.String
   @objc public static func initialize(configuration: [Swift.String : Swift.String])
   @objc public static func initialize(configuration: [Swift.String : Swift.String], abortOnError: Swift.Bool = true, completion: @escaping (_ isSuccess: Swift.Bool) -> Swift.Void)
   @objc public static var Aiqua: Appier.Aiqua {
@@ -1196,7 +1191,6 @@ public enum BadgePositionOverride {
   @objc public static let QG_IN_APP_VISIBLE_STATUS: Swift.String
   @objc public static let QG_PROFILE_INFO_LAST_SENT_TIME: Swift.String
   @objc public static let QG_USER_DETAILS_LAST_SENT_TIME: Swift.String
-  @objc public static let QG_DEV_PROFILE: Swift.String
   @objc public static let QG_AIQ_PUSH_ENABLED_STATUS: Swift.String
   @objc public static let QG_INBOX: Swift.String
   @objc public static let QG_INBOX_LIMIT: Swift.String

@@ -55,6 +55,38 @@ NS_ASSUME_NONNULL_BEGIN
 
 /*!
  @abstract
+ Set the app id to setup sdk
+
+ @discussion
+ This initialises the sdk with your app id.
+ Add this method to you AppDelegate applicaiton:didFinishLaunchingWithOptions:
+ You can find it your account on app.qgraph.io in setup.
+
+ @param appId           your QGraph account appId
+ */
+- (void)onStart:(NSString *)appId;
+
+/*!
+ @abstract
+ Set the app id and app group to setup sdk
+
+ @discussion
+ Same as 'onStart:' with App Group options.
+ Use this onStart method if you wish to add content & service extension of QGraph.
+ App Group will help to share data between app target and extensions.
+ App Group is 'Required' to log events from extension and also to track
+ certain events from the rich push notification.
+
+ @param appId           your QGraph account appId
+ @param appGroup        APP-GROUP used for the service & content extension and app target
+
+ @note Pass appGroup as 'nil' if not using rich push (Carousel/Slider Push)
+ @note However this appGroup also helps track ctr for the push notification using service extension.
+ */
+- (void)onStart:(NSString *)appId withAppGroup:(nullable NSString *)appGroup;
+
+/*!
+ @abstract
  Set the app id and profile to setup sdk
 
  @discussion
@@ -63,16 +95,17 @@ NS_ASSUME_NONNULL_BEGIN
  You can find it your account on app.qgraph.io in setup.
 
  @param appId           your QGraph account appId
- @param devProfile      True/Yes for Development and False/No for Production
+ @param devProfile      This parameter is ignored and has no effect.
  */
-- (void)onStart:(NSString *)appId setDevProfile:(BOOL)devProfile;
+- (void)onStart:(NSString *)appId setDevProfile:(BOOL)devProfile
+    __deprecated_msg("Use onStart: instead. The devProfile parameter has no effect.");
 
 /*!
  @abstract
  Set the app id, app group and profile to setup sdk
 
  @discussion
- Same as 'onStart:setDevProfile' with App Group options.
+ Same as 'onStart:withAppGroup:' with App Group options.
  Use this onStart method if you wish to add content & service extension of QGraph.
  App Group will help to share data between app target and extensions.
  App Group is 'Required' to log events from extension and also to track
@@ -80,12 +113,13 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param appId           your QGraph account appId
  @param appGroup        APP-GROUP used for the service & content extension and app target
- @param devProfile      True/Yes for Development and False/No for Production
+ @param devProfile      This parameter is ignored and has no effect.
 
  @note Pass appGroup as 'nil' if not using rich push (Carousel/Slider Push)
  @note However this appGroup also helps track ctr for the push notification using service extension.
  */
-- (void)onStart:(NSString *)appId withAppGroup:(nullable NSString *)appGroup setDevProfile:(BOOL)devProfile;
+- (void)onStart:(NSString *)appId withAppGroup:(nullable NSString *)appGroup setDevProfile:(BOOL)devProfile
+    __deprecated_msg("Use onStart:withAppGroup: instead. The devProfile parameter has no effect.");
 
 /*!
  @method

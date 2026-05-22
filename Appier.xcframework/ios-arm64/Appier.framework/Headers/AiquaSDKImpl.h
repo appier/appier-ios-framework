@@ -912,7 +912,9 @@ extern NSString * _Nonnull QGWKWebViewUserScript;
 - (void)handleScriptMessageOfWebView:(WKWebView *)webView userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message;
 - (void)handleScriptMessageOfWebView:(WKWebView *)webView userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message processEventParameters:(BOOL)processEventParameters;
 - (void)didReceiveAidealExternalCampaign:(NSDictionary *)campaign;
-- (void)onStart:(NSString *)appId withAppGroup:(NSString * _Nullable)appGroup setDevProfile:(BOOL)devProfile frameworkType:(NSString * _Nullable)type frameworkVersion:(NSString * _Nullable)version;
+- (void)onStart:(NSString *)appId withAppGroup:(NSString * _Nullable)appGroup frameworkType:(NSString * _Nullable)type frameworkVersion:(NSString * _Nullable)version;
+- (void)onStart:(NSString *)appId withAppGroup:(NSString * _Nullable)appGroup setDevProfile:(BOOL)devProfile frameworkType:(NSString * _Nullable)type frameworkVersion:(NSString * _Nullable)version
+    __deprecated_msg("Use onStart:withAppGroup:frameworkType:frameworkVersion: instead. The devProfile parameter has no effect.");
 
 /// Registers a push notification notifier delegate.
 ///

@@ -616,6 +616,9 @@ SWIFT_CLASS("_TtC6Appier15AIQLocalStorage")
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, strong) AIQLocalStorage * _Nonnull shared;)
 + (AIQLocalStorage * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 + (void)setShared:(AIQLocalStorage * _Nonnull)value;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class) BOOL pushStorageEnabledThisSession;)
++ (BOOL)pushStorageEnabledThisSession SWIFT_WARN_UNUSED_RESULT;
++ (void)setPushStorageEnabledThisSession:(BOOL)value;
 - (nonnull instancetype)init;
 - (nonnull instancetype)initWithSuiteName:(NSString * _Nullable)suiteName OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -646,13 +649,11 @@ SWIFT_PROTOCOL("_TtP6Appier25AIQRollbarStorageProtocol_")
 ///
 /// \param groupName iOS App Group name.
 ///
-/// \param devProfile true to enable development mode.
-///
 /// \param frameworkType Type of the SDK for cross-platform framework.
 ///
 /// \param version Vesrion of the SDK for the cross-platform framework.
 ///
-- (void)setAppID:(NSString * _Nonnull)appID groupName:(NSString * _Nullable)groupName devProfile:(BOOL)devProfile frameworkType:(NSString * _Nullable)frameworkType version:(NSString * _Nullable)version;
+- (void)setAppID:(NSString * _Nonnull)appID groupName:(NSString * _Nullable)groupName frameworkType:(NSString * _Nullable)frameworkType version:(NSString * _Nullable)version;
 /// Generates a new ‘appierId’ and persists it. Existing ‘appierId’ will be overwritten.
 - (void)createAndSaveNewAppierId;
 /// Clean attribution view/click
@@ -681,7 +682,6 @@ SWIFT_PROTOCOL("_TtP6Appier25AIQRollbarStorageProtocol_")
 SWIFT_PROTOCOL("_TtP6Appier10AIQStorage_")
 @protocol AIQStorage
 - (void)clean;
-@property (nonatomic) BOOL isDevProfile;
 @property (nonatomic, copy) NSString * _Nullable appID;
 /// This is equivalent to <em>appID != nil</em>
 @property (nonatomic, readonly) BOOL hasAppID;
@@ -775,7 +775,6 @@ SWIFT_PROTOCOL("_TtP6Appier10AIQStorage_")
 
 @interface AIQLocalStorage (SWIFT_EXTENSION(Appier)) <AIQStorage>
 - (void)clean;
-@property (nonatomic) BOOL isDevProfile;
 @property (nonatomic, copy) NSString * _Nullable appID;
 @property (nonatomic, readonly) BOOL hasAppID;
 @property (nonatomic, copy) NSString * _Nonnull appSecret;
@@ -1174,8 +1173,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 + (NSString * _Nonnull)CONFIG_APP_ID SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull CONFIG_APP_GROUP_ID;)
 + (NSString * _Nonnull)CONFIG_APP_GROUP_ID SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull CONFIG_IS_DEV_PROFILE;)
-+ (NSString * _Nonnull)CONFIG_IS_DEV_PROFILE SWIFT_WARN_UNUSED_RESULT;
 + (void)initializeWithConfiguration:(NSDictionary<NSString *, NSString *> * _Nonnull)configuration;
 /// Initializes the SDK with the specified configuration.
 /// The initialization result is returned via the completion handler as a Boolean value,
@@ -1353,8 +1350,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 + (NSString * _Nonnull)QG_PROFILE_INFO_LAST_SENT_TIME SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_USER_DETAILS_LAST_SENT_TIME;)
 + (NSString * _Nonnull)QG_USER_DETAILS_LAST_SENT_TIME SWIFT_WARN_UNUSED_RESULT;
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_DEV_PROFILE;)
-+ (NSString * _Nonnull)QG_DEV_PROFILE SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_AIQ_PUSH_ENABLED_STATUS;)
 + (NSString * _Nonnull)QG_AIQ_PUSH_ENABLED_STATUS SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_INBOX;)
