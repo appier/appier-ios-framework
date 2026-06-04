@@ -15,6 +15,9 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 import os
+extension AppierExtension.Logger {
+  @objc(aiquaNotificationLogger) public static let aiquaNotification: AppierExtension.Logger
+}
 @_inheritsConvenienceInitializers @objc(APRDeviceInfo) @objcMembers public class DeviceInfo : ObjectiveC.NSObject {
   @objc override dynamic public init()
   @objc deinit
@@ -53,21 +56,13 @@ extension AppierExtension.DeviceInfo {
   @objc override dynamic public init()
   @objc deinit
 }
-@_spi(AppierInternal) extension AppierExtension.Logger {
-  @_spi(AppierInternal) @objc(aiquaNotificationLogger) public static let aiquaNotification: AppierExtension.Logger
-}
-@_spi(AppierInternal) @objc(APRLogger) public class Logger : ObjectiveC.NSObject {
-  @_spi(AppierInternal) @objc final public let category: Swift.String
-  @_spi(AppierInternal) @objc public var enabled: Swift.Bool {
-    @_spi(AppierInternal) @objc get
+@_hasMissingDesignatedInitializers @objc(APRLogger) public class Logger : ObjectiveC.NSObject {
+  @objc final public let category: Swift.String
+  @objc public var enabled: Swift.Bool {
+    @objc get
   }
-  @_spi(AppierInternal) public init(category: Swift.String)
-  @_spi(AppierInternal) public func debug(_ message: AppierExtension.LogMessage)
-  @_spi(AppierInternal) public func info(_ message: AppierExtension.LogMessage)
-  @_spi(AppierInternal) public func warning(_ message: AppierExtension.LogMessage)
-  @_spi(AppierInternal) public func error(_ message: AppierExtension.LogMessage)
-  @_spi(AppierInternal) @objc(descriptionForLevel:) public static func description(for level: AppierExtension.LogType) -> Swift.String
-  @_spi(AppierInternal) @objc deinit
+  @objc(descriptionForLevel:) public static func description(for level: AppierExtension.LogType) -> Swift.String
+  @objc deinit
 }
 @objc(APRLogType) public enum LogType : Swift.Int {
   case debug, info, warning, error
@@ -80,36 +75,6 @@ extension AppierExtension.DeviceInfo {
 extension AppierExtension.LogType : Swift.CustomStringConvertible {
   public var description: Swift.String {
     get
-  }
-}
-@_spi(AppierInternal) public struct LogMessage {
-}
-@_spi(AppierInternal) public enum LogPrivacy {
-  @_spi(AppierInternal) case auto, `private`, `public`
-  @_spi(AppierInternal) public static func == (a: AppierExtension.LogPrivacy, b: AppierExtension.LogPrivacy) -> Swift.Bool
-  @_spi(AppierInternal) public func hash(into hasher: inout Swift.Hasher)
-  @_spi(AppierInternal) public var hashValue: Swift.Int {
-    @_spi(AppierInternal) get
-  }
-}
-@_spi(AppierInternal) extension AppierExtension.LogMessage : Swift.CustomStringConvertible {
-  @_spi(AppierInternal) public var description: Swift.String {
-    @_spi(AppierInternal) get
-  }
-}
-@_spi(AppierInternal) extension AppierExtension.LogMessage : Swift.ExpressibleByStringLiteral {
-  @_spi(AppierInternal) public init(stringLiteral value: Swift.String)
-  @_spi(AppierInternal) public typealias ExtendedGraphemeClusterLiteralType = Swift.String
-  @_spi(AppierInternal) public typealias StringLiteralType = Swift.String
-  @_spi(AppierInternal) public typealias UnicodeScalarLiteralType = Swift.String
-}
-@_spi(AppierInternal) extension AppierExtension.LogMessage : Swift.ExpressibleByStringInterpolation {
-  @_spi(AppierInternal) public init(stringInterpolation: AppierExtension.LogMessage.StringInterpolation)
-  @_spi(AppierInternal) public struct StringInterpolation : Swift.StringInterpolationProtocol {
-    @_spi(AppierInternal) public init(literalCapacity: Swift.Int, interpolationCount _: Swift.Int)
-    @_spi(AppierInternal) public mutating func appendLiteral(_ literal: Swift.String)
-    @_spi(AppierInternal) public mutating func appendInterpolation(_ object: Any?, privacy: AppierExtension.LogPrivacy = .auto)
-    @_spi(AppierInternal) public typealias StringLiteralType = Swift.String
   }
 }
 @objc extension Foundation.NSString {
@@ -137,5 +102,3 @@ extension Foundation.URLSession : AppierExtension.URLSessionProtocol {
 extension AppierExtension.LogType : Swift.Equatable {}
 extension AppierExtension.LogType : Swift.Hashable {}
 extension AppierExtension.LogType : Swift.RawRepresentable {}
-@_spi(AppierInternal) extension AppierExtension.LogPrivacy : Swift.Equatable {}
-@_spi(AppierInternal) extension AppierExtension.LogPrivacy : Swift.Hashable {}

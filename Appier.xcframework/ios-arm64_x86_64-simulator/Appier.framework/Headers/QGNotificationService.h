@@ -11,7 +11,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 DEPRECATED_MSG_ATTRIBUTE("Notification extension support will be removed from AppierFramework in a future version. Please link to AppierExtensionFramework in your notification extensions.")
-API_AVAILABLE(ios(10.0))
 @interface QGNotificationService : UNNotificationServiceExtension
 
 @end

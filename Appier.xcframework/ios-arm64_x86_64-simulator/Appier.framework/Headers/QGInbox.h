@@ -74,8 +74,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, readonly) QGInboxStatus status;
 
-- (id)initWithData:(NSDictionary *)campaign;
-
 /*!
  @abstract
  Update current status with new one. The method looks more formal rather than just use dot operation to change the value

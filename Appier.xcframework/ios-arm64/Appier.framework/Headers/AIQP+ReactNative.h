@@ -6,7 +6,7 @@
 //  Copyright © 2019 QGraph. All rights reserved.
 //
 
-#import <Appier/AIQP.h>
+#import "AIQP.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
