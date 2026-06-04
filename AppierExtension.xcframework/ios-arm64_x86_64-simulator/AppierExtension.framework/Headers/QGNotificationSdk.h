@@ -15,11 +15,10 @@
 #import <Foundation/Foundation.h>
 #import <UserNotifications/UserNotifications.h>
 #import <UserNotificationsUI/UserNotificationsUI.h>
-#import <AppierExtension/iCarousel.h>
+#import "iCarousel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-API_AVAILABLE(ios(10.0))
 @interface QGNotificationSdk : NSObject
 
 /*!
@@ -114,11 +113,11 @@ API_AVAILABLE(ios(10.0))
  API Will pass the deepLink only and not handle it. To handle your deepLink in your
  APP DELEGATE, implement <code>application:openURL:options:</code>.
  
- @param response        UNNotificationResponse object
- @param context         NSExtensionContext object
-
+ @param response        UNNotificaitonResponse object
+ @param context         NSExtensionCotext object
+ 
  */
-- (void)didReceiveNotificationResponse:(UNNotificationResponse *)response withContext:(NSExtensionContext * _Nullable)context completionHandler:(void (^)(UNNotificationContentExtensionResponseOption))completion;
+- (void)didReceiveNotificationResponse:(UNNotificationResponse *)response withContext:(NSExtensionContext *)context completionHandler:(void (^)(UNNotificationContentExtensionResponseOption))completion;
 
 /*!
  @method
@@ -206,7 +205,7 @@ API_AVAILABLE(ios(10.0))
  @code
  [[QGNotificationSdk sharedInstanceWithAppGroup:APP_GROUP] carousel:carousel didSelectItemAtIndex:index withExtensionContext:self.extensionContext];
  */
-- (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index withExtensionContext:(NSExtensionContext * _Nullable)context API_AVAILABLE(ios(12.0));
+- (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index withExtensionContext:(NSExtensionContext *)context API_AVAILABLE(ios(12.0));
 
 /*!
  @method

@@ -15,7 +15,7 @@
 #import <Foundation/Foundation.h>
 #import <UserNotifications/UserNotifications.h>
 #import <UserNotificationsUI/UserNotificationsUI.h>
-#import <Appier/iCarousel.h>
+#import "iCarousel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -59,7 +59,7 @@ DEPRECATED_MSG_ATTRIBUTE("Notification extension support will be removed from Ap
  @param request         UNNotificationRequest received in the notification
  
  */
-- (void)didReceiveNotificationRequest:(UNNotificationRequest *)request withContentHandler:(void (^)(UNNotificationContent *))contentHandler API_AVAILABLE(ios(10.0));
+- (void)didReceiveNotificationRequest:(UNNotificationRequest *)request withContentHandler:(void (^)(UNNotificationContent *))contentHandler;
 
 /*!
  @method
@@ -98,7 +98,7 @@ DEPRECATED_MSG_ATTRIBUTE("Notification extension support will be removed from Ap
  @param notification     UNNotification object received
  
  */
-- (void)didReceiveNotification:(UNNotification *)notification API_AVAILABLE(ios(10.0));
+- (void)didReceiveNotification:(UNNotification *)notification;
 
 /*!
  @method
@@ -114,11 +114,11 @@ DEPRECATED_MSG_ATTRIBUTE("Notification extension support will be removed from Ap
  API Will pass the deepLink only and not handle it. To handle your deepLink in your
  APP DELEGATE, implement <code>application:openURL:options:</code>.
  
- @param response        UNNotificationResponse object
- @param context         NSExtensionContext object
-
+ @param response        UNNotificaitonResponse object
+ @param context         NSExtensionCotext object
+ 
  */
-- (void)didReceiveNotificationResponse:(UNNotificationResponse *)response withContext:(NSExtensionContext * _Nullable)context completionHandler:(void (^)(UNNotificationContentExtensionResponseOption))completion API_AVAILABLE(ios(10.0));
+- (void)didReceiveNotificationResponse:(UNNotificationResponse *)response withContext:(NSExtensionContext *)context completionHandler:(void (^)(UNNotificationContentExtensionResponseOption))completion;
 
 /*!
  @method
@@ -206,7 +206,7 @@ DEPRECATED_MSG_ATTRIBUTE("Notification extension support will be removed from Ap
  @code
  [[QGNotificationSdk sharedInstanceWithAppGroup:APP_GROUP] carousel:carousel didSelectItemAtIndex:index withExtensionContext:self.extensionContext];
  */
-- (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index withExtensionContext:(NSExtensionContext * _Nullable)context API_AVAILABLE(ios(12.0));
+- (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index withExtensionContext:(NSExtensionContext *)context API_AVAILABLE(ios(12.0));
 
 /*!
  @method
