@@ -38,7 +38,7 @@ platform :ios do
     File.write("../version.json", version_file.to_json)
 
     # Commit and push changes
-    sh ["git", "checkout", "-b", branch_name]
+    sh("git", "checkout", "-b", branch_name)
 
     path = [
       "./*.xcframework/*",
