@@ -1,1 +1,127 @@
-IyBUaGlzIGZpbGUgY29udGFpbnMgdGhlIGZhc3RsYW5lLnRvb2xzIGNvbmZpZ3VyYXRpb24KIyBZb3UgY2FuIGZpbmQgdGhlIGRvY3VtZW50YXRpb24gYXQgaHR0cHM6Ly9kb2NzLmZhc3RsYW5lLnRvb2xzCiMKIyBGb3IgYSBsaXN0IG9mIGFsbCBhdmFpbGFibGUgYWN0aW9ucywgY2hlY2sgb3V0CiMKIyAgICAgaHR0cHM6Ly9kb2NzLmZhc3RsYW5lLnRvb2xzL2FjdGlvbnMKIwojIEZvciBhIGxpc3Qgb2YgYWxsIGF2YWlsYWJsZSBwbHVnaW5zLCBjaGVjayBvdXQKIwojICAgICBodHRwczovL2RvY3MuZmFzdGxhbmUudG9vbHMvcGx1Z2lucy9hdmFpbGFibGUtcGx1Z2lucwojCgpkZWZhdWx0X3BsYXRmb3JtKDppb3MpCgpwbGF0Zm9ybSA6aW9zIGRvCgogIGJlZm9yZV9hbGwgZG8KICAgIHNldHVwX2NpcmNsZV9jaQogIGVuZAoKICBkZXNjICJPcGVuIEdpdEh1YiBwdWxsIHJlcXVlc3QiCiAgbGFuZSA6cHIgZG8gfG9wdGlvbnN8CiAgICBicmFuY2hfbmFtZSA9IG9wdGlvbnMuZmV0Y2goOmJyYW5jaF9uYW1lLCAicmVsZWFzZSIpCiAgICBpc19wcmVyZWxlYXNlID0gYnJhbmNoX25hbWUuaW5jbHVkZT8oIi1kZXYiKQogICAgc3VmZml4ZXMgPSBicmFuY2hfbmFtZS5zY2FuKC8oLWRldi5cZCspJC8pCiAgICBmcmFtZXdvcmtfdmVyc2lvbiA9ICJ2I3tnZXRfZnJhbWV3b3JrX3ZlcnNpb259IgogICAgaWYgc3VmZml4ZXMuYW55PwogICAgICBkZXZfc3VmZml4ID0gc3VmZml4ZXMuZmxhdHRlbi5maXJzdAogICAgICBmcmFtZXdvcmtfdmVyc2lvbiArPSBkZXZfc3VmZml4CiAgICBlbmQKICAgIHRpdGxlID0gKGlzX3ByZXJlbGVhc2UgPyAiUHJlLXJlbGVhc2UiIDogIlJlbGVhc2UiKSArICIgI3tmcmFtZXdvcmtfdmVyc2lvbn0iCgogICAgIyBTZXQgUG9kc3BlYyB2ZXJzaW9uCiAgICB2ZXJzaW9uX2ZpbGUgPSB7CiAgICAgICJ2ZXJzaW9uIiA9PiBmcmFtZXdvcmtfdmVyc2lvbgogICAgfQoKICAgIEZpbGUud3JpdGUoIi4uL3ZlcnNpb24uanNvbiIsIHZlcnNpb25fZmlsZS50b19qc29uKQoKICAgICMgQ29tbWl0IGFuZCBwdXNoIGNoYW5nZXMKICAgIHNoIFsiZ2l0IiwgImNoZWNrb3V0IiwgIi1iIiwgYnJhbmNoX25hbWVdCgogICAgcGF0aCA9IFsKICAgICAgIi4vKi54Y2ZyYW1ld29yay8qIiwKICAgICAgIi4vdmVyc2lvbi5qc29uIgogICAgXQoKICAgIGdpdF9hZGQoCiAgICAgIHBhdGg6IHBhdGgKICAgICkKCiAgICBnaXRfY29tbWl0KAogICAgICBwYXRoOiBwYXRoLAogICAgICBtZXNzYWdlOiB0aXRsZQogICAgKQoKICAgIHB1c2hfdG9fZ2l0X3JlbW90ZSgKICAgICAgZm9yY2U6IHRydWUsCiAgICAgIGxvY2FsX2JyYW5jaDogYnJhbmNoX25hbWUsCiAgICAgIHJlbW90ZV9icmFuY2g6IGJyYW5jaF9uYW1lCiAgICApCgogICAgIyBPcGVuIHB1bGwgcmVxdWVzdAogICAgZ2l0aHViX2FwaSgKICAgICAgc2VydmVyX3VybDogImh0dHBzOi8vYXBpLmdpdGh1Yi5jb20iLAogICAgICBhcGlfdG9rZW46IEVOVlsiR0lUSFVCX1RPS0VOIl0sCiAgICAgIGh0dHBfbWV0aG9kOiAiUE9TVCIsCiAgICAgIHBhdGg6ICIvcmVwb3MvYXBwaWVyL2FwcGllci1pb3MtZnJhbWV3b3JrL3B1bGxzIiwKICAgICAgYm9keTogewogICAgICAgICJoZWFkIjogYnJhbmNoX25hbWUsCiAgICAgICAgImJhc2UiOiAibWFzdGVyIiwKICAgICAgICAidGl0bGUiOiB0aXRsZQogICAgICB9CiAgICApCiAgZW5kCgogIGRlc2MgIkRlcGxveSBBcHBpZXJGcmFtZXdvcmsgUG9kc3BlY3MgdG8gQ29jb2FQb2RzIFRydW5rIgogIGxhbmUgOnBvZHNfZnJhbWV3b3JrIGRvCiAgICBEaXIuY2hkaXIoIi4uIikgZG8KICAgICAgc2ggInBvZCB0cnVuayBwdXNoIEFwcGllckZyYW1ld29yay5wb2RzcGVjIC0tYWxsb3ctd2FybmluZ3MiCiAgICBlbmQKICBlbmQKCiAgZGVzYyAiRGVwbG95IEFwcGllckV4dGVuc2lvbkZyYW1ld29yayBQb2RzcGVjcyB0byBDb2NvYVBvZHMgVHJ1bmsiCiAgbGFuZSA6cG9kc19leHRlbnNpb25fZnJhbWV3b3JrIGRvCiAgICBEaXIuY2hkaXIoIi4uIikgZG8KICAgICAgc2ggInBvZCB0cnVuayBwdXNoIEFwcGllckV4dGVuc2lvbkZyYW1ld29yay5wb2RzcGVjIC0tYWxsb3ctd2FybmluZ3MiCiAgICBlbmQKICBlbmQKCiAgZGVzYyAiQ3JlYXRlIHJlbGVhc2Ugb24gR2l0SHViIgogIGxhbmUgOnJlbGVhc2UgZG8gfG9wdGlvbnN8CiAgICBmcmFtZXdvcmtfdmVyc2lvbiA9IGdldF9mcmFtZXdvcmtfdmVyc2lvbgogICAgdGFnID0gInYje2ZyYW1ld29ya192ZXJzaW9ufSIKICAgIGFyY2hpdmVfbmFtZSA9ICJBcHBpZXJGcmFtZXdvcmsuemlwIgogICAgaXNfcHJlcmVsZWFzZSA9IG9wdGlvbnMuZmV0Y2goOmlzX3ByZXJlbGVhc2UsIGZhbHNlKQoKICAgIERpci5jaGRpcigiLi4iKSBkbwogICAgICBzaCAiemlwIC1yICN7YXJjaGl2ZV9uYW1lfSBBcHBpZXIueGNmcmFtZXdvcmsgQXBwaWVyRXh0ZW5zaW9uLnhjZnJhbWV3b3JrIgogICAgZW5kCgogICAgZ2l0aHViX3JlbGVhc2UgPSBzZXRfZ2l0aHViX3JlbGVhc2UoCiAgICAgIHJlcG9zaXRvcnlfbmFtZTogImFwcGllci9hcHBpZXItaW9zLWZyYW1ld29yayIsCiAgICAgIGFwaV90b2tlbjogRU5WWyJHSVRIVUJfVE9LRU4iXSwKICAgICAgbmFtZTogIkFwcGllciBpT1MgU0RLICN7ZnJhbWV3b3JrX3ZlcnNpb259IiwKICAgICAgdGFnX25hbWU6IHRhZywKICAgICAgZGVzY3JpcHRpb246ICJGb3IgZGV0YWlscyBhYm91dCB0aGlzIHJlbGVhc2UsIHNlZSB0aGUgPGEgaHJlZj1cImh0dHBzOi8vZG9jcy5haXF1YS5hcHBpZXIuY29tL2RvY3MvcmVsZWFzZS1ub3Rlcy1mb3ItaW9zXCI+cmVsZWFzZSBub3RlczwvYT4uIiwKICAgICAgY29tbWl0aXNoOiAibWFzdGVyIiwKICAgICAgaXNfcHJlcmVsZWFzZTogaXNfcHJlcmVsZWFzZSwKICAgICAgdXBsb2FkX2Fzc2V0czogWwogICAgICAgIGFyY2hpdmVfbmFtZQogICAgICBdCiAgICApCgogICAgYWRkX2dpdF90YWcoCiAgICAgIHRhZzogIiN7ZnJhbWV3b3JrX3ZlcnNpb259IgogICAgKQoKICAgIHB1c2hfZ2l0X3RhZ3MKICBlbmQKCiAgcHJpdmF0ZV9sYW5lIDpnZXRfZnJhbWV3b3JrX3ZlcnNpb24gZG8KICAgIHBsaXN0X2ZpbGUgPSAiLi4vQXBwaWVyLnhjZnJhbWV3b3JrL2lvcy1hcm02NC9BcHBpZXIuZnJhbWV3b3JrL0luZm8ucGxpc3QiCiAgICBzaCgiL3Vzci9saWJleGVjL1BsaXN0QnVkZHkgI3twbGlzdF9maWxlfSAtYyAnUHJpbnQgOkNGQnVuZGxlU2hvcnRWZXJzaW9uU3RyaW5nJyIpLnN0cmlwCiAgZW5kCgplbmQK
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+default_platform(:ios)
+
+platform :ios do
+
+  before_all do
+    setup_circle_ci
+  end
+
+  desc "Open GitHub pull request"
+  lane :pr do |options|
+    branch_name = options.fetch(:branch_name, "release")
+    is_prerelease = branch_name.include?("-dev")
+    suffixes = branch_name.scan(/(-dev\.\d+)$/)
+    framework_version = "v#{get_framework_version}"
+    if suffixes.any?
+      dev_suffix = suffixes.flatten.first
+      framework_version += dev_suffix
+    end
+    title = (is_prerelease ? "Pre-release" : "Release") + " #{framework_version}"
+
+    # Set Podspec version
+    version_file = {
+      "version" => framework_version
+    }
+
+    File.write("../version.json", version_file.to_json)
+
+    # Commit and push changes
+    sh ["git", "checkout", "-b", branch_name]
+
+    path = [
+      "./*.xcframework/*",
+      "./version.json"
+    ]
+
+    git_add(
+      path: path
+    )
+
+    git_commit(
+      path: path,
+      message: title
+    )
+
+    push_to_git_remote(
+      force: true,
+      local_branch: branch_name,
+      remote_branch: branch_name
+    )
+
+    # Open pull request
+    github_api(
+      server_url: "https://api.github.com",
+      api_token: ENV["GITHUB_TOKEN"],
+      http_method: "POST",
+      path: "/repos/appier/appier-ios-framework/pulls",
+      body: {
+        "head": branch_name,
+        "base": "master",
+        "title": title
+      }
+    )
+  end
+
+  desc "Deploy AppierFramework Podspecs to CocoaPods Trunk"
+  lane :pods_framework do
+    Dir.chdir("..") do
+      sh "pod trunk push AppierFramework.podspec --allow-warnings"
+    end
+  end
+
+  desc "Deploy AppierExtensionFramework Podspecs to CocoaPods Trunk"
+  lane :pods_extension_framework do
+    Dir.chdir("..") do
+      sh "pod trunk push AppierExtensionFramework.podspec --allow-warnings"
+    end
+  end
+
+  desc "Create release on GitHub"
+  lane :release do |options|
+    framework_version = get_framework_version
+    tag = "v#{framework_version}"
+    archive_name = "AppierFramework.zip"
+    is_prerelease = options.fetch(:is_prerelease, false)
+
+    Dir.chdir("..") do
+      sh "zip -r #{archive_name} Appier.xcframework AppierExtension.xcframework"
+    end
+
+    github_release = set_github_release(
+      repository_name: "appier/appier-ios-framework",
+      api_token: ENV["GITHUB_TOKEN"],
+      name: "Appier iOS SDK #{framework_version}",
+      tag_name: tag,
+      description: "For details about this release, see the <a href=\"https://docs.aiqua.appier.com/docs/release-notes-for-ios\">release notes</a>.",
+      commitish: "master",
+      is_prerelease: is_prerelease,
+      upload_assets: [
+        archive_name
+      ]
+    )
+
+    add_git_tag(
+      tag: "#{framework_version}"
+    )
+
+    push_git_tags
+  end
+
+  private_lane :get_framework_version do
+    plist_file = "../Appier.xcframework/ios-arm64/Appier.framework/Info.plist"
+    sh("/usr/libexec/PlistBuddy #{plist_file} -c 'Print :CFBundleShortVersionString'").strip
+  end
+
+end
