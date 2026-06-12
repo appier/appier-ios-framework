@@ -10,6 +10,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isCollectIDFA;
 @property (nonatomic, assign) BOOL isCollectLocation;
 - (instancetype)initWithIsCollectIDFA:(BOOL)isCollectIDFA isCollectLocation:(BOOL)isCollectLocation;
+- (BOOL)isSameConfigWith:(AIQDataTrackingConfiguration *)targetConfig;
 @end
 
 NS_ASSUME_NONNULL_END

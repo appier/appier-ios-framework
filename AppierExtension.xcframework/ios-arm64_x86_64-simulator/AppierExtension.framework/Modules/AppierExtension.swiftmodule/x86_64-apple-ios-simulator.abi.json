@@ -980,8 +980,8 @@
       },
       {
         "kind": "Import",
-        "name": "os",
-        "printedName": "os",
+        "name": "Foundation",
+        "printedName": "Foundation",
         "declKind": "Import",
         "moduleName": "AppierExtension"
       },
@@ -989,6 +989,13 @@
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppierExtension"
+      },
+      {
+        "kind": "Import",
+        "name": "os",
+        "printedName": "os",
         "declKind": "Import",
         "moduleName": "AppierExtension"
       },
@@ -1019,6 +1026,9 @@
               "AccessControl",
               "ObjC"
             ],
+            "spi_group_names": [
+              "AppierInternal"
+            ],
             "isLet": true,
             "hasStorage": true,
             "accessors": [
@@ -1042,6 +1052,9 @@
                 "declAttributes": [
                   "Final",
                   "ObjC"
+                ],
+                "spi_group_names": [
+                  "AppierInternal"
                 ],
                 "accessorKind": "get"
               }
@@ -1067,6 +1080,9 @@
               "AccessControl",
               "ObjC"
             ],
+            "spi_group_names": [
+              "AppierInternal"
+            ],
             "accessors": [
               {
                 "kind": "Accessor",
@@ -1087,9 +1103,158 @@
                 "declAttributes": [
                   "ObjC"
                 ],
+                "spi_group_names": [
+                  "AppierInternal"
+                ],
                 "accessorKind": "get"
               }
             ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(category:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Logger",
+                "printedName": "AppierExtension.Logger",
+                "usr": "c:@M@AppierExtension@objc(cs)APRLogger"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:15AppierExtension6LoggerC8categoryACSS_tcfc",
+            "mangledName": "$s15AppierExtension6LoggerC8categoryACSS_tcfc",
+            "moduleName": "AppierExtension",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppierInternal"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "debug",
+            "printedName": "debug(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "LogMessage",
+                "printedName": "AppierExtension.LogMessage",
+                "usr": "s:15AppierExtension10LogMessageV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15AppierExtension6LoggerC5debugyyAA10LogMessageVF",
+            "mangledName": "$s15AppierExtension6LoggerC5debugyyAA10LogMessageVF",
+            "moduleName": "AppierExtension",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppierInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "info",
+            "printedName": "info(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "LogMessage",
+                "printedName": "AppierExtension.LogMessage",
+                "usr": "s:15AppierExtension10LogMessageV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15AppierExtension6LoggerC4infoyyAA10LogMessageVF",
+            "mangledName": "$s15AppierExtension6LoggerC4infoyyAA10LogMessageVF",
+            "moduleName": "AppierExtension",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppierInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "warning",
+            "printedName": "warning(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "LogMessage",
+                "printedName": "AppierExtension.LogMessage",
+                "usr": "s:15AppierExtension10LogMessageV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15AppierExtension6LoggerC7warningyyAA10LogMessageVF",
+            "mangledName": "$s15AppierExtension6LoggerC7warningyyAA10LogMessageVF",
+            "moduleName": "AppierExtension",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppierInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "error",
+            "printedName": "error(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "LogMessage",
+                "printedName": "AppierExtension.LogMessage",
+                "usr": "s:15AppierExtension10LogMessageV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15AppierExtension6LoggerC5erroryyAA10LogMessageVF",
+            "mangledName": "$s15AppierExtension6LoggerC5erroryyAA10LogMessageVF",
+            "moduleName": "AppierExtension",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "spi_group_names": [
+              "AppierInternal"
+            ],
+            "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Function",
@@ -1120,6 +1285,9 @@
               "AccessControl",
               "ObjC"
             ],
+            "spi_group_names": [
+              "AppierInternal"
+            ],
             "funcSelfKind": "NonMutating"
           },
           {
@@ -1145,6 +1313,9 @@
               "Dynamic",
               "ObjC",
               "Override"
+            ],
+            "spi_group_names": [
+              "AppierInternal"
             ],
             "init_kind": "Designated"
           },
@@ -1173,6 +1344,9 @@
               "ObjC"
             ],
             "isFromExtension": true,
+            "spi_group_names": [
+              "AppierInternal"
+            ],
             "isLet": true,
             "hasStorage": true,
             "accessors": [
@@ -1199,6 +1373,9 @@
                   "Final"
                 ],
                 "isFromExtension": true,
+                "spi_group_names": [
+                  "AppierInternal"
+                ],
                 "accessorKind": "get"
               }
             ]
@@ -1212,10 +1389,13 @@
         "declAttributes": [
           "AccessControl",
           "ObjC",
+          "SPIAccessControl",
           "RawDocComment"
         ],
+        "spi_group_names": [
+          "AppierInternal"
+        ],
         "superclassUsr": "c:objc(cs)NSObject",
-        "hasMissingDesignatedInitializers": true,
         "superclassNames": [
           "ObjectiveC.NSObject"
         ],
@@ -1642,17 +1822,692 @@
       },
       {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
+        "name": "os",
+        "printedName": "os",
         "declKind": "Import",
         "moduleName": "AppierExtension"
       },
       {
-        "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "AppierExtension"
+        "kind": "TypeDecl",
+        "name": "LogMessage",
+        "printedName": "LogMessage",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "description",
+            "printedName": "description",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15AppierExtension10LogMessageV11descriptionSSvp",
+            "mangledName": "$s15AppierExtension10LogMessageV11descriptionSSvp",
+            "moduleName": "AppierExtension",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "spi_group_names": [
+              "AppierInternal"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15AppierExtension10LogMessageV11descriptionSSvg",
+                "mangledName": "$s15AppierExtension10LogMessageV11descriptionSSvg",
+                "moduleName": "AppierExtension",
+                "isFromExtension": true,
+                "spi_group_names": [
+                  "AppierInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(stringLiteral:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "LogMessage",
+                "printedName": "AppierExtension.LogMessage",
+                "usr": "s:15AppierExtension10LogMessageV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:15AppierExtension10LogMessageV13stringLiteralACSS_tcfc",
+            "mangledName": "$s15AppierExtension10LogMessageV13stringLiteralACSS_tcfc",
+            "moduleName": "AppierExtension",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "spi_group_names": [
+              "AppierInternal"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(stringInterpolation:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "LogMessage",
+                "printedName": "AppierExtension.LogMessage",
+                "usr": "s:15AppierExtension10LogMessageV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "StringInterpolation",
+                "printedName": "AppierExtension.LogMessage.StringInterpolation",
+                "usr": "s:15AppierExtension10LogMessageV19StringInterpolationV"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:15AppierExtension10LogMessageV19stringInterpolationA2C06StringF0V_tcfc",
+            "mangledName": "$s15AppierExtension10LogMessageV19stringInterpolationA2C06StringF0V_tcfc",
+            "moduleName": "AppierExtension",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "spi_group_names": [
+              "AppierInternal"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "TypeDecl",
+            "name": "StringInterpolation",
+            "printedName": "StringInterpolation",
+            "children": [
+              {
+                "kind": "Constructor",
+                "name": "init",
+                "printedName": "init(literalCapacity:interpolationCount:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "StringInterpolation",
+                    "printedName": "AppierExtension.LogMessage.StringInterpolation",
+                    "usr": "s:15AppierExtension10LogMessageV19StringInterpolationV"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Constructor",
+                "usr": "s:15AppierExtension10LogMessageV19StringInterpolationV15literalCapacity18interpolationCountAESi_Sitcfc",
+                "mangledName": "$s15AppierExtension10LogMessageV19StringInterpolationV15literalCapacity18interpolationCountAESi_Sitcfc",
+                "moduleName": "AppierExtension",
+                "declAttributes": [
+                  "AccessControl"
+                ],
+                "spi_group_names": [
+                  "AppierInternal"
+                ],
+                "init_kind": "Designated"
+              },
+              {
+                "kind": "Function",
+                "name": "appendLiteral",
+                "printedName": "appendLiteral(_:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:15AppierExtension10LogMessageV19StringInterpolationV13appendLiteralyySSF",
+                "mangledName": "$s15AppierExtension10LogMessageV19StringInterpolationV13appendLiteralyySSF",
+                "moduleName": "AppierExtension",
+                "declAttributes": [
+                  "Mutating",
+                  "AccessControl"
+                ],
+                "spi_group_names": [
+                  "AppierInternal"
+                ],
+                "funcSelfKind": "Mutating"
+              },
+              {
+                "kind": "Function",
+                "name": "appendInterpolation",
+                "printedName": "appendInterpolation(_:privacy:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Any?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "LogPrivacy",
+                    "printedName": "AppierExtension.LogPrivacy",
+                    "hasDefaultArg": true,
+                    "usr": "s:15AppierExtension10LogPrivacyO"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:15AppierExtension10LogMessageV19StringInterpolationV06appendF0_7privacyyypSg_AA0C7PrivacyOtF",
+                "mangledName": "$s15AppierExtension10LogMessageV19StringInterpolationV06appendF0_7privacyyypSg_AA0C7PrivacyOtF",
+                "moduleName": "AppierExtension",
+                "declAttributes": [
+                  "Mutating",
+                  "AccessControl"
+                ],
+                "spi_group_names": [
+                  "AppierInternal"
+                ],
+                "funcSelfKind": "Mutating"
+              }
+            ],
+            "declKind": "Struct",
+            "usr": "s:15AppierExtension10LogMessageV19StringInterpolationV",
+            "mangledName": "$s15AppierExtension10LogMessageV19StringInterpolationV",
+            "moduleName": "AppierExtension",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "spi_group_names": [
+              "AppierInternal"
+            ],
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "StringInterpolationProtocol",
+                "printedName": "StringInterpolationProtocol",
+                "children": [
+                  {
+                    "kind": "TypeWitness",
+                    "name": "StringLiteralType",
+                    "printedName": "StringLiteralType",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:s27StringInterpolationProtocolP",
+                "mangledName": "$ss27StringInterpolationProtocolP"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:15AppierExtension10LogMessageV",
+        "mangledName": "$s15AppierExtension10LogMessageV",
+        "moduleName": "AppierExtension",
+        "declAttributes": [
+          "AccessControl",
+          "SPIAccessControl",
+          "RawDocComment"
+        ],
+        "spi_group_names": [
+          "AppierInternal"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByStringLiteral",
+            "printedName": "ExpressibleByStringLiteral",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "StringLiteralType",
+                "printedName": "StringLiteralType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s26ExpressibleByStringLiteralP",
+            "mangledName": "$ss26ExpressibleByStringLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByExtendedGraphemeClusterLiteral",
+            "printedName": "ExpressibleByExtendedGraphemeClusterLiteral",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "ExtendedGraphemeClusterLiteralType",
+                "printedName": "ExtendedGraphemeClusterLiteralType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s43ExpressibleByExtendedGraphemeClusterLiteralP",
+            "mangledName": "$ss43ExpressibleByExtendedGraphemeClusterLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByUnicodeScalarLiteral",
+            "printedName": "ExpressibleByUnicodeScalarLiteral",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "UnicodeScalarLiteralType",
+                "printedName": "UnicodeScalarLiteralType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s33ExpressibleByUnicodeScalarLiteralP",
+            "mangledName": "$ss33ExpressibleByUnicodeScalarLiteralP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "ExpressibleByStringInterpolation",
+            "printedName": "ExpressibleByStringInterpolation",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "StringInterpolation",
+                "printedName": "StringInterpolation",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "StringInterpolation",
+                    "printedName": "AppierExtension.LogMessage.StringInterpolation",
+                    "usr": "s:15AppierExtension10LogMessageV19StringInterpolationV"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:s32ExpressibleByStringInterpolationP",
+            "mangledName": "$ss32ExpressibleByStringInterpolationP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "LogPrivacy",
+        "printedName": "LogPrivacy",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "auto",
+            "printedName": "auto",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppierExtension.LogPrivacy.Type) -> AppierExtension.LogPrivacy",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "LogPrivacy",
+                    "printedName": "AppierExtension.LogPrivacy",
+                    "usr": "s:15AppierExtension10LogPrivacyO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppierExtension.LogPrivacy.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "LogPrivacy",
+                        "printedName": "AppierExtension.LogPrivacy",
+                        "usr": "s:15AppierExtension10LogPrivacyO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15AppierExtension10LogPrivacyO4autoyA2CmF",
+            "mangledName": "$s15AppierExtension10LogPrivacyO4autoyA2CmF",
+            "moduleName": "AppierExtension",
+            "spi_group_names": [
+              "AppierInternal"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "private",
+            "printedName": "private",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppierExtension.LogPrivacy.Type) -> AppierExtension.LogPrivacy",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "LogPrivacy",
+                    "printedName": "AppierExtension.LogPrivacy",
+                    "usr": "s:15AppierExtension10LogPrivacyO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppierExtension.LogPrivacy.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "LogPrivacy",
+                        "printedName": "AppierExtension.LogPrivacy",
+                        "usr": "s:15AppierExtension10LogPrivacyO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15AppierExtension10LogPrivacyO7privateyA2CmF",
+            "mangledName": "$s15AppierExtension10LogPrivacyO7privateyA2CmF",
+            "moduleName": "AppierExtension",
+            "spi_group_names": [
+              "AppierInternal"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "public",
+            "printedName": "public",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AppierExtension.LogPrivacy.Type) -> AppierExtension.LogPrivacy",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "LogPrivacy",
+                    "printedName": "AppierExtension.LogPrivacy",
+                    "usr": "s:15AppierExtension10LogPrivacyO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AppierExtension.LogPrivacy.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "LogPrivacy",
+                        "printedName": "AppierExtension.LogPrivacy",
+                        "usr": "s:15AppierExtension10LogPrivacyO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:15AppierExtension10LogPrivacyO6publicyA2CmF",
+            "mangledName": "$s15AppierExtension10LogPrivacyO6publicyA2CmF",
+            "moduleName": "AppierExtension",
+            "spi_group_names": [
+              "AppierInternal"
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "==",
+            "printedName": "==(_:_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "LogPrivacy",
+                "printedName": "AppierExtension.LogPrivacy",
+                "usr": "s:15AppierExtension10LogPrivacyO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "LogPrivacy",
+                "printedName": "AppierExtension.LogPrivacy",
+                "usr": "s:15AppierExtension10LogPrivacyO"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15AppierExtension10LogPrivacyO2eeoiySbAC_ACtFZ",
+            "mangledName": "$s15AppierExtension10LogPrivacyO2eeoiySbAC_ACtFZ",
+            "moduleName": "AppierExtension",
+            "static": true,
+            "implicit": true,
+            "spi_group_names": [
+              "AppierInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "hashValue",
+            "printedName": "hashValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:15AppierExtension10LogPrivacyO9hashValueSivp",
+            "mangledName": "$s15AppierExtension10LogPrivacyO9hashValueSivp",
+            "moduleName": "AppierExtension",
+            "implicit": true,
+            "spi_group_names": [
+              "AppierInternal"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15AppierExtension10LogPrivacyO9hashValueSivg",
+                "mangledName": "$s15AppierExtension10LogPrivacyO9hashValueSivg",
+                "moduleName": "AppierExtension",
+                "implicit": true,
+                "spi_group_names": [
+                  "AppierInternal"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "hash",
+            "printedName": "hash(into:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Hasher",
+                "printedName": "Swift.Hasher",
+                "paramValueOwnership": "InOut",
+                "usr": "s:s6HasherV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15AppierExtension10LogPrivacyO4hash4intoys6HasherVz_tF",
+            "mangledName": "$s15AppierExtension10LogPrivacyO4hash4intoys6HasherVz_tF",
+            "moduleName": "AppierExtension",
+            "implicit": true,
+            "spi_group_names": [
+              "AppierInternal"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:15AppierExtension10LogPrivacyO",
+        "mangledName": "$s15AppierExtension10LogPrivacyO",
+        "moduleName": "AppierExtension",
+        "declAttributes": [
+          "AccessControl",
+          "SPIAccessControl"
+        ],
+        "spi_group_names": [
+          "AppierInternal"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          }
+        ]
       },
       {
         "kind": "Import",
@@ -1973,6 +2828,20 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppierExtension"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AppierExtension"
+      },
+      {
         "kind": "TypeDecl",
         "name": "String",
         "printedName": "String",
@@ -2019,25 +2888,6 @@
             "declKind": "Func",
             "usr": "s:SS15AppierExtensionE10encodedURL10Foundation0D0VSgyF",
             "mangledName": "$sSS15AppierExtensionE10encodedURL10Foundation0D0VSgyF",
-            "moduleName": "AppierExtension",
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "getAppSecret",
-            "printedName": "getAppSecret()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:SS15AppierExtensionE12getAppSecretSSyF",
-            "mangledName": "$sSS15AppierExtensionE12getAppSecretSSyF",
             "moduleName": "AppierExtension",
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
@@ -2668,29 +3518,6 @@
           },
           {
             "kind": "Function",
-            "name": "getAppSecret",
-            "printedName": "getAppSecret()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "NSString",
-                "printedName": "Foundation.NSString",
-                "usr": "c:objc(cs)NSString"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@CM@AppierExtension@@objc(cs)NSString(im)getAppSecret",
-            "mangledName": "$sSo8NSStringC15AppierExtensionE12getAppSecretAByF",
-            "moduleName": "AppierExtension",
-            "declAttributes": [
-              "Dynamic",
-              "ObjC"
-            ],
-            "isFromExtension": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
             "name": "isStringContainsNewLineCharacter",
             "printedName": "isStringContainsNewLineCharacter()",
             "children": [
@@ -3031,95 +3858,88 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/appier\/Documents\/actions-runner\/_work\/appier-ios\/appier-ios\/QGNotificationSdk\/Extensions\/Logger+AIQUANotification.swift",
-      "kind": "StringLiteral",
-      "offset": 128,
-      "length": 20,
-      "value": "\"AIQUA Notification\""
-    },
-    {
-      "filePath": "\/Users\/appier\/Documents\/actions-runner\/_work\/appier-ios\/appier-ios\/Sources\/Shared\/DeviceInfo.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/DeviceInfo.swift",
       "kind": "StringLiteral",
       "offset": 153,
       "length": 9,
       "value": "\"Unknown\""
     },
     {
-      "filePath": "\/Users\/appier\/Documents\/actions-runner\/_work\/appier-ios\/appier-ios\/Sources\/Shared\/FrameworkInfo.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/FrameworkInfo.swift",
       "kind": "StringLiteral",
-      "offset": 192,
+      "offset": 198,
       "length": 17,
       "value": "\"CFBundleVersion\""
     },
     {
-      "filePath": "\/Users\/appier\/Documents\/actions-runner\/_work\/appier-ios\/appier-ios\/Sources\/Shared\/FrameworkInfo.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/FrameworkInfo.swift",
       "kind": "StringLiteral",
-      "offset": 225,
+      "offset": 231,
       "length": 9,
       "value": "\"Unknown\""
     },
     {
-      "filePath": "\/Users\/appier\/Documents\/actions-runner\/_work\/appier-ios\/appier-ios\/Sources\/Shared\/FrameworkInfo.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/FrameworkInfo.swift",
       "kind": "StringLiteral",
-      "offset": 333,
+      "offset": 347,
       "length": 28,
       "value": "\"CFBundleShortVersionString\""
     },
     {
-      "filePath": "\/Users\/appier\/Documents\/actions-runner\/_work\/appier-ios\/appier-ios\/Sources\/Shared\/FrameworkInfo.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/FrameworkInfo.swift",
       "kind": "StringLiteral",
-      "offset": 377,
+      "offset": 391,
       "length": 9,
       "value": "\"Unknown\""
     },
     {
-      "filePath": "\/Users\/appier\/Documents\/actions-runner\/_work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/LogMessage.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGNotificationSdk\/Extensions\/Logger+AIQUANotification.swift",
       "kind": "StringLiteral",
-      "offset": 712,
-      "length": 2,
-      "value": "\"\""
+      "offset": 132,
+      "length": 20,
+      "value": "\"AIQUA Notification\""
     },
     {
-      "filePath": "\/Users\/appier\/Documents\/actions-runner\/_work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
-      "kind": "StringLiteral",
-      "offset": 320,
-      "length": 10,
-      "value": "\"APRDebug\""
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "kind": "BooleanLiteral",
+      "offset": 331,
+      "length": 4,
+      "value": "true"
     },
     {
-      "filePath": "\/Users\/appier\/Documents\/actions-runner\/_work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
-      "offset": 335,
-      "length": 5,
-      "value": "\"YES\""
-    },
-    {
-      "filePath": "\/Users\/appier\/Documents\/actions-runner\/_work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
-      "kind": "StringLiteral",
-      "offset": 1652,
+      "offset": 2481,
       "length": 29,
       "value": "\"yyyy-MM-dd HH:mm:ss.SSSSSSZ\""
     },
     {
-      "filePath": "\/Users\/appier\/Documents\/actions-runner\/_work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 1790,
+      "offset": 2627,
       "length": 4,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/appier\/Documents\/actions-runner\/_work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 1796,
+      "offset": 2633,
       "length": 7,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/appier\/Documents\/actions-runner\/_work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
-      "offset": 1805,
+      "offset": 2642,
       "length": 5,
       "value": "3"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/LogMessage.swift",
+      "kind": "StringLiteral",
+      "offset": 827,
+      "length": 2,
+      "value": "\"\""
     }
   ]
 }
