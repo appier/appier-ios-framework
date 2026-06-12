@@ -15,9 +15,6 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 import os
-extension AppierExtension.Logger {
-  @objc(aiquaNotificationLogger) public static let aiquaNotification: AppierExtension.Logger
-}
 @_inheritsConvenienceInitializers @objc(APRDeviceInfo) @objcMembers public class DeviceInfo : ObjectiveC.NSObject {
   @objc override dynamic public init()
   @objc deinit
@@ -56,14 +53,6 @@ extension AppierExtension.DeviceInfo {
   @objc override dynamic public init()
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc(APRLogger) public class Logger : ObjectiveC.NSObject {
-  @objc final public let category: Swift.String
-  @objc public var enabled: Swift.Bool {
-    @objc get
-  }
-  @objc(descriptionForLevel:) public static func description(for level: AppierExtension.LogType) -> Swift.String
-  @objc deinit
-}
 @objc(APRLogType) public enum LogType : Swift.Int {
   case debug, info, warning, error
   public init?(rawValue: Swift.Int)
@@ -80,7 +69,6 @@ extension AppierExtension.LogType : Swift.CustomStringConvertible {
 @objc extension Foundation.NSString {
   @objc dynamic public func isValidStr() -> Swift.Bool
   @objc dynamic public func encodedURL() -> Foundation.URL?
-  @objc dynamic public func getAppSecret() -> Foundation.NSString
   @objc dynamic public func isStringContainsNewLineCharacter() -> Swift.Bool
   @objc dynamic public var SHA256string: Foundation.NSString {
     @objc get
@@ -89,7 +77,6 @@ extension AppierExtension.LogType : Swift.CustomStringConvertible {
 extension Swift.String {
   public func isValidStr() -> Swift.Bool
   public func encodedURL() -> Foundation.URL?
-  public func getAppSecret() -> Swift.String
   public func isStringContainsNewLineCharacter() -> Swift.Bool
 }
 public protocol URLSessionProtocol {

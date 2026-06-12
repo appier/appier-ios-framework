@@ -305,13 +305,21 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 #if defined(__OBJC__)
 
+@class NSString;
+@class NSObject;
+SWIFT_PROTOCOL("_TtP15AppierExtension14AppierDelegate_")
+@protocol AppierDelegate
+- (void)logImmediateEvent:(NSString * _Nonnull)name parameters:(NSDictionary * _Nonnull)param;
+- (NSString * _Nullable)getAppierID SWIFT_WARN_UNUSED_RESULT;
+- (void)receiveExternalCampaign:(NSDictionary<NSString *, id> * _Nonnull)externalCampaign;
+@end
+
 SWIFT_CLASS_NAMED("DeviceInfo")
 @interface APRDeviceInfo : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class NSNumber;
-@class NSString;
 @interface APRDeviceInfo (SWIFT_EXTENSION(AppierExtension))
 + (NSNumber * _Nonnull)optOutSet SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nonnull)IDFA SWIFT_WARN_UNUSED_RESULT;
@@ -373,7 +381,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * 
 @interface NSString (SWIFT_EXTENSION(AppierExtension))
 - (BOOL)isValidStr SWIFT_WARN_UNUSED_RESULT;
 - (NSURL * _Nullable)encodedURL SWIFT_WARN_UNUSED_RESULT;
-- (NSString * _Nonnull)getAppSecret SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)isStringContainsNewLineCharacter SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, readonly, strong) NSString * _Nonnull SHA256string;
 @end
@@ -693,13 +700,21 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 #if defined(__OBJC__)
 
+@class NSString;
+@class NSObject;
+SWIFT_PROTOCOL("_TtP15AppierExtension14AppierDelegate_")
+@protocol AppierDelegate
+- (void)logImmediateEvent:(NSString * _Nonnull)name parameters:(NSDictionary * _Nonnull)param;
+- (NSString * _Nullable)getAppierID SWIFT_WARN_UNUSED_RESULT;
+- (void)receiveExternalCampaign:(NSDictionary<NSString *, id> * _Nonnull)externalCampaign;
+@end
+
 SWIFT_CLASS_NAMED("DeviceInfo")
 @interface APRDeviceInfo : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class NSNumber;
-@class NSString;
 @interface APRDeviceInfo (SWIFT_EXTENSION(AppierExtension))
 + (NSNumber * _Nonnull)optOutSet SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nonnull)IDFA SWIFT_WARN_UNUSED_RESULT;
@@ -761,7 +776,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) APRLogger * 
 @interface NSString (SWIFT_EXTENSION(AppierExtension))
 - (BOOL)isValidStr SWIFT_WARN_UNUSED_RESULT;
 - (NSURL * _Nullable)encodedURL SWIFT_WARN_UNUSED_RESULT;
-- (NSString * _Nonnull)getAppSecret SWIFT_WARN_UNUSED_RESULT;
 - (BOOL)isStringContainsNewLineCharacter SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, readonly, strong) NSString * _Nonnull SHA256string;
 @end
