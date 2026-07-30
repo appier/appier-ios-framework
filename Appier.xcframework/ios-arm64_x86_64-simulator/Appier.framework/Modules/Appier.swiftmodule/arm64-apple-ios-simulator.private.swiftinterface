@@ -14,6 +14,7 @@ import DeveloperToolsSupport
 import Dispatch
 import Foundation
 import Network
+import Security
 import Swift
 import SwiftUI
 import SystemConfiguration
@@ -623,6 +624,10 @@ extension Appier.AIQLocalStorage : Appier.AIQStorage {
     @objc get
     @objc set
   }
+  @objc dynamic public var didMigrateData2Archive: Swift.Bool {
+    @objc get
+    @objc set
+  }
   public var appLaunchedTime: Swift.Int {
     get
     set
@@ -752,6 +757,11 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
   @objc public func requestExitPushDataFromServer(_ completionHandler: @escaping (Foundation.Data?, Foundation.URLResponse?, (any Swift.Error)?) -> Swift.Void)
   @objc deinit
 }
+@_inheritsConvenienceInitializers @objc final public class AIQSDKBootstrapper : ObjectiveC.NSObject {
+  @objc public static func bootstrapAsync(completion: @escaping (Foundation.Data?, Foundation.NSError?) -> Swift.Void)
+  @objc override dynamic public init()
+  @objc deinit
+}
 @objc public protocol AIQSilentPushHandlerDelegate {
   @objc func updateInAppCampaign(userInfo: [Swift.AnyHashable : Any], completion: @escaping () -> Swift.Void)
   @objc func updateGeofence(userInfo: [Swift.AnyHashable : Any], completion: @escaping () -> Swift.Void)
@@ -843,6 +853,7 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
   @objc var isCollectIDFA: Swift.Bool { get set }
   @objc var isCollectLocation: Swift.Bool { get set }
   @objc var didMigrateImageStorage: Swift.Bool { get set }
+  @objc var didMigrateData2Archive: Swift.Bool { get set }
 }
 @objc @_inheritsConvenienceInitializers @objcMembers final public class Aiqua : ObjectiveC.NSObject {
   @objc @available(iOS 10.0, *)
@@ -934,6 +945,8 @@ extension Appier.AIQLocationManager : CoreLocation.CLLocationManagerDelegate {
 }
 extension Appier.AIQUtility {
   @objc dynamic public class func clearPIIData(storage: Appier.AIQLocalStorage)
+  @objc dynamic public class func encrypt(object: Any, key: Foundation.Data) throws -> Foundation.Data
+  @objc dynamic public class func decryptToObject(data: Foundation.Data, key: Foundation.Data) throws -> Any
 }
 @objc(QGDATATYPE) public enum DataType : Swift.Int {
   @objc(QGDATATYPE_PROFILE) case profile = 0
@@ -1039,6 +1052,7 @@ extension Appier.AIQUtility {
   @objc public static let CONFIG_APP_GROUP_ID: Swift.String
   @objc public static func initialize(configuration: [Swift.String : Swift.String])
   @objc public static func initialize(configuration: [Swift.String : Swift.String], abortOnError: Swift.Bool = true, completion: @escaping (_ isSuccess: Swift.Bool) -> Swift.Void)
+  @objc public static func setLogLevel(_ level: Appier.LogLevel)
   @objc public static var Aiqua: Appier.Aiqua {
     @objc get
   }
@@ -1221,6 +1235,7 @@ public enum BadgePositionOverride {
   @objc public static let QG_IS_COLLECT_IDFA: Swift.String
   @objc public static let QG_IS_COLLECT_LOCATION: Swift.String
   @objc public static let QG_DID_MIGRATE_IMAGE_STORAGE: Swift.String
+  @objc public static let QG_DID_MIGRATE_DATA2_ARCHIVE: Swift.String
   @objc public static let DATA_COLLECTOR_DEFAULT_BATCH_INTERVAL: Swift.Int
   @objc public static let DATA_COLLECTOR_DEFAULT_TRACK_INSTALL_REFERRER: Swift.Bool
   @objc public static let DATA_COLLECTOR_DEFAULT_APPEND_ADVERTISING_ID: Swift.Bool
@@ -1268,6 +1283,7 @@ public enum BadgePositionOverride {
 }
 @_hasMissingDesignatedInitializers @objc(AIQCoreDataComponent) @objcMembers public class CoreDataComponent : ObjectiveC.NSObject {
   @objc final public let managedObjectContext: CoreData.NSManagedObjectContext?
+  @objc final public let persistentStoreURL: Foundation.URL?
   @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(AIQCoreDataComponentFactory) public class CoreDataComponentFactory : ObjectiveC.NSObject {
@@ -1567,6 +1583,8 @@ extension Appier.LINEUrlHandler : Appier.ThirdPartyUrlHandlerProtocol {
   @objc public static let defaultMaxRowCount: Swift.Int
   @objc weak public var dataSource: (any Appier.LoggedEventDAORowCountSource)?
   @objc(initWithManagedObjectContext:contextV1:) public init(context: CoreData.NSManagedObjectContext?, contextV1: CoreData.NSManagedObjectContext?)
+  @objc(initWithManagedObjectContext:contextV1:encryptionKey:) public init(managedObjectContext context: CoreData.NSManagedObjectContext?, contextV1: CoreData.NSManagedObjectContext?, encryptionKey: Foundation.Data?)
+  @objc public init(context: CoreData.NSManagedObjectContext?, contextV1: CoreData.NSManagedObjectContext?, encryptionKey: Foundation.Data)
   @objc public func getAll(withLimit: Swift.Int = defaultMaxRowCount) -> [Appier.LoggedEvent]
   @objc(getLoggedEventEarlierBeforeWithTime:) public func getLoggedEventEarlierBeforeWithTime(beforeFromNow: Swift.Int) -> [Appier.LoggedEvent]
   @objc @discardableResult
@@ -1600,6 +1618,7 @@ extension Appier.LINEUrlHandler : Appier.ThirdPartyUrlHandlerProtocol {
   @_spi(AppierInternal) public func info(_ message: Appier.LogMessage)
   @_spi(AppierInternal) public func warning(_ message: Appier.LogMessage)
   @_spi(AppierInternal) public func error(_ message: Appier.LogMessage)
+  @_spi(AppierInternal) @objc(shouldLog:) public static func shouldLog(_ level: Appier.LogType) -> Swift.Bool
   @_spi(AppierInternal) @objc(descriptionForLevel:) public static func description(for level: Appier.LogType) -> Swift.String
   @_spi(AppierInternal) @objc deinit
 }
@@ -1646,10 +1665,22 @@ extension Appier.LogType : Swift.CustomStringConvertible {
     @_spi(AppierInternal) public typealias StringLiteralType = Swift.String
   }
 }
+@objc(AppierLogLevel) public enum LogLevel : Swift.Int {
+  case verbose = 0, debug = 1, info = 2, warn = 3, error = 4, none = 5
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 @_spi(AppierInternal) public protocol MMPPlugin : AnyObject {
   @_spi(AppierInternal) init()
-  @_spi(AppierInternal) func initialize(mmpConfig: [Swift.String : [Swift.String : [Swift.String : Swift.String]]])
+  @_spi(AppierInternal) func initialize(mmpConfig: [Swift.String : Any])
   @_spi(AppierInternal) func handleDeepLink(_ url: Foundation.URL)
+  @_spi(AppierInternal) func trackEvent(_ eventName: Swift.String, properties: [Swift.String : Any])
+}
+@_spi(AppierInternal) extension Appier.MMPPlugin {
+  @_spi(AppierInternal) public func trackEvent(_ eventName: Swift.String, properties: [Swift.String : Any])
 }
 @objc public protocol OrderedTaskQueue : ObjectiveC.NSObjectProtocol {
   @objc func addTask(_ task: @escaping () -> Swift.Void)
@@ -1845,6 +1876,7 @@ extension Appier.QGWKWebView : WebKit.WKScriptMessageHandler {
 @_hasMissingDesignatedInitializers @objc(AIQRecommendationRemoteService) @objcMembers final public class RecommendationRemoteService : ObjectiveC.NSObject {
   @objc final public var observingRequest: Foundation.URLRequest?
   @objc(initWithConfiguration:loggedEventDAO:session:) convenience public init(configuration: Appier.AIQUAConfiguration, loggedEventDAO: Appier.LoggedEventDAO, session: Foundation.URLSession)
+  @objc final public func updateLoggedEventDAO(_ loggedEventDAO: Appier.LoggedEventDAO)
   @objc deinit
 }
 extension Appier.RecommendationRemoteService : Appier.RecommendationService {
@@ -1861,6 +1893,7 @@ extension Appier.RecommendationRemoteService : Appier.RecommendationService {
   @objc(getRecommendationWithScenarioId:withQueryParameters:withCompletionHandler:) func getRecommendation(scenarioId: Swift.String, queryStringDict: [Swift.String : Any]?, completionHandler: @escaping ([Swift.String : Any]?, (any Swift.Error)?) -> Swift.Void)
   @objc(getTagsWithRequest:withCompletionHandler:) func getTags(request: Appier.RecommendationRequest, completionHandler: @escaping (Appier.RecommendationTagResponse?, (any Swift.Error)?) -> Swift.Void)
   @objc(getProductsWithRequest:withCompletionHandler:) func getProducts(request: Appier.RecommendationRequest, completionHandler: @escaping (Appier.RecommendationProductResponse?, (any Swift.Error)?) -> Swift.Void)
+  @objc(updateLoggedEventDAO:) optional func updateLoggedEventDAO(_ loggedEventDAO: Appier.LoggedEventDAO)
 }
 @_inheritsConvenienceInitializers @objcMembers @objc(AIQRecommendationTagItem) public class RecommendationTagItem : ObjectiveC.NSObject, Swift.Codable {
   @objc public var tagName: Swift.String?
@@ -1986,11 +2019,20 @@ extension Appier.RecommendationRemoteService : Appier.RecommendationService {
   @objc public var dataCollector: Appier.RemoteConfigDataCollector?
   @objc public var eventStorage: Appier.RemoteConfigEventStorage?
   @objc public var recommendation: Appier.RemoteConfigRecommendation?
-  @objc public var mmp: [Swift.String : [Swift.String : [Swift.String : Swift.String]]]?
+  public var mmp: [Swift.String : Appier.AnyCodable]?
+  @nonobjc public var mmpConfig: [Swift.String : Any]? {
+    get
+  }
   @objc(decodeWithData:error:) public class func decode(from data: Foundation.Data) throws -> Appier.RemoteConfig
   @objc public func data() throws -> Foundation.Data
   required public init(from decoder: any Swift.Decoder) throws
   @objc deinit
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public struct AnyCodable : Swift.Codable {
+  public let value: Any
+  public init(_ value: Any)
+  public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
 }
 @objc @_inheritsConvenienceInitializers public class RemoteConfigAideal : Appier.AIQObject, Swift.Codable {
@@ -2359,3 +2401,6 @@ extension Appier.LogType : Swift.Hashable {}
 extension Appier.LogType : Swift.RawRepresentable {}
 @_spi(AppierInternal) extension Appier.LogPrivacy : Swift.Equatable {}
 @_spi(AppierInternal) extension Appier.LogPrivacy : Swift.Hashable {}
+extension Appier.LogLevel : Swift.Equatable {}
+extension Appier.LogLevel : Swift.Hashable {}
+extension Appier.LogLevel : Swift.RawRepresentable {}

@@ -66,6 +66,7 @@ extension AppierExtension.DeviceInfo {
   @_spi(AppierInternal) public func info(_ message: AppierExtension.LogMessage)
   @_spi(AppierInternal) public func warning(_ message: AppierExtension.LogMessage)
   @_spi(AppierInternal) public func error(_ message: AppierExtension.LogMessage)
+  @_spi(AppierInternal) @objc(shouldLog:) public static func shouldLog(_ level: AppierExtension.LogType) -> Swift.Bool
   @_spi(AppierInternal) @objc(descriptionForLevel:) public static func description(for level: AppierExtension.LogType) -> Swift.String
   @_spi(AppierInternal) @objc deinit
 }
@@ -112,6 +113,14 @@ extension AppierExtension.LogType : Swift.CustomStringConvertible {
     @_spi(AppierInternal) public typealias StringLiteralType = Swift.String
   }
 }
+@objc(AppierLogLevel) public enum LogLevel : Swift.Int {
+  case verbose = 0, debug = 1, info = 2, warn = 3, error = 4, none = 5
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 @objc extension Foundation.NSString {
   @objc dynamic public func isValidStr() -> Swift.Bool
   @objc dynamic public func encodedURL() -> Foundation.URL?
@@ -137,3 +146,6 @@ extension AppierExtension.LogType : Swift.Hashable {}
 extension AppierExtension.LogType : Swift.RawRepresentable {}
 @_spi(AppierInternal) extension AppierExtension.LogPrivacy : Swift.Equatable {}
 @_spi(AppierInternal) extension AppierExtension.LogPrivacy : Swift.Hashable {}
+extension AppierExtension.LogLevel : Swift.Equatable {}
+extension AppierExtension.LogLevel : Swift.Hashable {}
+extension AppierExtension.LogLevel : Swift.RawRepresentable {}

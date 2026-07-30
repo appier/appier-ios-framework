@@ -770,6 +770,7 @@ SWIFT_PROTOCOL("_TtP6Appier10AIQStorage_")
 @property (nonatomic) BOOL isCollectIDFA;
 @property (nonatomic) BOOL isCollectLocation;
 @property (nonatomic) BOOL didMigrateImageStorage;
+@property (nonatomic) BOOL didMigrateData2Archive;
 @end
 
 @interface AIQLocalStorage (SWIFT_EXTENSION(Appier)) <AIQStorage>
@@ -836,6 +837,7 @@ SWIFT_PROTOCOL("_TtP6Appier10AIQStorage_")
 @property (nonatomic) BOOL isCollectIDFA;
 @property (nonatomic) BOOL isCollectLocation;
 @property (nonatomic) BOOL didMigrateImageStorage;
+@property (nonatomic) BOOL didMigrateData2Archive;
 @property (nonatomic) NSInteger sessionCount;
 @property (nonatomic) NSInteger lastTrackSessionTime;
 @end
@@ -881,6 +883,27 @@ SWIFT_CLASS("_TtC6Appier17AIQRequestManager")
 - (void)requestExitPushDataFromServer:(void (^ _Nonnull)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))completionHandler;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class NSError;
+SWIFT_CLASS("_TtC6Appier18AIQSDKBootstrapper")
+@interface AIQSDKBootstrapper : NSObject
+/// Runs the full bootstrap sequence on a background queue:
+/// <ol>
+///   <li>
+///     Reads or generates the Keychain encryption key (may block while Keychain is available)
+///   </li>
+///   <li>
+///     Migrates the legacy data2 archive to use the new key
+///     Calls <code>completion</code> on the main thread with the key, or nil + error if the Keychain
+///     is temporarily unavailable (e.g. device rebooted but not yet unlocked).
+///   </li>
+/// </ol>
+/// A data2-archive migration failure does NOT fail the bootstrap — the key is valid and event
+/// storage should proceed — but the error is logged (not silently swallowed) and the completion
+/// flag is left unset so the migration is retried on the next launch.
++ (void)bootstrapAsyncWithCompletion:(void (^ _Nonnull)(NSData * _Nullable, NSError * _Nullable))completion;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 SWIFT_PROTOCOL("_TtP6Appier28AIQSilentPushHandlerDelegate_")
@@ -1003,6 +1026,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isRunningTests;
 
 @interface AIQUtility (SWIFT_EXTENSION(Appier))
 + (void)clearPIIDataWithStorage:(AIQLocalStorage * _Nonnull)storage;
++ (NSData * _Nullable)encryptWithObject:(id _Nonnull)object key:(NSData * _Nonnull)key error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
++ (id _Nullable)decryptToObjectWithData:(NSData * _Nonnull)data key:(NSData * _Nonnull)key error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 @end
 
 SWIFT_CLASS("_TtC6Appier29APRPushNotificationClickModel")
@@ -1184,6 +1209,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NSBundle * _
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+enum AppierLogLevel : NSInteger;
 @class Rmn;
 @class UIApplication;
 @class UNUserNotificationCenter;
@@ -1220,6 +1246,21 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 /// for successful initialization and <code>false</code> for errors.
 ///
 + (void)initializeWithConfiguration:(NSDictionary<NSString *, NSString *> * _Nonnull)configuration abortOnError:(BOOL)abortOnError completion:(void (^ _Nonnull)(BOOL))completion;
+/// Sets how much the Appier SDK logs.
+/// Uses floor semantics: a message is emitted only if its severity is at least <code>level</code>.
+/// <code>.verbose</code> shows everything; <code>.none</code> disables all SDK logging, including error-level messages.
+/// important:
+/// In <em>release</em> builds SDK logging is disabled by default (<code>.none</code>). Call this method
+/// to re-enable logging in a release build.
+/// note:
+/// The level is applied live, so this can be called <em>before</em> <code>initialize(...)</code> and takes
+/// effect immediately. An explicit call always overrides the build’s default, regardless of order.
+/// note:
+/// App extensions run in a separate process. Calling this in the host app does <em>not</em> change
+/// the level inside an extension (e.g. a Notification Service Extension); set it there separately.
+/// \param level The minimum severity to emit.
+///
++ (void)setLogLevel:(enum AppierLogLevel)level;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Aiqua * _Nonnull Aiqua;)
 + (Aiqua * _Nonnull)Aiqua SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AiDeal * _Nonnull AiDeal;)
@@ -1446,6 +1487,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 + (NSString * _Nonnull)QG_IS_COLLECT_LOCATION SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_DID_MIGRATE_IMAGE_STORAGE;)
 + (NSString * _Nonnull)QG_DID_MIGRATE_IMAGE_STORAGE SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_DID_MIGRATE_DATA2_ARCHIVE;)
++ (NSString * _Nonnull)QG_DID_MIGRATE_DATA2_ARCHIVE SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSInteger DATA_COLLECTOR_DEFAULT_BATCH_INTERVAL;)
 + (NSInteger)DATA_COLLECTOR_DEFAULT_BATCH_INTERVAL SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL DATA_COLLECTOR_DEFAULT_TRACK_INSTALL_REFERRER;)
@@ -1551,6 +1594,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 SWIFT_CLASS_NAMED("CoreDataComponent")
 @interface AIQCoreDataComponent : NSObject
 @property (nonatomic, readonly, strong) NSManagedObjectContext * _Nullable managedObjectContext;
+@property (nonatomic, readonly, copy) NSURL * _Nullable persistentStoreURL;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1785,6 +1829,22 @@ SWIFT_CLASS("_TtC6Appier13JSONSanitizer")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+/// The public log-level knob for the Appier SDK, aligned with the Android/React Native/Flutter SDKs.
+/// Floor semantics: a message is emitted only if its severity is greater than or equal to the
+/// configured level. <code>.verbose</code> shows everything; <code>.none</code> disables all SDK logging, including
+/// error-level messages.
+/// note:
+/// In release builds the SDK defaults to <code>.none</code> (see <code>LogPolicy</code>). Host apps must call
+/// <code>AppierSDK.setLogLevel(_:)</code> to re-enable logging in a release build.
+typedef SWIFT_ENUM_NAMED(NSInteger, AppierLogLevel, "LogLevel", open) {
+  AppierLogLevelVerbose = 0,
+  AppierLogLevelDebug = 1,
+  AppierLogLevelInfo = 2,
+  AppierLogLevelWarn = 3,
+  AppierLogLevelError = 4,
+  AppierLogLevelNone = 5,
+};
+
 typedef SWIFT_ENUM_NAMED(NSInteger, APRLogType, "LogType", open) {
   APRLogTypeDebug = 0,
   APRLogTypeInfo = 1,
@@ -1808,6 +1868,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSInteger defaultMax
 + (NSInteger)defaultMaxRowCount SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, weak) id <AIQLoggedEventDAORowCountSource> _Nullable dataSource;
 - (nonnull instancetype)initWithManagedObjectContext:(NSManagedObjectContext * _Nullable)context contextV1:(NSManagedObjectContext * _Nullable)contextV1 OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithManagedObjectContext:(NSManagedObjectContext * _Nullable)context contextV1:(NSManagedObjectContext * _Nullable)contextV1 encryptionKey:(NSData * _Nullable)encryptionKey OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithContext:(NSManagedObjectContext * _Nullable)context contextV1:(NSManagedObjectContext * _Nullable)contextV1 encryptionKey:(NSData * _Nonnull)encryptionKey OBJC_DESIGNATED_INITIALIZER;
 - (NSArray<AIQLoggedEvent *> * _Nonnull)getAllWithLimit:(NSInteger)withLimit SWIFT_WARN_UNUSED_RESULT;
 - (NSArray<AIQLoggedEvent *> * _Nonnull)getLoggedEventEarlierBeforeWithTime:(NSInteger)beforeFromNow SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)deleteOverflowed;
@@ -1853,6 +1915,9 @@ SWIFT_CLASS_NAMED("Logger")
 @interface APRLogger : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull category;
 @property (nonatomic, readonly) BOOL enabled;
+/// Bridges the Objective-C <code>APRLogger</code> category into the same gate. Both logging paths must
+/// consult the shared policy so their behavior stays identical.
++ (BOOL)shouldLog:(enum APRLogType)level SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nonnull)descriptionForLevel:(enum APRLogType)level SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
@@ -1919,7 +1984,6 @@ SWIFT_CLASS_NAMED("RecommendationPopularTagsRequest")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class NSError;
 SWIFT_CLASS_NAMED("Builder")
 @interface AIQRecommendationPopularTagsRequestBuilder : NSObject
 - (nonnull instancetype)setScenarioId:(NSString * _Nonnull)scenarioId;
@@ -1986,6 +2050,8 @@ SWIFT_CLASS_NAMED("RecommendationRemoteService")
 /// This is diagnostic/test-only state and should not be relied on by production logic.
 @property (nonatomic, copy) NSURLRequest * _Nullable observingRequest;
 - (nonnull instancetype)initWithConfiguration:(AIQConfiguration * _Nonnull)configuration loggedEventDAO:(AIQLoggedEventDAO * _Nonnull)loggedEventDAO session:(NSURLSession * _Nonnull)session;
+/// Re-injects the DAO produced by the async bootstrap, replacing the value captured at init.
+- (void)updateLoggedEventDAO:(AIQLoggedEventDAO * _Nonnull)loggedEventDAO;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -1997,6 +2063,10 @@ SWIFT_PROTOCOL_NAMED("RecommendationService")
 - (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId withQueryParameters:(NSDictionary<NSString *, id> * _Nullable)queryStringDict withCompletionHandler:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
 - (void)getTagsWithRequest:(AIQRecommendationRequest * _Nonnull)request withCompletionHandler:(void (^ _Nonnull)(AIQRecommendationTagResponse * _Nullable, NSError * _Nullable))completionHandler;
 - (void)getProductsWithRequest:(AIQRecommendationRequest * _Nonnull)request withCompletionHandler:(void (^ _Nonnull)(AIQRecommendationProductResponse * _Nullable, NSError * _Nullable))completionHandler;
+@optional
+/// Re-injects the logged-event DAO once the async bootstrap has produced it. Optional because
+/// the DAO may already have been captured at init time on the fast path.
+- (void)updateLoggedEventDAO:(AIQLoggedEventDAO * _Nonnull)loggedEventDAO;
 @end
 
 @interface AIQRecommendationRemoteService (SWIFT_EXTENSION(Appier)) <AIQRecommendationService>
@@ -2095,7 +2165,6 @@ SWIFT_CLASS_NAMED("RemoteConfig")
 @property (nonatomic, strong) AIQRemoteConfigDataCollector * _Nullable dataCollector;
 @property (nonatomic, strong) RemoteConfigEventStorage * _Nullable eventStorage;
 @property (nonatomic, strong) AIQRemoteConfigRecommendation * _Nullable recommendation;
-@property (nonatomic, copy) NSDictionary<NSString *, NSDictionary<NSString *, NSDictionary<NSString *, NSString *> *> *> * _Nullable mmp;
 + (AIQRemoteConfig * _Nullable)decodeWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -3234,6 +3303,7 @@ SWIFT_PROTOCOL("_TtP6Appier10AIQStorage_")
 @property (nonatomic) BOOL isCollectIDFA;
 @property (nonatomic) BOOL isCollectLocation;
 @property (nonatomic) BOOL didMigrateImageStorage;
+@property (nonatomic) BOOL didMigrateData2Archive;
 @end
 
 @interface AIQLocalStorage (SWIFT_EXTENSION(Appier)) <AIQStorage>
@@ -3300,6 +3370,7 @@ SWIFT_PROTOCOL("_TtP6Appier10AIQStorage_")
 @property (nonatomic) BOOL isCollectIDFA;
 @property (nonatomic) BOOL isCollectLocation;
 @property (nonatomic) BOOL didMigrateImageStorage;
+@property (nonatomic) BOOL didMigrateData2Archive;
 @property (nonatomic) NSInteger sessionCount;
 @property (nonatomic) NSInteger lastTrackSessionTime;
 @end
@@ -3345,6 +3416,27 @@ SWIFT_CLASS("_TtC6Appier17AIQRequestManager")
 - (void)requestExitPushDataFromServer:(void (^ _Nonnull)(NSData * _Nullable, NSURLResponse * _Nullable, NSError * _Nullable))completionHandler;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+@class NSError;
+SWIFT_CLASS("_TtC6Appier18AIQSDKBootstrapper")
+@interface AIQSDKBootstrapper : NSObject
+/// Runs the full bootstrap sequence on a background queue:
+/// <ol>
+///   <li>
+///     Reads or generates the Keychain encryption key (may block while Keychain is available)
+///   </li>
+///   <li>
+///     Migrates the legacy data2 archive to use the new key
+///     Calls <code>completion</code> on the main thread with the key, or nil + error if the Keychain
+///     is temporarily unavailable (e.g. device rebooted but not yet unlocked).
+///   </li>
+/// </ol>
+/// A data2-archive migration failure does NOT fail the bootstrap — the key is valid and event
+/// storage should proceed — but the error is logged (not silently swallowed) and the completion
+/// flag is left unset so the migration is retried on the next launch.
++ (void)bootstrapAsyncWithCompletion:(void (^ _Nonnull)(NSData * _Nullable, NSError * _Nullable))completion;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 SWIFT_PROTOCOL("_TtP6Appier28AIQSilentPushHandlerDelegate_")
@@ -3467,6 +3559,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL isRunningTests;
 
 @interface AIQUtility (SWIFT_EXTENSION(Appier))
 + (void)clearPIIDataWithStorage:(AIQLocalStorage * _Nonnull)storage;
++ (NSData * _Nullable)encryptWithObject:(id _Nonnull)object key:(NSData * _Nonnull)key error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
++ (id _Nullable)decryptToObjectWithData:(NSData * _Nonnull)data key:(NSData * _Nonnull)key error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 @end
 
 SWIFT_CLASS("_TtC6Appier29APRPushNotificationClickModel")
@@ -3648,6 +3742,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) NSBundle * _
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+enum AppierLogLevel : NSInteger;
 @class Rmn;
 @class UIApplication;
 @class UNUserNotificationCenter;
@@ -3684,6 +3779,21 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 /// for successful initialization and <code>false</code> for errors.
 ///
 + (void)initializeWithConfiguration:(NSDictionary<NSString *, NSString *> * _Nonnull)configuration abortOnError:(BOOL)abortOnError completion:(void (^ _Nonnull)(BOOL))completion;
+/// Sets how much the Appier SDK logs.
+/// Uses floor semantics: a message is emitted only if its severity is at least <code>level</code>.
+/// <code>.verbose</code> shows everything; <code>.none</code> disables all SDK logging, including error-level messages.
+/// important:
+/// In <em>release</em> builds SDK logging is disabled by default (<code>.none</code>). Call this method
+/// to re-enable logging in a release build.
+/// note:
+/// The level is applied live, so this can be called <em>before</em> <code>initialize(...)</code> and takes
+/// effect immediately. An explicit call always overrides the build’s default, regardless of order.
+/// note:
+/// App extensions run in a separate process. Calling this in the host app does <em>not</em> change
+/// the level inside an extension (e.g. a Notification Service Extension); set it there separately.
+/// \param level The minimum severity to emit.
+///
++ (void)setLogLevel:(enum AppierLogLevel)level;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) Aiqua * _Nonnull Aiqua;)
 + (Aiqua * _Nonnull)Aiqua SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AiDeal * _Nonnull AiDeal;)
@@ -3910,6 +4020,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 + (NSString * _Nonnull)QG_IS_COLLECT_LOCATION SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_DID_MIGRATE_IMAGE_STORAGE;)
 + (NSString * _Nonnull)QG_DID_MIGRATE_IMAGE_STORAGE SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull QG_DID_MIGRATE_DATA2_ARCHIVE;)
++ (NSString * _Nonnull)QG_DID_MIGRATE_DATA2_ARCHIVE SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSInteger DATA_COLLECTOR_DEFAULT_BATCH_INTERVAL;)
 + (NSInteger)DATA_COLLECTOR_DEFAULT_BATCH_INTERVAL SWIFT_WARN_UNUSED_RESULT;
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) BOOL DATA_COLLECTOR_DEFAULT_TRACK_INSTALL_REFERRER;)
@@ -4015,6 +4127,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 SWIFT_CLASS_NAMED("CoreDataComponent")
 @interface AIQCoreDataComponent : NSObject
 @property (nonatomic, readonly, strong) NSManagedObjectContext * _Nullable managedObjectContext;
+@property (nonatomic, readonly, copy) NSURL * _Nullable persistentStoreURL;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -4249,6 +4362,22 @@ SWIFT_CLASS("_TtC6Appier13JSONSanitizer")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+/// The public log-level knob for the Appier SDK, aligned with the Android/React Native/Flutter SDKs.
+/// Floor semantics: a message is emitted only if its severity is greater than or equal to the
+/// configured level. <code>.verbose</code> shows everything; <code>.none</code> disables all SDK logging, including
+/// error-level messages.
+/// note:
+/// In release builds the SDK defaults to <code>.none</code> (see <code>LogPolicy</code>). Host apps must call
+/// <code>AppierSDK.setLogLevel(_:)</code> to re-enable logging in a release build.
+typedef SWIFT_ENUM_NAMED(NSInteger, AppierLogLevel, "LogLevel", open) {
+  AppierLogLevelVerbose = 0,
+  AppierLogLevelDebug = 1,
+  AppierLogLevelInfo = 2,
+  AppierLogLevelWarn = 3,
+  AppierLogLevelError = 4,
+  AppierLogLevelNone = 5,
+};
+
 typedef SWIFT_ENUM_NAMED(NSInteger, APRLogType, "LogType", open) {
   APRLogTypeDebug = 0,
   APRLogTypeInfo = 1,
@@ -4272,6 +4401,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly) NSInteger defaultMax
 + (NSInteger)defaultMaxRowCount SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, weak) id <AIQLoggedEventDAORowCountSource> _Nullable dataSource;
 - (nonnull instancetype)initWithManagedObjectContext:(NSManagedObjectContext * _Nullable)context contextV1:(NSManagedObjectContext * _Nullable)contextV1 OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithManagedObjectContext:(NSManagedObjectContext * _Nullable)context contextV1:(NSManagedObjectContext * _Nullable)contextV1 encryptionKey:(NSData * _Nullable)encryptionKey OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithContext:(NSManagedObjectContext * _Nullable)context contextV1:(NSManagedObjectContext * _Nullable)contextV1 encryptionKey:(NSData * _Nonnull)encryptionKey OBJC_DESIGNATED_INITIALIZER;
 - (NSArray<AIQLoggedEvent *> * _Nonnull)getAllWithLimit:(NSInteger)withLimit SWIFT_WARN_UNUSED_RESULT;
 - (NSArray<AIQLoggedEvent *> * _Nonnull)getLoggedEventEarlierBeforeWithTime:(NSInteger)beforeFromNow SWIFT_WARN_UNUSED_RESULT;
 - (NSInteger)deleteOverflowed;
@@ -4317,6 +4448,9 @@ SWIFT_CLASS_NAMED("Logger")
 @interface APRLogger : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull category;
 @property (nonatomic, readonly) BOOL enabled;
+/// Bridges the Objective-C <code>APRLogger</code> category into the same gate. Both logging paths must
+/// consult the shared policy so their behavior stays identical.
++ (BOOL)shouldLog:(enum APRLogType)level SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nonnull)descriptionForLevel:(enum APRLogType)level SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
@@ -4383,7 +4517,6 @@ SWIFT_CLASS_NAMED("RecommendationPopularTagsRequest")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-@class NSError;
 SWIFT_CLASS_NAMED("Builder")
 @interface AIQRecommendationPopularTagsRequestBuilder : NSObject
 - (nonnull instancetype)setScenarioId:(NSString * _Nonnull)scenarioId;
@@ -4450,6 +4583,8 @@ SWIFT_CLASS_NAMED("RecommendationRemoteService")
 /// This is diagnostic/test-only state and should not be relied on by production logic.
 @property (nonatomic, copy) NSURLRequest * _Nullable observingRequest;
 - (nonnull instancetype)initWithConfiguration:(AIQConfiguration * _Nonnull)configuration loggedEventDAO:(AIQLoggedEventDAO * _Nonnull)loggedEventDAO session:(NSURLSession * _Nonnull)session;
+/// Re-injects the DAO produced by the async bootstrap, replacing the value captured at init.
+- (void)updateLoggedEventDAO:(AIQLoggedEventDAO * _Nonnull)loggedEventDAO;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -4461,6 +4596,10 @@ SWIFT_PROTOCOL_NAMED("RecommendationService")
 - (void)getRecommendationWithScenarioId:(NSString * _Nonnull)scenarioId withQueryParameters:(NSDictionary<NSString *, id> * _Nullable)queryStringDict withCompletionHandler:(void (^ _Nonnull)(NSDictionary<NSString *, id> * _Nullable, NSError * _Nullable))completionHandler;
 - (void)getTagsWithRequest:(AIQRecommendationRequest * _Nonnull)request withCompletionHandler:(void (^ _Nonnull)(AIQRecommendationTagResponse * _Nullable, NSError * _Nullable))completionHandler;
 - (void)getProductsWithRequest:(AIQRecommendationRequest * _Nonnull)request withCompletionHandler:(void (^ _Nonnull)(AIQRecommendationProductResponse * _Nullable, NSError * _Nullable))completionHandler;
+@optional
+/// Re-injects the logged-event DAO once the async bootstrap has produced it. Optional because
+/// the DAO may already have been captured at init time on the fast path.
+- (void)updateLoggedEventDAO:(AIQLoggedEventDAO * _Nonnull)loggedEventDAO;
 @end
 
 @interface AIQRecommendationRemoteService (SWIFT_EXTENSION(Appier)) <AIQRecommendationService>
@@ -4559,7 +4698,6 @@ SWIFT_CLASS_NAMED("RemoteConfig")
 @property (nonatomic, strong) AIQRemoteConfigDataCollector * _Nullable dataCollector;
 @property (nonatomic, strong) RemoteConfigEventStorage * _Nullable eventStorage;
 @property (nonatomic, strong) AIQRemoteConfigRecommendation * _Nullable recommendation;
-@property (nonatomic, copy) NSDictionary<NSString *, NSDictionary<NSString *, NSDictionary<NSString *, NSString *> *> *> * _Nullable mmp;
 + (AIQRemoteConfig * _Nullable)decodeWithData:(NSData * _Nonnull)data error:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (NSData * _Nullable)dataAndReturnError:(NSError * _Nullable * _Nullable)error SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
