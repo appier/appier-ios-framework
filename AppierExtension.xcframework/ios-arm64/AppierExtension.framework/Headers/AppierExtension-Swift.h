@@ -354,6 +354,22 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _No
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+/// The public log-level knob for the Appier SDK, aligned with the Android/React Native/Flutter SDKs.
+/// Floor semantics: a message is emitted only if its severity is greater than or equal to the
+/// configured level. <code>.verbose</code> shows everything; <code>.none</code> disables all SDK logging, including
+/// error-level messages.
+/// note:
+/// In release builds the SDK defaults to <code>.none</code> (see <code>LogPolicy</code>). Host apps must call
+/// <code>AppierSDK.setLogLevel(_:)</code> to re-enable logging in a release build.
+typedef SWIFT_ENUM_NAMED(NSInteger, AppierLogLevel, "LogLevel", open) {
+  AppierLogLevelVerbose = 0,
+  AppierLogLevelDebug = 1,
+  AppierLogLevelInfo = 2,
+  AppierLogLevelWarn = 3,
+  AppierLogLevelError = 4,
+  AppierLogLevelNone = 5,
+};
+
 typedef SWIFT_ENUM_NAMED(NSInteger, APRLogType, "LogType", open) {
   APRLogTypeDebug = 0,
   APRLogTypeInfo = 1,
@@ -367,6 +383,9 @@ SWIFT_CLASS_NAMED("Logger")
 @interface APRLogger : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull category;
 @property (nonatomic, readonly) BOOL enabled;
+/// Bridges the Objective-C <code>APRLogger</code> category into the same gate. Both logging paths must
+/// consult the shared policy so their behavior stays identical.
++ (BOOL)shouldLog:(enum APRLogType)level SWIFT_WARN_UNUSED_RESULT;
 + (NSString * _Nonnull)descriptionForLevel:(enum APRLogType)level SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");

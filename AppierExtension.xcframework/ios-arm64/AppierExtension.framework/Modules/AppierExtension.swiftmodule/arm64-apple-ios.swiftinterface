@@ -66,6 +66,14 @@ extension AppierExtension.LogType : Swift.CustomStringConvertible {
     get
   }
 }
+@objc(AppierLogLevel) public enum LogLevel : Swift.Int {
+  case verbose = 0, debug = 1, info = 2, warn = 3, error = 4, none = 5
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 @objc extension Foundation.NSString {
   @objc dynamic public func isValidStr() -> Swift.Bool
   @objc dynamic public func encodedURL() -> Foundation.URL?
@@ -89,3 +97,6 @@ extension Foundation.URLSession : AppierExtension.URLSessionProtocol {
 extension AppierExtension.LogType : Swift.Equatable {}
 extension AppierExtension.LogType : Swift.Hashable {}
 extension AppierExtension.LogType : Swift.RawRepresentable {}
+extension AppierExtension.LogLevel : Swift.Equatable {}
+extension AppierExtension.LogLevel : Swift.Hashable {}
+extension AppierExtension.LogLevel : Swift.RawRepresentable {}
