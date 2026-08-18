@@ -1875,7 +1875,7 @@ extension Appier.QGWKWebView : WebKit.WKScriptMessageHandler {
 }
 @_hasMissingDesignatedInitializers @objc(AIQRecommendationRemoteService) @objcMembers final public class RecommendationRemoteService : ObjectiveC.NSObject {
   @objc final public var observingRequest: Foundation.URLRequest?
-  @objc(initWithConfiguration:loggedEventDAO:session:) convenience public init(configuration: Appier.AIQUAConfiguration, loggedEventDAO: Appier.LoggedEventDAO, session: Foundation.URLSession)
+  @objc(initWithConfiguration:loggedEventDAO:session:) convenience public init(configuration: Appier.AIQUAConfiguration, loggedEventDAO: Appier.LoggedEventDAO?, session: Foundation.URLSession)
   @objc final public func updateLoggedEventDAO(_ loggedEventDAO: Appier.LoggedEventDAO)
   @objc deinit
 }

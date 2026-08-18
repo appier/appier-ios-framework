@@ -66060,9 +66060,17 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "LoggedEventDAO",
-                "printedName": "Appier.LoggedEventDAO",
-                "usr": "c:@M@Appier@objc(cs)AIQLoggedEventDAO"
+                "name": "Optional",
+                "printedName": "Appier.LoggedEventDAO?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "LoggedEventDAO",
+                    "printedName": "Appier.LoggedEventDAO",
+                    "usr": "c:@M@Appier@objc(cs)AIQLoggedEventDAO"
+                  }
+                ],
+                "usr": "s:Sq"
               },
               {
                 "kind": "TypeNominal",
@@ -66073,7 +66081,7 @@
             ],
             "declKind": "Constructor",
             "usr": "c:@M@Appier@objc(cs)AIQRecommendationRemoteService(im)initWithConfiguration:loggedEventDAO:session:",
-            "mangledName": "$s6Appier27RecommendationRemoteServiceC13configuration14loggedEventDAO7sessionAcA18AIQUAConfigurationC_AA06LoggedgH0CSo12NSURLSessionCtcfc",
+            "mangledName": "$s6Appier27RecommendationRemoteServiceC13configuration14loggedEventDAO7sessionAcA18AIQUAConfigurationC_AA06LoggedgH0CSgSo12NSURLSessionCtcfc",
             "moduleName": "Appier",
             "objc_name": "initWithConfiguration:loggedEventDAO:session:",
             "declAttributes": [
@@ -92924,21 +92932,21 @@
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/AiDealSdk\/Public\/AiDealSDK.swift",
       "kind": "StringLiteral",
-      "offset": 10089,
+      "offset": 10537,
       "length": 40,
       "value": "\"APRAiDealOfferButtonTappedNotification\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/AiDealSdk\/Public\/AiDealSDK.swift",
       "kind": "StringLiteral",
-      "offset": 10218,
+      "offset": 10666,
       "length": 45,
       "value": "\"APRAiDealConfigurationDidChangeNotification\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/AiDealSdk\/Public\/AiDealSDK.swift",
       "kind": "BooleanLiteral",
-      "offset": 11074,
+      "offset": 11522,
       "length": 5,
       "value": "false"
     },
@@ -94396,7 +94404,7 @@
       "kind": "StringLiteral",
       "offset": 361,
       "length": 8,
-      "value": "\"8.11.1\""
+      "value": "\"8.11.2\""
     },
     {
       "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGSdk\/Constant.swift",
