@@ -2049,7 +2049,7 @@ SWIFT_CLASS_NAMED("RecommendationRemoteService")
 /// note:
 /// This is diagnostic/test-only state and should not be relied on by production logic.
 @property (nonatomic, copy) NSURLRequest * _Nullable observingRequest;
-- (nonnull instancetype)initWithConfiguration:(AIQConfiguration * _Nonnull)configuration loggedEventDAO:(AIQLoggedEventDAO * _Nonnull)loggedEventDAO session:(NSURLSession * _Nonnull)session;
+- (nonnull instancetype)initWithConfiguration:(AIQConfiguration * _Nonnull)configuration loggedEventDAO:(AIQLoggedEventDAO * _Nullable)loggedEventDAO session:(NSURLSession * _Nonnull)session;
 /// Re-injects the DAO produced by the async bootstrap, replacing the value captured at init.
 - (void)updateLoggedEventDAO:(AIQLoggedEventDAO * _Nonnull)loggedEventDAO;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
