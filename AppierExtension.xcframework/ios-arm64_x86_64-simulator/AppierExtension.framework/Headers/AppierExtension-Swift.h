@@ -309,6 +309,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @class NSObject;
 SWIFT_PROTOCOL("_TtP15AppierExtension14AppierDelegate_")
 @protocol AppierDelegate
+- (void)logEvent:(NSString * _Nonnull)name parameters:(NSDictionary * _Nonnull)param;
 - (void)logImmediateEvent:(NSString * _Nonnull)name parameters:(NSDictionary * _Nonnull)param;
 - (NSString * _Nullable)getAppierID SWIFT_WARN_UNUSED_RESULT;
 - (void)receiveExternalCampaign:(NSDictionary<NSString *, id> * _Nonnull)externalCampaign;
@@ -723,6 +724,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @class NSObject;
 SWIFT_PROTOCOL("_TtP15AppierExtension14AppierDelegate_")
 @protocol AppierDelegate
+- (void)logEvent:(NSString * _Nonnull)name parameters:(NSDictionary * _Nonnull)param;
 - (void)logImmediateEvent:(NSString * _Nonnull)name parameters:(NSDictionary * _Nonnull)param;
 - (NSString * _Nullable)getAppierID SWIFT_WARN_UNUSED_RESULT;
 - (void)receiveExternalCampaign:(NSDictionary<NSString *, id> * _Nonnull)externalCampaign;
