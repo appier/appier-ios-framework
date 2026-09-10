@@ -515,9 +515,16 @@ SWIFT_CLASS("_TtC6Appier36AIQInAppCreativeStudioViewController")
 - (nonnull instancetype)initInAppDataSource:(id <AIQInAppWebViewControllerDataSource> _Nonnull)inAppDataSource eventName:(NSString * _Nonnull)eventName eventParam:(NSDictionary<NSString *, id> * _Nullable)eventParam eventLogger:(id <AIQEventLoggingProtocol> _Nonnull)eventLogger userProfileLogger:(id <AIQUserProfileLoggingProtocol> _Nonnull)userProfileLogger recommendationLogger:(id <AIQRecommendationLoggingProtocol> _Nonnull)recommendationLogger recommendationDataProvider:(id <AIQInAppRecommendationDataProviderProtocol> _Nonnull)recommendationDataProvider endpoint:(id <AIQInAppCSEndpointConfigurationProtocol> _Nonnull)endpoint storage:(id <AIQInAppWebViewStorageProtocol> _Nonnull)storage OBJC_DESIGNATED_INITIALIZER;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
+- (void)viewDidDisappear:(BOOL)animated;
 - (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator> _Nonnull)coordinator;
 - (void)prepareToBeDismissed;
 - (nonnull instancetype)initInAppDataSource:(id <AIQInAppWebViewControllerDataSource> _Nonnull)inAppDataSource SWIFT_UNAVAILABLE;
+@end
+
+@class WKUserContentController;
+@class WKScriptMessage;
+@interface AIQInAppCreativeStudioViewController (SWIFT_EXTENSION(Appier))
+- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
 @end
 
 @class WKWebView;
@@ -525,13 +532,10 @@ SWIFT_CLASS("_TtC6Appier36AIQInAppCreativeStudioViewController")
 @class WKNavigationAction;
 @interface AIQInAppCreativeStudioViewController (SWIFT_EXTENSION(Appier))
 - (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
+- (void)webView:(WKWebView * _Nonnull)webView didFailProvisionalNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)error;
+- (void)webView:(WKWebView * _Nonnull)webView didFailNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)error;
+- (void)webViewWebContentProcessDidTerminate:(WKWebView * _Nonnull)webView;
 - (void)webView:(WKWebView * _Nonnull)webView decidePolicyForNavigationAction:(WKNavigationAction * _Nonnull)navigationAction decisionHandler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
-@end
-
-@class WKUserContentController;
-@class WKScriptMessage;
-@interface AIQInAppCreativeStudioViewController (SWIFT_EXTENSION(Appier))
-- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
 @end
 
 SWIFT_CLASS("_TtC6Appier21AIQInAppCrossMarkView")
@@ -579,6 +583,9 @@ SWIFT_PROTOCOL("_TtP6Appier19AIQInAppWebDelegate_")
 
 @interface AIQInAppWebViewController (SWIFT_EXTENSION(Appier)) <WKNavigationDelegate>
 - (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
+- (void)webView:(WKWebView * _Nonnull)webView didFailProvisionalNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)error;
+- (void)webView:(WKWebView * _Nonnull)webView didFailNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)error;
+- (void)webViewWebContentProcessDidTerminate:(WKWebView * _Nonnull)webView;
 - (void)webView:(WKWebView * _Nonnull)webView decidePolicyForNavigationAction:(WKNavigationAction * _Nonnull)navigationAction decisionHandler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
 @end
 
