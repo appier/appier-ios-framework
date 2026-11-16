@@ -26,7 +26,9 @@ platform :ios do
     framework_version = "v#{get_framework_version}"
     if suffixes.any?
       dev_suffix = suffixes.flatten.first
-      framework_version += dev_suffix
+      # appier-ios writes the full version (including -dev.N) into
+      # CFBundleShortVersionString, so only append it when it is missing.
+      framework_version += dev_suffix unless framework_version.end_with?(dev_suffix)
     end
     title = (is_prerelease ? "Pre-release" : "Release") + " #{framework_version}"
 
