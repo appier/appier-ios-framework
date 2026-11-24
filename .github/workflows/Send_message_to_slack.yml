@@ -6,97 +6,109 @@ on:
       is_success:
         type: string
         required: true
+    secrets:
+      SLACK_BOT_OAUTH_TOKEN:
+        required: true
 
 jobs:
   send_message:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     environment: ENV
     steps:
 
-    - id: messages
-      run: |
-        if [ -n "${{ github.event.pull_request.head.repo.full_name }}" ]; then
-          REPO="<${{ github.server_url }}/${{ github.repository }}|${{ github.event.pull_request.head.repo.full_name }}>"
-        else
-          REPO="<${{ github.server_url }}/${{ github.repository }}|${{ github.repository }}>"
-        fi
-
-        if [[ ${{ inputs.is_success }} == "true" ]]; then
-          echo ATTACHMENT_COLOR="#36a64f" >> $GITHUB_OUTPUT
-        else
-          echo ATTACHMENT_COLOR="#e23636" >> $GITHUB_OUTPUT
-        fi
-
-        echo TITLE="<!subteam^S042H1N39E3>\n:apple2: ${REPO}" >> $GITHUB_OUTPUT
-
-        echo WORKFLOW="${{ github.workflow }}" >> $GITHUB_OUTPUT
-
-        echo PR="${{ github.event.pull_request.title }}" >> $GITHUB_OUTPUT
-
-        echo RUN="<https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|#${{ github.run_id }}>" >> $GITHUB_OUTPUT
-
-    - id: payload
-      run: |
-        # Initialize the original payload string with placeholders
-        payload='{
-          "blocks": [
-            {
-              "type": "section",
-              "text": {
-                "type": "mrkdwn",
-                "text": "${{ steps.messages.outputs.TITLE }}"
-              }
-            }
-          ],
-          "attachments": [
-            {
-              "color": "${{ steps.messages.outputs.ATTACHMENT_COLOR }}",
-              "blocks": [
-                ##PLACEHOLDER##
-              ]
-            }
-          ]
-        }'
-
-        # Function to add a section block if an input is provided
-        add_section() {
-          local input_value="$1"
-          local input_label="$2"
-
-          if [ -n "$input_value" ]; then
-            new_section='{
-              "type": "section",
-              "text": {
-                "type": "mrkdwn",
-                "text": "*'"${input_label}"'*\n'"${input_value}"'"
-              }
-            },'
-            # Append the new section to the payload
-            payload=${payload/'##PLACEHOLDER##'/$new_section##PLACEHOLDER##}
+      - id: messages
+        env:
+          PR_HEAD_REPO_FULL_NAME: ${{ github.event.pull_request.head.repo.full_name }}
+          SERVER_URL: ${{ github.server_url }}
+          REPOSITORY: ${{ github.repository }}
+          IS_SUCCESS: ${{ inputs.is_success }}
+          WORKFLOW_NAME: ${{ github.workflow }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          if [ -n "$PR_HEAD_REPO_FULL_NAME" ]; then
+            REPO="<$SERVER_URL/$REPOSITORY|$PR_HEAD_REPO_FULL_NAME>"
+          else
+            REPO="<$SERVER_URL/$REPOSITORY|$REPOSITORY>"
           fi
-        }
 
-        # Add sections based on inputs
-        add_section "${{ steps.messages.outputs.WORKFLOW }}" "Workflow"
-        add_section "${{ steps.messages.outputs.PR }}" "PR"
-        add_section "${{ steps.messages.outputs.RUN }}" "Run"
+          if [[ "$IS_SUCCESS" == "true" ]]; then
+            echo ATTACHMENT_COLOR="#36a64f" >> $GITHUB_OUTPUT
+          else
+            echo ATTACHMENT_COLOR="#e23636" >> $GITHUB_OUTPUT
+          fi
 
-        # Remove any remaining placeholder
-        payload=${payload/',##PLACEHOLDER##'/}
-        payload=${payload/'##PLACEHOLDER##'/}
+          {
+            echo "TITLE<<EOF"
+            echo "<!subteam^S042H1N39E3>"
+            echo ":apple2: ${REPO}"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
 
-        # Output the final payload
-        echo "${payload}"
+          echo WORKFLOW="$WORKFLOW_NAME" >> $GITHUB_OUTPUT
 
-        echo "PAYLOAD<<EOF" >> "$GITHUB_ENV"
-        echo "${payload}" >> "$GITHUB_ENV"
-        echo "EOF" >> "$GITHUB_ENV"
+          echo PR="$PR_TITLE" >> $GITHUB_OUTPUT
 
-    - name: Send GitHub Action trigger data to Slack workflow
-      id: slack
-      uses: slackapi/slack-github-action@v1.26.0
-      with:
-        channel-id: "${{ vars.NOTIFY_SLACK_CHANNEL_ID }}"
-        payload: "${{ env.PAYLOAD }}"
-      env:
-        SLACK_BOT_TOKEN: '${{ secrets.SLACK_BOT_OAUTH_TOKEN }}'
+          echo RUN="<https://github.com/$REPOSITORY/actions/runs/$RUN_ID|#$RUN_ID>" >> $GITHUB_OUTPUT
+
+      - id: payload
+        env:
+          TITLE: ${{ steps.messages.outputs.TITLE }}
+          ATTACHMENT_COLOR: ${{ steps.messages.outputs.ATTACHMENT_COLOR }}
+          WORKFLOW: ${{ steps.messages.outputs.WORKFLOW }}
+          PR: ${{ steps.messages.outputs.PR }}
+          RUN: ${{ steps.messages.outputs.RUN }}
+        run: |
+          payload=$(jq -n \
+            --arg title "$TITLE" \
+            --arg color "$ATTACHMENT_COLOR" \
+            --arg workflow "$WORKFLOW" \
+            --arg pr "$PR" \
+            --arg run "$RUN" \
+            '
+              {
+                blocks: [
+                  {
+                    type: "section",
+                    text: {
+                      type: "mrkdwn",
+                      text: $title
+                    }
+                  }
+                ],
+                attachments: [
+                  {
+                    color: $color,
+                    blocks: [
+                      {label: "Workflow", value: $workflow},
+                      {label: "PR", value: $pr},
+                      {label: "Run", value: $run}
+                    ]
+                    | map(select(.value != "") | {
+                        type: "section",
+                        text: {
+                          type: "mrkdwn",
+                          text: ("*" + .label + "*\n" + .value)
+                        }
+                      })
+                  }
+                ]
+              }
+            ')
+
+          echo "$payload"
+
+          echo "payload<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$payload" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
+      - name: Send GitHub Action trigger data to Slack workflow
+        id: slack
+        uses: slackapi/slack-github-action@70cd7be8e40a46e8b0eced40b0de447bdb42f68e # v1.26.0
+        with:
+          channel-id: "${{ vars.NOTIFY_SLACK_CHANNEL_ID }}"
+          payload: "${{ steps.payload.outputs.payload }}"
+        env:
+          SLACK_BOT_TOKEN: '${{ secrets.SLACK_BOT_OAUTH_TOKEN }}'

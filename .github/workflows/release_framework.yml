@@ -1,5 +1,8 @@
 name: Release framework
 
+permissions:
+  contents: read
+
 on:
   pull_request:
     types:
@@ -29,18 +32,23 @@ jobs:
     steps:
       - name: Check release conditions
         id: check
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          REF_NAME: ${{ github.ref_name }}
+          HEAD_REF: ${{ github.head_ref }}
+          PR_MERGED: ${{ github.event.pull_request.merged }}
         run: |
-          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+          if [[ "$EVENT_NAME" == "workflow_dispatch" ]]; then
             # workflow_dispatch: only allow on master branch
-            if [[ "${{ github.ref_name }}" == "master" ]]; then
+            if [[ "$REF_NAME" == "master" ]]; then
               echo "should_release=true" >> $GITHUB_OUTPUT
             else
               echo "should_release=false" >> $GITHUB_OUTPUT
             fi
-          elif [[ "${{ github.event_name }}" == "pull_request" ]]; then
+          elif [[ "$EVENT_NAME" == "pull_request" ]]; then
             # PR: check if it's a release/prerelease branch and merged
-            head_ref="${{ github.head_ref }}"
-            is_merged=${{ github.event.pull_request.merged }}
+            head_ref="$HEAD_REF"
+            is_merged="$PR_MERGED"
             
             if [[ ("$head_ref" == release* || "$head_ref" == prerelease*) && "$is_merged" == "true" ]]; then
               echo "should_release=true" >> $GITHUB_OUTPUT
@@ -59,7 +67,7 @@ jobs:
       release_created: ${{ steps.release.outputs.created }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: Setup gem
         uses: appier/appier-ios-framework/.github/actions/install_gem_dependencies@master
@@ -70,10 +78,11 @@ jobs:
         id: release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          REF_NAME: ${{ github.ref_name }}
         run: |
           is_prerelease=false
 
-          if [[ "${{ github.ref_name }}" == "prerelease" || "${{ github.ref_name }}" == prerelease* ]]; then
+          if [[ "$REF_NAME" == "prerelease" || "$REF_NAME" == prerelease* ]]; then
             is_prerelease=true
           fi
 
@@ -86,7 +95,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: Setup gem
         uses: appier/appier-ios-framework/.github/actions/install_gem_dependencies@master
@@ -104,7 +113,7 @@ jobs:
     runs-on: macos-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
       - name: Setup gem
         uses: appier/appier-ios-framework/.github/actions/install_gem_dependencies@master
@@ -120,20 +129,26 @@ jobs:
     needs: [prepare, create_release]
     if: needs.prepare.outputs.should_release == 'true' && needs.create_release.outputs.release_created == 'true'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Enable Build app with release framework workflow
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           curl -X PUT \
             -H "Accept: application/vnd.github+json" \
-            -H "Authorization: Bearer ${{ secrets.GH_TOKEN }}" \
+            -H "Authorization: Bearer $GH_TOKEN" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
             "https://api.github.com/repos/plaxieappier/appier-ios-automation-test-app/actions/workflows/build_app_from_release_sources.yml/enable"
 
       - name: Enable Build demo app workflow
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           curl -X PUT \
             -H "Accept: application/vnd.github+json" \
-            -H "Authorization: Bearer ${{ secrets.GH_TOKEN }}" \
+            -H "Authorization: Bearer $GH_TOKEN" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
             "https://api.github.com/repos/plaxieappier/aiqua-ios-demo/actions/workflows/build_and_upload_demo_app.yml/enable"
 
@@ -141,7 +156,8 @@ jobs:
     needs: [deploy_pod_framework, deploy_pod_extension]
     if: ${{ always() && !contains(needs.*.result, 'failure') && !contains(needs.*.result, 'cancelled') && !contains(needs.*.result, 'skipped') }}
     uses: ./.github/workflows/Send_message_to_slack.yml
-    secrets: inherit
+    secrets:
+      SLACK_BOT_OAUTH_TOKEN: ${{ secrets.SLACK_BOT_OAUTH_TOKEN }}
     with:
       is_success: "true"
 
@@ -149,6 +165,7 @@ jobs:
     needs: [deploy_pod_framework, deploy_pod_extension]
     if: ${{ always() && contains(needs.*.result, 'failure') }}
     uses: ./.github/workflows/Send_message_to_slack.yml
-    secrets: inherit
+    secrets:
+      SLACK_BOT_OAUTH_TOKEN: ${{ secrets.SLACK_BOT_OAUTH_TOKEN }}
     with:
       is_success: "false"
