@@ -4294,133 +4294,133 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/DeviceInfo.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/sdk\/Sources\/Shared\/DeviceInfo.swift",
       "kind": "StringLiteral",
       "offset": 153,
       "length": 9,
       "value": "\"Unknown\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/FrameworkInfo.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/sdk\/Sources\/Shared\/FrameworkInfo.swift",
       "kind": "StringLiteral",
       "offset": 198,
       "length": 17,
       "value": "\"CFBundleVersion\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/FrameworkInfo.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/sdk\/Sources\/Shared\/FrameworkInfo.swift",
       "kind": "StringLiteral",
       "offset": 231,
       "length": 9,
       "value": "\"Unknown\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/FrameworkInfo.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/sdk\/Sources\/Shared\/FrameworkInfo.swift",
       "kind": "StringLiteral",
       "offset": 347,
       "length": 28,
       "value": "\"CFBundleShortVersionString\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/FrameworkInfo.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/sdk\/Sources\/Shared\/FrameworkInfo.swift",
       "kind": "StringLiteral",
       "offset": 391,
       "length": 9,
       "value": "\"Unknown\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/QGNotificationSdk\/Extensions\/Logger+AIQUANotification.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/sdk\/QGNotificationSdk\/Extensions\/Logger+AIQUANotification.swift",
       "kind": "StringLiteral",
       "offset": 132,
       "length": 20,
       "value": "\"AIQUA Notification\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/sdk\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "BooleanLiteral",
       "offset": 331,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/sdk\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "StringLiteral",
       "offset": 3521,
       "length": 29,
       "value": "\"yyyy-MM-dd HH:mm:ss.SSSSSSZ\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/sdk\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
       "offset": 3667,
       "length": 4,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/sdk\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
       "offset": 3673,
       "length": 7,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/Logger.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/sdk\/Sources\/Shared\/Logger\/Logger.swift",
       "kind": "IntegerLiteral",
       "offset": 3682,
       "length": 5,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/LogMessage.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/sdk\/Sources\/Shared\/Logger\/LogMessage.swift",
       "kind": "StringLiteral",
       "offset": 827,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/LogPolicy.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/sdk\/Sources\/Shared\/Logger\/LogPolicy.swift",
       "kind": "IntegerLiteral",
       "offset": 1018,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/LogPolicy.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/sdk\/Sources\/Shared\/Logger\/LogPolicy.swift",
       "kind": "IntegerLiteral",
       "offset": 1029,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/LogPolicy.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/sdk\/Sources\/Shared\/Logger\/LogPolicy.swift",
       "kind": "IntegerLiteral",
       "offset": 1039,
       "length": 1,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/LogPolicy.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/sdk\/Sources\/Shared\/Logger\/LogPolicy.swift",
       "kind": "IntegerLiteral",
       "offset": 1049,
       "length": 1,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/LogPolicy.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/sdk\/Sources\/Shared\/Logger\/LogPolicy.swift",
       "kind": "IntegerLiteral",
       "offset": 1060,
       "length": 1,
       "value": "4"
     },
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/LogPolicy.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/sdk\/Sources\/Shared\/Logger\/LogPolicy.swift",
       "kind": "IntegerLiteral",
       "offset": 1070,
       "length": 1,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/Sources\/Shared\/Logger\/LogPolicy.swift",
+      "filePath": "\/Users\/runner\/work\/appier-ios\/appier-ios\/sdk\/Sources\/Shared\/Logger\/LogPolicy.swift",
       "kind": "StringLiteral",
       "offset": 5008,
       "length": 24,

@@ -900,15 +900,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// By calling this method, the SDK will do the necessary URL handling with Appier-integrated
 /// third-party services. eg. LINE data syncing
-/// However, you don't have to call this method if you set the `AppierAppDelegateProxyEnabled`
-/// flag to `YES` in your Info.plist.
+///
+/// You don't have to call this method if you set the `AppierAppDelegateProxyEnabled`
+/// flag to `YES` in your Info.plist. The proxy takes the URL from
+/// `application:openURL:options:` in an app that uses the app delegate life cycle, and from
+/// `scene:openURLContexts:` (or from `connectionOptions.urlContexts` when the scene connects on
+/// a cold start) in an app that uses the scene life cycle.
+/// Call this method yourself only when the proxy is disabled. Calling it as well as relying on
+/// the proxy handles the same URL twice.
 /// @param url The URL resource to open.
 - (void)handleOpenUrl:(NSURL *)url NS_SWIFT_NAME(handleOpenUrl(_:));
 
 /// By calling this method, the SDK will do the necessary URL handling with Appier-integrated
 /// third-party services. eg. LINE data syncing
-/// However, you don't have to call this method if you set the `AppierAppDelegateProxyEnabled`
-/// flag to `YES` in your Info.plist.
+///
+/// You don't have to call this method if you set the `AppierAppDelegateProxyEnabled`
+/// flag to `YES` in your Info.plist. The proxy takes the activity from
+/// `application:continueUserActivity:restorationHandler:` in an app that uses the app delegate
+/// life cycle, and from `scene:continueUserActivity:` (or from
+/// `connectionOptions.userActivities` when the scene connects on a cold start) in an app that
+/// uses the scene life cycle.
+/// Call this method yourself only when the proxy is disabled. Calling it as well as relying on
+/// the proxy handles the same activity twice.
 /// @param userActivity The activity object containing the data associated with the task the user was performing. Use the data to continue the user's activity in your iOS app.
 - (void)handleUserActivity:(NSUserActivity *)userActivity NS_SWIFT_NAME(handleUserActivity(_:));
 

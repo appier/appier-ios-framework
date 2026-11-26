@@ -1,0 +1,602 @@
+---
+triple:          'x86_64-apple-darwin'
+binary-path:     '/Users/runner/Library/Developer/Xcode/DerivedData/Appier-cymfbwxxhojxqqgfgcchpqmknfhr/Build/Intermediates.noindex/ArchiveIntermediates/AppierExtension/InstallationBuildProductsLocation/Library/Frameworks/AppierExtension.framework/AppierExtension'
+relocations:
+  - { offset: 0xBDCF9, size: 0x8, addend: 0x0, symName: _AppierExtensionVersionString, symObjAddr: 0x0, symBinAddr: 0x1E930, symSize: 0x0 }
+  - { offset: 0xBDD2E, size: 0x8, addend: 0x0, symName: _AppierExtensionVersionNumber, symObjAddr: 0x38, symBinAddr: 0x1E968, symSize: 0x0 }
+  - { offset: 0xBDD6B, size: 0x8, addend: 0x0, symName: '-[AIQNotificationRemoteConfig initWithAppGroup:]', symObjAddr: 0x0, symBinAddr: 0x18F0, symSize: 0xC8 }
+  - { offset: 0xBDDE7, size: 0x8, addend: 0x0, symName: '-[AIQNotificationRemoteConfig initWithAppGroup:]', symObjAddr: 0x0, symBinAddr: 0x18F0, symSize: 0xC8 }
+  - { offset: 0xBDE9B, size: 0x8, addend: 0x0, symName: '-[AIQNotificationRemoteConfig fetchRemoteConfig:]', symObjAddr: 0xC8, symBinAddr: 0x19B8, symSize: 0x397 }
+  - { offset: 0xBE1A8, size: 0x8, addend: 0x0, symName: '___49-[AIQNotificationRemoteConfig fetchRemoteConfig:]_block_invoke', symObjAddr: 0x45F, symBinAddr: 0x1D4F, symSize: 0x75 }
+  - { offset: 0xBE249, size: 0x8, addend: 0x0, symName: '___49-[AIQNotificationRemoteConfig fetchRemoteConfig:]_block_invoke_2', symObjAddr: 0x4D4, symBinAddr: 0x1DC4, symSize: 0x16 }
+  - { offset: 0xBE2A0, size: 0x8, addend: 0x0, symName: '___49-[AIQNotificationRemoteConfig fetchRemoteConfig:]_block_invoke.42', symObjAddr: 0x510, symBinAddr: 0x1DDA, symSize: 0x78 }
+  - { offset: 0xBE3B5, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32b40w, symObjAddr: 0x588, symBinAddr: 0x1E52, symSize: 0x36 }
+  - { offset: 0xBE3DE, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32s40w, symObjAddr: 0x5BE, symBinAddr: 0x1E88, symSize: 0x22 }
+  - { offset: 0xBE409, size: 0x8, addend: 0x0, symName: '-[AIQNotificationRemoteConfig handleRemoteConfigResponse:error:safeCompletion:]', symObjAddr: 0x5E0, symBinAddr: 0x1EAA, symSize: 0x22A }
+  - { offset: 0xBE66D, size: 0x8, addend: 0x0, symName: '-[AIQNotificationRemoteConfig processAndStoreConfig:]', symObjAddr: 0x80A, symBinAddr: 0x20D4, symSize: 0x18F }
+  - { offset: 0xBE7D6, size: 0x8, addend: 0x0, symName: '-[AIQNotificationRemoteConfig remoteConfigEndpoint]', symObjAddr: 0x999, symBinAddr: 0x2263, symSize: 0xA }
+  - { offset: 0xBE80B, size: 0x8, addend: 0x0, symName: '-[AIQNotificationRemoteConfig setRemoteConfigEndpoint:]', symObjAddr: 0x9A3, symBinAddr: 0x226D, symSize: 0x11 }
+  - { offset: 0xBE84C, size: 0x8, addend: 0x0, symName: '-[AIQNotificationRemoteConfig urlSession]', symObjAddr: 0x9B4, symBinAddr: 0x227E, symSize: 0xA }
+  - { offset: 0xBE881, size: 0x8, addend: 0x0, symName: '-[AIQNotificationRemoteConfig setUrlSession:]', symObjAddr: 0x9BE, symBinAddr: 0x2288, symSize: 0x11 }
+  - { offset: 0xBE8C2, size: 0x8, addend: 0x0, symName: '-[AIQNotificationRemoteConfig defaults]', symObjAddr: 0x9CF, symBinAddr: 0x2299, symSize: 0xA }
+  - { offset: 0xBE8F7, size: 0x8, addend: 0x0, symName: '-[AIQNotificationRemoteConfig .cxx_destruct]', symObjAddr: 0x9D9, symBinAddr: 0x22A3, symSize: 0x33 }
+  - { offset: 0xBEC06, size: 0x8, addend: 0x0, symName: '-[APRLogger(ObjC) debug:]', symObjAddr: 0x0, symBinAddr: 0x22D6, symSize: 0x152 }
+  - { offset: 0xBEC41, size: 0x8, addend: 0x0, symName: '-[APRLogger(ObjC) debug:]', symObjAddr: 0x0, symBinAddr: 0x22D6, symSize: 0x152 }
+  - { offset: 0xBEDA5, size: 0x8, addend: 0x0, symName: '-[APRLogger(ObjC) info:]', symObjAddr: 0x152, symBinAddr: 0x2428, symSize: 0x15C }
+  - { offset: 0xBEEAC, size: 0x8, addend: 0x0, symName: '-[APRLogger(ObjC) warning:]', symObjAddr: 0x2AE, symBinAddr: 0x2584, symSize: 0x15C }
+  - { offset: 0xBEFB3, size: 0x8, addend: 0x0, symName: '-[APRLogger(ObjC) error:]', symObjAddr: 0x40A, symBinAddr: 0x26E0, symSize: 0x15C }
+  - { offset: 0xBF0BA, size: 0x8, addend: 0x0, symName: '-[APRLogger(ObjC) prefixedFormat:level:category:]', symObjAddr: 0x566, symBinAddr: 0x283C, symSize: 0xEA }
+  - { offset: 0xBF2B2, size: 0x8, addend: 0x0, symName: '-[AsyncResult init]', symObjAddr: 0x0, symBinAddr: 0x2926, symSize: 0x4E }
+  - { offset: 0xBF431, size: 0x8, addend: 0x0, symName: '-[AsyncResult init]', symObjAddr: 0x0, symBinAddr: 0x2926, symSize: 0x4E }
+  - { offset: 0xBF474, size: 0x8, addend: 0x0, symName: '-[AsyncResult initWithDelegate:]', symObjAddr: 0x4E, symBinAddr: 0x2974, symSize: 0x5A }
+  - { offset: 0xBF4F8, size: 0x8, addend: 0x0, symName: '-[AsyncResult onStarted]', symObjAddr: 0xA8, symBinAddr: 0x29CE, symSize: 0x3D }
+  - { offset: 0xBF54F, size: 0x8, addend: 0x0, symName: '-[AsyncResult onSuccess:]', symObjAddr: 0xE5, symBinAddr: 0x2A0B, symSize: 0x69 }
+  - { offset: 0xBF5E7, size: 0x8, addend: 0x0, symName: '-[AsyncResult onError:errorMessage:exception:]', symObjAddr: 0x14E, symBinAddr: 0x2A74, symSize: 0x8E }
+  - { offset: 0xBF6D5, size: 0x8, addend: 0x0, symName: '-[AsyncResult onCompleted]', symObjAddr: 0x1DC, symBinAddr: 0x2B02, symSize: 0x3D }
+  - { offset: 0xBF72C, size: 0x8, addend: 0x0, symName: '-[AsyncResult delegate]', symObjAddr: 0x219, symBinAddr: 0x2B3F, symSize: 0xA }
+  - { offset: 0xBF761, size: 0x8, addend: 0x0, symName: '-[AsyncResult setDelegate:]', symObjAddr: 0x223, symBinAddr: 0x2B49, symSize: 0x11 }
+  - { offset: 0xBF7A2, size: 0x8, addend: 0x0, symName: '-[AsyncResult .cxx_destruct]', symObjAddr: 0x234, symBinAddr: 0x2B5A, symSize: 0x10 }
+  - { offset: 0xBF859, size: 0x8, addend: 0x0, symName: '-[NSObject(iCarousel) numberOfPlaceholdersInCarousel:]', symObjAddr: 0x0, symBinAddr: 0x2B6C, symSize: 0x8 }
+  - { offset: 0xBFEC1, size: 0x8, addend: 0x0, symName: '-[NSObject(iCarousel) numberOfPlaceholdersInCarousel:]', symObjAddr: 0x0, symBinAddr: 0x2B6C, symSize: 0x8 }
+  - { offset: 0xBFF00, size: 0x8, addend: 0x0, symName: '-[NSObject(iCarousel) carouselWillBeginScrollingAnimation:]', symObjAddr: 0x8, symBinAddr: 0x2B74, symSize: 0x6 }
+  - { offset: 0xBFF3B, size: 0x8, addend: 0x0, symName: '-[NSObject(iCarousel) carouselDidEndScrollingAnimation:]', symObjAddr: 0xE, symBinAddr: 0x2B7A, symSize: 0x6 }
+  - { offset: 0xBFF76, size: 0x8, addend: 0x0, symName: '-[NSObject(iCarousel) carouselDidScroll:]', symObjAddr: 0x14, symBinAddr: 0x2B80, symSize: 0x6 }
+  - { offset: 0xBFFB1, size: 0x8, addend: 0x0, symName: '-[NSObject(iCarousel) carouselCurrentItemIndexDidChange:]', symObjAddr: 0x1A, symBinAddr: 0x2B86, symSize: 0x6 }
+  - { offset: 0xBFFEC, size: 0x8, addend: 0x0, symName: '-[NSObject(iCarousel) carouselWillBeginDragging:]', symObjAddr: 0x20, symBinAddr: 0x2B8C, symSize: 0x6 }
+  - { offset: 0xC0027, size: 0x8, addend: 0x0, symName: '-[NSObject(iCarousel) carouselDidEndDragging:willDecelerate:]', symObjAddr: 0x26, symBinAddr: 0x2B92, symSize: 0x6 }
+  - { offset: 0xC006E, size: 0x8, addend: 0x0, symName: '-[NSObject(iCarousel) carouselWillBeginDecelerating:]', symObjAddr: 0x2C, symBinAddr: 0x2B98, symSize: 0x6 }
+  - { offset: 0xC00A9, size: 0x8, addend: 0x0, symName: '-[NSObject(iCarousel) carouselDidEndDecelerating:]', symObjAddr: 0x32, symBinAddr: 0x2B9E, symSize: 0x6 }
+  - { offset: 0xC00E4, size: 0x8, addend: 0x0, symName: '-[NSObject(iCarousel) carousel:shouldSelectItemAtIndex:]', symObjAddr: 0x38, symBinAddr: 0x2BA4, symSize: 0x8 }
+  - { offset: 0xC012F, size: 0x8, addend: 0x0, symName: '-[NSObject(iCarousel) carousel:didSelectItemAtIndex:]', symObjAddr: 0x40, symBinAddr: 0x2BAC, symSize: 0x6 }
+  - { offset: 0xC0176, size: 0x8, addend: 0x0, symName: '-[NSObject(iCarousel) carouselItemWidth:]', symObjAddr: 0x46, symBinAddr: 0x2BB2, symSize: 0x9 }
+  - { offset: 0xC01B5, size: 0x8, addend: 0x0, symName: '-[NSObject(iCarousel) carousel:itemTransformForOffset:baseTransform:]', symObjAddr: 0x4F, symBinAddr: 0x2BBB, symSize: 0x4B }
+  - { offset: 0xC020F, size: 0x8, addend: 0x0, symName: '-[NSObject(iCarousel) carousel:valueForOption:withDefault:]', symObjAddr: 0x9A, symBinAddr: 0x2C06, symSize: 0x6 }
+  - { offset: 0xC0268, size: 0x8, addend: 0x0, symName: '-[iCarousel setUp]', symObjAddr: 0xA0, symBinAddr: 0x2C0C, symSize: 0x250 }
+  - { offset: 0xC03FE, size: 0x8, addend: 0x0, symName: '-[iCarousel initWithCoder:]', symObjAddr: 0x2F0, symBinAddr: 0x2E5C, symSize: 0x8A }
+  - { offset: 0xC0485, size: 0x8, addend: 0x0, symName: '-[iCarousel initWithFrame:]', symObjAddr: 0x37A, symBinAddr: 0x2EE6, symSize: 0x5D }
+  - { offset: 0xC04DF, size: 0x8, addend: 0x0, symName: '-[iCarousel dealloc]', symObjAddr: 0x3D7, symBinAddr: 0x2F43, symSize: 0x3E }
+  - { offset: 0xC0527, size: 0x8, addend: 0x0, symName: '-[iCarousel setDataSource:]', symObjAddr: 0x415, symBinAddr: 0x2F81, symSize: 0x7F }
+  - { offset: 0xC05BF, size: 0x8, addend: 0x0, symName: '-[iCarousel setDelegate:]', symObjAddr: 0x494, symBinAddr: 0x3000, symSize: 0xA0 }
+  - { offset: 0xC0663, size: 0x8, addend: 0x0, symName: '-[iCarousel setType:]', symObjAddr: 0x534, symBinAddr: 0x30A0, symSize: 0x25 }
+  - { offset: 0xC06AE, size: 0x8, addend: 0x0, symName: '-[iCarousel setVertical:]', symObjAddr: 0x559, symBinAddr: 0x30C5, symSize: 0x23 }
+  - { offset: 0xC06FD, size: 0x8, addend: 0x0, symName: '-[iCarousel setScrollOffset:]', symObjAddr: 0x57C, symBinAddr: 0x30E8, symSize: 0x70 }
+  - { offset: 0xC075A, size: 0x8, addend: 0x0, symName: '-[iCarousel setCurrentItemIndex:]', symObjAddr: 0x5EC, symBinAddr: 0x3158, symSize: 0x17 }
+  - { offset: 0xC07B0, size: 0x8, addend: 0x0, symName: '-[iCarousel setPerspective:]', symObjAddr: 0x603, symBinAddr: 0x316F, symSize: 0x1E }
+  - { offset: 0xC082F, size: 0x8, addend: 0x0, symName: '-[iCarousel setViewpointOffset:]', symObjAddr: 0x621, symBinAddr: 0x318D, symSize: 0x41 }
+  - { offset: 0xC08A9, size: 0x8, addend: 0x0, symName: '-[iCarousel setContentOffset:]', symObjAddr: 0x662, symBinAddr: 0x31CE, symSize: 0x41 }
+  - { offset: 0xC0923, size: 0x8, addend: 0x0, symName: '-[iCarousel setAutoscroll:]', symObjAddr: 0x6A3, symBinAddr: 0x320F, symSize: 0x2C }
+  - { offset: 0xC0970, size: 0x8, addend: 0x0, symName: '-[iCarousel pushAnimationState:]', symObjAddr: 0x6CF, symBinAddr: 0x323B, symSize: 0x3E }
+  - { offset: 0xC09C9, size: 0x8, addend: 0x0, symName: '-[iCarousel popAnimationState]', symObjAddr: 0x70D, symBinAddr: 0x3279, symSize: 0x19 }
+  - { offset: 0xC0A05, size: 0x8, addend: 0x0, symName: '-[iCarousel indexesForVisibleItems]', symObjAddr: 0x726, symBinAddr: 0x3292, symSize: 0x62 }
+  - { offset: 0xC0A69, size: 0x8, addend: 0x0, symName: '-[iCarousel visibleItemViews]', symObjAddr: 0x788, symBinAddr: 0x32F4, symSize: 0x92 }
+  - { offset: 0xC0AFE, size: 0x8, addend: 0x0, symName: '-[iCarousel itemViewAtIndex:]', symObjAddr: 0x81A, symBinAddr: 0x3386, symSize: 0x6E }
+  - { offset: 0xC0B73, size: 0x8, addend: 0x0, symName: '-[iCarousel currentItemView]', symObjAddr: 0x888, symBinAddr: 0x33F4, symSize: 0x31 }
+  - { offset: 0xC0BCC, size: 0x8, addend: 0x0, symName: '-[iCarousel indexOfItemView:]', symObjAddr: 0x8B9, symBinAddr: 0x3425, symSize: 0xF2 }
+  - { offset: 0xC0CCF, size: 0x8, addend: 0x0, symName: '-[iCarousel indexOfItemViewOrSubview:]', symObjAddr: 0x9AB, symBinAddr: 0x3517, symSize: 0xD6 }
+  - { offset: 0xC0DB2, size: 0x8, addend: 0x0, symName: '-[iCarousel itemViewAtPoint:]', symObjAddr: 0xA81, symBinAddr: 0x35ED, symSize: 0x27E }
+  - { offset: 0xC0F3B, size: 0x8, addend: 0x0, symName: _compareViewDepth, symObjAddr: 0xCFF, symBinAddr: 0x386B, symSize: 0x3A3 }
+  - { offset: 0xC11B4, size: 0x8, addend: 0x0, symName: '-[iCarousel setItemView:forIndex:]', symObjAddr: 0x10A2, symBinAddr: 0x3C0E, symSize: 0x87 }
+  - { offset: 0xC1266, size: 0x8, addend: 0x0, symName: '-[iCarousel removeViewAtIndex:]', symObjAddr: 0x1129, symBinAddr: 0x3C95, symSize: 0x2D6 }
+  - { offset: 0xC1424, size: 0x8, addend: 0x0, symName: '-[iCarousel insertView:atIndex:]', symObjAddr: 0x13FF, symBinAddr: 0x3F6B, symSize: 0x2D9 }
+  - { offset: 0xC1624, size: 0x8, addend: 0x0, symName: '-[iCarousel alphaForItemWithOffset:]', symObjAddr: 0x16D8, symBinAddr: 0x4244, symSize: 0x120 }
+  - { offset: 0xC177E, size: 0x8, addend: 0x0, symName: '-[iCarousel valueForOption:withDefault:]', symObjAddr: 0x17F8, symBinAddr: 0x4364, symSize: 0x83 }
+  - { offset: 0xC1864, size: 0x8, addend: 0x0, symName: '-[iCarousel transformForItemViewWithOffset:]', symObjAddr: 0x187B, symBinAddr: 0x43E7, symSize: 0x14D9 }
+  - { offset: 0xC1FBF, size: 0x8, addend: 0x0, symName: '-[iCarousel depthSortViews]', symObjAddr: 0x2D54, symBinAddr: 0x58C0, symSize: 0x1EF }
+  - { offset: 0xC20B6, size: 0x8, addend: 0x0, symName: '-[iCarousel offsetForItemAtIndex:]', symObjAddr: 0x2F43, symBinAddr: 0x5AAF, symSize: 0x69 }
+  - { offset: 0xC210C, size: 0x8, addend: 0x0, symName: '-[iCarousel containView:]', symObjAddr: 0x2FAC, symBinAddr: 0x5B18, symSize: 0x2AE }
+  - { offset: 0xC2206, size: 0x8, addend: 0x0, symName: '-[iCarousel transformItemView:atIndex:]', symObjAddr: 0x325A, symBinAddr: 0x5DC6, symSize: 0x58D }
+  - { offset: 0xC2507, size: 0x8, addend: 0x0, symName: '-[iCarousel layoutSubviews]', symObjAddr: 0x37E7, symBinAddr: 0x6353, symSize: 0x86 }
+  - { offset: 0xC255B, size: 0x8, addend: 0x0, symName: '-[iCarousel transformItemViews]', symObjAddr: 0x386D, symBinAddr: 0x63D9, symSize: 0x1CF }
+  - { offset: 0xC267C, size: 0x8, addend: 0x0, symName: '-[iCarousel updateItemWidth]', symObjAddr: 0x3A3C, symBinAddr: 0x65A8, symSize: 0xD3 }
+  - { offset: 0xC271C, size: 0x8, addend: 0x0, symName: '-[iCarousel updateNumberOfVisibleItems]', symObjAddr: 0x3B0F, symBinAddr: 0x667B, symSize: 0x351 }
+  - { offset: 0xC29F1, size: 0x8, addend: 0x0, symName: '-[iCarousel circularCarouselItemCount]', symObjAddr: 0x3E60, symBinAddr: 0x69CC, symSize: 0x134 }
+  - { offset: 0xC2B51, size: 0x8, addend: 0x0, symName: '-[iCarousel layOutItemViews]', symObjAddr: 0x3F94, symBinAddr: 0x6B00, symSize: 0x270 }
+  - { offset: 0xC2C7F, size: 0x8, addend: 0x0, symName: '-[iCarousel queueItemView:]', symObjAddr: 0x4204, symBinAddr: 0x6D70, symSize: 0x24 }
+  - { offset: 0xC2CCE, size: 0x8, addend: 0x0, symName: '-[iCarousel queuePlaceholderView:]', symObjAddr: 0x4228, symBinAddr: 0x6D94, symSize: 0x24 }
+  - { offset: 0xC2D1D, size: 0x8, addend: 0x0, symName: '-[iCarousel dequeueItemView]', symObjAddr: 0x424C, symBinAddr: 0x6DB8, symSize: 0x5B }
+  - { offset: 0xC2D86, size: 0x8, addend: 0x0, symName: '-[iCarousel dequeuePlaceholderView]', symObjAddr: 0x42A7, symBinAddr: 0x6E13, symSize: 0x5B }
+  - { offset: 0xC2DEF, size: 0x8, addend: 0x0, symName: '-[iCarousel loadViewAtIndex:withContainerView:]', symObjAddr: 0x4302, symBinAddr: 0x6E6E, symSize: 0x55D }
+  - { offset: 0xC30E2, size: 0x8, addend: 0x0, symName: '-[iCarousel loadViewAtIndex:]', symObjAddr: 0x485F, symBinAddr: 0x73CB, symSize: 0x14 }
+  - { offset: 0xC314A, size: 0x8, addend: 0x0, symName: '-[iCarousel loadUnloadViews]', symObjAddr: 0x4873, symBinAddr: 0x73DF, symSize: 0x623 }
+  - { offset: 0xC3575, size: 0x8, addend: 0x0, symName: '-[iCarousel reloadData]', symObjAddr: 0x4E96, symBinAddr: 0x7A02, symSize: 0x32F }
+  - { offset: 0xC3784, size: 0x8, addend: 0x0, symName: '-[iCarousel clampedIndex:]', symObjAddr: 0x51C5, symBinAddr: 0x7D31, symSize: 0x84 }
+  - { offset: 0xC3877, size: 0x8, addend: 0x0, symName: '-[iCarousel clampedOffset:]', symObjAddr: 0x5249, symBinAddr: 0x7DB5, symSize: 0x89 }
+  - { offset: 0xC398A, size: 0x8, addend: 0x0, symName: '-[iCarousel currentItemIndex]', symObjAddr: 0x52D2, symBinAddr: 0x7E3E, symSize: 0x35 }
+  - { offset: 0xC39ED, size: 0x8, addend: 0x0, symName: '-[iCarousel minScrollDistanceFromIndex:toIndex:]', symObjAddr: 0x5307, symBinAddr: 0x7E73, symSize: 0x60 }
+  - { offset: 0xC3B02, size: 0x8, addend: 0x0, symName: '-[iCarousel minScrollDistanceFromOffset:toOffset:]', symObjAddr: 0x5367, symBinAddr: 0x7ED3, symSize: 0x92 }
+  - { offset: 0xC3C23, size: 0x8, addend: 0x0, symName: '-[iCarousel scrollByOffset:duration:]', symObjAddr: 0x53F9, symBinAddr: 0x7F65, symSize: 0x12F }
+  - { offset: 0xC3CFB, size: 0x8, addend: 0x0, symName: '-[iCarousel scrollToOffset:duration:]', symObjAddr: 0x5528, symBinAddr: 0x8094, symSize: 0x4F }
+  - { offset: 0xC3D7A, size: 0x8, addend: 0x0, symName: '-[iCarousel scrollByNumberOfItems:duration:]', symObjAddr: 0x5577, symBinAddr: 0x80E3, symSize: 0xD1 }
+  - { offset: 0xC3E7B, size: 0x8, addend: 0x0, symName: '-[iCarousel scrollToItemAtIndex:duration:]', symObjAddr: 0x5648, symBinAddr: 0x81B4, symSize: 0x1D }
+  - { offset: 0xC3EEA, size: 0x8, addend: 0x0, symName: '-[iCarousel scrollToItemAtIndex:animated:]', symObjAddr: 0x5665, symBinAddr: 0x81D1, symSize: 0x23 }
+  - { offset: 0xC3F52, size: 0x8, addend: 0x0, symName: '-[iCarousel removeItemAtIndex:animated:]', symObjAddr: 0x5688, symBinAddr: 0x81F4, symSize: 0x35D }
+  - { offset: 0xC4268, size: 0x8, addend: 0x0, symName: '-[iCarousel insertItemAtIndex:animated:]', symObjAddr: 0x59E5, symBinAddr: 0x8551, symSize: 0x1EB }
+  - { offset: 0xC4412, size: 0x8, addend: 0x0, symName: '-[iCarousel reloadItemAtIndex:animated:]', symObjAddr: 0x5BD0, symBinAddr: 0x873C, symSize: 0x156 }
+  - { offset: 0xC458B, size: 0x8, addend: 0x0, symName: '-[iCarousel startAnimation]', symObjAddr: 0x5D26, symBinAddr: 0x8892, symSize: 0x115 }
+  - { offset: 0xC4653, size: 0x8, addend: 0x0, symName: '-[iCarousel stopAnimation]', symObjAddr: 0x5E3B, symBinAddr: 0x89A7, symSize: 0x38 }
+  - { offset: 0xC469F, size: 0x8, addend: 0x0, symName: '-[iCarousel decelerationDistance]', symObjAddr: 0x5E73, symBinAddr: 0x89DF, symSize: 0x42 }
+  - { offset: 0xC46E2, size: 0x8, addend: 0x0, symName: '-[iCarousel shouldDecelerate]', symObjAddr: 0x5EB5, symBinAddr: 0x8A21, symSize: 0x47 }
+  - { offset: 0xC475B, size: 0x8, addend: 0x0, symName: '-[iCarousel shouldScroll]', symObjAddr: 0x5EFC, symBinAddr: 0x8A68, symSize: 0x70 }
+  - { offset: 0xC47D4, size: 0x8, addend: 0x0, symName: '-[iCarousel startDecelerating]', symObjAddr: 0x5F6C, symBinAddr: 0x8AD8, symSize: 0x19C }
+  - { offset: 0xC4951, size: 0x8, addend: 0x0, symName: '-[iCarousel easeInOut:]', symObjAddr: 0x6108, symBinAddr: 0x8C74, symSize: 0x58 }
+  - { offset: 0xC49F2, size: 0x8, addend: 0x0, symName: '-[iCarousel step]', symObjAddr: 0x6160, symBinAddr: 0x8CCC, symSize: 0x58F }
+  - { offset: 0xC4F50, size: 0x8, addend: 0x0, symName: '-[iCarousel didMoveToSuperview]', symObjAddr: 0x66EF, symBinAddr: 0x925B, symSize: 0x5C }
+  - { offset: 0xC4FA8, size: 0x8, addend: 0x0, symName: '-[iCarousel didScroll]', symObjAddr: 0x674B, symBinAddr: 0x92B7, symSize: 0x282 }
+  - { offset: 0xC5200, size: 0x8, addend: 0x0, symName: '-[iCarousel viewOrSuperviewIndex:]', symObjAddr: 0x69CD, symBinAddr: 0x9539, symSize: 0xA1 }
+  - { offset: 0xC52D2, size: 0x8, addend: 0x0, symName: '-[iCarousel viewOrSuperview:implementsSelector:]', symObjAddr: 0x6A6E, symBinAddr: 0x95DA, symSize: 0x16A }
+  - { offset: 0xC54EC, size: 0x8, addend: 0x0, symName: '-[iCarousel viewOrSuperview:ofClass:]', symObjAddr: 0x6BD8, symBinAddr: 0x9744, symSize: 0xDD }
+  - { offset: 0xC55E2, size: 0x8, addend: 0x0, symName: '-[iCarousel gestureRecognizer:shouldReceiveTouch:]', symObjAddr: 0x6CB5, symBinAddr: 0x9821, symSize: 0x46C }
+  - { offset: 0xC598D, size: 0x8, addend: 0x0, symName: '-[iCarousel gestureRecognizerShouldBegin:]', symObjAddr: 0x7121, symBinAddr: 0x9C8D, symSize: 0xB4 }
+  - { offset: 0xC5A7B, size: 0x8, addend: 0x0, symName: '-[iCarousel didTap:]', symObjAddr: 0x71D5, symBinAddr: 0x9D41, symSize: 0x1FF }
+  - { offset: 0xC5C47, size: 0x8, addend: 0x0, symName: '-[iCarousel didPan:]', symObjAddr: 0x73D4, symBinAddr: 0x9F40, symSize: 0x4E6 }
+  - { offset: 0xC6001, size: 0x8, addend: 0x0, symName: '-[iCarousel dataSource]', symObjAddr: 0x78BA, symBinAddr: 0xA426, symSize: 0x19 }
+  - { offset: 0xC6038, size: 0x8, addend: 0x0, symName: '-[iCarousel delegate]', symObjAddr: 0x78D3, symBinAddr: 0xA43F, symSize: 0x19 }
+  - { offset: 0xC606F, size: 0x8, addend: 0x0, symName: '-[iCarousel type]', symObjAddr: 0x78EC, symBinAddr: 0xA458, symSize: 0x11 }
+  - { offset: 0xC60A4, size: 0x8, addend: 0x0, symName: '-[iCarousel perspective]', symObjAddr: 0x78FD, symBinAddr: 0xA469, symSize: 0x12 }
+  - { offset: 0xC60D9, size: 0x8, addend: 0x0, symName: '-[iCarousel decelerationRate]', symObjAddr: 0x790F, symBinAddr: 0xA47B, symSize: 0x12 }
+  - { offset: 0xC610E, size: 0x8, addend: 0x0, symName: '-[iCarousel setDecelerationRate:]', symObjAddr: 0x7921, symBinAddr: 0xA48D, symSize: 0x12 }
+  - { offset: 0xC614B, size: 0x8, addend: 0x0, symName: '-[iCarousel scrollSpeed]', symObjAddr: 0x7933, symBinAddr: 0xA49F, symSize: 0x12 }
+  - { offset: 0xC6180, size: 0x8, addend: 0x0, symName: '-[iCarousel setScrollSpeed:]', symObjAddr: 0x7945, symBinAddr: 0xA4B1, symSize: 0x12 }
+  - { offset: 0xC61BD, size: 0x8, addend: 0x0, symName: '-[iCarousel bounceDistance]', symObjAddr: 0x7957, symBinAddr: 0xA4C3, symSize: 0x12 }
+  - { offset: 0xC61F2, size: 0x8, addend: 0x0, symName: '-[iCarousel setBounceDistance:]', symObjAddr: 0x7969, symBinAddr: 0xA4D5, symSize: 0x12 }
+  - { offset: 0xC622F, size: 0x8, addend: 0x0, symName: '-[iCarousel isScrollEnabled]', symObjAddr: 0x797B, symBinAddr: 0xA4E7, symSize: 0x10 }
+  - { offset: 0xC6264, size: 0x8, addend: 0x0, symName: '-[iCarousel setScrollEnabled:]', symObjAddr: 0x798B, symBinAddr: 0xA4F7, symSize: 0x10 }
+  - { offset: 0xC62A1, size: 0x8, addend: 0x0, symName: '-[iCarousel isPagingEnabled]', symObjAddr: 0x799B, symBinAddr: 0xA507, symSize: 0x10 }
+  - { offset: 0xC62D6, size: 0x8, addend: 0x0, symName: '-[iCarousel setPagingEnabled:]', symObjAddr: 0x79AB, symBinAddr: 0xA517, symSize: 0x10 }
+  - { offset: 0xC6313, size: 0x8, addend: 0x0, symName: '-[iCarousel isVertical]', symObjAddr: 0x79BB, symBinAddr: 0xA527, symSize: 0x10 }
+  - { offset: 0xC6348, size: 0x8, addend: 0x0, symName: '-[iCarousel isWrapEnabled]', symObjAddr: 0x79CB, symBinAddr: 0xA537, symSize: 0x10 }
+  - { offset: 0xC637D, size: 0x8, addend: 0x0, symName: '-[iCarousel setWrapEnabled:]', symObjAddr: 0x79DB, symBinAddr: 0xA547, symSize: 0x10 }
+  - { offset: 0xC63BA, size: 0x8, addend: 0x0, symName: '-[iCarousel bounces]', symObjAddr: 0x79EB, symBinAddr: 0xA557, symSize: 0x10 }
+  - { offset: 0xC63EF, size: 0x8, addend: 0x0, symName: '-[iCarousel setBounces:]', symObjAddr: 0x79FB, symBinAddr: 0xA567, symSize: 0x10 }
+  - { offset: 0xC642C, size: 0x8, addend: 0x0, symName: '-[iCarousel scrollOffset]', symObjAddr: 0x7A0B, symBinAddr: 0xA577, symSize: 0x12 }
+  - { offset: 0xC6461, size: 0x8, addend: 0x0, symName: '-[iCarousel offsetMultiplier]', symObjAddr: 0x7A1D, symBinAddr: 0xA589, symSize: 0x12 }
+  - { offset: 0xC6496, size: 0x8, addend: 0x0, symName: '-[iCarousel setOffsetMultiplier:]', symObjAddr: 0x7A2F, symBinAddr: 0xA59B, symSize: 0x12 }
+  - { offset: 0xC64D3, size: 0x8, addend: 0x0, symName: '-[iCarousel contentOffset]', symObjAddr: 0x7A41, symBinAddr: 0xA5AD, symSize: 0x18 }
+  - { offset: 0xC6508, size: 0x8, addend: 0x0, symName: '-[iCarousel viewpointOffset]', symObjAddr: 0x7A59, symBinAddr: 0xA5C5, symSize: 0x18 }
+  - { offset: 0xC653D, size: 0x8, addend: 0x0, symName: '-[iCarousel numberOfItems]', symObjAddr: 0x7A71, symBinAddr: 0xA5DD, symSize: 0x11 }
+  - { offset: 0xC6572, size: 0x8, addend: 0x0, symName: '-[iCarousel numberOfPlaceholders]', symObjAddr: 0x7A82, symBinAddr: 0xA5EE, symSize: 0x11 }
+  - { offset: 0xC65A7, size: 0x8, addend: 0x0, symName: '-[iCarousel numberOfVisibleItems]', symObjAddr: 0x7A93, symBinAddr: 0xA5FF, symSize: 0x11 }
+  - { offset: 0xC65DC, size: 0x8, addend: 0x0, symName: '-[iCarousel setNumberOfVisibleItems:]', symObjAddr: 0x7AA4, symBinAddr: 0xA610, symSize: 0x11 }
+  - { offset: 0xC6619, size: 0x8, addend: 0x0, symName: '-[iCarousel itemWidth]', symObjAddr: 0x7AB5, symBinAddr: 0xA621, symSize: 0x12 }
+  - { offset: 0xC664E, size: 0x8, addend: 0x0, symName: '-[iCarousel setItemWidth:]', symObjAddr: 0x7AC7, symBinAddr: 0xA633, symSize: 0x12 }
+  - { offset: 0xC668B, size: 0x8, addend: 0x0, symName: '-[iCarousel contentView]', symObjAddr: 0x7AD9, symBinAddr: 0xA645, symSize: 0x11 }
+  - { offset: 0xC66C0, size: 0x8, addend: 0x0, symName: '-[iCarousel setContentView:]', symObjAddr: 0x7AEA, symBinAddr: 0xA656, symSize: 0x14 }
+  - { offset: 0xC6701, size: 0x8, addend: 0x0, symName: '-[iCarousel toggle]', symObjAddr: 0x7AFE, symBinAddr: 0xA66A, symSize: 0x12 }
+  - { offset: 0xC6736, size: 0x8, addend: 0x0, symName: '-[iCarousel autoscroll]', symObjAddr: 0x7B10, symBinAddr: 0xA67C, symSize: 0x12 }
+  - { offset: 0xC676B, size: 0x8, addend: 0x0, symName: '-[iCarousel stopAtItemBoundary]', symObjAddr: 0x7B22, symBinAddr: 0xA68E, symSize: 0x10 }
+  - { offset: 0xC67A0, size: 0x8, addend: 0x0, symName: '-[iCarousel setStopAtItemBoundary:]', symObjAddr: 0x7B32, symBinAddr: 0xA69E, symSize: 0x10 }
+  - { offset: 0xC67DD, size: 0x8, addend: 0x0, symName: '-[iCarousel scrollToItemBoundary]', symObjAddr: 0x7B42, symBinAddr: 0xA6AE, symSize: 0x10 }
+  - { offset: 0xC6812, size: 0x8, addend: 0x0, symName: '-[iCarousel setScrollToItemBoundary:]', symObjAddr: 0x7B52, symBinAddr: 0xA6BE, symSize: 0x10 }
+  - { offset: 0xC684F, size: 0x8, addend: 0x0, symName: '-[iCarousel ignorePerpendicularSwipes]', symObjAddr: 0x7B62, symBinAddr: 0xA6CE, symSize: 0x10 }
+  - { offset: 0xC6884, size: 0x8, addend: 0x0, symName: '-[iCarousel setIgnorePerpendicularSwipes:]', symObjAddr: 0x7B72, symBinAddr: 0xA6DE, symSize: 0x10 }
+  - { offset: 0xC68C1, size: 0x8, addend: 0x0, symName: '-[iCarousel centerItemWhenSelected]', symObjAddr: 0x7B82, symBinAddr: 0xA6EE, symSize: 0x10 }
+  - { offset: 0xC68F6, size: 0x8, addend: 0x0, symName: '-[iCarousel setCenterItemWhenSelected:]', symObjAddr: 0x7B92, symBinAddr: 0xA6FE, symSize: 0x10 }
+  - { offset: 0xC6933, size: 0x8, addend: 0x0, symName: '-[iCarousel isDragging]', symObjAddr: 0x7BA2, symBinAddr: 0xA70E, symSize: 0x10 }
+  - { offset: 0xC6968, size: 0x8, addend: 0x0, symName: '-[iCarousel setDragging:]', symObjAddr: 0x7BB2, symBinAddr: 0xA71E, symSize: 0x10 }
+  - { offset: 0xC69A5, size: 0x8, addend: 0x0, symName: '-[iCarousel isDecelerating]', symObjAddr: 0x7BC2, symBinAddr: 0xA72E, symSize: 0x10 }
+  - { offset: 0xC69DA, size: 0x8, addend: 0x0, symName: '-[iCarousel setDecelerating:]', symObjAddr: 0x7BD2, symBinAddr: 0xA73E, symSize: 0x10 }
+  - { offset: 0xC6A17, size: 0x8, addend: 0x0, symName: '-[iCarousel isScrolling]', symObjAddr: 0x7BE2, symBinAddr: 0xA74E, symSize: 0x10 }
+  - { offset: 0xC6A4C, size: 0x8, addend: 0x0, symName: '-[iCarousel setScrolling:]', symObjAddr: 0x7BF2, symBinAddr: 0xA75E, symSize: 0x10 }
+  - { offset: 0xC6A89, size: 0x8, addend: 0x0, symName: '-[iCarousel itemViews]', symObjAddr: 0x7C02, symBinAddr: 0xA76E, symSize: 0x11 }
+  - { offset: 0xC6ABE, size: 0x8, addend: 0x0, symName: '-[iCarousel setItemViews:]', symObjAddr: 0x7C13, symBinAddr: 0xA77F, symSize: 0x14 }
+  - { offset: 0xC6AFF, size: 0x8, addend: 0x0, symName: '-[iCarousel itemViewPool]', symObjAddr: 0x7C27, symBinAddr: 0xA793, symSize: 0x11 }
+  - { offset: 0xC6B34, size: 0x8, addend: 0x0, symName: '-[iCarousel setItemViewPool:]', symObjAddr: 0x7C38, symBinAddr: 0xA7A4, symSize: 0x14 }
+  - { offset: 0xC6B75, size: 0x8, addend: 0x0, symName: '-[iCarousel placeholderViewPool]', symObjAddr: 0x7C4C, symBinAddr: 0xA7B8, symSize: 0x11 }
+  - { offset: 0xC6BAA, size: 0x8, addend: 0x0, symName: '-[iCarousel setPlaceholderViewPool:]', symObjAddr: 0x7C5D, symBinAddr: 0xA7C9, symSize: 0x14 }
+  - { offset: 0xC6BEB, size: 0x8, addend: 0x0, symName: '-[iCarousel previousScrollOffset]', symObjAddr: 0x7C71, symBinAddr: 0xA7DD, symSize: 0x12 }
+  - { offset: 0xC6C20, size: 0x8, addend: 0x0, symName: '-[iCarousel setPreviousScrollOffset:]', symObjAddr: 0x7C83, symBinAddr: 0xA7EF, symSize: 0x12 }
+  - { offset: 0xC6C5D, size: 0x8, addend: 0x0, symName: '-[iCarousel previousItemIndex]', symObjAddr: 0x7C95, symBinAddr: 0xA801, symSize: 0x11 }
+  - { offset: 0xC6C92, size: 0x8, addend: 0x0, symName: '-[iCarousel setPreviousItemIndex:]', symObjAddr: 0x7CA6, symBinAddr: 0xA812, symSize: 0x11 }
+  - { offset: 0xC6CCF, size: 0x8, addend: 0x0, symName: '-[iCarousel numberOfPlaceholdersToShow]', symObjAddr: 0x7CB7, symBinAddr: 0xA823, symSize: 0x11 }
+  - { offset: 0xC6D04, size: 0x8, addend: 0x0, symName: '-[iCarousel setNumberOfPlaceholdersToShow:]', symObjAddr: 0x7CC8, symBinAddr: 0xA834, symSize: 0x11 }
+  - { offset: 0xC6D41, size: 0x8, addend: 0x0, symName: '-[iCarousel startOffset]', symObjAddr: 0x7CD9, symBinAddr: 0xA845, symSize: 0x12 }
+  - { offset: 0xC6D76, size: 0x8, addend: 0x0, symName: '-[iCarousel setStartOffset:]', symObjAddr: 0x7CEB, symBinAddr: 0xA857, symSize: 0x12 }
+  - { offset: 0xC6DB3, size: 0x8, addend: 0x0, symName: '-[iCarousel endOffset]', symObjAddr: 0x7CFD, symBinAddr: 0xA869, symSize: 0x12 }
+  - { offset: 0xC6DE8, size: 0x8, addend: 0x0, symName: '-[iCarousel setEndOffset:]', symObjAddr: 0x7D0F, symBinAddr: 0xA87B, symSize: 0x12 }
+  - { offset: 0xC6E25, size: 0x8, addend: 0x0, symName: '-[iCarousel scrollDuration]', symObjAddr: 0x7D21, symBinAddr: 0xA88D, symSize: 0x12 }
+  - { offset: 0xC6E5A, size: 0x8, addend: 0x0, symName: '-[iCarousel setScrollDuration:]', symObjAddr: 0x7D33, symBinAddr: 0xA89F, symSize: 0x12 }
+  - { offset: 0xC6E97, size: 0x8, addend: 0x0, symName: '-[iCarousel startTime]', symObjAddr: 0x7D45, symBinAddr: 0xA8B1, symSize: 0x12 }
+  - { offset: 0xC6ECC, size: 0x8, addend: 0x0, symName: '-[iCarousel setStartTime:]', symObjAddr: 0x7D57, symBinAddr: 0xA8C3, symSize: 0x12 }
+  - { offset: 0xC6F09, size: 0x8, addend: 0x0, symName: '-[iCarousel lastTime]', symObjAddr: 0x7D69, symBinAddr: 0xA8D5, symSize: 0x12 }
+  - { offset: 0xC6F3E, size: 0x8, addend: 0x0, symName: '-[iCarousel setLastTime:]', symObjAddr: 0x7D7B, symBinAddr: 0xA8E7, symSize: 0x12 }
+  - { offset: 0xC6F7B, size: 0x8, addend: 0x0, symName: '-[iCarousel startVelocity]', symObjAddr: 0x7D8D, symBinAddr: 0xA8F9, symSize: 0x12 }
+  - { offset: 0xC6FB0, size: 0x8, addend: 0x0, symName: '-[iCarousel setStartVelocity:]', symObjAddr: 0x7D9F, symBinAddr: 0xA90B, symSize: 0x12 }
+  - { offset: 0xC6FED, size: 0x8, addend: 0x0, symName: '-[iCarousel timer]', symObjAddr: 0x7DB1, symBinAddr: 0xA91D, symSize: 0x11 }
+  - { offset: 0xC7022, size: 0x8, addend: 0x0, symName: '-[iCarousel setTimer:]', symObjAddr: 0x7DC2, symBinAddr: 0xA92E, symSize: 0x14 }
+  - { offset: 0xC7063, size: 0x8, addend: 0x0, symName: '-[iCarousel previousTranslation]', symObjAddr: 0x7DD6, symBinAddr: 0xA942, symSize: 0x12 }
+  - { offset: 0xC7098, size: 0x8, addend: 0x0, symName: '-[iCarousel setPreviousTranslation:]', symObjAddr: 0x7DE8, symBinAddr: 0xA954, symSize: 0x12 }
+  - { offset: 0xC70D5, size: 0x8, addend: 0x0, symName: '-[iCarousel didDrag]', symObjAddr: 0x7DFA, symBinAddr: 0xA966, symSize: 0x10 }
+  - { offset: 0xC710A, size: 0x8, addend: 0x0, symName: '-[iCarousel setDidDrag:]', symObjAddr: 0x7E0A, symBinAddr: 0xA976, symSize: 0x10 }
+  - { offset: 0xC7147, size: 0x8, addend: 0x0, symName: '-[iCarousel toggleTime]', symObjAddr: 0x7E1A, symBinAddr: 0xA986, symSize: 0x12 }
+  - { offset: 0xC717C, size: 0x8, addend: 0x0, symName: '-[iCarousel setToggleTime:]', symObjAddr: 0x7E2C, symBinAddr: 0xA998, symSize: 0x12 }
+  - { offset: 0xC71B9, size: 0x8, addend: 0x0, symName: '-[iCarousel .cxx_destruct]', symObjAddr: 0x7E3E, symBinAddr: 0xA9AA, symSize: 0x82 }
+  - { offset: 0xC7295, size: 0x8, addend: 0x0, symName: '+[QGNotificationContentViewController initialize]', symObjAddr: 0x0, symBinAddr: 0xAA30, symSize: 0x32E }
+  - { offset: 0xC72AF, size: 0x8, addend: 0x0, symName: _appGroupInPlist, symObjAddr: 0x8488, symBinAddr: 0x30110, symSize: 0x0 }
+  - { offset: 0xC760D, size: 0x8, addend: 0x0, symName: '+[QGNotificationContentViewController initialize]', symObjAddr: 0x0, symBinAddr: 0xAA30, symSize: 0x32E }
+  - { offset: 0xC78B0, size: 0x8, addend: 0x0, symName: '-[QGNotificationContentViewController viewDidLoad]', symObjAddr: 0x32E, symBinAddr: 0xAD5E, symSize: 0x7F7 }
+  - { offset: 0xC7FC2, size: 0x8, addend: 0x0, symName: '-[QGNotificationContentViewController didReceiveNotification:]', symObjAddr: 0xB25, symBinAddr: 0xB555, symSize: 0x80 }
+  - { offset: 0xC8056, size: 0x8, addend: 0x0, symName: '-[QGNotificationContentViewController didReceiveNotificationResponse:completionHandler:]', symObjAddr: 0xBA5, symBinAddr: 0xB5D5, symSize: 0xBF }
+  - { offset: 0xC8164, size: 0x8, addend: 0x0, symName: '-[QGNotificationContentViewController numberOfItemsInCarousel:]', symObjAddr: 0xC64, symBinAddr: 0xB694, symSize: 0x85 }
+  - { offset: 0xC8204, size: 0x8, addend: 0x0, symName: '-[QGNotificationContentViewController carousel:viewForItemAtIndex:reusingView:]', symObjAddr: 0xCE9, symBinAddr: 0xB719, symSize: 0xAB }
+  - { offset: 0xC82E4, size: 0x8, addend: 0x0, symName: '-[QGNotificationContentViewController carousel:valueForOption:withDefault:]', symObjAddr: 0xD94, symBinAddr: 0xB7C4, symSize: 0x94 }
+  - { offset: 0xC83B4, size: 0x8, addend: 0x0, symName: '-[QGNotificationContentViewController carouselItemWidth:]', symObjAddr: 0xE28, symBinAddr: 0xB858, symSize: 0x89 }
+  - { offset: 0xC8454, size: 0x8, addend: 0x0, symName: '-[QGNotificationContentViewController carousel:didSelectItemAtIndex:]', symObjAddr: 0xEB1, symBinAddr: 0xB8E1, symSize: 0xB9 }
+  - { offset: 0xC852A, size: 0x8, addend: 0x0, symName: '-[QGNotificationContentViewController carouselDidEndDragging:willDecelerate:]', symObjAddr: 0xF6A, symBinAddr: 0xB99A, symSize: 0x89 }
+  - { offset: 0xC85CE, size: 0x8, addend: 0x0, symName: '-[QGNotificationContentViewController carousel]', symObjAddr: 0xFF3, symBinAddr: 0xBA23, symSize: 0x11 }
+  - { offset: 0xC8603, size: 0x8, addend: 0x0, symName: '-[QGNotificationContentViewController setCarousel:]', symObjAddr: 0x1004, symBinAddr: 0xBA34, symSize: 0x14 }
+  - { offset: 0xC8644, size: 0x8, addend: 0x0, symName: '-[QGNotificationContentViewController .cxx_destruct]', symObjAddr: 0x1018, symBinAddr: 0xBA48, symSize: 0x18 }
+  - { offset: 0xC8825, size: 0x8, addend: 0x0, symName: '+[QGNotificationEvents instance]', symObjAddr: 0x0, symBinAddr: 0xBA60, symSize: 0x11 }
+  - { offset: 0xC883F, size: 0x8, addend: 0x0, symName: _instance, symObjAddr: 0xAF30, symBinAddr: 0x30118, symSize: 0x0 }
+  - { offset: 0xC8889, size: 0x8, addend: 0x0, symName: _defaults, symObjAddr: 0xAF38, symBinAddr: 0x30120, symSize: 0x0 }
+  - { offset: 0xC8898, size: 0x8, addend: 0x0, symName: '+[QGNotificationEvents instanceWithAppGroup:]', symObjAddr: 0x11, symBinAddr: 0xBA71, symSize: 0xA8 }
+  - { offset: 0xC88C2, size: 0x8, addend: 0x0, symName: '_instanceWithAppGroup:.onceToken', symObjAddr: 0xAF40, symBinAddr: 0x30128, symSize: 0x0 }
+  - { offset: 0xC896C, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents logSession]', symObjAddr: 0x1734, symBinAddr: 0xD185, symSize: 0x22 }
+  - { offset: 0xC8998, size: 0x8, addend: 0x0, symName: _logSession.session_, symObjAddr: 0xAF48, symBinAddr: 0x30130, symSize: 0x0 }
+  - { offset: 0xC89AF, size: 0x8, addend: 0x0, symName: _logSession.onceToken, symObjAddr: 0xAF50, symBinAddr: 0x30138, symSize: 0x0 }
+  - { offset: 0xC89EF, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents setUserDefaultsWithAppGroup:]', symObjAddr: 0x17D2, symBinAddr: 0xD223, symSize: 0x8A }
+  - { offset: 0xC8A17, size: 0x8, addend: 0x0, symName: '_setUserDefaultsWithAppGroup:.onceToken', symObjAddr: 0xAF58, symBinAddr: 0x30140, symSize: 0x0 }
+  - { offset: 0xC8AB0, size: 0x8, addend: 0x0, symName: '+[QGNotificationEvents instance]', symObjAddr: 0x0, symBinAddr: 0xBA60, symSize: 0x11 }
+  - { offset: 0xC8B31, size: 0x8, addend: 0x0, symName: '___45+[QGNotificationEvents instanceWithAppGroup:]_block_invoke', symObjAddr: 0xB9, symBinAddr: 0xBB19, symSize: 0x5D }
+  - { offset: 0xC8B98, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32s, symObjAddr: 0x116, symBinAddr: 0xBB76, symSize: 0xF }
+  - { offset: 0xC8BCB, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents initWithAppGroup:]', symObjAddr: 0x134, symBinAddr: 0xBB85, symSize: 0x6F }
+  - { offset: 0xC8C85, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents getBasicDictionary]', symObjAddr: 0x1A3, symBinAddr: 0xBBF4, symSize: 0xE3 }
+  - { offset: 0xC8D7C, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents sendDictionary:]', symObjAddr: 0x286, symBinAddr: 0xBCD7, symSize: 0x3D8 }
+  - { offset: 0xC90CE, size: 0x8, addend: 0x0, symName: '___39-[QGNotificationEvents sendDictionary:]_block_invoke', symObjAddr: 0x65E, symBinAddr: 0xC0AF, symSize: 0x118 }
+  - { offset: 0xC9208, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32s40s, symObjAddr: 0x776, symBinAddr: 0xC1C7, symSize: 0x25 }
+  - { offset: 0xC9249, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32s40s, symObjAddr: 0x79B, symBinAddr: 0xC1EC, symSize: 0x25 }
+  - { offset: 0xC9280, size: 0x8, addend: 0x0, symName: '___39-[QGNotificationEvents sendDictionary:]_block_invoke.98', symObjAddr: 0x7C0, symBinAddr: 0xC211, symSize: 0x101 }
+  - { offset: 0xC93B2, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents extensionLogEvent:withParameters:withValueToSum:]', symObjAddr: 0x8C1, symBinAddr: 0xC312, symSize: 0x3A4 }
+  - { offset: 0xC975D, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents trackNotificationReceived:]', symObjAddr: 0xC65, symBinAddr: 0xC6B6, symSize: 0x153 }
+  - { offset: 0xC9896, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents trackNotificationDisplayed:]', symObjAddr: 0xDB8, symBinAddr: 0xC809, symSize: 0x167 }
+  - { offset: 0xC99F1, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents trackCarouselItemClicked:withItem:]', symObjAddr: 0xF1F, symBinAddr: 0xC970, symSize: 0x150 }
+  - { offset: 0xC9B7F, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents trackNotificationBrowsed:]', symObjAddr: 0x106F, symBinAddr: 0xCAC0, symSize: 0x153 }
+  - { offset: 0xC9CB8, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents trackRichPushOpened:]', symObjAddr: 0x11C2, symBinAddr: 0xCC13, symSize: 0x153 }
+  - { offset: 0xC9DF1, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents getNotificationIdFor:]', symObjAddr: 0x1315, symBinAddr: 0xCD66, symSize: 0x7A }
+  - { offset: 0xC9E6C, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents setViewThroughForNotificationId:]', symObjAddr: 0x138F, symBinAddr: 0xCDE0, symSize: 0x69 }
+  - { offset: 0xC9F06, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents setClickThroughForNotificationId:]', symObjAddr: 0x13F8, symBinAddr: 0xCE49, symSize: 0x69 }
+  - { offset: 0xC9FA0, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents getClickAttributionWindow]', symObjAddr: 0x1461, symBinAddr: 0xCEB2, symSize: 0x70 }
+  - { offset: 0xCA018, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents isClickThroughAttribution]', symObjAddr: 0x14D1, symBinAddr: 0xCF22, symSize: 0xED }
+  - { offset: 0xCA10F, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents getViewThroughAttributionWindow]', symObjAddr: 0x15BE, symBinAddr: 0xD00F, symSize: 0x70 }
+  - { offset: 0xCA188, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents isViewThroughAttribution]', symObjAddr: 0x162E, symBinAddr: 0xD07F, symSize: 0xED }
+  - { offset: 0xCA282, size: 0x8, addend: 0x0, symName: '+[QGNotificationEvents QGEXTCurrentTime]', symObjAddr: 0x171B, symBinAddr: 0xD16C, symSize: 0x19 }
+  - { offset: 0xCA2C2, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents logSession].cold.1', symObjAddr: 0x1AFA, symBinAddr: 0x1DB0F, symSize: 0x18 }
+  - { offset: 0xCA2F1, size: 0x8, addend: 0x0, symName: '___34-[QGNotificationEvents logSession]_block_invoke', symObjAddr: 0x1756, symBinAddr: 0xD1A7, symSize: 0x7C }
+  - { offset: 0xCA37D, size: 0x8, addend: 0x0, symName: '___52-[QGNotificationEvents setUserDefaultsWithAppGroup:]_block_invoke', symObjAddr: 0x185C, symBinAddr: 0xD2AD, symSize: 0x43 }
+  - { offset: 0xCA3D3, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents saveUserDefaultsWithValue:forKey:]', symObjAddr: 0x189F, symBinAddr: 0xD2F0, symSize: 0x19 }
+  - { offset: 0xCA43E, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents getUserDefaultsForKey:]', symObjAddr: 0x18B8, symBinAddr: 0xD309, symSize: 0x19 }
+  - { offset: 0xCA496, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents isUserDefaultsForKey:]', symObjAddr: 0x18D1, symBinAddr: 0xD322, symSize: 0x3A }
+  - { offset: 0xCA4F3, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents removeUserDefaultsForKey:]', symObjAddr: 0x190B, symBinAddr: 0xD35C, symSize: 0x19 }
+  - { offset: 0xCA547, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents hasForceTouchCapability]', symObjAddr: 0x1924, symBinAddr: 0xD375, symSize: 0x4B }
+  - { offset: 0xCA5BC, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents hasRichPushSupport]', symObjAddr: 0x196F, symBinAddr: 0xD3C0, symSize: 0x4B }
+  - { offset: 0xCA631, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents isValidStr:]', symObjAddr: 0x19BA, symBinAddr: 0xD40B, symSize: 0x117 }
+  - { offset: 0xCA758, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents appGroup]', symObjAddr: 0x1AD1, symBinAddr: 0xD522, symSize: 0xA }
+  - { offset: 0xCA78D, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents setAppGroup:]', symObjAddr: 0x1ADB, symBinAddr: 0xD52C, symSize: 0xF }
+  - { offset: 0xCA7CC, size: 0x8, addend: 0x0, symName: '-[QGNotificationEvents .cxx_destruct]', symObjAddr: 0x1AEA, symBinAddr: 0xD53B, symSize: 0x10 }
+  - { offset: 0xCABA3, size: 0x8, addend: 0x0, symName: '+[QGNotificationSdk sharedInstanceWithAppGroup:]', symObjAddr: 0x0, symBinAddr: 0xD550, symSize: 0xF6 }
+  - { offset: 0xCABBD, size: 0x8, addend: 0x0, symName: _instance_, symObjAddr: 0x1B448, symBinAddr: 0x30148, symSize: 0x0 }
+  - { offset: 0xCAF5E, size: 0x8, addend: 0x0, symName: '+[QGNotificationSdk sharedInstanceWithAppGroup:]', symObjAddr: 0x0, symBinAddr: 0xD550, symSize: 0xF6 }
+  - { offset: 0xCAF88, size: 0x8, addend: 0x0, symName: '_sharedInstanceWithAppGroup:.token', symObjAddr: 0x1B450, symBinAddr: 0x30150, symSize: 0x0 }
+  - { offset: 0xCB169, size: 0x8, addend: 0x0, symName: '___48+[QGNotificationSdk sharedInstanceWithAppGroup:]_block_invoke', symObjAddr: 0xF6, symBinAddr: 0xD646, symSize: 0x5D }
+  - { offset: 0xCB1D0, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32s, symObjAddr: 0x162, symBinAddr: 0xD6B2, symSize: 0xF }
+  - { offset: 0xCB1FB, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk initWithAppGroup:]', symObjAddr: 0x171, symBinAddr: 0xD6C1, symSize: 0x119 }
+  - { offset: 0xCB307, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk didReceiveNotificationRequest:withContentHandler:]', symObjAddr: 0x28A, symBinAddr: 0xD7DA, symSize: 0xB89 }
+  - { offset: 0xCBE4E, size: 0x8, addend: 0x0, symName: '___70-[QGNotificationSdk didReceiveNotificationRequest:withContentHandler:]_block_invoke', symObjAddr: 0xE13, symBinAddr: 0xE363, symSize: 0xBCB }
+  - { offset: 0xCC7B7, size: 0x8, addend: 0x0, symName: _QGMD5HashFromString, symObjAddr: 0x19DE, symBinAddr: 0xEF2E, symSize: 0x4C }
+  - { offset: 0xCC812, size: 0x8, addend: 0x0, symName: _QGMD5HashFromData, symObjAddr: 0x2E7A, symBinAddr: 0x103CA, symSize: 0x195 }
+  - { offset: 0xCC906, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32s40s48s56s64s72s80s88b, symObjAddr: 0x1A2A, symBinAddr: 0xEF7A, symSize: 0x67 }
+  - { offset: 0xCC983, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32s40s48s56s64s72s80s88s, symObjAddr: 0x1A91, symBinAddr: 0xEFE1, symSize: 0x4F }
+  - { offset: 0xCCA02, size: 0x8, addend: 0x0, symName: '___70-[QGNotificationSdk didReceiveNotificationRequest:withContentHandler:]_block_invoke.155', symObjAddr: 0x1AE0, symBinAddr: 0xF030, symSize: 0x300 }
+  - { offset: 0xCCD3F, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32s40s48s56s64s72s80b, symObjAddr: 0x1DE0, symBinAddr: 0xF330, symSize: 0x60 }
+  - { offset: 0xCCDB0, size: 0x8, addend: 0x0, symName: ___destroy_helper_block_e8_32s40s48s56s64s72s80s, symObjAddr: 0x1E40, symBinAddr: 0xF390, symSize: 0x48 }
+  - { offset: 0xCCE23, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk getTypeHintKeyForUNNotificationAttachmentOptions:mimeType:]', symObjAddr: 0x1E88, symBinAddr: 0xF3D8, symSize: 0x170 }
+  - { offset: 0xCCFCE, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk handleDownloadSuccessForImageUrl:location:response:localSavedPathMap:mimeTypeMapping:fileManager:]', symObjAddr: 0x1FF8, symBinAddr: 0xF548, symSize: 0x25B }
+  - { offset: 0xCD339, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk retryDownloadIfNeededForImageUrl:localSavedPathMap:mimeTypeMapping:group:retryDictionary:]', symObjAddr: 0x2253, symBinAddr: 0xF7A3, symSize: 0x169 }
+  - { offset: 0xCD553, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk downloadSingleTask:localSavedPathMap:mimeTypeMapping:group:retryDictionary:]', symObjAddr: 0x23BC, symBinAddr: 0xF90C, symSize: 0x205 }
+  - { offset: 0xCD876, size: 0x8, addend: 0x0, symName: '___96-[QGNotificationSdk downloadSingleTask:localSavedPathMap:mimeTypeMapping:group:retryDictionary:]_block_invoke', symObjAddr: 0x25C1, symBinAddr: 0xFB11, symSize: 0xD5 }
+  - { offset: 0xCDA17, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32s40s48s56s64s72s80s, symObjAddr: 0x2696, symBinAddr: 0xFBE6, symSize: 0x48 }
+  - { offset: 0xCDA94, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk downloadResourceFor:localSavedPathMap:mimeTypeMapping:completionHandler:]', symObjAddr: 0x26DE, symBinAddr: 0xFC2E, symSize: 0x542 }
+  - { offset: 0xCDF02, size: 0x8, addend: 0x0, symName: '___93-[QGNotificationSdk downloadResourceFor:localSavedPathMap:mimeTypeMapping:completionHandler:]_block_invoke', symObjAddr: 0x2C20, symBinAddr: 0x10170, symSize: 0x14 }
+  - { offset: 0xCDF53, size: 0x8, addend: 0x0, symName: ___copy_helper_block_e8_32b, symObjAddr: 0x2C34, symBinAddr: 0x10184, symSize: 0x17 }
+  - { offset: 0xCDF7C, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk getFilePathFor:]', symObjAddr: 0x2C4B, symBinAddr: 0x1019B, symSize: 0x22F }
+  - { offset: 0xCE1D8, size: 0x8, addend: 0x0, symName: ___QGMD5HashFromData_block_invoke, symObjAddr: 0x300F, symBinAddr: 0x1055F, symSize: 0x10 }
+  - { offset: 0xCE27E, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk viewDidLoadWithCarousel:]', symObjAddr: 0x301F, symBinAddr: 0x1056F, symSize: 0x68 }
+  - { offset: 0xCE312, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk didReceiveNotification:]', symObjAddr: 0x3087, symBinAddr: 0x105D7, symSize: 0x304 }
+  - { offset: 0xCE629, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk didReceiveNotificationResponse:withContext:completionHandler:]', symObjAddr: 0x338B, symBinAddr: 0x108DB, symSize: 0x428 }
+  - { offset: 0xCEA5C, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk numberOfItemsInCarousel:]', symObjAddr: 0x37B3, symBinAddr: 0x10D03, symSize: 0x12 }
+  - { offset: 0xCEB04, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk carousel:viewForItemAtIndex:reusingView:]', symObjAddr: 0x37C5, symBinAddr: 0x10D15, symSize: 0xC97 }
+  - { offset: 0xCF68E, size: 0x8, addend: 0x0, symName: '___61-[QGNotificationSdk carousel:viewForItemAtIndex:reusingView:]_block_invoke', symObjAddr: 0x445C, symBinAddr: 0x119AC, symSize: 0x66 }
+  - { offset: 0xCF6F9, size: 0x8, addend: 0x0, symName: '___61-[QGNotificationSdk carousel:viewForItemAtIndex:reusingView:]_block_invoke_2', symObjAddr: 0x44C2, symBinAddr: 0x11A12, symSize: 0x51 }
+  - { offset: 0xCF758, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk getCarouselCount]', symObjAddr: 0x4513, symBinAddr: 0x11A63, symSize: 0x13D }
+  - { offset: 0xCF89A, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk carousel:valueForOption:withDefault:]', symObjAddr: 0x4650, symBinAddr: 0x11BA0, symSize: 0xD4 }
+  - { offset: 0xCF93E, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk carouselItemWidth:]', symObjAddr: 0x4724, symBinAddr: 0x11C74, symSize: 0x2C }
+  - { offset: 0xCF981, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk carousel:didSelectItemAtIndex:withExtensionContext:]', symObjAddr: 0x4750, symBinAddr: 0x11CA0, symSize: 0x263 }
+  - { offset: 0xCFC0D, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk carouselDidEndDragging:willDecelerate:]', symObjAddr: 0x49B3, symBinAddr: 0x11F03, symSize: 0xBC }
+  - { offset: 0xCFCE7, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk getCarouselType:]', symObjAddr: 0x4A6F, symBinAddr: 0x11FBF, symSize: 0xA9 }
+  - { offset: 0xCFDBA, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk getContentMode:]', symObjAddr: 0x4B18, symBinAddr: 0x12068, symSize: 0x69 }
+  - { offset: 0xCFE57, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk getDeepLinkForNotification:atIndex:]', symObjAddr: 0x4B81, symBinAddr: 0x120D1, symSize: 0x17E }
+  - { offset: 0xCFFCF, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk extensionLogEvent:withParameters:withValueToSum:]', symObjAddr: 0x4CFF, symBinAddr: 0x1224F, symSize: 0xA1 }
+  - { offset: 0xD00E5, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk isAppierPush:]', symObjAddr: 0x4DA0, symBinAddr: 0x122F0, symSize: 0x83 }
+  - { offset: 0xD017F, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk imageWithImage:scaledToWidth:]', symObjAddr: 0x4E23, symBinAddr: 0x12373, symSize: 0xF8 }
+  - { offset: 0xD032A, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk imageWithImage:scaledToHeight:maxWidth:]', symObjAddr: 0x4F1B, symBinAddr: 0x1246B, symSize: 0x108 }
+  - { offset: 0xD04B8, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk calculateSizeForSlider]', symObjAddr: 0x5023, symBinAddr: 0x12573, symSize: 0x3E2 }
+  - { offset: 0xD07C5, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk calculateSizeForCarousel]', symObjAddr: 0x5405, symBinAddr: 0x12955, symSize: 0xEF }
+  - { offset: 0xD0892, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk setHeightConstraint:]', symObjAddr: 0x54F4, symBinAddr: 0x12A44, symSize: 0x1D0 }
+  - { offset: 0xD09CE, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk setWidhtConstraint:]', symObjAddr: 0x56C4, symBinAddr: 0x12C14, symSize: 0x1D0 }
+  - { offset: 0xD0B0A, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk APP_GROUP]', symObjAddr: 0x5894, symBinAddr: 0x12DE4, symSize: 0xA }
+  - { offset: 0xD0B3F, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk setAPP_GROUP:]', symObjAddr: 0x589E, symBinAddr: 0x12DEE, symSize: 0x11 }
+  - { offset: 0xD0B80, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk carousel]', symObjAddr: 0x58AF, symBinAddr: 0x12DFF, symSize: 0x16 }
+  - { offset: 0xD0BB7, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk setCarousel:]', symObjAddr: 0x58C5, symBinAddr: 0x12E15, symSize: 0x11 }
+  - { offset: 0xD0BF8, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk receivedNotification]', symObjAddr: 0x58D6, symBinAddr: 0x12E26, symSize: 0xA }
+  - { offset: 0xD0C2D, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk setReceivedNotification:]', symObjAddr: 0x58E0, symBinAddr: 0x12E30, symSize: 0xF }
+  - { offset: 0xD0C6C, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk isSlider]', symObjAddr: 0x58EF, symBinAddr: 0x12E3F, symSize: 0x9 }
+  - { offset: 0xD0CA1, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk setIsSlider:]', symObjAddr: 0x58F8, symBinAddr: 0x12E48, symSize: 0x9 }
+  - { offset: 0xD0CDE, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk isCustom]', symObjAddr: 0x5901, symBinAddr: 0x12E51, symSize: 0x9 }
+  - { offset: 0xD0D13, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk setIsCustom:]', symObjAddr: 0x590A, symBinAddr: 0x12E5A, symSize: 0x9 }
+  - { offset: 0xD0D50, size: 0x8, addend: 0x0, symName: '-[QGNotificationSdk .cxx_destruct]', symObjAddr: 0x5913, symBinAddr: 0x12E63, symSize: 0x3D }
+  - { offset: 0xD14B5, size: 0x8, addend: 0x0, symName: '+[QGNotificationService initialize]', symObjAddr: 0x0, symBinAddr: 0x12EA0, symSize: 0x292 }
+  - { offset: 0xD14CF, size: 0x8, addend: 0x0, symName: _appGroupInPlist, symObjAddr: 0x4370, symBinAddr: 0x30158, symSize: 0x0 }
+  - { offset: 0xD15A3, size: 0x8, addend: 0x0, symName: '+[QGNotificationService initialize]', symObjAddr: 0x0, symBinAddr: 0x12EA0, symSize: 0x292 }
+  - { offset: 0xD1807, size: 0x8, addend: 0x0, symName: '+[QGNotificationService getAppGroup]', symObjAddr: 0x292, symBinAddr: 0x13132, symSize: 0x11 }
+  - { offset: 0xD183A, size: 0x8, addend: 0x0, symName: '-[QGNotificationService didReceiveNotificationRequest:withContentHandler:]', symObjAddr: 0x2A3, symBinAddr: 0x13143, symSize: 0x13D }
+  - { offset: 0xD19C6, size: 0x8, addend: 0x0, symName: '___74-[QGNotificationService didReceiveNotificationRequest:withContentHandler:]_block_invoke', symObjAddr: 0x3E0, symBinAddr: 0x13280, symSize: 0xF }
+  - { offset: 0xD1A24, size: 0x8, addend: 0x0, symName: '-[QGNotificationService serviceExtensionTimeWillExpire]', symObjAddr: 0x415, symBinAddr: 0x1328F, symSize: 0x6A }
+  - { offset: 0xD1AA3, size: 0x8, addend: 0x0, symName: '-[QGNotificationService contentHandler]', symObjAddr: 0x47F, symBinAddr: 0x132F9, symSize: 0x11 }
+  - { offset: 0xD1AD8, size: 0x8, addend: 0x0, symName: '-[QGNotificationService setContentHandler:]', symObjAddr: 0x490, symBinAddr: 0x1330A, symSize: 0x11 }
+  - { offset: 0xD1B17, size: 0x8, addend: 0x0, symName: '-[QGNotificationService bestAttemptContent]', symObjAddr: 0x4A1, symBinAddr: 0x1331B, symSize: 0x11 }
+  - { offset: 0xD1B4C, size: 0x8, addend: 0x0, symName: '-[QGNotificationService setBestAttemptContent:]', symObjAddr: 0x4B2, symBinAddr: 0x1332C, symSize: 0x14 }
+  - { offset: 0xD1B8D, size: 0x8, addend: 0x0, symName: '-[QGNotificationService .cxx_destruct]', symObjAddr: 0x4C6, symBinAddr: 0x13340, symSize: 0x31 }
+  - { offset: 0xD1D8B, size: 0x8, addend: 0x0, symName: '+[QGNotificationStorer savePushNotificationWithPayload:]', symObjAddr: 0x0, symBinAddr: 0x13371, symSize: 0x3DF }
+  - { offset: 0xD1DA0, size: 0x8, addend: 0x0, symName: '+[QGNotificationStorer savePushNotificationWithPayload:]', symObjAddr: 0x0, symBinAddr: 0x13371, symSize: 0x3DF }
+  - { offset: 0xD2223, size: 0x8, addend: 0x0, symName: '+[QGNotificationUtility sharedInstance]', symObjAddr: 0x0, symBinAddr: 0x13750, symSize: 0x63 }
+  - { offset: 0xD223D, size: 0x8, addend: 0x0, symName: _instance_, symObjAddr: 0x3318, symBinAddr: 0x30160, symSize: 0x0 }
+  - { offset: 0xD2269, size: 0x8, addend: 0x0, symName: _appGroup_, symObjAddr: 0x3320, symBinAddr: 0x30168, symSize: 0x0 }
+  - { offset: 0xD2278, size: 0x8, addend: 0x0, symName: '+[QGNotificationUtility sharedInstance]', symObjAddr: 0x0, symBinAddr: 0x13750, symSize: 0x63 }
+  - { offset: 0xD22A2, size: 0x8, addend: 0x0, symName: _sharedInstance.onceToken, symObjAddr: 0x3328, symBinAddr: 0x30170, symSize: 0x0 }
+  - { offset: 0xD22FA, size: 0x8, addend: 0x0, symName: '-[QGNotificationUtility userDefaults]', symObjAddr: 0xE7, symBinAddr: 0x13837, symSize: 0x22 }
+  - { offset: 0xD2324, size: 0x8, addend: 0x0, symName: _userDefaults.defaults_, symObjAddr: 0x3330, symBinAddr: 0x30178, symSize: 0x0 }
+  - { offset: 0xD233A, size: 0x8, addend: 0x0, symName: _userDefaults.onceToken, symObjAddr: 0x3338, symBinAddr: 0x30180, symSize: 0x0 }
+  - { offset: 0xD23C8, size: 0x8, addend: 0x0, symName: '___39+[QGNotificationUtility sharedInstance]_block_invoke', symObjAddr: 0x63, symBinAddr: 0x137B3, symSize: 0x54 }
+  - { offset: 0xD241F, size: 0x8, addend: 0x0, symName: '-[QGNotificationUtility setAppGroup:]', symObjAddr: 0xB7, symBinAddr: 0x13807, symSize: 0x30 }
+  - { offset: 0xD2476, size: 0x8, addend: 0x0, symName: '-[QGNotificationUtility userDefaults].cold.1', symObjAddr: 0x447, symBinAddr: 0x1DB27, symSize: 0x18 }
+  - { offset: 0xD24A4, size: 0x8, addend: 0x0, symName: '___37-[QGNotificationUtility userDefaults]_block_invoke', symObjAddr: 0x109, symBinAddr: 0x13859, symSize: 0x5D }
+  - { offset: 0xD24EF, size: 0x8, addend: 0x0, symName: '-[QGNotificationUtility saveUserDefaultsWithValue:forKey:]', symObjAddr: 0x166, symBinAddr: 0x138B6, symSize: 0x8B }
+  - { offset: 0xD25D6, size: 0x8, addend: 0x0, symName: '-[QGNotificationUtility getUserDefaultsForKey:]', symObjAddr: 0x1F1, symBinAddr: 0x13941, symSize: 0x7A }
+  - { offset: 0xD2672, size: 0x8, addend: 0x0, symName: '-[QGNotificationUtility isUserDefaultsForKey:]', symObjAddr: 0x26B, symBinAddr: 0x139BB, symSize: 0x83 }
+  - { offset: 0xD2722, size: 0x8, addend: 0x0, symName: '-[QGNotificationUtility saveEncodedData:forKey:]', symObjAddr: 0x2EE, symBinAddr: 0x13A3E, symSize: 0xA7 }
+  - { offset: 0xD2814, size: 0x8, addend: 0x0, symName: '-[QGNotificationUtility getDecodedDataForKey:]', symObjAddr: 0x395, symBinAddr: 0x13AE5, symSize: 0x57 }
+  - { offset: 0xD2897, size: 0x8, addend: 0x0, symName: '-[QGNotificationUtility isValidObj:]', symObjAddr: 0x3EC, symBinAddr: 0x13B3C, symSize: 0x5B }
+  - { offset: 0xD2B3A, size: 0x8, addend: 0x0, symName: '_$sSo18NSFileAttributeKeyaSHSCSH4hash4intoys6HasherVz_tFTW', symObjAddr: 0x20, symBinAddr: 0x13BC0, symSize: 0x30 }
+  - { offset: 0xD2BBE, size: 0x8, addend: 0x0, symName: '_$sSo18NSFileAttributeKeyaSHSCSH13_rawHashValue4seedS2i_tFTW', symObjAddr: 0x50, symBinAddr: 0x13BF0, symSize: 0x60 }
+  - { offset: 0xD2C2D, size: 0x8, addend: 0x0, symName: '_$sSo18NSFileAttributeKeyas21_ObjectiveCBridgeableSCsACP016_forceBridgeFromD1C_6resulty01_D5CTypeQz_xSgztFZTW', symObjAddr: 0x110, symBinAddr: 0x13CB0, symSize: 0x10 }
+  - { offset: 0xD2C5B, size: 0x8, addend: 0x0, symName: '_$ss20_SwiftNewtypeWrapperPss21_ObjectiveCBridgeable8RawValueRpzrlE016_forceBridgeFromD1C_6resultyAD_01_D5CTypeQZ_xSgztFZSo18NSFileAttributeKeya_Tt1gq5', symObjAddr: 0x120, symBinAddr: 0x13CC0, symSize: 0x80 }
+  - { offset: 0xD2CED, size: 0x8, addend: 0x0, symName: '_$sSo18NSFileAttributeKeyas21_ObjectiveCBridgeableSCsACP024_conditionallyBridgeFromD1C_6resultSb01_D5CTypeQz_xSgztFZTW', symObjAddr: 0x1A0, symBinAddr: 0x13D40, symSize: 0x10 }
+  - { offset: 0xD2D0F, size: 0x8, addend: 0x0, symName: '_$ss20_SwiftNewtypeWrapperPss21_ObjectiveCBridgeable8RawValueRpzrlE024_conditionallyBridgeFromD1C_6resultSbAD_01_D5CTypeQZ_xSgztFZSo18NSFileAttributeKeya_Tt1gq5', symObjAddr: 0x1B0, symBinAddr: 0x13D50, symSize: 0x80 }
+  - { offset: 0xD2DB0, size: 0x8, addend: 0x0, symName: '_$sSo18NSFileAttributeKeyas21_ObjectiveCBridgeableSCsACP026_unconditionallyBridgeFromD1Cyx01_D5CTypeQzSgFZTW', symObjAddr: 0x230, symBinAddr: 0x13DD0, symSize: 0x40 }
+  - { offset: 0xD2E3E, size: 0x8, addend: 0x0, symName: '_$sSo18NSFileAttributeKeyaSQSCSQ2eeoiySbx_xtFZTW', symObjAddr: 0x310, symBinAddr: 0x13E10, symSize: 0x70 }
+  - { offset: 0xD2F00, size: 0x8, addend: 0x0, symName: '_$sSo18NSFileAttributeKeyas35_HasCustomAnyHashableRepresentationSCsACP03_toefG0s0fG0VSgyFTW', symObjAddr: 0x420, symBinAddr: 0x13F10, symSize: 0x60 }
+  - { offset: 0xD2FE8, size: 0x8, addend: 0x0, symName: '_$sSo18NSFileAttributeKeyaMa', symObjAddr: 0x3F0, symBinAddr: 0x13EE0, symSize: 0x30 }
+  - { offset: 0xD2FFC, size: 0x8, addend: 0x0, symName: '_$sSo18NSFileAttributeKeyas20_SwiftNewtypeWrapperSCSYWb', symObjAddr: 0x480, symBinAddr: 0x13F70, symSize: 0x20 }
+  - { offset: 0xD3010, size: 0x8, addend: 0x0, symName: '_$sSo18NSFileAttributeKeyas20_SwiftNewtypeWrapperSCs35_HasCustomAnyHashableRepresentationPWb', symObjAddr: 0x4A0, symBinAddr: 0x13F90, symSize: 0x20 }
+  - { offset: 0xD3024, size: 0x8, addend: 0x0, symName: '_$sSo18NSFileAttributeKeyaSHSCSQWb', symObjAddr: 0x4C0, symBinAddr: 0x13FB0, symSize: 0x20 }
+  - { offset: 0xD3053, size: 0x8, addend: 0x0, symName: '_$sSo18NSFileAttributeKeyaSYSCSY8rawValuexSg03RawE0Qz_tcfCTW', symObjAddr: 0x390, symBinAddr: 0x13E80, symSize: 0x40 }
+  - { offset: 0xD307D, size: 0x8, addend: 0x0, symName: '_$sSo18NSFileAttributeKeyaSYSCSY8rawValue03RawE0QzvgTW', symObjAddr: 0x3D0, symBinAddr: 0x13EC0, symSize: 0x20 }
+  - { offset: 0xD3225, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoCMa', symObjAddr: 0x50, symBinAddr: 0x14060, symSize: 0x20 }
+  - { offset: 0xD3239, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC9optOutSetSo8NSNumberCyFZ', symObjAddr: 0xD0, symBinAddr: 0x140E0, symSize: 0x10 }
+  - { offset: 0xD325C, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC9optOutSetSo8NSNumberCyFZTo', symObjAddr: 0xE0, symBinAddr: 0x140F0, symSize: 0x20 }
+  - { offset: 0xD328E, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC4IDFASSyFZ', symObjAddr: 0x100, symBinAddr: 0x14110, symSize: 0xC0 }
+  - { offset: 0xD32C7, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC4IDFASSyFZTo', symObjAddr: 0x1C0, symBinAddr: 0x141D0, symSize: 0xE0 }
+  - { offset: 0xD32F1, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC4IDFVSSyFZ', symObjAddr: 0x2A0, symBinAddr: 0x142B0, symSize: 0x10 }
+  - { offset: 0xD330D, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC9modelNameSSyFZ', symObjAddr: 0x470, symBinAddr: 0x14480, symSize: 0x10 }
+  - { offset: 0xD3329, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC10deviceNameSSyFZ', symObjAddr: 0x480, symBinAddr: 0x14490, symSize: 0x10 }
+  - { offset: 0xD33AC, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC8languageSSyFZ', symObjAddr: 0x4D0, symBinAddr: 0x144E0, symSize: 0x60 }
+  - { offset: 0xD34F0, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC8languageSSyFZTo', symObjAddr: 0x590, symBinAddr: 0x145A0, symSize: 0x70 }
+  - { offset: 0xD35B5, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC8timeZoneSSyFZ', symObjAddr: 0x600, symBinAddr: 0x14610, symSize: 0x70 }
+  - { offset: 0xD35EE, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC8timeZoneSSyFZTo', symObjAddr: 0x670, symBinAddr: 0x14680, symSize: 0x80 }
+  - { offset: 0xD3620, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC10appVersionSSyFZ', symObjAddr: 0x6F0, symBinAddr: 0x14700, symSize: 0x10 }
+  - { offset: 0xD363C, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC14appBuildNumberSSyFZ', symObjAddr: 0x720, symBinAddr: 0x14730, symSize: 0x10 }
+  - { offset: 0xD3658, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC19appBundleIdentifierSSyFZ', symObjAddr: 0x750, symBinAddr: 0x14760, symSize: 0xA0 }
+  - { offset: 0xD3691, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC19appBundleIdentifierSSyFZTo', symObjAddr: 0x7F0, symBinAddr: 0x14800, symSize: 0xB0 }
+  - { offset: 0xD36BB, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC9diskSpaceSDys11AnyHashableVypGSgyFZ', symObjAddr: 0x8A0, symBinAddr: 0x148B0, symSize: 0x10 }
+  - { offset: 0xD36DE, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC9diskSpaceSDys11AnyHashableVypGSgyFZTo', symObjAddr: 0x8B0, symBinAddr: 0x148C0, symSize: 0x60 }
+  - { offset: 0xD3710, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC20coreTelephonyNetworkSSyFZ', symObjAddr: 0x910, symBinAddr: 0x14920, symSize: 0x10 }
+  - { offset: 0xD3724, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC11networkTypeSSyFZ', symObjAddr: 0x940, symBinAddr: 0x14950, symSize: 0x10 }
+  - { offset: 0xD3785, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC07simCardD0SDyS2SGyFZ', symObjAddr: 0x9A0, symBinAddr: 0x149B0, symSize: 0x10 }
+  - { offset: 0xD37A8, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC07simCardD0SDyS2SGyFZTo', symObjAddr: 0x9B0, symBinAddr: 0x149C0, symSize: 0x40 }
+  - { offset: 0xD37DB, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC17richPushSupportedSbyFZ', symObjAddr: 0x9F0, symBinAddr: 0x14A00, symSize: 0x10 }
+  - { offset: 0xD37FE, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC17richPushSupportedSbyFZTo', symObjAddr: 0xA00, symBinAddr: 0x14A10, symSize: 0x10 }
+  - { offset: 0xD3831, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC20systemVersionEqualToySbSSFZ', symObjAddr: 0xA10, symBinAddr: 0x14A20, symSize: 0x10 }
+  - { offset: 0xD384D, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC24systemVersionGreaterThanySbSSFZ', symObjAddr: 0xA40, symBinAddr: 0x14A50, symSize: 0x10 }
+  - { offset: 0xD3869, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC33systemVersionGreaterThanOrEqualToySbSSFZ', symObjAddr: 0xA70, symBinAddr: 0x14A80, symSize: 0x10 }
+  - { offset: 0xD3885, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC21systemVersionLessThanySbSSFZ', symObjAddr: 0xAA0, symBinAddr: 0x14AB0, symSize: 0x10 }
+  - { offset: 0xD38A1, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC30systemVersionLessThanOrEqualToySbSSFZ', symObjAddr: 0xAD0, symBinAddr: 0x14AE0, symSize: 0x10 }
+  - { offset: 0xD38C8, size: 0x8, addend: 0x0, symName: '_$ss22__RawDictionaryStorageC4findys10_HashTableV6BucketV6bucket_Sb5foundtxSHRzlFSS_Tg5', symObjAddr: 0xB40, symBinAddr: 0x14B50, symSize: 0x60 }
+  - { offset: 0xD3900, size: 0x8, addend: 0x0, symName: '_$ss22__RawDictionaryStorageC4findys10_HashTableV6BucketV6bucket_Sb5foundtxSHRzlFs11AnyHashableV_Tg5', symObjAddr: 0xBA0, symBinAddr: 0x14BB0, symSize: 0x30 }
+  - { offset: 0xD392D, size: 0x8, addend: 0x0, symName: '_$ss22__RawDictionaryStorageC4findys10_HashTableV6BucketV6bucket_Sb5foundtxSHRzlFSo18NSFileAttributeKeya_Tg5', symObjAddr: 0xBD0, symBinAddr: 0x14BE0, symSize: 0x80 }
+  - { offset: 0xD39CC, size: 0x8, addend: 0x0, symName: '_$ss22__RawDictionaryStorageC4find_9hashValues10_HashTableV6BucketV6bucket_Sb5foundtx_SitSHRzlFSS_Tg5', symObjAddr: 0xC50, symBinAddr: 0x14C60, symSize: 0xF0 }
+  - { offset: 0xD3A4F, size: 0x8, addend: 0x0, symName: '_$ss22__RawDictionaryStorageC4find_9hashValues10_HashTableV6BucketV6bucket_Sb5foundtx_SitSHRzlFs11AnyHashableV_Tg5', symObjAddr: 0xD40, symBinAddr: 0x14D50, symSize: 0xC0 }
+  - { offset: 0xD3A7C, size: 0x8, addend: 0x0, symName: '_$ss22__RawDictionaryStorageC4find_9hashValues10_HashTableV6BucketV6bucket_Sb5foundtx_SitSHRzlFSo18NSFileAttributeKeya_Tg5', symObjAddr: 0xE00, symBinAddr: 0x14E10, symSize: 0x190 }
+  - { offset: 0xD3B51, size: 0x8, addend: 0x0, symName: '_$ss17_NativeDictionaryV12mutatingFind_8isUniques10_HashTableV6BucketV6bucket_Sb5foundtx_SbtFSS_SSTg5', symObjAddr: 0xF90, symBinAddr: 0x14FA0, symSize: 0xC0 }
+  - { offset: 0xD3BB6, size: 0x8, addend: 0x0, symName: '_$ss17_NativeDictionaryV4copyyyFSS_SSTg5', symObjAddr: 0x1050, symBinAddr: 0x15060, symSize: 0x210 }
+  - { offset: 0xD3C90, size: 0x8, addend: 0x0, symName: '_$ss17_NativeDictionaryV20_copyOrMoveAndResize8capacity12moveElementsySi_SbtFSS_SSTg5', symObjAddr: 0x1260, symBinAddr: 0x15270, symSize: 0x3A0 }
+  - { offset: 0xD3D83, size: 0x8, addend: 0x0, symName: '_$sSDyx3key_q_5valuetSD5IndexVyxq__GcigSS_SSTg5', symObjAddr: 0x1600, symBinAddr: 0x15610, symSize: 0x90 }
+  - { offset: 0xD3DD0, size: 0x8, addend: 0x0, symName: '_$ss17_NativeDictionaryV10startIndexSD0D0Vyxq__GvgSS_SSTg5', symObjAddr: 0x1690, symBinAddr: 0x156A0, symSize: 0xA0 }
+  - { offset: 0xD3DFE, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC9optOutSetSo8NSNumberCyFZTf4d_n', symObjAddr: 0x1730, symBinAddr: 0x15740, symSize: 0xB0 }
+  - { offset: 0xD3ECC, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC4IDFVSSyFZTf4d_n', symObjAddr: 0x17E0, symBinAddr: 0x157F0, symSize: 0x150 }
+  - { offset: 0xD3F4C, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC10deviceNameSSyFZTf4d_n', symObjAddr: 0x1930, symBinAddr: 0x15940, symSize: 0x2A0 }
+  - { offset: 0xD4126, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC9modelNameSSyFZTf4d_n', symObjAddr: 0x1CD0, symBinAddr: 0x15CE0, symSize: 0xF0 }
+  - { offset: 0xD42FB, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC10appVersionSSyFZTf4d_n', symObjAddr: 0x1FB0, symBinAddr: 0x15FC0, symSize: 0x130 }
+  - { offset: 0xD432F, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC14appBuildNumberSSyFZTf4d_n', symObjAddr: 0x20E0, symBinAddr: 0x160F0, symSize: 0x110 }
+  - { offset: 0xD43DB, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC9diskSpaceSDys11AnyHashableVypGSgyFZTf4d_n', symObjAddr: 0x21F0, symBinAddr: 0x16200, symSize: 0x530 }
+  - { offset: 0xD46EE, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC20coreTelephonyNetworkSSyFZTf4d_n', symObjAddr: 0x2720, symBinAddr: 0x16730, symSize: 0x2B0 }
+  - { offset: 0xD47D2, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC11networkTypeSSyFZTf4d_n', symObjAddr: 0x29D0, symBinAddr: 0x169E0, symSize: 0x120 }
+  - { offset: 0xD4AB9, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC07simCardD0SDyS2SGyFZTf4d_n', symObjAddr: 0x2AF0, symBinAddr: 0x16B00, symSize: 0x840 }
+  - { offset: 0xD4FDB, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC17richPushSupportedSbyFZTf4d_n', symObjAddr: 0x3330, symBinAddr: 0x17340, symSize: 0x490 }
+  - { offset: 0xD5120, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC20systemVersionEqualToySbSSFZTf4nd_n', symObjAddr: 0x37C0, symBinAddr: 0x177D0, symSize: 0x140 }
+  - { offset: 0xD517C, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC24systemVersionGreaterThanySbSSFZTf4nd_n', symObjAddr: 0x3900, symBinAddr: 0x17910, symSize: 0x140 }
+  - { offset: 0xD51D8, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC33systemVersionGreaterThanOrEqualToySbSSFZTf4nd_n', symObjAddr: 0x3A40, symBinAddr: 0x17A50, symSize: 0x140 }
+  - { offset: 0xD5249, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC21systemVersionLessThanySbSSFZTf4nd_n', symObjAddr: 0x3B80, symBinAddr: 0x17B90, symSize: 0x140 }
+  - { offset: 0xD52A5, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoC30systemVersionLessThanOrEqualToySbSSFZTf4nd_n', symObjAddr: 0x3CC0, symBinAddr: 0x17CD0, symSize: 0x140 }
+  - { offset: 0xD5316, size: 0x8, addend: 0x0, symName: ___swift_instantiateConcreteTypeFromMangledName, symObjAddr: 0x3E00, symBinAddr: 0x17E10, symSize: 0x40 }
+  - { offset: 0xD532A, size: 0x8, addend: 0x0, symName: '_$sS2SSysWl', symObjAddr: 0x3E40, symBinAddr: 0x17E50, symSize: 0x30 }
+  - { offset: 0xD533E, size: 0x8, addend: 0x0, symName: '_$sSo18NSFileAttributeKeyaABSHSCWl', symObjAddr: 0x3EA0, symBinAddr: 0x17EB0, symSize: 0x40 }
+  - { offset: 0xD5352, size: 0x8, addend: 0x0, symName: '_$sypWOc', symObjAddr: 0x3EE0, symBinAddr: 0x17EF0, symSize: 0x30 }
+  - { offset: 0xD5366, size: 0x8, addend: 0x0, symName: '_$sypWOb', symObjAddr: 0x3F10, symBinAddr: 0x17F20, symSize: 0x20 }
+  - { offset: 0xD537A, size: 0x8, addend: 0x0, symName: '_$ss11AnyHashableVWOc', symObjAddr: 0x3F30, symBinAddr: 0x17F40, symSize: 0x30 }
+  - { offset: 0xD538E, size: 0x8, addend: 0x0, symName: '_$ss11AnyHashableVWOh', symObjAddr: 0x3F60, symBinAddr: 0x17F70, symSize: 0x30 }
+  - { offset: 0xD53A2, size: 0x8, addend: 0x0, symName: '_$s10Foundation4UUIDVSgWOb', symObjAddr: 0x3FE0, symBinAddr: 0x17FF0, symSize: 0x40 }
+  - { offset: 0xD53C3, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoCACycfC', symObjAddr: 0x0, symBinAddr: 0x14010, symSize: 0x20 }
+  - { offset: 0xD53D7, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoCACycfc', symObjAddr: 0x20, symBinAddr: 0x14030, symSize: 0x30 }
+  - { offset: 0xD540F, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoCACycfcTo', symObjAddr: 0x70, symBinAddr: 0x14080, symSize: 0x30 }
+  - { offset: 0xD544A, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10DeviceInfoCfD', symObjAddr: 0xA0, symBinAddr: 0x140B0, symSize: 0x30 }
+  - { offset: 0xD559F, size: 0x8, addend: 0x0, symName: '_$sSlsE5first7ElementQzSgvgSDyS2SG_Tg5', symObjAddr: 0x530, symBinAddr: 0x14540, symSize: 0x60 }
+  - { offset: 0xD579A, size: 0x8, addend: 0x0, symName: '_$sSD17dictionaryLiteralSDyxq_Gx_q_td_tcfCSS_SSTt0g5Tf4g_n', symObjAddr: 0x1BD0, symBinAddr: 0x15BE0, symSize: 0x100 }
+  - { offset: 0xD5914, size: 0x8, addend: 0x0, symName: '_$sSD17dictionaryLiteralSDyxq_Gx_q_td_tcfCs11AnyHashableV_ypTt0g5Tf4g_n', symObjAddr: 0x1DC0, symBinAddr: 0x15DD0, symSize: 0x100 }
+  - { offset: 0xD5A21, size: 0x8, addend: 0x0, symName: '_$sSD17dictionaryLiteralSDyxq_Gx_q_td_tcfCSS_So8NSNumberCTt0g5Tf4g_n', symObjAddr: 0x1EC0, symBinAddr: 0x15ED0, symSize: 0xF0 }
+  - { offset: 0xD6205, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension13FrameworkInfoCMa', symObjAddr: 0x3B0, symBinAddr: 0x183E0, symSize: 0x20 }
+  - { offset: 0xD6219, size: 0x8, addend: 0x0, symName: '_$sypSgWOh', symObjAddr: 0x3D0, symBinAddr: 0x18400, symSize: 0x30 }
+  - { offset: 0xD6251, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension13FrameworkInfoC11buildStringSSvgZ', symObjAddr: 0x20, symBinAddr: 0x18080, symSize: 0x10 }
+  - { offset: 0xD6265, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension13FrameworkInfoC13versionStringSSvgZ', symObjAddr: 0x80, symBinAddr: 0x180B0, symSize: 0x10 }
+  - { offset: 0xD6279, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension13FrameworkInfoCACycfC', symObjAddr: 0x90, symBinAddr: 0x180C0, symSize: 0x20 }
+  - { offset: 0xD628D, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension13FrameworkInfoCACycfc', symObjAddr: 0xB0, symBinAddr: 0x180E0, symSize: 0x30 }
+  - { offset: 0xD62C5, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension13FrameworkInfoCACycfcTo', symObjAddr: 0xE0, symBinAddr: 0x18110, symSize: 0x30 }
+  - { offset: 0xD6300, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension13FrameworkInfoCfD', symObjAddr: 0x110, symBinAddr: 0x18140, symSize: 0x30 }
+  - { offset: 0xD6376, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension13FrameworkInfoC11buildStringSSvgZTf4d_n', symObjAddr: 0x140, symBinAddr: 0x18170, symSize: 0x130 }
+  - { offset: 0xD63B6, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension13FrameworkInfoC13versionStringSSvgZTf4d_n', symObjAddr: 0x270, symBinAddr: 0x182A0, symSize: 0x140 }
+  - { offset: 0xD64EE, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension6LoggerC17aiquaNotification_WZ', symObjAddr: 0x0, symBinAddr: 0x18430, symSize: 0x80 }
+  - { offset: 0xD6512, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension6LoggerC17aiquaNotificationACvpZ', symObjAddr: 0x100, symBinAddr: 0x2FAA8, symSize: 0x0 }
+  - { offset: 0xD6564, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension6LoggerC17aiquaNotification_WZ', symObjAddr: 0x0, symBinAddr: 0x18430, symSize: 0x80 }
+  - { offset: 0xD65E3, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension6LoggerC17aiquaNotificationACvgZ', symObjAddr: 0x80, symBinAddr: 0x184B0, symSize: 0x40 }
+  - { offset: 0xD6628, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension6LoggerC17aiquaNotificationACvgZTo', symObjAddr: 0xC0, symBinAddr: 0x184F0, symSize: 0x3A }
+  - { offset: 0xD6648, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension6LoggerC17aiquaNotificationACvgZTo', symObjAddr: 0xC0, symBinAddr: 0x184F0, symSize: 0x3A }
+  - { offset: 0xD67F6, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension6LoggerC13dateFormatter33_1B753D4966931201BDAF117058507976LLSo06NSDateE0CvpZ', symObjAddr: 0xF80, symBinAddr: 0x2FAB0, symSize: 0x0 }
+  - { offset: 0xD6A1D, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension6LoggerCMa', symObjAddr: 0x130, symBinAddr: 0x18660, symSize: 0x20 }
+  - { offset: 0xD6B1D, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension7LogTypeO11descriptionSSvg', symObjAddr: 0x570, symBinAddr: 0x18AA0, symSize: 0xA0 }
+  - { offset: 0xD6B54, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension6LoggerC13dateFormatter33_1B753D4966931201BDAF117058507976LL_WZ', symObjAddr: 0x770, symBinAddr: 0x18C00, symSize: 0x80 }
+  - { offset: 0xD6BF2, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension6LoggerCfETo', symObjAddr: 0x8A0, symBinAddr: 0x18D30, symSize: 0x20 }
+  - { offset: 0xD6C55, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension7LogTypeOs23CustomStringConvertibleAAsADP11descriptionSSvgTW', symObjAddr: 0x9D0, symBinAddr: 0x18E60, symSize: 0xA0 }
+  - { offset: 0xD6CDF, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension7LogTypeOSHAASQWb', symObjAddr: 0xD80, symBinAddr: 0x19210, symSize: 0x10 }
+  - { offset: 0xD6CF3, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension7LogTypeOACSQAAWl', symObjAddr: 0xD90, symBinAddr: 0x19220, symSize: 0x30 }
+  - { offset: 0xD6D07, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension7LogTypeOMa', symObjAddr: 0xE90, symBinAddr: 0x19320, symSize: 0x10 }
+  - { offset: 0xD6D1B, size: 0x8, addend: 0x0, symName: '_$sSo9OS_os_logCMa', symObjAddr: 0xEA0, symBinAddr: 0x19330, symSize: 0x40 }
+  - { offset: 0xD6D2F, size: 0x8, addend: 0x0, symName: ___swift_project_boxed_opaque_existential_1, symObjAddr: 0xEE0, symBinAddr: 0x19370, symSize: 0x30 }
+  - { offset: 0xD6D43, size: 0x8, addend: 0x0, symName: '_$sS2Ss7CVarArg10FoundationWl', symObjAddr: 0xF50, symBinAddr: 0x193A0, symSize: 0x2D }
+  - { offset: 0xD6E39, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension7LogTypeOSQAASQ2eeoiySbx_xtFZTW', symObjAddr: 0x8E0, symBinAddr: 0x18D70, symSize: 0x10 }
+  - { offset: 0xD6ECA, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension7LogTypeOSHAASH9hashValueSivgTW', symObjAddr: 0x8F0, symBinAddr: 0x18D80, symSize: 0x40 }
+  - { offset: 0xD6F64, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension7LogTypeOSHAASH4hash4intoys6HasherVz_tFTW', symObjAddr: 0x930, symBinAddr: 0x18DC0, symSize: 0x20 }
+  - { offset: 0xD6FA2, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension7LogTypeOSHAASH13_rawHashValue4seedS2i_tFTW', symObjAddr: 0x950, symBinAddr: 0x18DE0, symSize: 0x40 }
+  - { offset: 0xD70B2, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension6LoggerC8categoryACSS_tcfC', symObjAddr: 0x0, symBinAddr: 0x18530, symSize: 0x50 }
+  - { offset: 0xD7103, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension6LoggerC8categorySSvgTo', symObjAddr: 0x50, symBinAddr: 0x18580, symSize: 0x50 }
+  - { offset: 0xD7136, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension6LoggerC8categorySSvg', symObjAddr: 0xA0, symBinAddr: 0x185D0, symSize: 0x30 }
+  - { offset: 0xD7167, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension6LoggerC7enabledSbvgTo', symObjAddr: 0xD0, symBinAddr: 0x18600, symSize: 0x10 }
+  - { offset: 0xD717B, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension6LoggerC7enabledSbvg', symObjAddr: 0xE0, symBinAddr: 0x18610, symSize: 0x10 }
+  - { offset: 0xD719C, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension6LoggerC8categoryACSS_tcfc', symObjAddr: 0xF0, symBinAddr: 0x18620, symSize: 0x40 }
+  - { offset: 0xD7278, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension6LoggerC3log33_1B753D4966931201BDAF117058507976LL5level_yAA7LogTypeO_AA0I7MessageVtF', symObjAddr: 0x1C0, symBinAddr: 0x186F0, symSize: 0x2F0 }
+  - { offset: 0xD7487, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension6LoggerC9shouldLogySbAA0E4TypeOFZ', symObjAddr: 0x4B0, symBinAddr: 0x189E0, symSize: 0x60 }
+  - { offset: 0xD74E9, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension6LoggerC9shouldLogySbAA0E4TypeOFZTo', symObjAddr: 0x510, symBinAddr: 0x18A40, symSize: 0x60 }
+  - { offset: 0xD7543, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension6LoggerC11description3forSSAA7LogTypeO_tFZTo', symObjAddr: 0x6B0, symBinAddr: 0x18B40, symSize: 0xC0 }
+  - { offset: 0xD75A0, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension6LoggerCACycfC', symObjAddr: 0x7F0, symBinAddr: 0x18C80, symSize: 0x20 }
+  - { offset: 0xD75B4, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension6LoggerCACycfc', symObjAddr: 0x810, symBinAddr: 0x18CA0, symSize: 0x30 }
+  - { offset: 0xD760D, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension6LoggerCACycfcTo', symObjAddr: 0x840, symBinAddr: 0x18CD0, symSize: 0x30 }
+  - { offset: 0xD766C, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension6LoggerCfD', symObjAddr: 0x870, symBinAddr: 0x18D00, symSize: 0x30 }
+  - { offset: 0xD7695, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension7LogTypeO8rawValueACSgSi_tcfC', symObjAddr: 0x8C0, symBinAddr: 0x18D50, symSize: 0x10 }
+  - { offset: 0xD76A9, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension7LogTypeO8rawValueSivg', symObjAddr: 0x8D0, symBinAddr: 0x18D60, symSize: 0x10 }
+  - { offset: 0xD76D9, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension7LogTypeOSYAASY8rawValuexSg03RawF0Qz_tcfCTW', symObjAddr: 0x990, symBinAddr: 0x18E20, symSize: 0x30 }
+  - { offset: 0xD7702, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension7LogTypeOSYAASY8rawValue03RawF0QzvgTW', symObjAddr: 0x9C0, symBinAddr: 0x18E50, symSize: 0x10 }
+  - { offset: 0xD7716, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension6LoggerC12getOSLogType4from12distributionSo13os_log_type_taAA03LogF0O_AA15AppDistributionOtFZTf4nnd_n', symObjAddr: 0xA70, symBinAddr: 0x18F00, symSize: 0x90 }
+  - { offset: 0xD776D, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension6LoggerC16formattedMessage33_1B753D4966931201BDAF117058507976LL5level8category7messageSSAA7LogTypeO_SSAA0lE0VtFZTf4nnnd_n', symObjAddr: 0xB00, symBinAddr: 0x18F90, symSize: 0x260 }
+  - { offset: 0xD792C, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension7LogTypeO8rawValueACSgSi_tcfCTf4nd_n', symObjAddr: 0xD60, symBinAddr: 0x191F0, symSize: 0x20 }
+  - { offset: 0xD7B04, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogMessageV11descriptionSSvg', symObjAddr: 0x120, symBinAddr: 0x19480, symSize: 0x30 }
+  - { offset: 0xD7B29, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogMessageV13stringLiteralACSS_tcfC', symObjAddr: 0x180, symBinAddr: 0x194B0, symSize: 0x10 }
+  - { offset: 0xD7B7C, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogMessageVs26ExpressibleByStringLiteralAAsADP06stringH0x0gH4TypeQz_tcfCTW', symObjAddr: 0x190, symBinAddr: 0x194C0, symSize: 0x10 }
+  - { offset: 0xD7C4D, size: 0x8, addend: 0x0, symName: '_$sypSgWOc', symObjAddr: 0x2F0, symBinAddr: 0x19610, symSize: 0x40 }
+  - { offset: 0xD7C61, size: 0x8, addend: 0x0, symName: ___swift_destroy_boxed_opaque_existential_0, symObjAddr: 0x370, symBinAddr: 0x19650, symSize: 0x30 }
+  - { offset: 0xD7C75, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogPrivacyOSHAASQWb', symObjAddr: 0x3C0, symBinAddr: 0x19680, symSize: 0x10 }
+  - { offset: 0xD7C89, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogPrivacyOACSQAAWl', symObjAddr: 0x3D0, symBinAddr: 0x19690, symSize: 0x30 }
+  - { offset: 0xD7C9D, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogMessageVs26ExpressibleByStringLiteralAAs0ef23ExtendedGraphemeClusterH0PWb', symObjAddr: 0x400, symBinAddr: 0x196C0, symSize: 0x10 }
+  - { offset: 0xD7CB1, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogMessageVACs43ExpressibleByExtendedGraphemeClusterLiteralAAWl', symObjAddr: 0x410, symBinAddr: 0x196D0, symSize: 0x30 }
+  - { offset: 0xD7CC5, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogMessageVs26ExpressibleByStringLiteralAA0gH4TypesADP_s01_ef7BuiltingH0PWT', symObjAddr: 0x440, symBinAddr: 0x19700, symSize: 0x10 }
+  - { offset: 0xD7CD9, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogMessageVs43ExpressibleByExtendedGraphemeClusterLiteralAAs0ef13UnicodeScalarJ0PWb', symObjAddr: 0x450, symBinAddr: 0x19710, symSize: 0x10 }
+  - { offset: 0xD7CED, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogMessageVACs33ExpressibleByUnicodeScalarLiteralAAWl', symObjAddr: 0x460, symBinAddr: 0x19720, symSize: 0x30 }
+  - { offset: 0xD7D01, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogMessageVs43ExpressibleByExtendedGraphemeClusterLiteralAA0ghiJ4TypesADP_s01_ef7BuiltinghiJ0PWT', symObjAddr: 0x490, symBinAddr: 0x19750, symSize: 0x10 }
+  - { offset: 0xD7D15, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogMessageVs33ExpressibleByUnicodeScalarLiteralAA0ghI4TypesADP_s01_ef7BuiltinghI0PWT', symObjAddr: 0x4A0, symBinAddr: 0x19760, symSize: 0x10 }
+  - { offset: 0xD7D29, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogMessageVs32ExpressibleByStringInterpolationAAs0efG7LiteralPWb', symObjAddr: 0x520, symBinAddr: 0x19790, symSize: 0x10 }
+  - { offset: 0xD7D3D, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogMessageVACs26ExpressibleByStringLiteralAAWl', symObjAddr: 0x530, symBinAddr: 0x197A0, symSize: 0x30 }
+  - { offset: 0xD7D51, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogMessageVs32ExpressibleByStringInterpolationAA0gH0sADP_s0gH8ProtocolPWT', symObjAddr: 0x560, symBinAddr: 0x197D0, symSize: 0x10 }
+  - { offset: 0xD7D65, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogMessageV19StringInterpolationVAEs0eF8ProtocolAAWl', symObjAddr: 0x570, symBinAddr: 0x197E0, symSize: 0x30 }
+  - { offset: 0xD7D79, size: 0x8, addend: 0x0, symName: ___swift_memcpy16_8, symObjAddr: 0x5A0, symBinAddr: 0x19810, symSize: 0x10 }
+  - { offset: 0xD7D8D, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogMessageVMa', symObjAddr: 0x5B0, symBinAddr: 0x19820, symSize: 0x10 }
+  - { offset: 0xD7DA1, size: 0x8, addend: 0x0, symName: ___swift_memcpy1_1, symObjAddr: 0x5C0, symBinAddr: 0x19830, symSize: 0x10 }
+  - { offset: 0xD7DB5, size: 0x8, addend: 0x0, symName: ___swift_noop_void_return, symObjAddr: 0x5D0, symBinAddr: 0x19840, symSize: 0x10 }
+  - { offset: 0xD7DC9, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogPrivacyOwet', symObjAddr: 0x5E0, symBinAddr: 0x19850, symSize: 0x80 }
+  - { offset: 0xD7DDD, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogPrivacyOwst', symObjAddr: 0x660, symBinAddr: 0x198D0, symSize: 0xD0 }
+  - { offset: 0xD7DF1, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogPrivacyOwug', symObjAddr: 0x730, symBinAddr: 0x199A0, symSize: 0x10 }
+  - { offset: 0xD7E05, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogPrivacyOwup', symObjAddr: 0x740, symBinAddr: 0x199B0, symSize: 0x10 }
+  - { offset: 0xD7E19, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogPrivacyOwui', symObjAddr: 0x750, symBinAddr: 0x199C0, symSize: 0x10 }
+  - { offset: 0xD7E2D, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogPrivacyOMa', symObjAddr: 0x760, symBinAddr: 0x199D0, symSize: 0x10 }
+  - { offset: 0xD7E41, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogMessageV19StringInterpolationVwCP', symObjAddr: 0x770, symBinAddr: 0x199E0, symSize: 0x30 }
+  - { offset: 0xD7E55, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogMessageV19StringInterpolationVwxx', symObjAddr: 0x7A0, symBinAddr: 0x19A10, symSize: 0x10 }
+  - { offset: 0xD7E69, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogMessageV19StringInterpolationVwta', symObjAddr: 0x800, symBinAddr: 0x19A70, symSize: 0x30 }
+  - { offset: 0xD7E7D, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogMessageV19StringInterpolationVMa', symObjAddr: 0x8D0, symBinAddr: 0x19B40, symSize: 0x10 }
+  - { offset: 0xD7EF2, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogPrivacyOSHAASH13_rawHashValue4seedS2i_tFTW', symObjAddr: 0xE0, symBinAddr: 0x19440, symSize: 0x40 }
+  - { offset: 0xD7FC8, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogPrivacyO2eeoiySbAC_ACtFZ', symObjAddr: 0x0, symBinAddr: 0x193D0, symSize: 0x10 }
+  - { offset: 0xD8004, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogPrivacyO4hash4intoys6HasherVz_tF', symObjAddr: 0x10, symBinAddr: 0x193E0, symSize: 0x20 }
+  - { offset: 0xD807A, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogPrivacyO9hashValueSivg', symObjAddr: 0x30, symBinAddr: 0x19400, symSize: 0x40 }
+  - { offset: 0xD8187, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogMessageV19StringInterpolationV15literalCapacity18interpolationCountAESi_SitcfC', symObjAddr: 0x1B0, symBinAddr: 0x194D0, symSize: 0x40 }
+  - { offset: 0xD81C1, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogMessageV19StringInterpolationV13appendLiteralyySSF', symObjAddr: 0x1F0, symBinAddr: 0x19510, symSize: 0x10 }
+  - { offset: 0xD81F6, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogMessageV19StringInterpolationV06appendF0_7privacyyypSg_AA0C7PrivacyOtF', symObjAddr: 0x200, symBinAddr: 0x19520, symSize: 0xF0 }
+  - { offset: 0xD8296, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension10LogMessageV19StringInterpolationVs0eF8ProtocolAAsAFP13appendLiteralyy0eI4TypeQzFTW', symObjAddr: 0x500, symBinAddr: 0x19770, symSize: 0x20 }
+  - { offset: 0xD83F2, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension9LogPolicyC6sharedACvpZ', symObjAddr: 0x70F8, symBinAddr: 0x30E78, symSize: 0x0 }
+  - { offset: 0xD8649, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension9LogPolicyC6shared_WZ', symObjAddr: 0x250, symBinAddr: 0x19C90, symSize: 0x120 }
+  - { offset: 0xD86EE, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension8LogLevelOSHAASQWb', symObjAddr: 0x750, symBinAddr: 0x1A190, symSize: 0x10 }
+  - { offset: 0xD8702, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension8LogLevelOACSQAAWl', symObjAddr: 0x760, symBinAddr: 0x1A1A0, symSize: 0x30 }
+  - { offset: 0xD8716, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension8LogLevelOMa', symObjAddr: 0x790, symBinAddr: 0x1A1D0, symSize: 0x10 }
+  - { offset: 0xD872A, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension26BundleDistributionProviderCMa', symObjAddr: 0x7B0, symBinAddr: 0x1A1E0, symSize: 0x20 }
+  - { offset: 0xD873E, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension9LogPolicyCMa', symObjAddr: 0x7D0, symBinAddr: 0x1A200, symSize: 0x20 }
+  - { offset: 0xD8752, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension15AppDistributionOMa', symObjAddr: 0x990, symBinAddr: 0x1A220, symSize: 0x10 }
+  - { offset: 0xD8766, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension15AppDistributionOSHAASQWb', symObjAddr: 0x9A0, symBinAddr: 0x1A230, symSize: 0x10 }
+  - { offset: 0xD877A, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension15AppDistributionOACSQAAWl', symObjAddr: 0x9B0, symBinAddr: 0x1A240, symSize: 0x30 }
+  - { offset: 0xD878E, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension9LogPolicyC14effectiveLevelAA0cF0OvgAFyXEfU_TA', symObjAddr: 0xA10, symBinAddr: 0x1A270, symSize: 0x50 }
+  - { offset: 0xD87F7, size: 0x8, addend: 0x0, symName: ___swift_mutable_project_boxed_opaque_existential_1, symObjAddr: 0xA90, symBinAddr: 0x1A2C0, symSize: 0x30 }
+  - { offset: 0xD880B, size: 0x8, addend: 0x0, symName: '_$sSo17OS_dispatch_queueCMa', symObjAddr: 0xAC0, symBinAddr: 0x1A2F0, symSize: 0x40 }
+  - { offset: 0xD881F, size: 0x8, addend: 0x0, symName: '_$sSaySo17OS_dispatch_queueC8DispatchE10AttributesVGMa', symObjAddr: 0xB70, symBinAddr: 0x1A360, symSize: 0x50 }
+  - { offset: 0xD8833, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension21DistributionProviding_pWOb', symObjAddr: 0xBC0, symBinAddr: 0x1A3B0, symSize: 0x1F }
+  - { offset: 0xD889E, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension9LogPolicyC06shouldC0ySbAA0C4TypeOF', symObjAddr: 0x0, symBinAddr: 0x19BC0, symSize: 0x70 }
+  - { offset: 0xD890F, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension8LogLevelO8rawValueACSgSi_tcfC', symObjAddr: 0x70, symBinAddr: 0x19C30, symSize: 0x10 }
+  - { offset: 0xD8936, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension8LogLevelOSYAASY8rawValuexSg03RawF0Qz_tcfCTW', symObjAddr: 0x140, symBinAddr: 0x19C40, symSize: 0x30 }
+  - { offset: 0xD895F, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension26BundleDistributionProviderCfD', symObjAddr: 0x230, symBinAddr: 0x19C70, symSize: 0x20 }
+  - { offset: 0xD8A5A, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension9LogPolicyCfD', symObjAddr: 0x370, symBinAddr: 0x19DB0, symSize: 0x30 }
+  - { offset: 0xD8AE8, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension9LogPolicyC12distributionAcA21DistributionProviding_p_tcfcTf4en_nAA06BundleF8ProviderC_Tg5', symObjAddr: 0x3A0, symBinAddr: 0x19DE0, symSize: 0x1B0 }
+  - { offset: 0xD8B97, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension26BundleDistributionProviderC04hostC033_EF83DD01AB52465A4E87C73BC96CCCE0LL3forSo8NSBundleCAH_tFZTf4nd_n', symObjAddr: 0x550, symBinAddr: 0x19F90, symSize: 0x1E0 }
+  - { offset: 0xD8C18, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension8LogLevelO8rawValueACSgSi_tcfCTf4nd_n', symObjAddr: 0x730, symBinAddr: 0x1A170, symSize: 0x20 }
+  - { offset: 0xD8D4C, size: 0x8, addend: 0x0, symName: '_$sSS15AppierExtensionE10isValidStrSbyF', symObjAddr: 0x0, symBinAddr: 0x1A3D0, symSize: 0xC0 }
+  - { offset: 0xD8DF1, size: 0x8, addend: 0x0, symName: '_$sSa9repeating5countSayxGx_SitcfCs5UInt8V_Tt1g5', symObjAddr: 0x420, symBinAddr: 0x1A7C0, symSize: 0x60 }
+  - { offset: 0xD8EC8, size: 0x8, addend: 0x0, symName: '_$sSS15AppierExtensionE10isValidStrSbyF', symObjAddr: 0x0, symBinAddr: 0x1A3D0, symSize: 0xC0 }
+  - { offset: 0xD9025, size: 0x8, addend: 0x0, symName: '_$sSS15AppierExtensionE12SHA256stringSSvg', symObjAddr: 0xF0, symBinAddr: 0x1A490, symSize: 0x330 }
+  - { offset: 0xD9444, size: 0x8, addend: 0x0, symName: '_$sSo8NSStringC15AppierExtensionE10isValidStrSbyF', symObjAddr: 0x480, symBinAddr: 0x1A820, symSize: 0xD0 }
+  - { offset: 0xD94A0, size: 0x8, addend: 0x0, symName: '_$sSo8NSStringC15AppierExtensionE10isValidStrSbyFTo', symObjAddr: 0x550, symBinAddr: 0x1A8F0, symSize: 0x30 }
+  - { offset: 0xD94BC, size: 0x8, addend: 0x0, symName: '_$sSo8NSStringC15AppierExtensionE10encodedURL10Foundation0E0VSgyF', symObjAddr: 0x580, symBinAddr: 0x1A920, symSize: 0x30 }
+  - { offset: 0xD94DB, size: 0x8, addend: 0x0, symName: '_$sSS15AppierExtensionE10encodedURL10Foundation0D0VSgyF', symObjAddr: 0x5B0, symBinAddr: 0x1A950, symSize: 0x3A0 }
+  - { offset: 0xD95AB, size: 0x8, addend: 0x0, symName: '_$s10Foundation3URLVSgWOh', symObjAddr: 0x990, symBinAddr: 0x1ACF0, symSize: 0x30 }
+  - { offset: 0xD95DD, size: 0x8, addend: 0x0, symName: '_$sSo8NSStringC15AppierExtensionE10encodedURL10Foundation0E0VSgyFTo', symObjAddr: 0x9C0, symBinAddr: 0x1AD20, symSize: 0xC0 }
+  - { offset: 0xD9630, size: 0x8, addend: 0x0, symName: '_$sSo8NSStringC15AppierExtensionE32isStringContainsNewLineCharacterSbyF', symObjAddr: 0xA80, symBinAddr: 0x1ADE0, symSize: 0xC0 }
+  - { offset: 0xD9667, size: 0x8, addend: 0x0, symName: '_$sSS15AppierExtensionE32isStringContainsNewLineCharacterSbyF', symObjAddr: 0xB40, symBinAddr: 0x1AEA0, symSize: 0xA0 }
+  - { offset: 0xD96A4, size: 0x8, addend: 0x0, symName: '_$sSo8NSStringC15AppierExtensionE32isStringContainsNewLineCharacterSbyFTo', symObjAddr: 0xBE0, symBinAddr: 0x1AF40, symSize: 0xF0 }
+  - { offset: 0xD970F, size: 0x8, addend: 0x0, symName: '_$sSo8NSStringC15AppierExtensionE12SHA256stringABvgTo', symObjAddr: 0xCD0, symBinAddr: 0x1B030, symSize: 0xA0 }
+  - { offset: 0xD9760, size: 0x8, addend: 0x0, symName: '_$sSo8NSStringC15AppierExtensionE12SHA256stringABvg', symObjAddr: 0xD70, symBinAddr: 0x1B0D0, symSize: 0x80 }
+  - { offset: 0xD979B, size: 0x8, addend: 0x0, symName: '_$s10Foundation4DataV15_RepresentationOWOy', symObjAddr: 0xDF0, symBinAddr: 0x1B150, symSize: 0x40 }
+  - { offset: 0xD97AF, size: 0x8, addend: 0x0, symName: '_$s10Foundation4DataVSgWOe', symObjAddr: 0xE30, symBinAddr: 0x1B190, symSize: 0x20 }
+  - { offset: 0xD97C3, size: 0x8, addend: 0x0, symName: '_$s10Foundation4DataV15_RepresentationOWOe', symObjAddr: 0xE50, symBinAddr: 0x1B1B0, symSize: 0x40 }
+  - { offset: 0xD983A, size: 0x8, addend: 0x0, symName: '_$ss12_ArrayBufferV20_consumeAndCreateNew14bufferIsUnique15minimumCapacity13growForAppendAByxGSb_SiSbtFs5UInt8V_Tg5', symObjAddr: 0xE90, symBinAddr: 0x1B1F0, symSize: 0xFC }
+  - { offset: 0xD9BC7, size: 0x8, addend: 0x0, symName: '_$s10Foundation4DataVSgSo13NSURLResponseCSgs5Error_pSgIeghggg_So6NSDataCSgAGSo7NSErrorCSgIeyBhyyy_TR', symObjAddr: 0x40, symBinAddr: 0x1B330, symSize: 0xF0 }
+  - { offset: 0xD9BDF, size: 0x8, addend: 0x0, symName: '_$s10Foundation3URLVSgSo13NSURLResponseCSgs5Error_pSgIeghngg_So5NSURLCSgAGSo7NSErrorCSgIeyBhyyy_TR', symObjAddr: 0x290, symBinAddr: 0x1B580, symSize: 0x100 }
+  - { offset: 0xD9BF7, size: 0x8, addend: 0x0, symName: _block_copy_helper, symObjAddr: 0x390, symBinAddr: 0x1B680, symSize: 0x20 }
+  - { offset: 0xD9C0B, size: 0x8, addend: 0x0, symName: _block_destroy_helper, symObjAddr: 0x3B0, symBinAddr: 0x1B6A0, symSize: 0x10 }
+  - { offset: 0xD9D1B, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension19UserDefaultsStorageCMi', symObjAddr: 0x10, symBinAddr: 0x1B6F0, symSize: 0x10 }
+  - { offset: 0xD9D33, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension19UserDefaultsStorageCMi', symObjAddr: 0x10, symBinAddr: 0x1B6F0, symSize: 0x10 }
+  - { offset: 0xD9D47, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension19UserDefaultsStorageCMr', symObjAddr: 0x20, symBinAddr: 0x1B700, symSize: 0x50 }
+  - { offset: 0xD9D94, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension19UserDefaultsStorageCMa', symObjAddr: 0xC0, symBinAddr: 0x1B7A0, symSize: 0x10 }
+  - { offset: 0xD9DA8, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension32UserDefaultsStorageErrorDelegate_pSgXwWOh', symObjAddr: 0xD0, symBinAddr: 0x1B7B0, symSize: 0x20 }
+  - { offset: 0xD9DBC, size: 0x8, addend: 0x0, symName: ___swift_instantiateGenericMetadata, symObjAddr: 0xF0, symBinAddr: 0x1B7D0, symSize: 0x26 }
+  - { offset: 0xD9DE1, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension19UserDefaultsStorageCfd', symObjAddr: 0x70, symBinAddr: 0x1B750, symSize: 0x30 }
+  - { offset: 0xD9E0A, size: 0x8, addend: 0x0, symName: '_$s15AppierExtension19UserDefaultsStorageCfD', symObjAddr: 0xA0, symBinAddr: 0x1B780, symSize: 0x20 }
+...
